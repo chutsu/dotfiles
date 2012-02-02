@@ -1,3 +1,6 @@
+" Autoload settings
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
 " Editor Appearance 
 set number
 set tabstop=4

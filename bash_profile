@@ -20,6 +20,7 @@ alias prolog="swipl";
 alias remote="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
 alias server="ssh -X chutsu@chotsfu.com"
 
+
 # Environment settings
 export PATH="$PATH:$HOME/Documents/proj/bin";
 
