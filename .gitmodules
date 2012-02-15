@@ -10,3 +10,9 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/vim-syntastic"]
+	path = vim/bundle/vim-syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
