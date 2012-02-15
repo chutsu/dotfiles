@@ -39,6 +39,7 @@ cmap w!! w !sudo tee % >/dev/null
 cmap W w 
 cmap Wq wq 
 cmap WQ wq 
+map <C-n> <TAB>
 
 " Tab key mappings
 map <S-k> :tabr<cr>
@@ -53,3 +54,8 @@ filetype plugin indent on
 " zen-coding
 let g:user_zen_expandabbr_key = '<c-e>' 
 let g:use_zen_complete_tag = 1
+
+
+" Auto spellng correction
+:iabbrev teh the
+
