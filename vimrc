@@ -58,4 +58,5 @@ let g:use_zen_complete_tag = 1
 
 " Auto spellng correction
 :iabbrev teh the
+:iabbrev hte the
 :iabbrev fiels files 
