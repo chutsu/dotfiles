@@ -60,3 +60,4 @@ let g:use_zen_complete_tag = 1
 :iabbrev teh the
 :iabbrev hte the
 :iabbrev fiels files 
+:iabbrev consortum consortium

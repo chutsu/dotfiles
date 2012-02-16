@@ -5,10 +5,14 @@ alias wt="cd $HOME/uni/wt";
 
 alias p="cd $HOME/proj/";
 alias dotfiles="cd $HOME/proj/dotfiles";
+alias s="cd $HOME/Sites/";
+alias chotsfu="cd $HOME/Sites/chotsfu/"
 
 # Executional shortcuts
 alias ls="ls -h";
-alias prolog="swipl";
+alias v="vim";
+alias vimrc="vim ~/.vimrc";
+alias bashrc="vim ~/.bash_profile";
 alias remote="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
 alias server="ssh -X chutsu@chotsfu.com"
 
