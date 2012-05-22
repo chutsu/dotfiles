@@ -1,63 +1,73 @@
-" Autoload settings
-runtime bundle/pathogen/autoload/pathogen.vim
+function Pathogen()
+    runtime bundle/pathogen/autoload/pathogen.vim
+    call pathogen#infect()
+    filetype plugin indent on
+endfunction
 
-" Editor Appearance 
-set number
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set showtabline=2
-highlight LineNr ctermfg=white
-syntax on
+function EditorAppearance()
+    set number
+    set showtabline=2
+    syntax on
+    highlight LineNr ctermfg=white
+endfunction
 
-" Editor Behaviour
-set title
-set visualbell
-set noerrorbells
-set history=1000
-set undolevels=1000
-set showmatch
-set ignorecase
+function DefaultCodingStyle()
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set expandtab " keep tabs as spaces 
+endfunction
 
-set autoindent
-set copyindent
-set shiftround
-set backspace=indent,eol,start
-set smartcase
-set smarttab
-set hlsearch
-set incsearch
-set pastetoggle=<F10>
+function CCodingStyle()
+    set tabstop=8
+    set shiftwidth=8
+    set softtabstop=8
+    set expandtab " keep tabs as spaces 
+endfunction
 
-" Key mappings
-map <C-h> <C-w>h
-map <C-l> <C-w>l
-nmap <silent> ,/ :nohlsearch<CR>
-cmap w!! w !sudo tee % >/dev/null
-"" Escape common write and quit typos
-cmap W w 
-cmap Wq wq 
-cmap WQ wq 
-map <C-n> <TAB>
+function EditorBehaviour()
+    set title
+    set visualbell
+    set noerrorbells
+    set history=1000
+    set undolevels=1000
+    set showmatch
+    set ignorecase
+    set autoindent
+    set copyindent
+    set shiftround
+    set backspace=indent,eol,start
+    set smartcase
+    set smarttab
+    set hlsearch
+    set incsearch
+endfunction
 
-" Tab key mappings
-map <S-k> :tabr<cr>
-map <S-j> :tabl<cr>
-map <S-h> :tabp<cr>
-map <S-l> :tabn<cr>
+function KeyMappings()
+    map <C-h> <C-w>h
+    map <C-l> <C-w>l
+    nmap <silent> ,/ :nohlsearch<CR>
+    cmap w!! w !sudo tee % >/dev/null
+    set pastetoggle=<F10>
+endfunction
 
-" PAHTOGEN
-call pathogen#infect()
+function EscapeCommonOperationTypos()
+    cmap W w 
+    cmap Wq wq 
+    cmap WQ wq 
+    map <C-n> <TAB>
+endfunction
+
+function TabKeyMappings()
+    map <S-k> :tabr<cr>
+    map <S-j> :tabl<cr>
+    map <S-h> :tabp<cr>
+    map <S-l> :tabn<cr>
+endfunction
+
+call Pathogen()
+call EditorAppearance()
+call KeyMappings()
+call EscapeCommonOperationTypos()
+call TabKeyMappings()
 filetype plugin indent on
-
-" zen-coding
-let g:user_zen_expandabbr_key = '<c-e>' 
-let g:use_zen_complete_tag = 1
-
-
-" Auto spellng correction
-:iabbrev teh the
-:iabbrev hte the
-:iabbrev fiels files 
-:iabbrev consortum consortium
