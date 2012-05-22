@@ -7,9 +7,6 @@
 [surround]
     https://github.com/tpope/vim-surround.git
 
-[syntastic]
-    https://github.com/scrooloose/syntastic.git
-
 [snipmate]
     https://github.com/msanders/snipmate.vim.git
 
