@@ -7,3 +7,12 @@
 [submodule "vim/bundles/snipmate"]
 	path = vim/bundles/snipmate
 	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim/bundles/vim-addon-mw-utils"]
+	path = vim/bundles/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/bundles/tlib"]
+	path = vim/bundles/tlib
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/bundles/snipmate-snippets"]
+	path = vim/bundles/snipmate-snippets
+	url = https://github.com/honza/snipmate-snippets.git
