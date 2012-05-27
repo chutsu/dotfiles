@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/chris/Sites/html/posts/science/computer_science/software_architecture'
 let g:netrw_dirhist_2='/Users/chris/Sites/html/posts/science/computer_science'
 let g:netrw_dirhist_3='/Users/chris/Sites/html/posts/science/computer_science/speech_and_language_processing'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/Users/chris/Sites/html/posts/science/computer_science/so
 let g:netrw_dirhist_5='/Users/chris/Sites/html/posts/science/computer_science'
 let g:netrw_dirhist_6='/Users/chris/Sites/html/posts/science/computer_science/speech_and_language_processing'
 let g:netrw_dirhist_7='/Users/chris/Sites/chotsfu/posts'
+let g:netrw_dirhist_8='/Users/chris/Documents/mineframe/src/tests'

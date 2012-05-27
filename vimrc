@@ -8,6 +8,7 @@ function EditorAppearance()
     set laststatus=2
     set number
     set showtabline=2
+    colorscheme wombat
     syntax on
     highlight LineNr ctermfg=white
 endfunction
