@@ -38,6 +38,7 @@ function EditorBehaviour()
     set smarttab
     set hlsearch
     set incsearch
+    let g:SuperTabDefaultCompletionType = "context"
 endfunction
 
 function KeyMappings()
