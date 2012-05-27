@@ -5,24 +5,20 @@ function Pathogen()
 endfunction
 
 function EditorAppearance()
+    set laststatus=2
     set number
     set showtabline=2
     syntax on
     highlight LineNr ctermfg=white
 endfunction
 
+
 function DefaultCodingStyle()
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
     set expandtab " keep tabs as spaces 
-endfunction
-
-function CCodingStyle()
-    set tabstop=8
-    set shiftwidth=8
-    set softtabstop=8
-    set expandtab " keep tabs as spaces 
+    autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 
 endfunction
 
 function EditorBehaviour()
@@ -51,6 +47,20 @@ function KeyMappings()
     set pastetoggle=<F10>
 endfunction
 
+function TabKeyMappings()
+    map <C-k> :tabr<cr>
+    map <C-j> :tabl<cr>
+    map <C-h> :tabp<cr>
+    map <C-l> :tabn<cr>
+endfunction
+
+function SplitKeyMappings()
+    map <S-k> :wincmd k<CR>
+    map <S-j> :wincmd j<CR>
+    map <S-h> :wincmd h<CR>
+    map <S-l> :wincmd l<CR>
+endfunction
+
 function EscapeCommonOperationTypos()
     cmap W w 
     cmap Wq wq 
@@ -58,16 +68,13 @@ function EscapeCommonOperationTypos()
     map <C-n> <TAB>
 endfunction
 
-function TabKeyMappings()
-    map <S-k> :tabr<cr>
-    map <S-j> :tabl<cr>
-    map <S-h> :tabp<cr>
-    map <S-l> :tabn<cr>
-endfunction
+
+
 
 call Pathogen()
 call EditorAppearance()
+call DefaultCodingStyle()
 call KeyMappings()
-call EscapeCommonOperationTypos()
 call TabKeyMappings()
-filetype plugin indent on
+call SplitKeyMappings()
+call EscapeCommonOperationTypos()

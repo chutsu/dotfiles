@@ -4,7 +4,7 @@ alias lp="cd $HOME/uni/lp";
 alias wt="cd $HOME/uni/wt";
 
 alias p="cd $HOME/proj/";
-alias dotfiles="cd $HOME/proj/dotfiles";
+alias dotfiles="cd $HOME/Documents/dotfiles";
 alias s="cd $HOME/Sites/";
 alias chotsfu="cd $HOME/Sites/chotsfu/"
 
