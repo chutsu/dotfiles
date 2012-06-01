@@ -23,6 +23,7 @@ function DefaultCodingStyle()
 endfunction
 
 function EditorBehaviour()
+    set backupdir=/tmp
     set title
     set visualbell
     set noerrorbells
