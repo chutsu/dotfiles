@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/chris/Documents/mineframe/src/db'
-let g:netrw_dirhist_2='/Users/chris/Documents/mineframe/tests'
-let g:netrw_dirhist_3='/Users/chris/Documents/mineframe/src'
-let g:netrw_dirhist_4='/Users/chris/Documents/mineframe/src/config'
-let g:netrw_dirhist_5='/Users/chris/Site/public'
-let g:netrw_dirhist_6='/Users/chris/Documents/mineframe/src/data/load_data'
-let g:netrw_dirhist_7='/Users/chris/Documents/mineframe/src'
+let g:netrw_dirhist_cnt =0

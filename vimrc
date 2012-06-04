@@ -11,6 +11,7 @@ function EditorAppearance()
     colorscheme wombat
     syntax on
     highlight LineNr ctermfg=white
+    highlight Folded ctermfg=white ctermbg=none
 endfunction
 
 
@@ -24,21 +25,32 @@ endfunction
 
 function EditorBehaviour()
     set backupdir=/tmp
+
     set title
+
     set visualbell
     set noerrorbells
+
     set history=1000
     set undolevels=1000
+
     set showmatch
     set ignorecase
+
     set autoindent
     set copyindent
+    set foldmethod=indent
+    set foldnestmax=2
+
     set shiftround
     set backspace=indent,eol,start
+
     set smartcase
     set smarttab
+
     set hlsearch
     set incsearch
+
     let g:SuperTabDefaultCompletionType = "context"
 endfunction
 
@@ -71,6 +83,9 @@ function EscapeCommonOperationTypos()
     map <C-n> <TAB>
 endfunction
 
+function SyntasticOptions()
+    let g:syntastic_c_include_dirs = [ '/usr/local/include', '/usr/local/mysql-5.5.24-osx10.6-x86_64/include' ]
+endfunction
 
 
 
@@ -81,3 +96,4 @@ call KeyMappings()
 call TabKeyMappings()
 call SplitKeyMappings()
 call EscapeCommonOperationTypos()
+call SyntasticOptions()
