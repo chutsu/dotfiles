@@ -5,13 +5,22 @@ function Pathogen()
 endfunction
 
 function EditorAppearance()
+    syntax on
     set laststatus=2
     set number
     set showtabline=2
-    colorscheme wombat
-    syntax on
-    highlight LineNr ctermfg=white
-    highlight Folded ctermfg=white ctermbg=none
+
+    colorscheme leo
+    
+    au WinLeave * set nocursorline 
+    au WinEnter * set cursorline 
+    set cursorline 
+
+    highlight clear CursorLine
+    highlight LineNr ctermfg=white ctermbg=black
+    highlight CursorLine ctermbg=235
+    highlight CursorLineNr ctermfg=235 
+    highlight Folded ctermfg=white ctermbg=black
 endfunction
 
 

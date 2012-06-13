@@ -1,7 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/chris/Documents/mineframe/db'
 let g:netrw_dirhist_2='/Users/chris/Documents/mineframe/db/tests'
 let g:netrw_dirhist_3='/Users/chris/Documents/hfea_data'
-let g:netrw_dirhist_4='/Users/chris/Documents/dotfiles/vim/colors'
-let g:netrw_dirhist_5='/Users/chris/Documents/mineframe/db/tests/testfiles'
