@@ -118,7 +118,7 @@ else
     hi CursorLine     term=underline ctermbg=235
     hi Cursor         ctermfg=16 ctermbg=120
     hi lCursor        ctermfg=234 ctermbg=252
-    hi Normal         ctermfg=252 ctermbg=234
+    hi Normal         ctermfg=252 ctermbg=16
     hi Comment        term=bold ctermfg=241
     hi Constant       term=underline ctermfg=142
     hi Special        term=bold ctermfg=222

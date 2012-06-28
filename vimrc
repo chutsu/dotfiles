@@ -10,7 +10,7 @@ function EditorAppearance()
     set number
     set showtabline=2
 
-    colorscheme leo
+    color molokai
     
     au WinLeave * set nocursorline 
     au WinEnter * set cursorline 
@@ -23,7 +23,6 @@ function EditorAppearance()
     highlight Folded ctermfg=white ctermbg=black
 endfunction
 
-
 function DefaultCodingStyle()
     set tabstop=4
     set shiftwidth=4
@@ -34,6 +33,7 @@ endfunction
 
 function EditorBehaviour()
     set backupdir=/tmp
+    set directory=/tmp
 
     set title
 
@@ -48,8 +48,6 @@ function EditorBehaviour()
 
     set autoindent
     set copyindent
-    set foldmethod=indent
-    set foldnestmax=2
 
     set shiftround
     set backspace=indent,eol,start
@@ -101,6 +99,7 @@ endfunction
 call Pathogen()
 call EditorAppearance()
 call DefaultCodingStyle()
+call EditorBehaviour()
 call KeyMappings()
 call TabKeyMappings()
 call SplitKeyMappings()
