@@ -10,6 +10,21 @@ function EditorAppearance()
     set number
     set showtabline=2
 
+    """ gvim specific
+    set guioptions-=T   " remove toolbar
+    set guifont=Monaco:h9
+
+    " remove scroll bars - right, left, bottom
+    set guioptions-=r
+    set guioptions-=l
+    set go-=L
+    set guioptions-=b
+    """
+
+
+    """ nerdtree specific
+    let g:NERDTreeWinSize = 30
+
     color molokai
     
     au WinLeave * set nocursorline 
@@ -21,6 +36,12 @@ function EditorAppearance()
     highlight CursorLine ctermbg=235
     highlight CursorLineNr ctermfg=235 
     highlight Folded ctermfg=white ctermbg=black
+
+    " hide '~' on non-text lines
+    highlight NonText ctermfg=black guifg=black
+
+    " split 
+    set fillchars=
 endfunction
 
 function DefaultCodingStyle()
@@ -59,6 +80,7 @@ function EditorBehaviour()
     set incsearch
 
     let g:SuperTabDefaultCompletionType = "context"
+    autocmd VimEnter * NERDTree
 endfunction
 
 function KeyMappings()
