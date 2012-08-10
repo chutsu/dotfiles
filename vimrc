@@ -23,9 +23,11 @@ function EditorAppearance()
 
 
     """ nerdtree specific
-    let g:NERDTreeWinSize = 30
+    let g:NERDTreeWinSize = 25
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
     color molokai
+
     
     au WinLeave * set nocursorline 
     au WinEnter * set cursorline 
@@ -80,7 +82,15 @@ function EditorBehaviour()
     set incsearch
 
     let g:SuperTabDefaultCompletionType = "context"
-    autocmd VimEnter * NERDTree
+    "autocmd VimEnter * NERDTree
+endfunction
+
+function CodeFolding()
+    set foldmethod=indent
+    set foldnestmax=1 
+    set foldlevel=2
+    nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+    vnoremap <Space> zf
 endfunction
 
 function KeyMappings()
@@ -89,6 +99,7 @@ function KeyMappings()
     nmap <silent> ,/ :nohlsearch<CR>
     cmap w!! w !sudo tee % >/dev/null
     set pastetoggle=<F10>
+    nnoremap <F3> :NERDTreeToggle<CR>
 endfunction
 
 function TabKeyMappings()
@@ -122,6 +133,7 @@ call Pathogen()
 call EditorAppearance()
 call DefaultCodingStyle()
 call EditorBehaviour()
+call CodeFolding()
 call KeyMappings()
 call TabKeyMappings()
 call SplitKeyMappings()
