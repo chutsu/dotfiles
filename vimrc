@@ -11,8 +11,9 @@ function EditorAppearance()
     set showtabline=2
 
     """ gvim specific
+    set guioptions-=m   " remove menubar 
     set guioptions-=T   " remove toolbar
-    set guifont=Monaco:h9
+    set guifont=Monospace:h9
 
     " remove scroll bars - right, left, bottom
     set guioptions-=r

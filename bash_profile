@@ -28,6 +28,7 @@ export DYLD_LIBRARY_PATH=/usr/local/mysql/lib # so that MySQLdb python package c
 # Shell settings
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+eval `dircolors ~/dotfiles/shell_bundle/solarized/dircolors.256dark`
 
 # MacPorts Installer addition on 2011-11-27_at_00:03:26: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
