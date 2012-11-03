@@ -46,3 +46,6 @@
 [submodule "gitignore"]
 	path = gitignore
 	url = https://github.com/github/gitignore.git
+[submodule "shell_bundle/solarized"]
+	path = shell_bundle/solarized
+	url = https://github.com/seebi/dircolors-solarized.git

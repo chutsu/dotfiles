@@ -300,12 +300,12 @@ if has('gui_running') && g:EclimMenus
   augroup END
 endif
 
-if !g:EclimTemplatesDisabled
-  augroup eclim_template
-    autocmd!
-    autocmd BufNewFile * call eclim#common#template#Template()
-  augroup END
-endif
+" if !g:EclimTemplatesDisabled
+"   augroup eclim_template
+"     autocmd!
+"     autocmd BufNewFile * call eclim#common#template#Template()
+"   augroup END
+" endif
 
 if !exists('#LargeFile') && g:EclimLargeFileEnabled
   augroup eclim_largefile
