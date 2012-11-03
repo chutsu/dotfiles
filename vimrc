@@ -21,7 +21,6 @@ function EditorAppearance()
     set guioptions-=b
     """
 
-
     """ nerdtree specific
     let g:NERDTreeWinSize = 25
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -52,6 +51,8 @@ function DefaultCodingStyle()
     set softtabstop=4
     set expandtab " keep tabs as spaces 
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 
+    autocmd FileType java call CCodeFolding()
+    autocmd FileType python call PythonCodeFolding()
 endfunction
 
 function EditorBehaviour()
@@ -85,13 +86,64 @@ function EditorBehaviour()
     "autocmd VimEnter * NERDTree
 endfunction
 
-function CodeFolding()
+function PythonCodeFolding()
     set foldmethod=indent
     set foldnestmax=1 
     set foldlevel=2
+    set foldenable
+
     nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
     vnoremap <Space> zf
 endfunction
+
+function JavaCodeFolding() 
+    set foldmethod=syntax
+    set foldenable
+
+    set foldnestmax=2
+    set foldlevel=1
+
+    nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+    vnoremap <Space> zf
+endfunction
+
+function! CFoldLevel(lnum)
+    let line = getline(a:lnum)
+    if line =~ '^/\*'
+        return '>1' " A new fold of level 1 starts here.
+    else
+        return '1' " This line has a foldlevel of 1.
+    endif
+endfunction
+
+function! CFoldText()
+    " Look through all of the folded text for the function signature.
+    let signature = ''
+    let i = v:foldstart
+    while signature == '' && i < v:foldend
+    let line = getline(i)
+    if line =~ '\w\+(.*)$'
+        let signature = line
+    endif 
+    let i = i + 1
+    endwhile
+
+    " Return what the fold should show when folded.
+    return '+---- ' . (v:foldend - v:foldstart) . ' Lines: ' . signature . ' '
+endfunction
+
+function! CCodeFolding()               
+    set foldenable
+    set foldlevel=0   
+    set foldmethod=expr
+    set foldexpr=CFoldLevel(v:lnum)
+    set foldtext=CFoldText()
+    set foldnestmax=1
+
+    nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+    vnoremap <Space> zf
+endfunction
+
 
 function KeyMappings()
     map <C-h> <C-w>h
@@ -124,7 +176,7 @@ function EscapeCommonOperationTypos()
 endfunction
 
 function SyntasticOptions()
-    let g:syntastic_c_include_dirs = [ '/usr/local/include', '/usr/local/mysql-5.5.24-osx10.6-x86_64/include' ]
+    " let g:syntastic_c_include_dirs = [ '/usr/local/include', '/usr/local/mysql-5.5.24-osx10.6-x86_64/include' ]
 endfunction
 
 
@@ -133,7 +185,6 @@ call Pathogen()
 call EditorAppearance()
 call DefaultCodingStyle()
 call EditorBehaviour()
-call CodeFolding()
 call KeyMappings()
 call TabKeyMappings()
 call SplitKeyMappings()

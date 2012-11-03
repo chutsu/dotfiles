@@ -40,3 +40,9 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/instant-markdown"]
+	path = vim/bundle/instant-markdown
+	url = https://github.com/suan/vim-instant-markdown.git
+[submodule "gitignore"]
+	path = gitignore
+	url = https://github.com/github/gitignore.git

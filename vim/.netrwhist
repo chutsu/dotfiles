@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/cs/home/cc218/Documents/mineframe/tools/webapp/templates'
 let g:netrw_dirhist_2='/cs/home/cc218/Documents/mineframe/tools/webapp'
 let g:netrw_dirhist_3='/cs/home/cc218/Documents/mineframe/tools/webapp/public'
 let g:netrw_dirhist_4='/cs/home/cc218/Documents/mineframe/tools/webapp'
 let g:netrw_dirhist_5='/cs/home/cc218/Documents/mineframe/tools/webapp/public'
 let g:netrw_dirhist_6='/Users/chris/Documents/msc_dissertation/scripts/config'
+let g:netrw_dirhist_7='/Applications/eclipse'
+let g:netrw_dirhist_8='/Users/chris/Documents/projs/membank/sandbox'
