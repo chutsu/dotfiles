@@ -43,9 +43,12 @@
 [submodule "vim/bundle/instant-markdown"]
 	path = vim/bundle/instant-markdown
 	url = https://github.com/suan/vim-instant-markdown.git
-[submodule "gitignore"]
-	path = gitignore
-	url = https://github.com/github/gitignore.git
 [submodule "shell_bundle/solarized"]
 	path = shell_bundle/solarized
 	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "gitignore"]
+	path = gitignore
+	url = https://github.com/github/gitignore.git
+[submodule "vim/bundle/fswitch"]
+	path = vim/bundle/fswitch
+	url = https://github.com/derekwyatt/vim-fswitch.git
