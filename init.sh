@@ -12,15 +12,16 @@ ln -s $PWD/bash_profile $HOME/.bash_profile
 echo "Download git projects from github"
 mkdir -p ../proj/
 cd ../proj
-git clone https://github.com/chutsu/scripts.git
-git clone https://github.com/chutsu/sim.git
-git clone https://github.com/chutsu/nut.git
-git clone https://github.com/chutsu/munit.git
-git clone https://github.com/chutsu/liddell.git
-git clone https://github.com/chutsu/dbench.git
-git clone https://github.com/chutsu/dataviz.git
-git clone https://github.com/chutsu/mineview.git
-git clone https://github.com/chutsu/membank.git
+git clone git@github.com:chutsu/domino.git
+git clone git@github.com:chutsu/scripts.git
+git clone git@github.com:chutsu/sim.git
+git clone git@github.com:chutsu/nut.git
+git clone git@github.com:chutsu/munit.git
+git clone git@github.com:chutsu/liddell.git
+git clone git@github.com:chutsu/dbench.git
+git clone git@github.com:chutsu/dataviz.git
+git clone git@github.com:chutsu/mineview.git
+git clone git@github.com:chutsu/membank.git
 cd ../dotfiles
 
 echo "Initiate vim modules"

@@ -52,3 +52,9 @@
 [submodule "vim/bundle/fswitch"]
 	path = vim/bundle/fswitch
 	url = https://github.com/derekwyatt/vim-fswitch.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/trailing-whitespace"]
+	path = vim/bundle/trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace.git

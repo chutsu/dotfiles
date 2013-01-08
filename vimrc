@@ -12,7 +12,7 @@ function EditorAppearance()
     set t_Co=256
 
     """ gvim specific
-    set guioptions-=m   " remove menubar 
+    set guioptions-=m   " remove menubar
     set guioptions-=T   " remove toolbar
     set guifont=Monospace:h9
 
@@ -29,21 +29,21 @@ function EditorAppearance()
 
     color molokai
 
-    
-    au WinLeave * set nocursorline 
-    au WinEnter * set cursorline 
-    set cursorline 
+
+    au WinLeave * set nocursorline
+    au WinEnter * set cursorline
+    set cursorline
 
     highlight clear CursorLine
     highlight LineNr ctermfg=white ctermbg=black
     highlight CursorLine ctermbg=235
-    highlight CursorLineNr ctermfg=235 
+    highlight CursorLineNr ctermfg=235
     highlight Folded ctermfg=white ctermbg=black
 
     " hide '~' on non-text lines
     highlight NonText ctermfg=black guifg=black
 
-    " split 
+    " split
     set fillchars=
 endfunction
 
@@ -51,8 +51,8 @@ function DefaultCodingStyle()
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
-    set expandtab " keep tabs as spaces 
-    autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 
+    set expandtab " keep tabs as spaces
+    autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
     autocmd FileType java call CCodeFolding()
     autocmd FileType python call PythonCodeFolding()
 endfunction
@@ -86,11 +86,14 @@ function EditorBehaviour()
 
     let g:SuperTabDefaultCompletionType = "context"
     "autocmd VimEnter * NERDTree
+
+    " remove trailing whitespace automatically
+    autocmd FileType c,cpp,java,php,python autocmd BufWritePre <buffer> :%s/\s\+$//e
 endfunction
 
 function PythonCodeFolding()
     set foldmethod=indent
-    set foldnestmax=1 
+    set foldnestmax=1
     set foldlevel=2
     set foldenable
 
@@ -98,7 +101,7 @@ function PythonCodeFolding()
     vnoremap <Space> zf
 endfunction
 
-function JavaCodeFolding() 
+function JavaCodeFolding()
     set foldmethod=syntax
     set foldenable
 
@@ -126,7 +129,7 @@ function! CFoldText()
     let line = getline(i)
     if line =~ '\w\+(.*)$'
         let signature = line
-    endif 
+    endif
     let i = i + 1
     endwhile
 
@@ -134,9 +137,9 @@ function! CFoldText()
     return '+---- ' . (v:foldend - v:foldstart) . ' Lines: ' . signature . ' '
 endfunction
 
-function! CCodeFolding()               
+function! CCodeFolding()
     set foldenable
-    set foldlevel=0   
+    set foldlevel=0
     set foldmethod=expr
     set foldexpr=CFoldLevel(v:lnum)
     set foldtext=CFoldText()
@@ -145,7 +148,6 @@ function! CCodeFolding()
     nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
     vnoremap <Space> zf
 endfunction
-
 
 function KeyMappings()
     map <C-h> <C-w>h
@@ -171,9 +173,9 @@ function SplitKeyMappings()
 endfunction
 
 function EscapeCommonOperationTypos()
-    cmap W w 
-    cmap Wq wq 
-    cmap WQ wq 
+    cmap W w
+    cmap Wq wq
+    cmap WQ wq
     map <C-n> <TAB>
 endfunction
 
