@@ -177,6 +177,12 @@ function SplitKeyMappings()
     map <S-l> :wincmd l<CR>
 endfunction
 
+function HeaderSwitchMappings()
+    nnoremap <F7> :FSLeft<CR>
+    nnoremap <F8> :FSHere<CR>
+    nnoremap <F9> :FSRight<CR>
+endfunction
+
 function EscapeCommonOperationTypos()
     cmap W w
     cmap Wq wq
@@ -200,5 +206,6 @@ call CodeFolding()
 call KeyMappings()
 call TabKeyMappings()
 call SplitKeyMappings()
+call HeaderSwitchMappings()
 call EscapeCommonOperationTypos()
 call SyntasticOptions()
