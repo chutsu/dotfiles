@@ -25,20 +25,25 @@ function EditorAppearance()
 
     """ nerdtree specific
     let g:NERDTreeWinSize = 25
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+    autocmd bufenter * if (
+            \ winnr("$") == 1
+            \ && exists("b:NERDTreeType")
+            \ && b:NERDTreeType == "primary")
+            \ | q |
+    \ endif
 
     color molokai
-
-
-    au WinLeave * set nocursorline
-    au WinEnter * set cursorline
     set cursorline
 
-    highlight clear CursorLine
-    highlight LineNr ctermfg=white ctermbg=black
-    highlight CursorLine ctermbg=235
-    highlight CursorLineNr ctermfg=235
-    highlight Folded ctermfg=white ctermbg=black
+    " au WinLeave * set nocursorline
+    " au WinEnter * set cursorline
+    " set cursorline
+
+    " highlight clear CursorLine
+    " highlight LineNr ctermfg=white ctermbg=black
+    " highlight CursorLine ctermbg=235
+    " highlight CursorLineNr ctermfg=235
+    " highlight Folded ctermfg=white ctermbg=black
 
     " hide '~' on non-text lines
     highlight NonText ctermfg=black guifg=black
@@ -53,8 +58,6 @@ function DefaultCodingStyle()
     set softtabstop=4
     set expandtab " keep tabs as spaces
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
-    autocmd FileType java call CCodeFolding()
-    autocmd FileType python call PythonCodeFolding()
 endfunction
 
 function EditorBehaviour()
@@ -88,7 +91,8 @@ function EditorBehaviour()
     "autocmd VimEnter * NERDTree
 
     " remove trailing whitespace automatically
-    autocmd FileType c,cpp,java,php,python autocmd BufWritePre <buffer> :%s/\s\+$//e
+    autocmd FileType c,cpp,java,php,python
+            \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 endfunction
 
 function PythonCodeFolding()
@@ -180,11 +184,17 @@ function EscapeCommonOperationTypos()
 endfunction
 
 function SyntasticOptions()
-    " let g:syntastic_c_include_dirs = [ '/usr/local/include', '/usr/local/mysql-5.5.24-osx10.6-x86_64/include' ]
+    let g:syntastic_c_include_dirs = [
+            \ '/usr/include/',
+            \ '/usr/local/include',
+            \ '/usr/local/mysql-5.5.24-osx10.6-x86_64/include'
+    \ ]
 endfunction
 
 
 
+
+" MAIN
 call Pathogen()
 call EditorAppearance()
 call DefaultCodingStyle()
