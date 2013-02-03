@@ -5,4 +5,5 @@ This dotfile repo contains a backup of my hidden configure files.
 - **vimrc**: vimrc file
 - **bash_profile**: bash config script
 - **init.sh**: script that creates symbolic links to link all these dotfiles back to where they should be
+- **init_proj.sh**: downloads all github projects 
 
