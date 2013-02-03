@@ -53,8 +53,6 @@ function DefaultCodingStyle()
     set softtabstop=4
     set expandtab " keep tabs as spaces
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
-    autocmd FileType java call CCodeFolding()
-    autocmd FileType python call PythonCodeFolding()
 endfunction
 
 function EditorBehaviour()
@@ -91,37 +89,49 @@ function EditorBehaviour()
     autocmd FileType c,cpp,java,php,python autocmd BufWritePre <buffer> :%s/\s\+$//e
 endfunction
 
+function CodeFolding()
+    autocmd FileType c call CCodeFolding()
+    autocmd FileType java call JavaCodeFolding()
+    autocmd FileType python call PythonCodeFolding()
+
+    autocmd InsertEnter * if !exists('w:last_fdm')
+            \ | let w:last_fdm=&foldmethod
+            \ | setlocal foldmethod=manual
+            \ | endif
+    autocmd InsertLeave,WinLeave * if exists('w:last_fdm')
+            \ | let &l:foldmethod=w:last_fdm
+            \ | unlet w:last_fdm
+            \ | endif
+    nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+    vnoremap <Space> zf
+endfunction
+
 function PythonCodeFolding()
     set foldmethod=indent
     set foldnestmax=1
     set foldlevel=2
     set foldenable
-
-    nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-    vnoremap <Space> zf
 endfunction
 
 function JavaCodeFolding()
     set foldmethod=syntax
     set foldenable
-
     set foldnestmax=2
     set foldlevel=1
+endfunction
+
+function CCodeFolding()
+    set foldmethod=syntax
+    set foldenable
+    set foldlevel=0
+    set foldnestmax=1
+    set foldtext=FoldText()
 
     nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
     vnoremap <Space> zf
 endfunction
 
-function! CFoldLevel(lnum)
-    let line = getline(a:lnum)
-    if line =~ '^/\*'
-        return '>1' " A new fold of level 1 starts here.
-    else
-        return '1' " This line has a foldlevel of 1.
-    endif
-endfunction
-
-function! CFoldText()
+function FoldText()
     " Look through all of the folded text for the function signature.
     let signature = ''
     let i = v:foldstart
@@ -134,19 +144,8 @@ function! CFoldText()
     endwhile
 
     " Return what the fold should show when folded.
-    return '+---- ' . (v:foldend - v:foldstart) . ' Lines: ' . signature . ' '
-endfunction
-
-function! CCodeFolding()
-    set foldenable
-    set foldlevel=0
-    set foldmethod=expr
-    set foldexpr=CFoldLevel(v:lnum)
-    set foldtext=CFoldText()
-    set foldnestmax=1
-
-    nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-    vnoremap <Space> zf
+    " return '+---- ' . (v:foldend - v:foldstart) . ' Lines: ' . signature . ' '
+    return '+----- ' . (v:foldend - v:foldstart) . ' lines' . '-----'
 endfunction
 
 function KeyMappings()
@@ -180,7 +179,10 @@ function EscapeCommonOperationTypos()
 endfunction
 
 function SyntasticOptions()
-    " let g:syntastic_c_include_dirs = [ '/usr/local/include', '/usr/local/mysql-5.5.24-osx10.6-x86_64/include' ]
+    let g:syntastic_c_include_dirs = [
+            \ '/usr/include',
+            \ '/usr/local/include'
+    \ ]
 endfunction
 
 
@@ -189,6 +191,7 @@ call Pathogen()
 call EditorAppearance()
 call DefaultCodingStyle()
 call EditorBehaviour()
+call CodeFolding()
 call KeyMappings()
 call TabKeyMappings()
 call SplitKeyMappings()
