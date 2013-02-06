@@ -35,18 +35,6 @@ function EditorAppearance()
     color molokai
     set cursorline
 
-    " au WinLeave * set nocursorline
-    " au WinEnter * set cursorline
-    " set cursorline
-
-    " highlight clear CursorLine
-    " highlight LineNr ctermfg=white ctermbg=black
-    " highlight CursorLine ctermbg=235
-    " highlight CursorLineNr ctermfg=235
-    " highlight Folded ctermfg=white ctermbg=black
-
-    " hide '~' on non-text lines
-    highlight NonText ctermfg=black guifg=black
 
     " split
     set fillchars=
@@ -63,32 +51,21 @@ endfunction
 function EditorBehaviour()
     set backupdir=/tmp
     set directory=/tmp
-
     set title
-
     set visualbell
     set noerrorbells
-
     set history=1000
     set undolevels=1000
-
     set showmatch
     set ignorecase
-
     set autoindent
     set copyindent
-
     set shiftround
     set backspace=indent,eol,start
-
     set smartcase
     set smarttab
-
     set hlsearch
     set incsearch
-
-    let g:SuperTabDefaultCompletionType = "context"
-    "autocmd VimEnter * NERDTree
 
     " remove trailing whitespace automatically
     autocmd FileType c,cpp,java,php,python
@@ -150,7 +127,6 @@ function FoldText()
     endwhile
 
     " Return what the fold should show when folded.
-    " return '+---- ' . (v:foldend - v:foldstart) . ' Lines: ' . signature . ' '
     return '+----- ' . (v:foldend - v:foldstart) . ' lines' . '-----'
 endfunction
 
@@ -192,6 +168,8 @@ endfunction
 
 function SyntasticOptions()
     let g:syntastic_c_include_dirs = [
+            \ 'include',
+            \ '../include',
             \ '/usr/include',
             \ '/usr/local/include'
     \ ]
