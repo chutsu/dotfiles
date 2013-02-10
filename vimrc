@@ -14,7 +14,7 @@ function EditorAppearance()
     """ gvim specific
     set guioptions-=m   " remove menubar
     set guioptions-=T   " remove toolbar
-    set guifont=Monospace:h9
+    set guifont=Monospace:h7
 
     " remove scroll bars - right, left, bottom
     set guioptions-=r
@@ -167,12 +167,21 @@ function EscapeCommonOperationTypos()
 endfunction
 
 function SyntasticOptions()
-    let g:syntastic_c_include_dirs = [
+    let g:syntastic_enable_highlighting=1
+    let g:syntastic_check_on_open=1
+    let g:syntastic_enable_signs=1
+    let g:syntastic_c_include_dirs=[
             \ 'include',
             \ '../include',
             \ '/usr/include',
             \ '/usr/local/include'
     \ ]
+    let g:syntastic_warning_symbol='W'
+    let g:syntastic_error_symbol='E'
+    let g:syntastic_style_error_symbol='SE'
+    let g:syntastic_style_warning_symbol='SW'
+
+    let g:syntastic_c_compiler_options='-Wall'
 endfunction
 
 " MAIN
