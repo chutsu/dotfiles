@@ -11,6 +11,7 @@ function EditorAppearance()
     set showtabline=2
     set t_Co=256
 
+
     """ gvim specific
     set guioptions-=m   " remove menubar
     set guioptions-=T   " remove toolbar
@@ -32,9 +33,8 @@ function EditorAppearance()
             \ | q |
     \ endif
 
-    color molokai
+    color xoria256
     set cursorline
-
 
     " split
     set fillchars=
@@ -46,6 +46,10 @@ function DefaultCodingStyle()
     set softtabstop=4
     set expandtab " keep tabs as spaces
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
+
+    " highlight red when code is over 80 columns
+    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    match OverLength /\%81v.\+/
 endfunction
 
 function EditorBehaviour()
@@ -101,6 +105,7 @@ function JavaCodeFolding()
     set foldenable
     set foldnestmax=2
     set foldlevel=1
+    set foldlevelstart=99
 endfunction
 
 function CCodeFolding()
@@ -109,6 +114,7 @@ function CCodeFolding()
     set foldlevel=0
     set foldnestmax=1
     set foldtext=FoldText()
+    set foldlevelstart=20
 
     nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
     vnoremap <Space> zf
@@ -167,6 +173,9 @@ function EscapeCommonOperationTypos()
 endfunction
 
 function SyntasticOptions()
+    " c specific settings
+    let g:syntastic_c_checker="clang"
+    let g:syntastic_c_compiler_options='-Wall'
     let g:syntastic_enable_highlighting=1
     let g:syntastic_check_on_open=1
     let g:syntastic_enable_signs=1
@@ -176,12 +185,15 @@ function SyntasticOptions()
             \ '/usr/include',
             \ '/usr/local/include'
     \ ]
+    
+    " python specific settings
+    let g:syntastic_python_checkers=['flake8']
+
+    " warning and error symbols
     let g:syntastic_warning_symbol='W'
     let g:syntastic_error_symbol='E'
     let g:syntastic_style_error_symbol='SE'
     let g:syntastic_style_warning_symbol='SW'
-
-    let g:syntastic_c_compiler_options='-Wall'
 endfunction
 
 " MAIN

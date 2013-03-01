@@ -5,8 +5,8 @@ alias dotfiles="cd $HOME/Dropbox/dotfiles";
 # Executional shortcuts
 alias ls="ls -h";
 alias v="vim";
-alias vimrc="vim ~/.vimrc";
-alias bashrc="vim ~/.bash_profile";
+alias vimrc="vim $HOME/.vimrc";
+alias bashrc="vim $HOME/.bash_profile";
 alias cc218="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
 alias bobbu="ssh -X chris@bobbu.cs.st-andrews.ac.uk"
 

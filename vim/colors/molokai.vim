@@ -135,15 +135,15 @@ if &t_Co > 255
    hi String          ctermfg=144
    hi Conditional     ctermfg=161               cterm=bold
    hi Constant        ctermfg=135               cterm=bold
-   hi Cursor          ctermfg=16  ctermbg=253
+   hi Cursor          ctermfg=233   ctermbg=253
    hi Debug           ctermfg=225               cterm=bold
    hi Define          ctermfg=81
    hi Delimiter       ctermfg=241
 
-   hi DiffAdd                     ctermbg=24
-   hi DiffChange      ctermfg=181 ctermbg=239
-   hi DiffDelete      ctermfg=162 ctermbg=53
-   hi DiffText                    ctermbg=102 cterm=bold
+   hi DiffAdd                       ctermbg=24
+   hi DiffChange      ctermfg=181   ctermbg=239
+   hi DiffDelete      ctermfg=162   ctermbg=53
+   hi DiffText                      ctermbg=102 cterm=bold
 
    hi Directory       ctermfg=118               cterm=bold
    hi Error           ctermfg=219 ctermbg=89
@@ -206,10 +206,10 @@ if &t_Co > 255
 
    hi Normal          ctermfg=252 ctermbg=none
    hi Comment         ctermfg=56
-   hi CursorLine      ctermbg=234   cterm=none
-   hi CursorColumn    ctermbg=234
+   hi CursorLine      ctermbg=233 ctermfg=none cterm=none
+   hi CursorColumn    ctermbg=234   ctermfg=none
    hi ColorColumn     ctermbg=234
-   hi LineNr          ctermfg=250   ctermbg=234
+   hi LineNr          ctermfg=255 ctermbg=232
    hi NonText         ctermfg=black guifg=black
    hi SpecialKey      ctermfg=59
 end

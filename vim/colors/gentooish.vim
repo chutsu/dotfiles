@@ -115,9 +115,9 @@ else
     hi TabLineSel     term=bold cterm=bold
     hi TabLineFill    term=reverse ctermfg=234 ctermbg=252
     hi CursorColumn   term=reverse ctermbg=235
-    hi CursorLine     term=underline ctermbg=235
-    hi Cursor         ctermfg=16 ctermbg=120
-    hi lCursor        ctermfg=234 ctermbg=252
+    hi CursorLine     cterm=none ctermbg=233
+    hi Cursor         ctermfg=232 ctermbg=120
+    hi lCursor        ctermfg=232 ctermbg=255
     hi Normal         ctermfg=252 ctermbg=16
     hi Comment        term=bold ctermfg=241
     hi Constant       term=underline ctermfg=142
@@ -159,5 +159,3 @@ else
         hi MatchParen     term=reverse ctermfg=231 ctermbg=22
     endif
 endif
-
-
