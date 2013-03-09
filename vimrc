@@ -33,11 +33,12 @@ function EditorAppearance()
             \ | q |
     \ endif
 
-    color xoria256
+    colorscheme xoria256
     set cursorline
 
     " split
     set fillchars=
+
 endfunction
 
 function DefaultCodingStyle()
@@ -143,6 +144,7 @@ function KeyMappings()
     cmap w!! w !sudo tee % >/dev/null
     set pastetoggle=<F10>
     nnoremap <F3> :NERDTreeToggle<CR>
+    map <F12> :!dot % -Tps -o %:r.ps<CR>
 endfunction
 
 function TabKeyMappings()
@@ -185,7 +187,7 @@ function SyntasticOptions()
             \ '/usr/include',
             \ '/usr/local/include'
     \ ]
-    
+
     " python specific settings
     let g:syntastic_python_checkers=['flake8']
 
@@ -208,3 +210,4 @@ call SplitKeyMappings()
 call HeaderSwitchMappings()
 call EscapeCommonOperationTypos()
 call SyntasticOptions()
+
