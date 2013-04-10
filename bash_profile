@@ -1,9 +1,25 @@
+# workout what OS shell is running on
+case $( uname -s ) in
+Linux)
+    OS="LINUX"
+    ;;
+Darwin)
+    OS="MAC"
+    ;;
+esac
+
 # Dir shortcuts
-alias p="cd $HOME/Dropbox/proj/";
-alias dotfiles="cd $HOME/Dropbox/dotfiles";
+export DROPBOX="$HOME/Dropbox"
+alias dotfiles="cd $DROPBOX/dotfiles";
+alias p="cd $DROPBOX/proj/";
+alias scripts="cd $DROPBOX/proj/scripts"
 
 # Executional shortcuts
-alias ls="ls -h";
+if [ "$OS" = "LINUX" ]; then
+    alias ls="ls -lh --color ";
+elif [ "$OS" = "MAC" ]; then
+    alias ls="ls -lh";
+fi
 alias v="vim";
 alias vimrc="vim $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile";
@@ -23,4 +39,13 @@ export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 # Shell settings
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-eval `dircolors $HOME/Dropbox/dotfiles/shell_bundle/solarized/dircolors.256dark`
+# eval `dircolors $HOME/Dropbox/dotfiles/shell_bundle/solarized/dircolors.256dark`
+if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
+    export TERM=xterm-256color
+fi
+
+function _update_ps1 {
+    export PS1="$(~/Dropbox/dotfiles/shell_bundle/powerline-shell/powerline-shell.py $?)"
+}
+
+export PROMPT_COMMAND="_update_ps1"
