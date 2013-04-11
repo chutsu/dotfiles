@@ -45,7 +45,7 @@ function DefaultCodingStyle()
     set tabstop=4
     set shiftwidth=4
     set softtabstop=4
-    set expandtab " keep tabs as spaces
+    set expandtab " expand tabs as spaces
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
 
     " highlight red when code is over 80 columns
