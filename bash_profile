@@ -1,4 +1,4 @@
-# workout what OS shell is running on
+# WHICH OS?
 case $( uname -s ) in
 Linux)
     OS="LINUX"
@@ -8,13 +8,18 @@ Darwin)
     ;;
 esac
 
-# Dir shortcuts
+# DIR PATHS
 export DROPBOX="$HOME/Dropbox"
-alias dotfiles="cd $DROPBOX/proj/dotfiles";
-alias p="cd $DROPBOX/proj/";
-alias scripts="cd $DROPBOX/proj/scripts"
+export PROJECTS="$DROPBOX/proj"
+export SCRIPTS="$PROJECTS/scripts"
+export DOTFILES="$PROJECTS/dotfiles"
 
-# Executional shortcuts
+# DIR SHORTCUTS
+alias dotfiles="cd $DOTFILES";
+alias p="cd $PROJECTS";
+alias scripts="cd $SCRIPTS"
+
+# EXECUTIONAL SHORTCUTS
 if [ "$OS" = "LINUX" ]; then
     alias ls="ls -lh --color ";
 elif [ "$OS" = "MAC" ]; then
@@ -30,13 +35,13 @@ alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
 alias pg_restart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log restart"
 
-# Environment settings
+# ENVIRONMENTAL SETTINGS
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/Dropbox/proj/scripts
 export PATH=/usr/local/share/python:$PATH
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
-# Shell settings
+# SHELL SETTINGS
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 # eval `dircolors $HOME/Dropbox/dotfiles/shell_bundle/solarized/dircolors.256dark`
@@ -45,7 +50,14 @@ if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
 fi
 
 function _update_ps1 {
-    export PS1="$(~/Dropbox/proj/dotfiles/shell_bundle/powerline-shell/powerline-shell.py $?)"
+    POWERLINE_SHELL_SCRIPT="$DOTFILES/shell_bundle/powerline-shell/powerline-shell.py"
+    if [ -f $POWERLINE_SHELL_SCRIPT ];
+    then
+        export PS1="$($POWERLINE_SHELL_SCRIPT $?)"
+    else
+        echo $POWERLINE_SHELL_SCRIPT
+        echo "can't find powerline shell script"
+    fi
 }
 
 export PROMPT_COMMAND="_update_ps1"
