@@ -11,7 +11,6 @@ function EditorAppearance()
     set showtabline=2
     set t_Co=256
 
-
     """ gvim specific
     set guioptions-=m   " remove menubar
     set guioptions-=T   " remove toolbar
@@ -75,6 +74,9 @@ function EditorBehaviour()
     " remove trailing whitespace automatically
     autocmd FileType c,cpp,java,php,python
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+    " reload vimrc after update 
+    au BufWritePost .vimrc so ~/.vimrc
 endfunction
 
 function CodeFolding()
