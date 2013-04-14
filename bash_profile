@@ -20,11 +20,6 @@ alias p="cd $PROJECTS";
 alias scripts="cd $SCRIPTS"
 
 # EXECUTIONAL SHORTCUTS
-if [ "$OS" = "LINUX" ]; then
-    alias ls="ls -lh --color ";
-elif [ "$OS" = "MAC" ]; then
-    alias ls="ls -lh";
-fi
 alias v="vim";
 alias vimrc="vim $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile";
