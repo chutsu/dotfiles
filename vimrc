@@ -24,7 +24,7 @@ function EditorAppearance()
     """
 
     """ nerdtree specific
-    let g:NERDTreeWinSize = 25
+    let g:NERDTreeWinSize=30 
     autocmd bufenter * if (
             \ winnr("$") == 1
             \ && exists("b:NERDTreeType")
@@ -38,18 +38,6 @@ function EditorAppearance()
     " split
     set fillchars=
 
-endfunction
-
-function DefaultCodingStyle()
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
-    set expandtab " expand tabs as spaces
-    autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
-
-    " highlight red when code is over 80 columns
-    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-    match OverLength /\%81v.\+/
 endfunction
 
 function EditorBehaviour()
@@ -79,8 +67,23 @@ function EditorBehaviour()
     au BufWritePost .vimrc so ~/.vimrc
 endfunction
 
+function EditorSettings()
+endfunction
+
+function DefaultCodingStyle()
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    set expandtab " expand tabs as spaces
+    autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
+
+    " highlight red when code is over 80 columns
+    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    match OverLength /\%81v.\+/
+endfunction
+
 function CodeFolding()
-    autocmd FileType c call CCodeFolding()
+    autocmd FileType c call CCodeFolding() 
     autocmd FileType java call JavaCodeFolding()
     autocmd FileType python call PythonCodeFolding()
 
@@ -95,6 +98,12 @@ function CodeFolding()
     nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
     vnoremap <Space> zf
 endfunction
+
+function CHeaderDisplay()
+
+endfunction
+
+
 
 function PythonCodeFolding()
     set foldmethod=indent
@@ -145,8 +154,9 @@ function KeyMappings()
     nmap <silent> ,/ :nohlsearch<CR>
     cmap w!! w !sudo tee % >/dev/null
     set pastetoggle=<F10>
-    nnoremap <F3> :NERDTreeToggle<CR>
+    nnoremap <F3> :NERDTreeToggle<CR><CR>
     map <F12> :!dot % -Tps -o %:r.ps<CR>
+    map <S-x> :wq<CR>
 endfunction
 
 function TabKeyMappings()
@@ -167,6 +177,7 @@ function HeaderSwitchMappings()
     nnoremap <F7> :FSLeft<CR>
     nnoremap <F8> :FSHere<CR>
     nnoremap <F9> :FSRight<CR>
+    nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
 endfunction
 
 function EscapeCommonOperationTypos()
@@ -203,8 +214,9 @@ endfunction
 " MAIN
 call Pathogen()
 call EditorAppearance()
-call DefaultCodingStyle()
 call EditorBehaviour()
+call EditorSettings()
+call DefaultCodingStyle()
 call CodeFolding()
 call KeyMappings()
 call TabKeyMappings()
@@ -212,4 +224,3 @@ call SplitKeyMappings()
 call HeaderSwitchMappings()
 call EscapeCommonOperationTypos()
 call SyntasticOptions()
-

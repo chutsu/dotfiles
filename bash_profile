@@ -1,3 +1,4 @@
+#!/bin/bash
 # WHICH OS?
 case $( uname -s ) in
 Linux)
@@ -20,6 +21,10 @@ alias p="cd $PROJECTS";
 alias scripts="cd $SCRIPTS"
 
 # EXECUTIONAL SHORTCUTS
+alias l="ls -lh"
+alias la="ls -lha"
+alias c="cd "
+
 alias v="vim";
 alias vimrc="vim $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile";
@@ -29,6 +34,7 @@ alias bobbu="ssh -X chris@bobbu.cs.st-andrews.ac.uk"
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
 alias pg_restart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log restart"
+
 
 # ENVIRONMENTAL SETTINGS
 export PATH=/usr/local/bin:$PATH
