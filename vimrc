@@ -36,7 +36,8 @@ function EditorAppearance()
             \ | q |
     \ endif
 
-    colorscheme xoria256
+    " colorscheme xoria256
+    colorscheme molokai
     set cursorline
 
     " split
