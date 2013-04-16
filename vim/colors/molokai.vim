@@ -205,7 +205,7 @@ if &t_Co > 255
    hi WildMenu        ctermfg=81  ctermbg=16
 
    hi Normal          ctermfg=252 ctermbg=none
-   hi Comment         ctermfg=56
+   hi Comment         ctermfg=105
    hi CursorLine      ctermbg=233 ctermfg=none cterm=none
    hi CursorColumn    ctermbg=234   ctermfg=none
    hi ColorColumn     ctermbg=234

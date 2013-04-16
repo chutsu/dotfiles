@@ -52,3 +52,6 @@
 [submodule "vim/bundle/multiple-cursors"]
 	path = vim/bundle/multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors.git
+[submodule "vim/bundle/css-color"]
+	path = vim/bundle/css-color
+	url = git@github.com:skammer/vim-css-color.git
