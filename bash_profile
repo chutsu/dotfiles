@@ -1,4 +1,5 @@
 #!/bin/bash
+export TERM=xterm
 # WHICH OS?
 case $( uname -s ) in
 Linux)

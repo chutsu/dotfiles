@@ -43,9 +43,9 @@
 [submodule "vim/bundle/trailing-whitespace"]
 	path = vim/bundle/trailing-whitespace
 	url = https://github.com/bronson/vim-trailing-whitespace.git
-[submodule "vim/bundle/powerline"]
-	path = vim/bundle/powerline
-	url = git@github.com:Lokaltog/powerline.git
 [submodule "shell_bundle/powerline-shell"]
 	path = shell_bundle/powerline-shell
 	url = git@github.com:milkbikis/powerline-shell.git
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = git@github.com:Lokaltog/powerline.git

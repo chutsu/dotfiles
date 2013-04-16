@@ -4,6 +4,10 @@ function Pathogen()
     filetype plugin indent on
 endfunction
 
+function Powerline()
+    set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+endfunction
+
 function EditorAppearance()
     syntax on
     set laststatus=2
@@ -65,6 +69,10 @@ function EditorBehaviour()
 
     " reload vimrc after update 
     au BufWritePost .vimrc so ~/.vimrc
+
+    " reselect block after indentation
+    vnoremap < <gv
+    vnoremap > >gv
 endfunction
 
 function EditorSettings()
@@ -213,6 +221,7 @@ endfunction
 
 " MAIN
 call Pathogen()
+call Powerline()
 call EditorAppearance()
 call EditorBehaviour()
 call EditorSettings()
