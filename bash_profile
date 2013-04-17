@@ -22,13 +22,18 @@ alias p="cd $PROJECTS";
 alias scripts="cd $SCRIPTS"
 
 # EXECUTIONAL SHORTCUTS
-alias l="ls -lh"
-alias la="ls -lha"
+if [ $OS == LINUX ]; then
+    alias ls="ls -lh --color"
+    alias la="ls -lha --color"
+elif [ $OS == MAC ]; then
+    alias ls="ls -lh"
+    alias la="ls -lha"
+fi
 alias c="cd "
 
 alias v="vim";
 alias vimrc="vim $HOME/.vimrc";
-alias bashrc="vim $HOME/.bash_profile";
+alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias cc218="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
 alias bobbu="ssh -X chris@bobbu.cs.st-andrews.ac.uk"
 
@@ -51,15 +56,6 @@ if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
 
-function _update_ps1 {
-    POWERLINE_SHELL_SCRIPT="$DOTFILES/shell_bundle/powerline-shell/powerline-shell.py"
-    if [ -f $POWERLINE_SHELL_SCRIPT ];
-    then
-        export PS1="$($POWERLINE_SHELL_SCRIPT $?)"
-    else
-        echo $POWERLINE_SHELL_SCRIPT
-        echo "can't find powerline shell script"
-    fi
-}
-
-export PROMPT_COMMAND="_update_ps1"
+# Custom bash prompt via kirsle.net/wizards/ps1.html
+smiley () { echo -e ":\\$(($??50:51))"; }
+export PS1="[\w] > "
