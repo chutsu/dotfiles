@@ -1,7 +1,25 @@
-function Pathogen()
-    runtime bundle/pathogen/autoload/pathogen.vim
-    call pathogen#infect()
-    filetype plugin indent on
+function Vundle()
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+
+    Bundle  'tpope/vim-fugitive.git'
+    Bundle  'tpope/vim-pathogen.git'
+    Bundle  'tomtom/tlib_vim.git'
+    Bundle  'MarcWeber/vim-addon-mw-utils.git'
+    Bundle  'bsl/obviousmode.git'
+    Bundle  'Rip-Rip/clang_complete.git'
+    Bundle  'tpope/vim-surround.git'
+    Bundle  'tpope/vim-markdown.git'
+    Bundle  'tomtom/tcomment_vim.git'
+    Bundle  'scrooloose/nerdtree.git'
+    Bundle  'suan/vim-instant-markdown.git'
+    Bundle  'seebi/dircolors-solarized.git'
+    Bundle  'derekwyatt/vim-fswitch.git'
+    Bundle  'scrooloose/syntastic.git'
+    Bundle  'bronson/vim-trailing-whitespace.git'
+    Bundle  'terryma/vim-multiple-cursors.git'
+    Bundle  'skammer/vim-css-color.git'
+    Bundle  'Lokaltog/vim-powerline.git'
 endfunction
 
 function Powerline()
@@ -55,6 +73,7 @@ function EditorBehaviour()
     set undolevels=1000
     set showmatch
     set ignorecase
+    filetype plugin indent on
     set autoindent
     set copyindent
     set shiftround
@@ -221,7 +240,7 @@ function SyntasticOptions()
 endfunction
 
 " MAIN
-call Pathogen()
+call Vundle()
 call Powerline()
 call EditorAppearance()
 call EditorBehaviour()
