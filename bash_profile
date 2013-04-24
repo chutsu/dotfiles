@@ -19,7 +19,9 @@ export DOTFILES="$PROJECTS/dotfiles"
 # DIR SHORTCUTS
 alias dotfiles="cd $DOTFILES";
 alias p="cd $PROJECTS";
+alias toys="cd $PROJECTS/toys"
 alias scripts="cd $SCRIPTS"
+alias work="cd $DRPOBOX/work"
 
 # EXECUTIONAL SHORTCUTS
 if [ $OS == LINUX ]; then
