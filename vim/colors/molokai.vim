@@ -135,7 +135,7 @@ if &t_Co > 255
    hi String          ctermfg=144
    hi Conditional     ctermfg=161               cterm=bold
    hi Constant        ctermfg=135               cterm=bold
-   hi Cursor          ctermfg=234   ctermbg=253
+   hi Cursor          ctermfg=233   ctermbg=none
    hi Debug           ctermfg=225               cterm=bold
    hi Define          ctermfg=81
    hi Delimiter       ctermfg=241
@@ -206,7 +206,7 @@ if &t_Co > 255
 
    hi Normal          ctermfg=252 ctermbg=none
    hi Comment         ctermfg=105
-   hi CursorLine      ctermbg=238 ctermfg=none cterm=none
+   hi CursorLine      ctermbg=235 ctermfg=none cterm=none
    hi CursorColumn    ctermbg=238 ctermfg=none
    hi ColorColumn     ctermbg=233
    hi LineNr          ctermfg=245 ctermbg=234

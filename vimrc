@@ -164,7 +164,7 @@ function! NerdTree()
             \ && b:NERDTreeType == "primary")
             \ | q |
     \ endif
-endfunction
+endfunction 
 
 
 
