@@ -21,7 +21,8 @@ alias dotfiles="cd $DOTFILES";
 alias p="cd $PROJECTS";
 alias toys="cd $PROJECTS/toys"
 alias scripts="cd $SCRIPTS"
-alias work="cd $DRPOBOX/work"
+alias work="cd $DROPBOX/work"
+alias domino="cd $PROJECTS/websites/domino"
 
 # EXECUTIONAL SHORTCUTS
 if [ $OS == LINUX ]; then
@@ -51,6 +52,8 @@ export PATH=/usr/local/share/python:$PATH
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
 # SHELL SETTINGS
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000000
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 # eval `dircolors $HOME/Dropbox/dotfiles/shell_bundle/solarized/dircolors.256dark`
@@ -58,6 +61,4 @@ if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
 
-# Custom bash prompt via kirsle.net/wizards/ps1.html
-smiley () { echo -e ":\\$(($??50:51))"; }
 export PS1="[\w] > "
