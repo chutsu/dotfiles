@@ -10,6 +10,7 @@ function! EditorAppearance()
 endfunction
 
 function! EditorBehaviour()
+    filetype plugin indent on
     set backupdir=/tmp
     set directory=/tmp
     set title
@@ -19,7 +20,6 @@ function! EditorBehaviour()
     set undolevels=1000
     set showmatch
     set ignorecase
-    filetype plugin indent on
     set autoindent
     set copyindent
     set shiftround
@@ -34,7 +34,13 @@ function! EditorBehaviour()
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
     " reload vimrc after update 
-    au BufWritePost .vimrc so ~/.vimrc
+    autocmd BufWritePost .vimrc so ~/.vimrc
+
+    " recognize markdown files
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+    " plain text mode
+    autocmd FileType text,markdown call PlainText()
 
     " reselect block after indentation
     vnoremap < <gv
@@ -49,7 +55,7 @@ function! DefaultCodingStyle()
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
 
     " highlight red when code is over 80 columns
-    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    highlight OverLength ctermbg=red 
     match OverLength /\%81v.\+/
 endfunction
 
@@ -62,6 +68,13 @@ function! CommandModeKeyMappings()
     nnoremap <F3> :NERDTreeToggle<CR><CR>
     map <F12> :!dot % -Tps -o %:r.ps<CR>
     map <S-x> :wq<CR>
+endfunction
+
+function! NavImproved()
+    nnoremap j gj
+    nnoremap k gk
+    vnoremap j gj
+    vnoremap k gk
 endfunction
 
 function! VimTabsKeyMappings()
@@ -102,6 +115,14 @@ function! GVimSpecific()
     set guioptions-=l
     set go-=L
     set guioptions-=b
+endfunction
+
+function! PlainText()
+    set wrap
+    set linebreak
+    set nolist
+    set textwidth=0
+    set columns=80
 endfunction
 
 function! Vundle()
@@ -174,6 +195,8 @@ endfunction
 call EditorAppearance()
 call EditorBehaviour()
 call CommandModeKeyMappings()
+call DefaultCodingStyle()
+call NavImproved()
 call VimTabsKeyMappings()
 call VimSplitsKeyMappings()
 call HeaderSwitchMappings()
