@@ -50,6 +50,8 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/Dropbox/proj/scripts
 export PATH=/usr/local/share/python:$PATH
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+export PATH=$HOME/bin:$PATH
+
 
 # SHELL SETTINGS
 export HISTSIZE=1000000
