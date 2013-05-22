@@ -28,6 +28,7 @@ function! EditorBehaviour()
     set smarttab
     set hlsearch
     set incsearch
+    set mouse=a  " enable mouse
 
     " remove trailing whitespace automatically
     autocmd FileType c,cpp,java,php,python
@@ -118,11 +119,7 @@ function! GVimSpecific()
 endfunction
 
 function! PlainText()
-    set wrap
-    set linebreak
-    set nolist
-    set textwidth=0
-    set columns=80
+    set nonumber
 endfunction
 
 function! Vundle()
@@ -144,7 +141,6 @@ function! Vundle()
     Bundle  'terryma/vim-multiple-cursors.git'
     Bundle  'skammer/vim-css-color.git'
     Bundle  'Lokaltog/vim-powerline.git'
-    Bundle  'Valloric/YouCompleteMe'
 endfunction
 
 function! SyntasticOptions()
