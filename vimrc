@@ -145,7 +145,6 @@ endfunction
 
 function! SyntasticOptions()
     " c specific settings
-    let g:syntastic_c_checker="ycm"
     let g:syntastic_enable_highlighting=1
     let g:syntastic_check_on_open=1
     let g:syntastic_enable_signs=1
