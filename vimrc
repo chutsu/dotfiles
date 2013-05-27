@@ -133,7 +133,6 @@ function! Vundle()
     Bundle  'tpope/vim-markdown.git'
     Bundle  'tomtom/tcomment_vim.git'
     Bundle  'scrooloose/nerdtree.git'
-    Bundle  'suan/vim-instant-markdown.git'
     Bundle  'seebi/dircolors-solarized.git'
     Bundle  'derekwyatt/vim-fswitch.git'
     Bundle  'scrooloose/syntastic.git'
