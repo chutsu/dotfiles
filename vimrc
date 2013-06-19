@@ -34,7 +34,7 @@ function! EditorBehaviour()
     autocmd FileType c,cpp,java,php,python
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-    " reload vimrc after update 
+    " reload vimrc after update
     autocmd BufWritePost .vimrc so ~/.vimrc
 
     " recognize markdown files
@@ -46,6 +46,15 @@ function! EditorBehaviour()
     " reselect block after indentation
     vnoremap < <gv
     vnoremap > >gv
+
+    " restore cursor's last position in file
+    autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+
+    " highlight non-ascii characters
+    set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 endfunction
 
 function! DefaultCodingStyle()
@@ -56,7 +65,7 @@ function! DefaultCodingStyle()
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
 
     " highlight red when code is over 80 columns
-    highlight OverLength ctermbg=red 
+    highlight OverLength ctermbg=red
     match OverLength /\%81v.\+/
 endfunction
 
@@ -179,7 +188,7 @@ function! NerdTree()
             \ && b:NERDTreeType == "primary")
             \ | q |
     \ endif
-endfunction 
+endfunction
 
 
 
