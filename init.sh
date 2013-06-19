@@ -25,7 +25,7 @@ ln -fs $PWD/inputrc $HOME/.inputrc
 echo "Install vim plugins"
 git submodule init
 git submodule add git://github.com/tpope/vim-fugitive.git vim/bundle/vim-fugitive
-git submodule add git://github.com/tomtom/tlib_vim.git vim/bundle/tlib_vim
+git submodule add -f git://github.com/tomtom/tlib_vim.git vim/bundle/tlib_vim
 git submodule add git://github.com/MarcWeber/vim-addon-mw-utils.git vim/bundle/vim-addon-mw-utils
 git submodule add git://github.com/tpope/vim-surround.git vim/bundle/vim-surround
 git submodule add git://github.com/tpope/vim-markdown.git vim/bundle/vim-markdown
