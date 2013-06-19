@@ -131,24 +131,8 @@ function! PlainText()
     set nonumber
 endfunction
 
-function! Vundle()
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-
-    Bundle  'tpope/vim-fugitive.git'
-    Bundle  'tomtom/tlib_vim.git'
-    Bundle  'MarcWeber/vim-addon-mw-utils.git'
-    Bundle  'tpope/vim-surround.git'
-    Bundle  'tpope/vim-markdown.git'
-    Bundle  'tomtom/tcomment_vim.git'
-    Bundle  'scrooloose/nerdtree.git'
-    Bundle  'seebi/dircolors-solarized.git'
-    Bundle  'derekwyatt/vim-fswitch.git'
-    Bundle  'scrooloose/syntastic.git'
-    Bundle  'bronson/vim-trailing-whitespace.git'
-    Bundle  'terryma/vim-multiple-cursors.git'
-    Bundle  'skammer/vim-css-color.git'
-    Bundle  'Lokaltog/vim-powerline.git'
+function! Pathogen()
+    execute pathogen#infect()
 endfunction
 
 function! SyntasticOptions()
@@ -190,11 +174,14 @@ function! NerdTree()
     \ endif
 endfunction
 
+function! NeoComplCache()
+endfunction
 
 
 
 
 " MAIN
+call Pathogen()
 call EditorAppearance()
 call EditorBehaviour()
 call CommandModeKeyMappings()
@@ -207,7 +194,7 @@ call EscapeCommonOperationTypos()
 call GVimSpecific()
 
 " PLUGIN SETTINGS
-call Vundle()
 call Powerline()
 call SyntasticOptions()
 call NerdTree()
+call NeoComplCache()
