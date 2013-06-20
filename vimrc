@@ -128,7 +128,8 @@ function! GVimSpecific()
 endfunction
 
 function! PlainText()
-    set nonumber
+    " hard wrap text according to text width, automatically
+    " set formatoptions=a
 endfunction
 
 function! Pathogen()
