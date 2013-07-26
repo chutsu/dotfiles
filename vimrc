@@ -102,14 +102,13 @@ function! VimSplitsKeyMappings()
 endfunction
 
 function! HeaderSwitchMappings()
-    nnoremap <F7> :FSLeft<CR>
-    nnoremap <F8> :FSHere<CR>
-    nnoremap <F9> :FSRight<CR>
+    nnoremap <F7> :vsplit<CR>:FSLeft<CR>
+    nnoremap <F8> :vsplit<CR>:FSHere<CR>
+    nnoremap <F9> :vsplit<CR>:FSRight<CR>
     nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
 endfunction
 
 function! EscapeCommonOperationTypos()
-    cmap W w
     cmap Wq wq
     cmap WQ wq
     map <C-n> <TAB>
@@ -175,7 +174,9 @@ function! NerdTree()
     \ endif
 endfunction
 
-function! NeoComplCache()
+function! YouCompleteMe()
+    " force blocking compilation cycle
+    nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 endfunction
 
 
@@ -198,4 +199,4 @@ call GVimSpecific()
 call Powerline()
 call SyntasticOptions()
 call NerdTree()
-call NeoComplCache()
+call YouCompleteMe()
