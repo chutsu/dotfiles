@@ -43,3 +43,6 @@
 [submodule "vim/bundle/you_complete_me"]
 	path = vim/bundle/you_complete_me
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "vim/bundle/vim-golang"]
+	path = vim/bundle/vim-golang
+	url = https://github.com/jnwhiteh/vim-golang

@@ -23,6 +23,10 @@ alias toys="cd $PROJECTS/toys"
 alias scripts="cd $SCRIPTS"
 alias work="cd $DROPBOX/work"
 alias domino="cd $PROJECTS/websites/domino"
+alias chutsu="cd $PROJECTS/websites/chutsu.github.com"
+alias notes="cd $PROJECTS/membank/notes"
+alias papers="cd $PROJECTS/membank/papers"
+alias docs="cd $PROJECTS/membank/docs"
 
 # EXECUTIONAL SHORTCUTS
 if [ $OS == LINUX ]; then
@@ -51,6 +55,8 @@ export PATH=$PATH:$HOME/Dropbox/proj/scripts
 export PATH=/usr/local/share/python:$PATH
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 export PATH=$HOME/bin:$PATH
+export VISUAL=vim
+export EDITOR=vim
 
 
 # SHELL SETTINGS
