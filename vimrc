@@ -30,7 +30,7 @@ function! EditorBehaviour()
     set incsearch
     set mouse=a  " enable mouse
 
-    " remove trailing whitespace automatically
+    " remove trailing whitespace automatically when saving
     autocmd FileType c,cpp,java,php,python
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
@@ -55,6 +55,11 @@ function! EditorBehaviour()
 
     " highlight non-ascii characters
     set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
+
+    " softwrap lines
+    command! -range=% SoftWrap
+                \ <line2>put _ |
+                \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
 endfunction
 
 function! DefaultCodingStyle()
@@ -65,8 +70,10 @@ function! DefaultCodingStyle()
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
 
     " highlight red when code is over 80 columns
-    highlight OverLength ctermbg=red
-    match OverLength /\%81v.\+/
+    augroup vimrc_autocmds
+        autocmd BufEnter * highlight OverLength ctermbg=darkgrey 
+        autocmd BufEnter * match OverLength /\%80v.*/
+    augroup END
 endfunction
 
 function! CommandModeKeyMappings()
@@ -127,8 +134,16 @@ function! GVimSpecific()
 endfunction
 
 function! PlainText()
-    " hard wrap text according to text width, automatically
-    " set formatoptions=a
+    " do not highlight extra whitespace
+    autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
+
+    " hardwrap ignore lines starting with variable "-", "=" or "#"
+    set comments+=n:--,n:==,n:#
+
+    augroup PROSE
+        autocmd InsertEnter * set formatoptions+=a
+        autocmd InsertLeave * set formatoptions-=a
+    augroup END
 endfunction
 
 function! Pathogen()
@@ -143,6 +158,7 @@ function! SyntasticOptions()
     let g:syntastic_c_include_dirs=[
             \ 'include',
             \ '../include',
+            \ '../*/include',
             \ '/usr/include',
             \ '/usr/local/include'
     \ ]
