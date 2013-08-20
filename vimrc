@@ -137,8 +137,8 @@ function! PlainText()
     " do not highlight extra whitespace
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
 
-    " hardwrap ignore lines starting with variable "-", "=" or "#"
-    set comments+=n:--,n:==,n:#
+    " hardwrap ignore lines starting with variable "-", "=", "#", "\"
+    set comments+=n:--,n:==,n:#,n:\
 
     augroup PROSE
         autocmd InsertEnter * set formatoptions+=a
