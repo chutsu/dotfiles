@@ -22,8 +22,13 @@ alias p="cd $PROJECTS";
 alias toys="cd $PROJECTS/toys"
 alias scripts="cd $SCRIPTS"
 alias work="cd $DROPBOX/work"
+
+alias websites="cd $PROJECTS/websites/"
 alias domino="cd $PROJECTS/websites/domino"
+alias chambers="cd $PROJECTS/websites/chambers"
 alias chutsu="cd $PROJECTS/websites/chutsu.github.com"
+
+alias membank="cd $PROJECTS/membank/"
 alias notes="cd $PROJECTS/membank/notes"
 alias papers="cd $PROJECTS/membank/papers"
 alias docs="cd $PROJECTS/membank/docs"
