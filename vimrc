@@ -197,7 +197,6 @@ endfunction
 
 
 
-
 " MAIN
 call Pathogen()
 call EditorAppearance()

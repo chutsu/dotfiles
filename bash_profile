@@ -25,7 +25,7 @@ alias work="cd $DROPBOX/work"
 
 alias websites="cd $PROJECTS/websites/"
 alias domino="cd $PROJECTS/websites/domino"
-alias chambers="cd $PROJECTS/websites/chambers"
+alias chamber="cd $PROJECTS/websites/chamber"
 alias chutsu="cd $PROJECTS/websites/chutsu.github.com"
 
 alias membank="cd $PROJECTS/membank/"
