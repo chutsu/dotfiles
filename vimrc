@@ -42,6 +42,7 @@ function! EditorBehaviour()
 
     " plain text mode
     autocmd FileType text,markdown call PlainText()
+    autocmd BufNewFile,BufRead *.tex call PlainText()
 
     " reselect block after indentation
     vnoremap < <gv
@@ -110,7 +111,7 @@ endfunction
 
 function! HeaderSwitchMappings()
     nnoremap <F7> :vsplit<CR>:FSLeft<CR>
-    nnoremap <F8> :vsplit<CR>:FSHere<CR>
+    nnoremap <F8> :FSHere<CR>
     nnoremap <F9> :vsplit<CR>:FSRight<CR>
     nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
 endfunction
@@ -140,11 +141,14 @@ function! PlainText()
     " hardwrap ignore lines starting with variable "-", "=", "#", "\"
     set comments+=n:--,n:==,n:#,n:\
 
-    augroup PROSE
-        autocmd InsertEnter * set formatoptions+=a
-        autocmd InsertLeave * set formatoptions-=a
-    augroup END
+    " augroup PROSE
+    "     autocmd InsertEnter * set formatoptions+=a
+    "     autocmd InsertLeave * set formatoptions-=a
+    " augroup END
+    nnoremap <F11> :set formatoptions+=a<CR>
+    nnoremap <F2> :set formatoptions-=a<CR>
 endfunction
+
 
 function! Pathogen()
     execute pathogen#infect()
