@@ -61,6 +61,7 @@ function! EditorBehaviour()
     command! -range=% SoftWrap
                 \ <line2>put _ |
                 \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
+
 endfunction
 
 function! DefaultCodingStyle()
@@ -141,14 +142,10 @@ function! PlainText()
     " hardwrap ignore lines starting with variable "-", "=", "#", "\"
     set comments+=n:--,n:==,n:#,n:\
 
-    " augroup PROSE
-    "     autocmd InsertEnter * set formatoptions+=a
-    "     autocmd InsertLeave * set formatoptions-=a
-    " augroup END
-    nnoremap <F11> :set formatoptions+=a<CR>
+    " hardwrap shortcut keys
+    nnoremap <F1> :set formatoptions+=a<CR>
     nnoremap <F2> :set formatoptions-=a<CR>
 endfunction
-
 
 function! Pathogen()
     execute pathogen#infect()
