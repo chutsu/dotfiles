@@ -181,6 +181,7 @@ endfunction
 
 function! NerdTree()
     let g:NERDTreeWinSize=30 " set NerdTree size
+    let g:NERDTreeWinPos='left'
 
     " if NerdTree is last thing open in vim, close vim completely
     autocmd bufenter * if (
@@ -192,8 +193,13 @@ function! NerdTree()
 endfunction
 
 function! YouCompleteMe()
-    " force blocking compilation cycle
     nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+endfunction
+
+function! Taglist()
+    let g:Tlist_WinWidth=50
+    let g:Tlist_Use_Right_Window=1
+    nnoremap <silent> <F6> :TlistToggle<CR>
 endfunction
 
 
@@ -214,5 +220,6 @@ call GVimSpecific()
 " PLUGIN SETTINGS
 call Powerline()
 call SyntasticOptions()
-call NerdTree()
 call YouCompleteMe()
+call NerdTree()
+call Taglist()
