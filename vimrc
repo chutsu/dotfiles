@@ -70,6 +70,7 @@ function! DefaultCodingStyle()
     set softtabstop=4
     set expandtab " expand tabs as spaces
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
+    autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
     " highlight red when code is over 80 columns
     augroup vimrc_autocmds

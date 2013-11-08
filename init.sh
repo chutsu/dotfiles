@@ -21,8 +21,12 @@ ln -fs $PWD/vimrc $HOME/.vimrc
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/inputrc $HOME/.inputrc
+ln -fs $PWD/xmonad $HOME/.xmonad
+ln -fs $PWD/xmobarrc $HOME/.xmobarrc
 
 echo "Update Fonts cache!"
+rm -rf $HOME/.fonts
+rm -f $HOME/.fonts.conf
 ln -fs $PWD/fonts   $HOME/.fonts
 ln -fs $PWD/fonts.conf   $HOME/.fonts.conf
 sudo fc-cache -fv

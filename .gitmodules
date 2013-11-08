@@ -49,3 +49,6 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/bundle/you_complete_me"]
+	path = vim/bundle/you_complete_me
+	url = https://github.com/Valloric/YouCompleteMe.git

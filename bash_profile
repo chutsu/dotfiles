@@ -1,5 +1,11 @@
 #!/bin/bash
 export TERM=xterm
+
+# START TMUX ON BASH STARTUP
+if which tmux 2>&1 >/dev/null; then
+    [[ -z "$TMUX" ]] && exec tmux -2
+fi
+
 # WHICH OS?
 case $( uname -s ) in
 Linux)
@@ -43,8 +49,9 @@ alias al="cd $PROJECTS/toys/al/"
 alias munit="cd $PROJECTS/toys/munit"
 alias dbg="cd $PROJECTS/toys/dbg"
 alias dstruct="cd $PROJECTS/toys/dstruct"
-alias eyes="cd $PROJECTS/toys/eyes/"
-alias bowtie="cd $PROJECTS/toys/bowtie/"
+alias eyes="cd $PROJECTS/toys/eyes"
+alias bowtie="cd $PROJECTS/toys/bowtie"
+alias playground="cd $PROJECTS/toys/playground"
 
 
 # EXECUTIONAL SHORTCUTS
