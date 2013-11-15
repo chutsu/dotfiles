@@ -1,5 +1,5 @@
 #/bin/sh
-# workout what OS shell is running on
+# DETERMINE OS
 case $( uname -s ) in
 Linux)
     OS="LINUX"
@@ -9,12 +9,14 @@ Darwin)
     ;;
 esac
 
+# REMOVE OLD DOTFILES
 echo "Removed old dotfiles"
 rm -rf $HOME/.vim
 rm -f $HOME/.vimrc
 rm -f $HOME/.bash_profile
 rm -f $HOME/.tmux.conf
 
+# SYMLINKS
 echo "Created symlinks for the dotfiles"
 ln -fs $PWD/vim $HOME/.vim
 ln -fs $PWD/vimrc $HOME/.vimrc
@@ -24,12 +26,15 @@ ln -fs $PWD/inputrc $HOME/.inputrc
 ln -fs $PWD/xmonad $HOME/.xmonad
 ln -fs $PWD/xmobarrc $HOME/.xmobarrc
 
-echo "Update Fonts cache!"
-rm -rf $HOME/.fonts
-rm -f $HOME/.fonts.conf
-ln -fs $PWD/fonts   $HOME/.fonts
-ln -fs $PWD/fonts.conf   $HOME/.fonts.conf
-sudo fc-cache -fv
+# FONTS
+if [ $OS == "LINUX" ]; then
+    echo "Update Fonts cache!"
+    rm -rf $HOME/.fonts
+    rm -f $HOME/.fonts.conf
+    ln -fs $PWD/fonts   $HOME/.fonts
+    ln -fs $PWD/fonts.conf   $HOME/.fonts.conf
+    sudo fc-cache -fv
+fi
 
 
 

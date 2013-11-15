@@ -66,13 +66,6 @@ function! EditorBehaviour()
     " scroll to top when jusing jump-to in ctags
     nnoremap <C-]> <C-]>zt
     nnoremap <C-t> <C-t>zt
-
-    " confirm quit
-    if exists("g:confirm_quit") || &cp
-        finish
-    endif
-    let g:confirm_quit = 1
-
 endfunction
 
 function! DefaultCodingStyle()
@@ -171,7 +164,11 @@ function! SyntasticOptions()
     let g:syntastic_c_include_dirs=[
             \ 'include',
             \ '../include',
-            \ '../*/include',
+            \ '../dbg/include',
+            \ '../munit/include',
+            \ '../al/include',
+            \ '../dstruct/include',
+            \ '../evolve/include',
             \ '/usr/include',
             \ '/usr/local/include'
     \ ]

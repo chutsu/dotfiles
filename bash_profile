@@ -74,6 +74,9 @@ alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
 alias pg_restart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log restart"
 
+if [ $OS == MAC ]; then
+    alias cmake="cmake -DCMAKE_USER_MAKE_RULES_OVERRIDE=~/.cmake/cmake_rules.txt";
+fi
 
 # ENVIRONMENTAL SETTINGS
 export PATH=/usr/local/bin:/usr/texbin:$PATH
@@ -86,6 +89,16 @@ export EDITOR=vim
 export LD_LIBRARY_PATH=/home/chutsu/Downloads/V-REP_PRO_EDU_V3_0_4_64_Linux:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/OGRE/:$LD_LIBRARY_PATH
+
+if [ $OS == MAC ]; then
+    # export CLANG_PATH="/Users/chutsu/third_party/llvm-build/Release+Asserts";
+    export CLANG_PATH="/Users/chutsu/tools/llvm/build/Release+Asserts";
+    export CC=$CLANG_PATH"/bin/clang";
+    export CXX=$CLANG_PATH"/bin/clang++";
+    export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/lib/;
+    # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/clang/3.4/lib/darwin/;
+    export PATH=$PATH:$HOME/tools/checker-275
+fi
 
 
 # SHELL SETTINGS
