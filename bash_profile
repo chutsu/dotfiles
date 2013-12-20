@@ -70,12 +70,13 @@ alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias cc218="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
 alias bobbu="ssh -X chris@bobbu.cs.st-andrews.ac.uk"
 
-alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pg_stop="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop"
-alias pg_restart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log restart"
+alias pg_start="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log start"
+alias pg_stop="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log stop"
+alias pg_restart="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log restart"
 
 if [ $OS == MAC ]; then
     alias cmake="cmake -DCMAKE_USER_MAKE_RULES_OVERRIDE=~/.cmake/cmake_rules.txt";
+    alias valgrind="valgrind --suppressions=/Users/chutsu/tools/custom.supp --error-exitcode=2 ";
 fi
 
 # ENVIRONMENTAL SETTINGS
@@ -95,7 +96,7 @@ if [ $OS == MAC ]; then
     export CLANG_PATH="/Users/chutsu/tools/llvm/build/Release+Asserts";
     export CC=$CLANG_PATH"/bin/clang";
     export CXX=$CLANG_PATH"/bin/clang++";
-    export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/lib/;
+    # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/lib/;
     # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/clang/3.4/lib/darwin/;
     export PATH=$PATH:$HOME/tools/checker-275
 fi

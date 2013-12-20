@@ -66,6 +66,7 @@ function! EditorBehaviour()
     " scroll to top when jusing jump-to in ctags
     nnoremap <C-]> <C-]>zt
     nnoremap <C-t> <C-t>zt
+
 endfunction
 
 function! DefaultCodingStyle()
@@ -86,12 +87,16 @@ endfunction
 function! CommandModeKeyMappings()
     map <C-h> <C-w>h
     map <C-l> <C-w>l
-    nmap <silent> ,/ :nohlsearch<CR>
-    cmap w!! w !sudo tee % >/dev/null
-    set pastetoggle=<F10>
-    nnoremap <F3> :NERDTreeToggle<CR><CR>
-    map <F12> :!dot % -Tps -o %:r.ps<CR>
     map <S-x> :wq<CR>
+    cmap w!! w !sudo tee % >/dev/null
+    nmap <silent> ,/ :nohlsearch<CR>
+
+    nnoremap <F3> :NERDTreeToggle<CR><CR>
+    set pastetoggle=<F10>
+    map <F12> :!dot % -Tps -o %:r.ps<CR>
+
+    " run script file
+    map <S-r> :!clear && sh run.sh<CR>
 endfunction
 
 function! NavImproved()
@@ -175,6 +180,7 @@ function! SyntasticOptions()
 
     " python specific settings
     let g:syntastic_python_checkers=['flake8']
+    " let g:syntastic_ignore_files = ['\.py$']
 
     " warning and error symbols
     let g:syntastic_warning_symbol='W'
@@ -211,6 +217,11 @@ function! Taglist()
     nnoremap <silent> <F6> :TlistToggle<CR>
 endfunction
 
+function! PythonMode()
+    let g:pymode_lint = 1
+    let g:pymode_folding = 0
+endfunction
+
 
 
 " MAIN
@@ -232,3 +243,4 @@ call SyntasticOptions()
 call YouCompleteMe()
 call NerdTree()
 call Taglist()
+call PythonMode()
