@@ -212,4 +212,11 @@ if &t_Co > 255
    hi LineNr          ctermfg=245 ctermbg=234
    hi NonText         ctermfg=236
    hi SpecialKey      ctermfg=59
+
+    if has("spell")
+        hi SpellBad    ctermfg=201 ctermbg=none cterm=underline
+        hi SpellCap    ctermfg=201 ctermbg=none cterm=underline
+        hi SpellLocal    ctermfg=201 ctermbg=none cterm=underline
+        hi SpellRare    ctermfg=201 ctermbg=none cterm=underline
+    endif
 end

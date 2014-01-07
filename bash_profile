@@ -56,11 +56,11 @@ alias playground="cd $PROJECTS/toys/playground"
 
 # EXECUTIONAL SHORTCUTS
 if [ $OS == LINUX ]; then
-    alias ls="ls -lh --color"
-    alias la="ls -lha --color"
+    alias ls='ls -lh --color'
+    alias la='ls -lha --color'
 elif [ $OS == MAC ]; then
-    alias ls="ls -lh"
-    alias la="ls -lha"
+    alias ls='ls -lh'
+    alias la='ls -lha'
 fi
 alias c="cd "
 

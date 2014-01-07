@@ -32,7 +32,7 @@ function! EditorBehaviour()
     set scrolloff=10  " top/bottom padding when scrolling
 
     " remove trailing whitespace automatically when saving
-    autocmd FileType c,cpp,java,php,python
+    autocmd FileType c,cpp,java,php,python,javascript
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
     " reload vimrc after update
@@ -76,6 +76,7 @@ function! DefaultCodingStyle()
     set expandtab " expand tabs as spaces
     autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
     autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
     " highlight red when code is over 80 columns
     augroup vimrc_autocmds
@@ -146,6 +147,10 @@ function! GVimSpecific()
 endfunction
 
 function! PlainText()
+    " spell checker
+    set spell
+    set spelllang=en_gb
+
     " do not highlight extra whitespace
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
 
@@ -220,6 +225,9 @@ endfunction
 function! PythonMode()
     let g:pymode_lint = 1
     let g:pymode_folding = 0
+    let g:pymode_doc = 0
+    let g:pymode_lint_on_fly = 0
+    let g:pymode_rope_completion = 0
 endfunction
 
 
