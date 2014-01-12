@@ -38,8 +38,10 @@ function! EditorBehaviour()
     " reload vimrc after update
     autocmd BufWritePost .vimrc so ~/.vimrc
 
-    " recognize markdown files
+    " recognize files
     autocmd BufRead,BufNewFile *.md set filetype=markdown
+    autocmd BufRead,BufNewFile *.pde set filetype=arduino
+    autocmd BufRead,BufNewFile *.ino set filetype=arduino
 
     " plain text mode
     autocmd FileType text,markdown call PlainText()
@@ -97,7 +99,7 @@ function! CommandModeKeyMappings()
     map <F12> :!dot % -Tps -o %:r.ps<CR>
 
     " run script file
-    map <S-r> :!clear && sh run.sh<CR>
+    map <S-r> :!clear && bash run.sh<CR>
 endfunction
 
 function! NavImproved()
