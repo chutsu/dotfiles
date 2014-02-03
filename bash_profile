@@ -75,8 +75,11 @@ alias pg_stop="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.
 alias pg_restart="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log restart"
 
 if [ $OS == MAC ]; then
-    alias cmake="cmake -DCMAKE_USER_MAKE_RULES_OVERRIDE=~/.cmake/cmake_rules.txt";
-    alias valgrind="valgrind --suppressions=/Users/chutsu/tools/custom.supp --error-exitcode=2 ";
+    # alias cmake="cmake -DCMAKE_USER_MAKE_RULES_OVERRIDE=~/.cmake/cmake_rules.txt";
+    alias cmake="cmake"
+    # alias valgrind="valgrind --suppressions=/Users/chutsu/tools/custom.supp --error-exitcode=2 ";
+    export PATH=$PATH:/usr/local/CrossPack-AVR/bin/
+    # export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages/
 fi
 
 # ENVIRONMENTAL SETTINGS
@@ -88,22 +91,22 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 export VISUAL=vim
 export EDITOR=vim
-export LD_LIBRARY_PATH=/home/chutsu/Downloads/V-REP_PRO_EDU_V3_0_4_64_Linux:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib/OGRE/:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=/home/chutsu/Downloads/V-REP_PRO_EDU_V3_0_4_64_Linux:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=/usr/lib/OGRE/:$LD_LIBRARY_PATH
 
-if [ $OS == MAC ]; then
-    export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
-    export PATH=/usr/X11/bin:$PATH
+# if [ $OS == MAC ]; then
+    # export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+    # export PATH=/usr/X11/bin:$PATH
 
     # export CLANG_PATH="/Users/chutsu/third_party/llvm-build/Release+Asserts";
-    export CLANG_PATH="/Users/chutsu/tools/llvm/build/Release+Asserts";
-    export CC=$CLANG_PATH"/bin/clang";
-    export CXX=$CLANG_PATH"/bin/clang++";
+    # export CLANG_PATH="/Users/chutsu/tools/llvm/build/Release+Asserts";
+    # export CC=$CLANG_PATH"/bin/clang";
+    # export CXX=$CLANG_PATH"/bin/clang++";
     # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/lib/;
     # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/clang/3.4/lib/darwin/;
     # export PATH=$PATH:$HOME/tools/checker-275
-fi
+# fi
 
 
 # SHELL SETTINGS
@@ -117,17 +120,3 @@ if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
 fi
 
 export PS1="[\w] > "
-
-
-
-# GAZEBO
-gazebo_version=1.9
-export GAZEBO_MASTER_URI=http://localhost:11345
-export GAZEBO_MODEL_DATABASE_URI=http://gazebosim.org/models
-export GAZEBO_RESOURCE_PATH=/usr/local/share/gazebo-${gazebo_version}
-export GAZEBO_PLUGIN_PATH=/usr/local/lib/gazebo-${gazebo_version}/plugins
-export LD_LIBRARY_PATH=/usr/local/lib/gazebo-${gazebo_version}/plugins:${LD_LIBRARY_PATH}
-export OGRE_RESOURCE_PATH=/usr/lib/OGRE
-
-# cpu off
-

@@ -76,7 +76,7 @@ function! DefaultCodingStyle()
     set shiftwidth=4
     set softtabstop=4
     set expandtab " expand tabs as spaces
-    autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
+    autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
@@ -170,6 +170,7 @@ endfunction
 
 function! SyntasticOptions()
     " c specific settings
+    let g:syntastic_c_config_file = '.syntastic_config'
     let g:syntastic_enable_highlighting=1
     let g:syntastic_check_on_open=1
     let g:syntastic_enable_signs=1
@@ -182,7 +183,8 @@ function! SyntasticOptions()
             \ '../dstruct/include',
             \ '../evolve/include',
             \ '/usr/include',
-            \ '/usr/local/include'
+            \ '/usr/local/include',
+            \ '/usr/local/CrossPack-AVR/avr/include'
     \ ]
 
     " python specific settings
