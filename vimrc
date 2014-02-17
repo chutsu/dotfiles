@@ -175,16 +175,20 @@ function! SyntasticOptions()
     let g:syntastic_check_on_open=1
     let g:syntastic_enable_signs=1
     let g:syntastic_c_include_dirs=[
-            \ 'include',
-            \ '../include',
-            \ '../dbg/include',
-            \ '../munit/include',
-            \ '../al/include',
-            \ '../dstruct/include',
-            \ '../evolve/include',
-            \ '/usr/include',
-            \ '/usr/local/include',
-            \ '/usr/local/CrossPack-AVR/avr/include'
+        \ 'include',
+        \ '../include',
+        \ '../dbg/include',
+        \ '../munit/include',
+        \ '../al/include',
+        \ '../dstruct/include',
+        \ '../evolve/include',
+        \ '/usr/include',
+        \ '/usr/local/include',
+        \ '/usr/local/CrossPack-AVR/avr/include'
+    \ ]
+
+    let g:syntastic_cpp_include_dirs=[
+        \ 'src'
     \ ]
 
     " python specific settings

@@ -79,7 +79,6 @@ if [ $OS == MAC ]; then
     alias cmake="cmake"
     # alias valgrind="valgrind --suppressions=/Users/chutsu/tools/custom.supp --error-exitcode=2 ";
     export PATH=$PATH:/usr/local/CrossPack-AVR/bin/
-    # export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages/
 fi
 
 # ENVIRONMENTAL SETTINGS
