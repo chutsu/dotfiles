@@ -238,6 +238,37 @@ function! PythonMode()
     let g:pymode_rope_completion = 0
 endfunction
 
+function! NeoComplCache()
+    " enable neocomplcache
+    let g:neocomplcache_enable_at_startup = 1
+
+    " enable tab complete
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+    " enable smartcase
+    let g:neocomplcache_enable_smart_case = 1
+
+
+    let g:neocomplcache_dictionary_filetype_lists = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+    " enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+    " enable heavy omni completion.
+    if !exists('g:neocomplcache_omni_patterns')
+          let g:neocomplcache_omni_patterns = {}
+    endif
+
+endfunction
+
 
 
 " MAIN
@@ -260,3 +291,4 @@ call YouCompleteMe()
 call NerdTree()
 call Taglist()
 call PythonMode()
+call NeoComplCache()
