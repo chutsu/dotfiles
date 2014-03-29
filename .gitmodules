@@ -58,9 +58,6 @@
 [submodule "vim/bundle/SWTC"]
 	path = vim/bundle/SWTC
 	url = https://github.com/shinokada/SWTC.vim.git
-[submodule "vim/bundle/neocomplete"]
-	path = vim/bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "vim/bundle/multiple-cursors"]
 	path = vim/bundle/multiple-cursors
 	url = https://github.com/kris89/vim-multiple-cursors
