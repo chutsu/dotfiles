@@ -195,6 +195,9 @@ function! SyntasticOptions()
     let g:syntastic_python_checkers=['flake8']
     " let g:syntastic_ignore_files = ['\.py$']
 
+    " javascript specific settings
+    let g:syntastic_javascript_checkers = ['jshint']
+
     " warning and error symbols
     let g:syntastic_warning_symbol='W'
     let g:syntastic_error_symbol='E'
