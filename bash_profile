@@ -1,4 +1,7 @@
 #!/bin/bash
+export TERM=screen-256color
+source ~/.fzf.bash
+
 
 # WHICH OS?
 case $( uname -s ) in
@@ -15,13 +18,10 @@ if [ $OS == LINUX ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -z "$SSH_C
     [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx
 fi
 
-export TERM=xterm
-
 # START TMUX ON BASH STARTUP
 if which tmux 2>&1 >/dev/null; then
     [[ -z "$TMUX" ]] && exec tmux -2
 fi
-
 
 
 # DIR PATHS
@@ -71,22 +71,16 @@ elif [ $OS == MAC ]; then
     alias ls='ls -lh'
     alias la='ls -lha'
 fi
-alias c="cd "
 
-alias v="vim";
 alias vimrc="vim $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias cc218="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
-alias bobbu="ssh -X chris@bobbu.cs.st-andrews.ac.uk"
 
 alias pg_start="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log stop"
 alias pg_restart="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log restart"
 
 if [ $OS == MAC ]; then
-    # alias cmake="cmake -DCMAKE_USER_MAKE_RULES_OVERRIDE=~/.cmake/cmake_rules.txt";
-    alias cmake="cmake"
-    # alias valgrind="valgrind --suppressions=/Users/chutsu/tools/custom.supp --error-exitcode=2 ";
     export PATH=$PATH:/usr/local/CrossPack-AVR/bin/
 fi
 
@@ -99,22 +93,9 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 export VISUAL=vim
 export EDITOR=vim
-# export LD_LIBRARY_PATH=/home/chutsu/Downloads/V-REP_PRO_EDU_V3_0_4_64_Linux:$LD_LIBRARY_PATH
-# export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
-# export LD_LIBRARY_PATH=/usr/lib/OGRE/:$LD_LIBRARY_PATH
 
 if [ $OS == MAC ]; then
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
-    # export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
-    # export PATH=/usr/X11/bin:$PATH
-
-    # export CLANG_PATH="/Users/chutsu/third_party/llvm-build/Release+Asserts";
-    # export CLANG_PATH="/Users/chutsu/tools/llvm/build/Release+Asserts";
-    # export CC=$CLANG_PATH"/bin/clang";
-    # export CXX=$CLANG_PATH"/bin/clang++";
-    # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/lib/;
-    # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/clang/3.4/lib/darwin/;
-    # export PATH=$PATH:$HOME/tools/checker-275
 fi
 
 
@@ -123,7 +104,6 @@ export HISTSIZE=1000000
 export HISTFILESIZE=1000000000
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-# eval `dircolors $HOME/Dropbox/dotfiles/shell_bundle/solarized/dircolors.256dark`
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
