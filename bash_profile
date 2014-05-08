@@ -1,10 +1,4 @@
 #!/bin/bash
-export TERM=xterm
-
-# START TMUX ON BASH STARTUP
-if which tmux 2>&1 >/dev/null; then
-    [[ -z "$TMUX" ]] && exec tmux -2
-fi
 
 # WHICH OS?
 case $( uname -s ) in
@@ -15,6 +9,20 @@ Darwin)
     OS="MAC"
     ;;
 esac
+
+# STARTX
+if [ $OS == LINUX ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -z "$SSH_CONNECTION" ]; then
+    [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx
+fi
+
+export TERM=xterm
+
+# START TMUX ON BASH STARTUP
+if which tmux 2>&1 >/dev/null; then
+    [[ -z "$TMUX" ]] && exec tmux -2
+fi
+
+
 
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
@@ -52,6 +60,7 @@ alias dstruct="cd $PROJECTS/toys/dstruct"
 alias eyes="cd $PROJECTS/toys/eyes"
 alias bowtie="cd $PROJECTS/toys/bowtie"
 alias playground="cd $PROJECTS/toys/playground"
+alias qfly="cd $PROJECTS/toys/qfly"
 
 
 # EXECUTIONAL SHORTCUTS
@@ -94,7 +103,8 @@ export EDITOR=vim
 # export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
 # export LD_LIBRARY_PATH=/usr/lib/OGRE/:$LD_LIBRARY_PATH
 
-# if [ $OS == MAC ]; then
+if [ $OS == MAC ]; then
+    export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
     # export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
     # export PATH=/usr/X11/bin:$PATH
 
@@ -105,7 +115,7 @@ export EDITOR=vim
     # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/lib/;
     # export DYLD_FALLBACK_LIBRARY_PATH=$CLANG_PATH/clang/3.4/lib/darwin/;
     # export PATH=$PATH:$HOME/tools/checker-275
-# fi
+fi
 
 
 # SHELL SETTINGS

@@ -22,7 +22,7 @@ color hdrdefault    color45    black
 # BEHAVIOUR
 set sleep_time = 0
 mailboxes "=inbox"  # auto check for incoming emails
-set imap_keepalive = 300
+set imap_keepalive = 120
 set mail_check = 120
 macro pager \cp <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
@@ -30,8 +30,8 @@ macro pager \cp <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set postponed = "+[Google Mail]/Drafts"
-set header_cache = ~/.mail/header_cache
-set message_cachedir= ~/.mail/msg_cache
+set header_cache = ~/.mutt/cache/header
+set message_cachedir= ~/.mutt/cache/msg
 
 # INDEX VIEW OPTIONS
 set date_format = "%m/%d"

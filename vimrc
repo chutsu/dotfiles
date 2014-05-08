@@ -194,17 +194,19 @@ function! SyntasticOptions()
     " python specific settings
     let g:syntastic_python_checkers=['flake8']
     " let g:syntastic_ignore_files = ['\.py$']
+    
+    " html specific settings
+    let g:syntastic_html_checkers=['']  " disable syntastic for html files
 
     " javascript specific settings
     let g:syntastic_javascript_checkers = ['jshint']
 
     " warning and error symbols
-    let g:syntastic_warning_symbol='W'
-    let g:syntastic_error_symbol='E'
-    let g:syntastic_style_error_symbol='SE'
-    let g:syntastic_style_warning_symbol='SW'
+    let g:syntastic_warning_symbol       = 'W'
+    let g:syntastic_error_symbol         = 'E'
+    let g:syntastic_style_error_symbol   = 'SE'
+    let g:syntastic_style_warning_symbol = 'SW'
 endfunction
-
 
 function! Powerline()
     set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -225,11 +227,13 @@ endfunction
 
 function! YouCompleteMe()
     nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+    let g:ycm_server_keep_logfiles = 1 
+    let g:ycm_server_log_level = "debug"
 endfunction
 
 function! Taglist()
-    let g:Tlist_WinWidth=50
-    let g:Tlist_Use_Right_Window=1
+    let g:Tlist_WinWidth = 50
+    let g:Tlist_Use_Right_Window = 1
     nnoremap <silent> <F6> :TlistToggle<CR>
 endfunction
 
@@ -239,6 +243,11 @@ function! PythonMode()
     let g:pymode_doc = 0
     let g:pymode_lint_on_fly = 0
     let g:pymode_rope_completion = 0
+endfunction
+
+function! EasyGrep()
+    let g:EasyGrepRecursive = 1
+    let g:EasyGrepReplaceWindowMode = 2
 endfunction
 
 
@@ -265,3 +274,4 @@ call YouCompleteMe()
 call NerdTree()
 call Taglist()
 call PythonMode()
+call EasyGrep()

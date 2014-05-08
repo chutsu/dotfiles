@@ -23,8 +23,6 @@ ln -fs $PWD/vimrc $HOME/.vimrc
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/inputrc $HOME/.inputrc
-ln -fs $PWD/xmonad $HOME/.xmonad
-ln -fs $PWD/xmobarrc $HOME/.xmobarrc
 
 # FONTS
 if [ $OS == "LINUX" ]; then
@@ -35,7 +33,6 @@ if [ $OS == "LINUX" ]; then
     ln -fs $PWD/fonts.conf   $HOME/.fonts.conf
     sudo fc-cache -fv
 fi
-
 
 
 echo "Install vim plugins"
