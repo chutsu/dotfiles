@@ -6,7 +6,7 @@ function! EditorAppearance()
     set t_Co=256
     colorscheme molokai
     set cursorline
-    set fillchars=  " split char
+    set fillchars=" split char
 endfunction
 
 function! EditorBehaviour()
@@ -36,12 +36,11 @@ function! EditorBehaviour()
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
     " reload vimrc after update
-    autocmd BufWritePost .vimrc so ~/.vimrc
+    " autocmd BufWritePost .vimrc so ~/.vimrc
 
-    " recognize files
-    autocmd BufRead,BufNewFile *.md set filetype=markdown
-    autocmd BufRead,BufNewFile *.pde set filetype=arduino
-    autocmd BufRead,BufNewFile *.ino set filetype=arduino
+    " correct filetype recognition
+    autocmd BufRead,BufNewFile *.h set filetype=c
+    autocmd FileType c call CMode()
 
     " plain text mode
     autocmd FileType text,markdown call PlainText()
@@ -53,17 +52,18 @@ function! EditorBehaviour()
 
     " restore cursor's last position in file
     autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
-            \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
 
     " highlight non-ascii characters
     set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 
     " softwrap lines
     command! -range=% SoftWrap
-                \ <line2>put _ |
-                \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
+        \ <line2>put _ |
+        \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
+
 
     " scroll to top when jusing jump-to in ctags
     nnoremap <C-]> <C-]>zt
@@ -76,13 +76,14 @@ function! DefaultCodingStyle()
     set shiftwidth=4
     set softtabstop=4
     set expandtab " expand tabs as spaces
+
     autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
     " highlight red when code is over 80 columns
     augroup vimrc_autocmds
-        autocmd BufEnter * highlight OverLength ctermbg=darkgrey 
+        autocmd BufEnter * highlight OverLength ctermbg=darkgrey
         autocmd BufEnter * match OverLength /\%80v.*/
     augroup END
 endfunction
@@ -96,7 +97,7 @@ function! CommandModeKeyMappings()
 
     nnoremap <F3> :NERDTreeToggle<CR><CR>
     set pastetoggle=<F10>
-    map <F12> :!dot % -Tps -o %:r.ps<CR>
+    map <F12> :tabnew run.sh<CR>
 
     " run script file
     map <S-r> :!clear && bash run.sh<CR>
@@ -136,18 +137,6 @@ function! EscapeCommonOperationTypos()
     map <C-n> <TAB>
 endfunction
 
-function! GVimSpecific()
-    set guioptions-=m   " remove menubar
-    set guioptions-=T   " remove toolbar
-    set guifont=Monospace:h7
-
-    " remove scroll bars - right, left, bottom
-    set guioptions-=r
-    set guioptions-=l
-    set go-=L
-    set guioptions-=b
-endfunction
-
 function! PlainText()
     " spell checker
     set spell
@@ -157,7 +146,7 @@ function! PlainText()
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
 
     " hardwrap ignore lines starting with variable "-", "=", "#", "\"
-    set comments+=n:--,n:==,n:#,n:\
+    set comments += n:--,n:==,n:#,n:\
 
     " hardwrap shortcut keys
     nnoremap <F1> :set formatoptions+=a<CR>
@@ -170,7 +159,7 @@ endfunction
 
 function! SyntasticOptions()
     " c specific settings
-    let g:syntastic_c_config_file = '.syntastic_config'
+    let g:syntastic_c_config_file='.syntastic_config'
     let g:syntastic_enable_highlighting=1
     let g:syntastic_check_on_open=1
     let g:syntastic_enable_signs=1
@@ -194,7 +183,7 @@ function! SyntasticOptions()
     " python specific settings
     let g:syntastic_python_checkers=['flake8']
     " let g:syntastic_ignore_files = ['\.py$']
-    
+
     " html specific settings
     let g:syntastic_html_checkers=['']  " disable syntastic for html files
 
@@ -227,30 +216,33 @@ endfunction
 
 function! YouCompleteMe()
     nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-    let g:ycm_server_keep_logfiles = 1 
-    let g:ycm_server_log_level = "debug"
+    let g:ycm_server_keep_logfiles=1
+    let g:ycm_server_log_level="debug"
 endfunction
 
 function! Taglist()
-    let g:Tlist_WinWidth = 50
-    let g:Tlist_Use_Right_Window = 1
+    let g:Tlist_WinWidth=50
+    let g:Tlist_Use_Right_Window=1
     nnoremap <silent> <F6> :TlistToggle<CR>
 endfunction
 
 function! PythonMode()
-    let g:pymode_lint = 1
-    let g:pymode_folding = 0
-    let g:pymode_doc = 0
-    let g:pymode_lint_on_fly = 0
-    let g:pymode_rope_completion = 0
+    let g:pymode_lint=1
+    let g:pymode_folding=0
+    let g:pymode_doc=0
+    let g:pymode_lint_on_fly=0
+    let g:pymode_rope_completion=0
+endfunction
+
+function! CMode()
+    " shortcut key to bring up corresponding unit test
+    map <S-t> :vsplit :s?src?test?:r_test.c<CR>
 endfunction
 
 function! EasyGrep()
-    let g:EasyGrepRecursive = 1
-    let g:EasyGrepReplaceWindowMode = 2
+    let g:EasyGrepRecursive=1
+    let g:EasyGrepReplaceWindowMode=2
 endfunction
-
-
 
 
 
@@ -265,7 +257,6 @@ call VimTabsKeyMappings()
 call VimSplitsKeyMappings()
 call HeaderSwitchMappings()
 call EscapeCommonOperationTypos()
-call GVimSpecific()
 
 " PLUGIN SETTINGS
 call Powerline()

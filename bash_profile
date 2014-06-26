@@ -72,7 +72,7 @@ elif [ $OS == MAC ]; then
     alias la='ls -lha'
 fi
 
-alias vimrc="vim $HOME/.vimrc";
+alias vimrc="vim $HOME/.vimrc; source $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias cc218="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
 
