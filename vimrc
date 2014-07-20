@@ -4,7 +4,8 @@ function! EditorAppearance()
     set number
     set showtabline=2
     set t_Co=256
-    colorscheme molokai
+    " colorscheme molokai
+    colorscheme eyecandy
     set cursorline
     set fillchars=" split char
 endfunction
@@ -101,6 +102,9 @@ function! CommandModeKeyMappings()
 
     " run script file
     map <S-r> :!clear && bash run.sh<CR>
+
+    " Show syntax highlighting groups for word under cursor
+    nmap <C-G> :call <SID>SynStack()<CR>
 endfunction
 
 function! NavImproved()
@@ -137,6 +141,13 @@ function! EscapeCommonOperationTypos()
     map <C-n> <TAB>
 endfunction
 
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunction
+
 function! PlainText()
     " spell checker
     set spell
@@ -146,7 +157,7 @@ function! PlainText()
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
 
     " hardwrap ignore lines starting with variable "-", "=", "#", "\"
-    set comments += n:--,n:==,n:#,n:\
+    set comments+=n:--,n:==,n:#,n:\
 
     " hardwrap shortcut keys
     nnoremap <F1> :set formatoptions+=a<CR>
@@ -232,11 +243,14 @@ function! PythonMode()
     let g:pymode_doc=0
     let g:pymode_lint_on_fly=0
     let g:pymode_rope_completion=0
+
+    " shortcut key to bring up corresponding unit test
+    " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
 endfunction
 
 function! CMode()
     " shortcut key to bring up corresponding unit test
-    map <S-t> :vsplit :s?src?test?:r_test.c<CR>
+    map <S-t> :vsplit %:s?src?tests?:r_test.c<CR>
 endfunction
 
 function! EasyGrep()

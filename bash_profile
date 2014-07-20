@@ -61,6 +61,7 @@ alias eyes="cd $PROJECTS/toys/eyes"
 alias bowtie="cd $PROJECTS/toys/bowtie"
 alias playground="cd $PROJECTS/toys/playground"
 alias qfly="cd $PROJECTS/toys/qfly"
+alias prototype="cd $PROJECTS/toys/prototype"
 
 
 # EXECUTIONAL SHORTCUTS
@@ -74,6 +75,7 @@ fi
 
 alias vimrc="vim $HOME/.vimrc; source $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
+alias todo="vim $DROPBOX/TODO";
 alias cc218="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
 
 alias pg_start="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log start"
@@ -85,6 +87,9 @@ if [ $OS == MAC ]; then
 fi
 
 # ENVIRONMENTAL SETTINGS
+export GDK_USE_XFT=1
+export QT_XFT=true
+
 export PATH=/usr/local/bin:/usr/texbin:$PATH
 export PATH=$PATH:$HOME/Dropbox/proj/scripts
 export PATH=/usr/local/share/python:$PATH
