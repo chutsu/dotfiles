@@ -148,6 +148,16 @@ function! <SID>SynStack()
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
 
+function! Multiple_cursors_before()
+    echo 'Disabled autocomplete'
+    let g:ycm_auto_trigger = 0  " switch off YCM temporarily
+endfunction
+
+function! Multiple_cursors_after()
+    echo 'Enabled autocomplete'
+    let g:ycm_auto_trigger = 1  " turn YCM back on
+endfunction
+
 function! PlainText()
     " spell checker
     set spell
