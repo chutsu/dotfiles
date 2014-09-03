@@ -25,14 +25,14 @@ ln -fs $PWD/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/inputrc $HOME/.inputrc
 
 # FONTS
-if [ $OS == "LINUX" ]; then
-    echo "Update Fonts cache!"
-    rm -rf $HOME/.fonts
-    rm -f $HOME/.fonts.conf
-    ln -fs $PWD/fonts   $HOME/.fonts
-    ln -fs $PWD/fonts.conf   $HOME/.fonts.conf
-    sudo fc-cache -fv
-fi
+# if [ $OS == "LINUX" ]; then
+    # echo "Update Fonts cache!"
+    # rm -rf $HOME/.fonts
+    # rm -f $HOME/.fonts.conf
+    # ln -fs $PWD/fonts   $HOME/.fonts
+    # ln -fs $PWD/fonts.conf   $HOME/.fonts.conf
+    # sudo fc-cache -fv
+# fi
 
 
 echo "Install vim plugins"

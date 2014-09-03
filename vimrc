@@ -42,6 +42,7 @@ function! EditorBehaviour()
     " correct filetype recognition
     autocmd BufRead,BufNewFile *.h set filetype=c
     autocmd FileType c call CMode()
+    autocmd FileType java call JavaMode()
 
     " plain text mode
     autocmd FileType text,markdown call PlainText()
@@ -81,6 +82,7 @@ function! DefaultCodingStyle()
     autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd FileType java setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
     " highlight red when code is over 80 columns
     augroup vimrc_autocmds
@@ -179,6 +181,8 @@ function! Pathogen()
 endfunction
 
 function! SyntasticOptions()
+    " let g:syntastic_mode_map = {'mode': 'passive'}
+
     " c specific settings
     let g:syntastic_c_config_file='.syntastic_config'
     let g:syntastic_enable_highlighting=1
@@ -200,6 +204,10 @@ function! SyntasticOptions()
     let g:syntastic_cpp_include_dirs=[
         \ 'src'
     \ ]
+
+    " java specific settings
+    let g:syntastic_java_javac_classpath='./bin/classes:'
+
 
     " python specific settings
     let g:syntastic_python_checkers=['flake8']
@@ -239,6 +247,7 @@ function! YouCompleteMe()
     nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
     let g:ycm_server_keep_logfiles=1
     let g:ycm_server_log_level="debug"
+    let g:ycm_autoclose_preview_window_after_completion=1
 endfunction
 
 function! Taglist()
@@ -261,6 +270,10 @@ endfunction
 function! CMode()
     " shortcut key to bring up corresponding unit test
     map <S-t> :vsplit %:s?src?tests?:r_test.c<CR>
+endfunction
+
+function! JavaMode()
+
 endfunction
 
 function! EasyGrep()

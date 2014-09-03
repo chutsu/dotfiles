@@ -2,10 +2,6 @@
 	path = vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
     ignore = dirty
-[submodule "vim/bundle/vim-addon-mw-utils"]
-	path = vim/bundle/vim-addon-mw-utils
-	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
-    ignore = dirty
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
@@ -38,10 +34,6 @@
 	path = vim/bundle/vim-powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
     ignore = dirty
-[submodule "vim/bundle/tlib_vim"]
-	path = vim/bundle/tlib_vim
-	url = git://github.com/tomtom/tlib_vim.git
-    ignore = dirty
 [submodule "vim/bundle/vim-golang"]
 	path = vim/bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang
@@ -65,10 +57,6 @@
 [submodule "vim/bundle/easygrep"]
 	path = vim/bundle/easygrep
 	url = https://github.com/vim-scripts/EasyGrep
-    ignore = dirty
-[submodule "vim/bundle/vim-snipmate"]
-	path = vim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
     ignore = dirty
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode

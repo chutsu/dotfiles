@@ -43,6 +43,7 @@ alias websites="cd $PROJECTS/websites/"
 alias domino="cd $PROJECTS/websites/domino"
 alias chamber="cd $PROJECTS/websites/chamber"
 alias chutsu="cd $PROJECTS/websites/chutsu.github.com"
+alias recall="cd $PROJECTS/websites/recall"
 
 # membank
 alias membank="cd $PROJECTS/membank/"
@@ -62,6 +63,10 @@ alias bowtie="cd $PROJECTS/toys/bowtie"
 alias playground="cd $PROJECTS/toys/playground"
 alias qfly="cd $PROJECTS/toys/qfly"
 alias prototype="cd $PROJECTS/toys/prototype"
+alias ditto="cd $PROJECTS/toys/ditto"
+
+# folders
+alias cask="cd $DROPBOX/cask"
 
 
 # EXECUTIONAL SHORTCUTS
@@ -98,6 +103,8 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 export VISUAL=vim
 export EDITOR=vim
+
+export PATH=$DROPBOX/cask:$PATH
 
 if [ $OS == MAC ]; then
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
