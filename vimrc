@@ -281,6 +281,50 @@ function! EasyGrep()
     let g:EasyGrepReplaceWindowMode=2
 endfunction
 
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+function! Ultisnips()
+    " Track the engine.
+    " Plugin 'SirVer/ultisnips'
+
+    " Snippets are separated from the engine. Add this if you want them:
+    " Plugin 'honza/vim-snippets'
+
+    " Trigger configuration. Do not use <tab> if you use
+    " https://github.com/Valloric/YouCompleteMe.
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+
+    " set python version
+    let g:UltiSnipsUsePythonVersion=2
+
+    au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsListSnippets="<c-e>"
+
+    " this mapping Enter key to <C-y> to chose the current highlight item
+    " and close the selection list, same as other IDEs.
+    " CONFLICT with some plugins like tpope/Endwise
+    inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endfunction
+
 
 
 " MAIN
@@ -303,3 +347,4 @@ call NerdTree()
 call Taglist()
 call PythonMode()
 call EasyGrep()
+call Ultisnips()

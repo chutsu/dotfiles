@@ -82,3 +82,6 @@
 	path = vim/bundle/vim-opencl
 	url = git://github.com/petRUShka/vim-opencl.git
     ignore = dirty
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
