@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets
+[submodule "vim/bundle/javaimp"]
+	path = vim/bundle/javaimp
+	url = https://github.com/vim-scripts/javaimp.vim.git

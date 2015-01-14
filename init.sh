@@ -15,6 +15,8 @@ rm -rf $HOME/.vim
 rm -f $HOME/.vimrc
 rm -f $HOME/.bash_profile
 rm -f $HOME/.tmux.conf
+rm -rf $HOME/.i3
+rm -f $HOME/.xinitrc
 
 # SYMLINKS
 echo "Created symlinks for the dotfiles"
@@ -23,16 +25,11 @@ ln -fs $PWD/vimrc $HOME/.vimrc
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/inputrc $HOME/.inputrc
+ln -fs $PWD/i3 $HOME/.i3
+ln -fs $PWD/xinitrc $HOME/.xinitrc
 
-# FONTS
-# if [ $OS == "LINUX" ]; then
-    # echo "Update Fonts cache!"
-    # rm -rf $HOME/.fonts
-    # rm -f $HOME/.fonts.conf
-    # ln -fs $PWD/fonts   $HOME/.fonts
-    # ln -fs $PWD/fonts.conf   $HOME/.fonts.conf
-    # sudo fc-cache -fv
-# fi
+# FZF
+exec ./vim/bundle/fzf/install
 
 
 echo "Install vim plugins"

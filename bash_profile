@@ -18,12 +18,6 @@ if [ $OS == LINUX ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -z "$SSH_C
     [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx
 fi
 
-# START TMUX ON BASH STARTUP
-if which tmux 2>&1 >/dev/null; then
-    [[ -z "$TMUX" ]] && exec tmux -2
-fi
-
-
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
 export PROJECTS="$DROPBOX/proj"
@@ -47,7 +41,7 @@ alias recall="cd $PROJECTS/websites/recall"
 
 # membank
 alias membank="cd $PROJECTS/membank/"
-alias notes="cd $PROJECTS/membank/notes"
+alias notes="cd $DROPBOX/notes; vim $DROPBOX/notes; cd -;"
 alias papers="cd $PROJECTS/membank/papers"
 alias docs="cd $PROJECTS/membank/docs"
 
@@ -64,14 +58,17 @@ alias playground="cd $PROJECTS/toys/playground"
 alias qfly="cd $PROJECTS/toys/qfly"
 alias prototype="cd $PROJECTS/toys/prototype"
 alias ditto="cd $PROJECTS/toys/ditto"
+alias wire="cd $PROJECTS/toys/wire"
+
+alias audi2="cd ~/cask/spikes/audi2/"
 
 # folders
-alias cask="cd $DROPBOX/cask"
+alias cask="cd ~/cask"
 
 
 # EXECUTIONAL SHORTCUTS
 if [ $OS == LINUX ]; then
-    alias ls='ls -lh --color'
+    alias ls='ls -lh --group-directories-first --color'
     alias la='ls -lha --color'
 elif [ $OS == MAC ]; then
     alias ls='ls -lh'
@@ -88,7 +85,8 @@ alias pg_stop="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.
 alias pg_restart="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log restart"
 
 if [ $OS == MAC ]; then
-    export PATH=$PATH:/usr/local/CrossPack-AVR/bin/
+    export PATH="$PATH:/usr/local/CrossPack-AVR/bin/";
+    export JAVA_HOME="$(/usr/libexec/java_home)";
 fi
 
 # ENVIRONMENTAL SETTINGS
@@ -97,10 +95,13 @@ export QT_XFT=true
 
 export PATH=/usr/local/bin:/usr/texbin:$PATH
 export PATH=$PATH:$HOME/Dropbox/proj/scripts
+export PATH=$PATH:$HOME/Dropbox/proj/dotfiles/scripts
 export PATH=/usr/local/share/python:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/sbin:$PATH
+export PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
+export PATH=$HOME/pebble-dev/PebbleSDK-2.8.1/bin:$PATH
 export VISUAL=vim
 export EDITOR=vim
 
@@ -108,6 +109,14 @@ export PATH=$DROPBOX/cask:$PATH
 
 if [ $OS == MAC ]; then
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
+
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+
+    # HADOOP
+    export HADOOP_OPTS="-Djava.security.krb5.realm=OX.AC.UK -Djava.security.krb5.kdc=kdc0.ox.ac.uk:kdc1.ox.ac.uk"
+    export HADOOP_HOME=/usr/local/bin/hadoop
 fi
 
 
@@ -121,3 +130,11 @@ if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
 fi
 
 export PS1="[\w] > "
+
+
+# START TMUX ON BASH STARTUP
+if [ $OS == "LINUX" ]; then
+    if which tmux 2>&1 >/dev/null; then
+        [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
+    fi
+fi
