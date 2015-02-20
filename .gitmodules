@@ -87,3 +87,6 @@
 [submodule "vim/bundle/javaimp"]
 	path = vim/bundle/javaimp
 	url = https://github.com/vim-scripts/javaimp.vim.git
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = git@github.com:bling/vim-airline.git
