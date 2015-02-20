@@ -2,3 +2,4 @@
 *.swp
 .netrwhist
 mutt/cache
+run.sh
