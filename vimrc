@@ -1,10 +1,10 @@
+
 function! EditorAppearance()
     syntax on
     set laststatus=2
     set number
     set showtabline=2
     set t_Co=256
-    " colorscheme molokai
     colorscheme eyecandy
     set cursorline
     set fillchars=" split char
@@ -43,6 +43,7 @@ function! EditorBehaviour()
     autocmd BufRead,BufNewFile *.h set filetype=c
     autocmd FileType c call CMode()
     autocmd FileType java call JavaMode()
+    autocmd BufRead /tmp/mutt-* call Mutt()
 
     " plain text mode
     autocmd FileType text,markdown call PlainText()
@@ -181,8 +182,6 @@ function! Pathogen()
 endfunction
 
 function! SyntasticOptions()
-    " let g:syntastic_mode_map = {'mode': 'passive'}
-
     " c specific settings
     let g:syntastic_c_config_file='.syntastic_config'
     let g:syntastic_enable_highlighting=1
@@ -200,7 +199,8 @@ function! SyntasticOptions()
         \ '/usr/local/include',
         \ '/usr/local/CrossPack-AVR/avr/include'
     \ ]
-
+    let g:syntastic_c_checkers=['gcc']
+    let g:syntastic_c_compiler = 'clang'
     let g:syntastic_cpp_include_dirs=[
         \ 'src'
     \ ]
@@ -246,7 +246,7 @@ endfunction
 function! YouCompleteMe()
     nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
     let g:ycm_server_keep_logfiles=1
-    let g:ycm_server_log_level="debug"
+    " let g:ycm_server_log_level="debug"
     let g:ycm_autoclose_preview_window_after_completion=1
 endfunction
 
@@ -254,6 +254,11 @@ function! Taglist()
     let g:Tlist_WinWidth=50
     let g:Tlist_Use_Right_Window=1
     nnoremap <silent> <F6> :TlistToggle<CR>
+endfunction
+
+function! Mutt()
+    set tw=72
+    set fo+=aw
 endfunction
 
 function! PythonMode()

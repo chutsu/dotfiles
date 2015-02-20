@@ -1,2 +1,22 @@
 #!/bin/sh
-exec amixer get Master | egrep -o "[0-9]+%" | egrep -o "[0-9]*"
+VOLUME=$(amixer get Master | egrep -o "[0-9]+%" | egrep -o "[0-9]*")
+MUTED=$(amixer get Master | egrep -o "\[off\]")
+RESULT=""
+
+# obtain volume
+if [ "$VOLUME" == "100" ]; then
+    RESULT="10"
+elif [ $VOLUME -lt 10 ]; then
+    RESULT="1"
+elif [ "$VOLUME" == "0" ]; then
+    RESULT="0"
+else
+    RESULT=$(echo ${VOLUME} | cut -c 1)
+fi
+
+# is volume muted?
+if [ "$MUTED" == "[off]" ]; then
+    RESULT="$RESULT [muted]"
+fi
+
+echo $RESULT

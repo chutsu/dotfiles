@@ -59,11 +59,21 @@ alias qfly="cd $PROJECTS/toys/qfly"
 alias prototype="cd $PROJECTS/toys/prototype"
 alias ditto="cd $PROJECTS/toys/ditto"
 alias wire="cd $PROJECTS/toys/wire"
+alias cog="cd $PROJECTS/toys/cog"
 
 alias audi2="cd ~/cask/spikes/audi2/"
 
 # folders
 alias cask="cd ~/cask"
+
+# GIT ALIASES
+alias lg="git log --graph \
+    --abbrev-commit \
+    --decorate \
+    --date=relative \
+    --format=format:'%C(bold blue)%h%C(reset) \
+    - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' \
+    --all"
 
 
 # EXECUTIONAL SHORTCUTS
@@ -75,7 +85,7 @@ elif [ $OS == MAC ]; then
     alias la='ls -lha'
 fi
 
-alias vimrc="vim $HOME/.vimrc; source $HOME/.vimrc";
+alias vimrc="vim $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
 alias cc218="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
@@ -93,19 +103,13 @@ fi
 export GDK_USE_XFT=1
 export QT_XFT=true
 
-export PATH=/usr/local/bin:/usr/texbin:$PATH
-export PATH=$PATH:$HOME/Dropbox/proj/scripts
 export PATH=$PATH:$HOME/Dropbox/proj/dotfiles/scripts
-export PATH=/usr/local/share/python:$PATH
-export PATH=$HOME/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/sbin:$PATH
 export PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
-export PATH=$HOME/pebble-dev/PebbleSDK-2.8.1/bin:$PATH
+export PATH=/usr/local/bin:/usr/texbin:$PATH
 export VISUAL=vim
 export EDITOR=vim
 
-export PATH=$DROPBOX/cask:$PATH
 
 if [ $OS == MAC ]; then
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages

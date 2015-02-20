@@ -1,0 +1,26 @@
+alias shannon_harrington  Shannon Harrington  shannon@tellapart.com
+alias chris_choi  Chris Choi  chutsu@gmail.com
+alias ryan_macdonald  Ryan MacDonald  ryan.macdonald@decisionnext.com
+alias crunch_gym  Crunch Gym  news@crunch.com
+alias mail_delivery_subsystem  Mail Delivery Subsystem  mailer-daemon@googlemail.com
+alias chun-wei_yuan  Chun-Wei Yuan  chunweiyuan5+8ux@indeedemail.com
+alias richard_matsui  Richard Matsui  richardmatsui3+z2s@indeedemail.com
+alias richard_matsui  Richard Matsui  richard.matsui@kwhanalytics.com
+alias twitter  Twitter  password@twitter.com
+alias indeed_apply  Indeed Apply  indeedapply@indeed.com
+alias eric_lee  Eric Lee  ekllee@msn.com
+alias jobs@fastly.com  jobs@fastly.com From: jobs@fastly.com
+alias collin_bleak  Collin Bleak  collin@mcs.st-and.ac.uk
+alias ali_vahabzadeh  Ali Vahabzadeh  ali@chariotsf.com
+alias coursera_support  Coursera Support  noreply@coursera.org
+alias vlsi_cad-_logic_to_layout_|_coursera_staff  VLSI CAD- Logic to Layout | Coursera Staff  noreply@coursera.org
+alias dcs_account  Dcs Account  dcs@sheffield.ac.uk
+alias tania_galabova  Tania Galabova  Tania.Galabova@glasgow.ac.uk
+alias barclaycard  Barclaycard  barclaycard@mail.barclaycard.co.uk
+alias paypal  PayPal  paypal@e.paypal.co.uk
+alias google_scholar_alerts  Google Scholar Alerts  scholaralerts-noreply@google.com
+alias christopher_choi  Christopher Choi  chutsu@gmail.com
+alias travel_republic  Travel Republic  mail@e.travelrepublic.co.uk
+alias ruth_hoffmann  Ruth Hoffmann  rh347@st-andrews.ac.uk
+alias academia.edu  Academia.edu  noreply@academia-mail.com
+alias robert_garcia  Robert Garcia RoGarcia@lucasgroup.com

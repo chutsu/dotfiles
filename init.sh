@@ -17,6 +17,10 @@ rm -f $HOME/.bash_profile
 rm -f $HOME/.tmux.conf
 rm -rf $HOME/.i3
 rm -f $HOME/.xinitrc
+rm -f $HOME/.Xdefaults
+rm -f $HOME/.muttrc
+rm -rf $HOME/.mutt
+rm -f $HOME/.xbindkeysrc
 
 # SYMLINKS
 echo "Created symlinks for the dotfiles"
@@ -27,6 +31,10 @@ ln -fs $PWD/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/inputrc $HOME/.inputrc
 ln -fs $PWD/i3 $HOME/.i3
 ln -fs $PWD/xinitrc $HOME/.xinitrc
+ln -fs $PWD/Xdefaults $HOME/.Xdefaults
+ln -fs $PWD/muttrc $HOME/.muttrc
+ln -fs $PWD/mutt $HOME/.mutt
+ln -fs $PWD/xbindkeysrc $HOME/.xbindkeysrc
 
 # FZF
 exec ./vim/bundle/fzf/install

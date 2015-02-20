@@ -1,0 +1,29 @@
+xterm*background: rgb:26/26/26
+xterm*foreground: white
+xterm*faceName: terminus:antialias=false
+xterm*faceSize: 9
+
+XTerm*color0:       #000000
+XTerm*color1:       #FF0000
+XTerm*color2:       #5CC65C
+XTerm*color3:       #C2C266
+XTerm*color4:       #0000b2
+XTerm*color5:       #b200b2
+XTerm*color6:       #00a6b2
+XTerm*color7:       #bfbfbf
+XTerm*color8:       #666666
+XTerm*color9:       #e50000
+XTerm*color10:      #00d900
+XTerm*color11:      #e5e500
+XTerm*color12:      #6666FF
+XTerm*color13:      #e500e5
+XTerm*color14:      #00e5e5
+XTerm*color15:      #e5e5e5
+
+*VT100.Translations: #override \
+    <Key>BackSpace: string(0x7F)\n\
+    <Key>Delete:    string("\033[3~")\n\
+    <Key>Home:      string("\033[1~")\n\
+    <Key>End:       string("\033[4~")
+
+*ttyModes: erase ^?

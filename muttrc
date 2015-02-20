@@ -5,16 +5,20 @@ set imap_user = "chutsu@gmail.com"
 set smtp_url = "smtp://chutsu@smtp.gmail.com:587/"
 
 # APPEARANCE
-color search        white   black
-color hdrdefault    white   black   # headers white on black
-color quoted        cyan    black   # quoted text in blue
-color signature     red     black   # signature in red
+color index         white   default     ~P
+color index         white   green       "~U"
+color normal        white   color235
+color search        white   color235
+color hdrdefault    white   color235   # headers white on color235
+color quoted        cyan    color235   # quoted text in blue
+color signature     red     color235   # signature in red
+color tree          white   color235
 
-color header        color45    black   "^(From)"
-color header        color45    black   "^(To)"
-color header        color45    black   "^(Date)"
-color header        color47    black   "^(Subject)"
-color hdrdefault    color45    black
+color header        color45    color235   "^(From)"
+color header        color45    color235   "^(To)"
+color header        color45    color235   "^(Date)"
+color header        color47    color235   "^(Subject)"
+color hdrdefault    color45    color235
 
 # color index         black color63
 # color status        black color63
@@ -22,16 +26,24 @@ color hdrdefault    color45    black
 # BEHAVIOUR
 set sleep_time = 0
 mailboxes "=inbox"  # auto check for incoming emails
+set mail_check = 5
+set imap_check_subscribed
+unset imap_passive
 set imap_keepalive = 120
-set mail_check = 120
+set text_flowed = yes
+set recall=no
 macro pager \cp <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 # FOLDERS AND LABELS
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
+set postpone = yes
 set postponed = "+[Google Mail]/Drafts"
 set header_cache = ~/.mutt/cache/header
-set message_cachedir= ~/.mutt/cache/msg
+set message_cachedir= ~/.mutt/cache/message
+set alias_file = "~/.mutt/aliases.txt"
+set display_filter = "mutt_aliases"
+unset record
 
 # INDEX VIEW OPTIONS
 set date_format = "%m/%d"
@@ -58,6 +70,7 @@ ignore *                                # ignore all headers
 unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
+my_hdr Bcc: chutsu@gmail.com
 
 # OPTIONS
 set status_on_top = yes
@@ -73,3 +86,5 @@ macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Google Mail]/Sent Mail<enter>" "Go to Sent Mail"
 macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
+
+source $alias_file
