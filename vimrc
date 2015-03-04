@@ -82,7 +82,7 @@ function! DefaultCodingStyle()
 
     autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
-    autocmd FileType javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType java setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
     " highlight red when code is over 80 columns
@@ -226,8 +226,9 @@ function! SyntasticOptions()
     let g:syntastic_style_warning_symbol = 'SW'
 endfunction
 
-function! Powerline()
-    set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+function! Airline()
+    " let g:airline_powerline_fonts = 1
+    " let g:airline_theme = "jellybeans"
 endfunction
 
 function! NerdTree()
@@ -391,7 +392,7 @@ call VimSplitsKeyMappings()
 call EscapeCommonOperationTypos()
 
 " PLUGIN SETTINGS
-call Powerline()
+call Airline()
 call SyntasticOptions()
 call YouCompleteMe()
 call NerdTree()

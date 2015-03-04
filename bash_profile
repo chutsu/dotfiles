@@ -61,7 +61,9 @@ alias ditto="cd $PROJECTS/toys/ditto"
 alias wire="cd $PROJECTS/toys/wire"
 alias cog="cd $PROJECTS/toys/cog"
 
-alias audi2="cd ~/cask/spikes/audi2/"
+alias sandbox="cd $DROPBOX/sandbox"
+alias q="cd $DROPBOX/sandbox/q"
+alias r2sams="cd $DROPBOX/sandbox/r2sams"
 
 # folders
 alias cask="cd ~/cask"
