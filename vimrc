@@ -1,4 +1,3 @@
-
 function! EditorAppearance()
     syntax on
     set laststatus=2
@@ -85,7 +84,7 @@ function! DefaultCodingStyle()
     autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType java setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-    " highlight red when code is over 80 columns
+    " highlight when code is over 80 columns
     augroup vimrc_autocmds
         autocmd BufEnter * highlight OverLength ctermbg=darkgrey
         autocmd BufEnter * match OverLength /\%80v.*/
@@ -186,11 +185,11 @@ function! Vundle()
     call vundle#begin()
     " alternatively, pass a path where Vundle should install plugins
     "call vundle#begin('~/some/path/here')
-    
+
     " let Vundle manage Vundle, required
     Plugin 'gmarik/Vundle.vim'
 
-    " The following are vim packages 
+    " The following are vim packages
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-markdown'
@@ -212,26 +211,25 @@ function! Vundle()
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'junegunn/fzf'
     Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets'
     Plugin 'vim-scripts/javaimp.vim'
-    
+
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
     filetype plugin indent on    " required
     " To ignore plugin indent changes, instead use:
     " filetype plugin on
-    
+
     " Brief help
     " :PluginList       - lists configured plugins
     " :PluginInstall    - installs plugins; append `!` to update or just
     " :PluginSearch foo - searches for foo; append `!` to refresh local cache
     " :PluginClean      - confirms removal of unused plugins; append `!` to
     " auto-approve removal
-    
+
     " see :h vundle for more details or wiki for FAQ
     " Put your non-Plugin stuff after this line
-
 endfunction
+
 
 function! SyntasticOptions()
     " c specific settings
@@ -241,12 +239,6 @@ function! SyntasticOptions()
     let g:syntastic_enable_signs=1
     let g:syntastic_c_include_dirs=[
         \ 'include',
-        \ '../include',
-        \ '../dbg/include',
-        \ '../munit/include',
-        \ '../al/include',
-        \ '../dstruct/include',
-        \ '../evolve/include',
         \ '/usr/include',
         \ '/usr/local/include',
         \ '/usr/local/CrossPack-AVR/avr/include'
@@ -320,6 +312,7 @@ function! PythonMode()
     let g:pymode_doc=0
     let g:pymode_lint_on_fly=0
     let g:pymode_rope_completion=0
+    let g:pymode_options_colorcolumn=0
 
     " shortcut key to bring up corresponding unit test
     " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
@@ -402,17 +395,14 @@ function! g:UltiSnips_Complete()
 endfunction
 
 function! Ultisnips()
-    " Track the engine.
-    " Plugin 'SirVer/ultisnips'
-
-    " Snippets are separated from the engine. Add this if you want them:
-    " Plugin 'honza/vim-snippets'
-
     " Trigger configuration. Do not use <tab> if you use
     " https://github.com/Valloric/YouCompleteMe.
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+    " snippet search path
+    let g:UltisnipsSnippetsDir="~/vim/snippets/"
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
@@ -420,14 +410,14 @@ function! Ultisnips()
     " set python version
     let g:UltiSnipsUsePythonVersion=2
 
-    au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-    let g:UltiSnipsJumpForwardTrigger="<tab>"
-    let g:UltiSnipsListSnippets="<c-e>"
+    " au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+    " let g:UltiSnipsJumpForwardTrigger="<tab>"
+    " let g:UltiSnipsListSnippets="<c-e>"
 
     " this mapping Enter key to <C-y> to chose the current highlight item
     " and close the selection list, same as other IDEs.
     " CONFLICT with some plugins like tpope/Endwise
-    inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endfunction
 
 
