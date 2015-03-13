@@ -164,6 +164,7 @@ function! PlainText()
     " spell checker
     set spell
     set spelllang=en_gb
+    set formatoptions+=a
 
     " do not highlight extra whitespace
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
@@ -192,7 +193,6 @@ function! Vundle()
     " The following are vim packages
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-markdown'
     Plugin 'tomtom/tcomment_vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'derekwyatt/vim-fswitch'
@@ -212,6 +212,8 @@ function! Vundle()
     Plugin 'junegunn/fzf'
     Plugin 'SirVer/ultisnips'
     Plugin 'vim-scripts/javaimp.vim'
+    Plugin 'godlygeek/tabular'
+    Plugin 'plasticboy/vim-markdown'
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -420,6 +422,10 @@ function! Ultisnips()
     " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endfunction
 
+function! VimMarkDown()
+    let g:vim_markdown_folding_disabled=1
+endfunction
+
 
 
 " MAIN
@@ -442,3 +448,4 @@ call Taglist()
 call PythonMode()
 call EasyGrep()
 call Ultisnips()
+call VimMarkDown()
