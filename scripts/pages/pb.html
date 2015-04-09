@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+
+    <!-- jQuery and AJAX Cross-Origin -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://www.ajax-cross-origin.com/js/jquery.ajax-cross-origin.min.js"></script>
+    <script>
+        function get_proxies(cb) {
+            var proxies = [];
+
+            $.ajax({
+                crossOrigin: true,
+                url: "http://proxybay.info",
+                success: function(data) {
+                    $(data).find(".site a").each(function() {
+                        var proxy = {
+                            "name": $(this).text(),
+                            "url": $(this).attr("href")
+                        }
+                        proxies.push(proxy);
+                    });
+                }
+            }).done(function() {
+                cb(proxies);
+            });
+        }
+
+        function parse_type(type) {
+            var type_str = "";
+            var arr = $(type).find("a");
+
+            $.each(arr, function(index) {
+                type_str += $(this).text();
+                if ((arr.length > 1) && (index !== (arr.length - 1))) {
+                    type_str += ", ";
+                }
+            });
+
+            return type_str;
+        }
+
+        function parse_search_results(search_results, cb) {
+            var results = [];
+
+            $.each(search_results, function(index) {
+                var title = $(this).find("a.detLink").text();
+
+                var mag_title = "Download this torrent using magnet";
+                var mag_a = $(this).find("a[title='" + mag_title + "']");
+                var mag_link = $(mag_a).attr("href");
+
+                var seeds = $(this).find("td:nth-child(3)").text();
+                var leeches = $(this).find("td:nth-child(4)").text();
+
+                var type = parse_type($(this).find(".vertTh"));
+
+
+                if (title != "") {
+                    var data = {
+                        "title": title,
+                        "type": type,
+                        "mag_link": mag_link,
+                        "seeds": seeds,
+                        "leeches": leeches
+                    }
+                    results.push(data);
+                }
+            });
+
+            cb(results);
+        }
+
+        function list_search_results(search_results, top) {
+            var html = "<ul>";
+
+            $.each(search_results, function(index) {
+                var res = $(this)[0];
+                html += "<ul class='result'>";
+                html += "   <li class='type'>[" + res.type + "]</li>";
+                html += "   <li class='title'>" + res.title + "</li>";
+                html += "   <li class='link'>";
+                html += "       <a href='" + res.mag_link + "'>";
+                html += "           torrent this";
+                html += "       </a>";
+                html += "   </li>";
+                html += "   <li class='seeds'>";
+                html +=         res.seeds + " seeds";
+                html += "   </li>";
+                html += "   <li class='leeches'>";
+                html +=         res.leeches + " leeches";
+                html += "   </li>";
+                html += "</ul>";
+
+                if (index == top) {
+                    return false;
+                }
+            });
+            html += "</ul>";
+
+            if (search_results.length == 0) {
+                html = "<center>";
+                html += "<b>";
+                html += "Opps! Cound't find anything!";
+                html += "</b>";
+                html += "</center>";
+            }
+
+            $("div#search_results").html(html);
+        }
+
+        function search_piratebay(pb_url, query, category) {
+            pb_url += "search/" + query + "/0/7/" + category;
+
+            $.ajax({
+                crossOrigin: true,
+                url: pb_url,
+                success: function(data) {
+                    var results = $(data).find("table#searchResult tr");
+                    parse_search_results(results, function(data) {
+                        list_search_results(data, 5);
+                    });
+                }
+            });
+        }
+
+        function search_options(cb) {
+            var checked = $("div#search_bar input:checked");
+            var display = $("div#search_results");
+            var category = checked.val();
+
+            if (checked.length > 1) {
+                display.html("Opps! you can only check 1 option!");
+
+            } else if (checked.length == 0) {
+                category = 0;
+
+            } else {
+                if (category == "hd_movie") {
+                    category = "207";
+                } else if (category == "hd_tv") {
+                    category = "208";
+                } else if (category == "audio") {
+                    category = "101";
+                } else if (category == "flac") {
+                    category = "204";
+                }
+
+            }
+
+            cb(category);
+        }
+
+        $(document).ready(function() {
+            $("button#search").click(function(category) {
+                var q = $("input[name='q']").val();
+
+                // load search results
+                search_options(function(category) {
+                    get_proxies(function(proxies) {
+                        $("div#search_results").html("Loading!!");
+                        var proxy = proxies[0];
+                        search_piratebay(proxy.url, q, category);
+                    });
+                });
+
+            });
+
+            $("input[name='q']").keypress(function(evnt) {
+                if (evnt.keyCode == 13) {
+                    $("button#search").click();
+                }
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Verdana, Aerial;
+            font-size: 0.8em;
+        }
+
+        div#search_bar {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        div#search_bar button {
+            margin-left: 10px;
+        }
+
+        div#search_results ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        div#search_results ul.result {
+            clear: left;
+            overflow: none;
+
+            margin-top: 30px;
+            margin-bottom: 45px;
+        }
+
+        li.type {
+            font-size: 0.8em;
+        }
+
+        li.title {
+            float: left;
+        }
+
+        li.link {
+            clear: left;
+            float: left;
+            margin-right: 30px;
+            margin-top: 2px;
+
+            font-size: 0.7em;
+        }
+
+        li.seeds {
+            float: left;
+            margin-right: 10px;
+
+            font-size: 0.7em;
+        }
+
+        li.leeches {
+            float: left;
+
+            font-size: 0.7em;
+        }
+
+        a:link, a:visited {
+            padding-left: 5px;
+            padding-right: 5px;
+
+            color: #FFF;
+            text-decoration: none;
+
+            border-radius: 2px;
+            background-color: #777;
+        }
+
+        a:hover {
+            color: #777;
+            background-color: #EEE;
+        }
+
+        span.checkbox_text {
+            font-size: 0.7em;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="search_bar">
+        <input type="text" name="q"></input>
+        <input type="checkbox" name="hd_movie" value="hd_movie">
+            <span class="checkbox_text">hd movie</span>
+        </input>
+        <input type="checkbox" name="hd_tv" value="hd_tv">
+            <span class="checkbox_text">hd tv</span>
+        </input>
+        <input type="checkbox" name="audio" value="audio">
+            <span class="checkbox_text">audio</span>
+        </input>
+        <input type="checkbox" name="flac" value="flac">
+            <span class="checkbox_text">flac</span>
+        </input>
+        <button id="search">search</button>
+    </div>
+    <div id="search_results"></div>
+</body>
+</html>

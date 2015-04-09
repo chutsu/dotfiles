@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# determine os
+case $( uname -s ) in
+Linux)
+    OS="LINUX"
+    ;;
+Darwin)
+    OS="MAC"
+    ;;
+esac
+
+# close port
+if [ $OS == LINUX ]; then
+    # view the actual process running on that port
+    fuser $1/tcp
+
+    # close the TCP port
+    fuser -k $1/tcp
+elif [ $OS == MAC ]; then
+    # close port on mac
+    lsof -P | grep ':$1' | awk '{print $2}' | xargs kill
+fi

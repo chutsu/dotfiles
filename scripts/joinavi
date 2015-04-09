@@ -1,0 +1,17 @@
+#!/bin/bash
+# A script that joins two avi videos together
+# Note:
+#   - Mencoder needs to be installed
+#   - Mencoder also supports mpeg files
+#
+# author: Chris Choi <chutsu@gmail.com>
+
+if [ $# != 3 ]
+	then
+		echo "Usage: $progname part1.avi part2.avi combined_file.avi"
+		echo "This script joins two avi files together."
+		echo
+	exit 1
+fi
+
+mencoder -forceidx -ovc copy -oac copy -o $3 $1 $2 

@@ -1,0 +1,26 @@
+#!/usr/bin/env python2
+import os
+import sys
+
+if len(sys.argv) == 2:
+    mode = sys.argv[1]
+
+    if mode == "c":
+        print("C Source Files")
+        os.system("find . -name *.c | xargs wc -l")
+
+        print ""
+        print("C Header Files")
+        os.system("find . -name *.h | xargs wc -l")
+
+    elif mode == "python":
+        print("Python Source Files")
+        os.system("find . -name '*.py' | xargs wc -l")
+
+    else:
+        print("""
+Missing commandline arguemnt!
+options:
+    c
+    python
+        """)

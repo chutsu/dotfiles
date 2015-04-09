@@ -1,0 +1,81 @@
+#/bin/bash
+# Script that creates skeleton files and directories for a project,
+# depending on what programming language you are using.
+#
+# author: Chris Choi <chutsu@gmail.com>
+EXPECTED_ARGS=1
+
+function show_usage() {
+    cat << USAGE
+Usage: `basename $0` [option]
+Description: This script creates a set of dirs and files, or skeleton for
+particular type of project.
+
+Options:
+    c   C program
+    w   website
+
+
+USAGE
+}
+
+function c_skeleton() {
+    mkdir src
+    touch src/CMakeLists.txt
+    mkdir docs
+    mkdir tests
+    mkdir tests/test_files
+    touch tests/CMakeLists.txt
+    touch README.md
+    touch CMakeLists.txt
+    echo <<-LICENCE
+MIT LICENCE  Copyright (C) <2012> Chris Choi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+LICENCE
+}
+
+function web_skeleton() {
+    mkdir app
+    mkdir public
+    mkdir docs
+    mkdir tests
+    mkdir tests/test_files
+    touch README
+}
+
+if [[ $# -ne $EXPECTED_ARGS ]]
+then
+    show_usage
+else
+    case $1 in
+        c)
+            echo "Creating skeleton for a C program"
+            c_skeleton
+            ;;
+        w)
+            echo "Creating skeleton for a website"
+            web_skeleton
+            ;;
+        *)
+            show_usage
+            exit 1
+            ;;
+    esac
+fi

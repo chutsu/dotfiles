@@ -1,0 +1,80 @@
+#!/bin/bash
+# This script removes output junk files that you probably don't want
+# to keep.
+#
+# author: Chris Choi <chutsu@gmail.com>
+EXPECTED_ARGS=1
+
+function show_usage() {
+    cat << USAGE
+USAGE: `basename $0` [option]
+DESCRIPTION: Removes output junk files that you probably don't want
+OPTIONS:
+    cmake       - remove cmake files
+    autotool    - remove autotool files
+USAGE
+}
+
+function autotool_junk() {
+    # AUTOCONF/AUTOMAKE
+    find . -name autom4te.cache -exec rm -rf {} \;
+    find . -name aclocal.m4 -exec rm -f {} \;
+    find . -name config.status -exec rm -f {} \;
+    find . -name config.log -exec rm -f {} \;
+    find . -name cofig.h -exec rm -f {} \;
+    find . -name cofig.h.in~ -exec rm -f {} \;
+    find . -name config.sub -exec rm -f {} \;
+    find . -name config.guess -exec rm -f {} \;
+    find . -name ltmain.sh -exec rm -f {} \;
+    find . -name m4 -exec rm -rf {} \;
+    find . -name configure -exec rm -f {} \;
+    find . -name compile -exec rm -f {} \;
+    find . -name depcomp -exec rm -f {} \;
+    find . -name install-sh -exec rm -f {} \;
+    find . -name missing -exec rm -f {} \;
+}
+
+function cmake_junk() {
+    # CMAKE
+    # don't know why `find` complains about CMakeFiles not found . . .
+    # redirecting its outputs
+    find . -name CMakeFiles -exec rm -rf {} \; 2> /dev/null
+    find . -name CMakeCache.txt -exec rm -f {} \;
+    find . -name cmake_install.cmake -exec rm -f {} \;
+    find . -name install_manifest.txt -exec rm -f {} \;
+    find . -name cmake_uninstall.cmake -exec rm -f {} \;
+    find . -name Makefile -exec rm -f {} \;
+    rm -rf lib bin
+}
+
+function python_junk() {
+    # PYTHON
+    find . -name *.pyc -exec rm -rf {} \; 2> /dev/null
+    find . -name *.egg-info -exec rm -rf {} \; 2> /dev/null
+    find . -name build -exec rm -rf {} \; 2> /dev/null
+    find . -name dist -exec rm -rf {} \; 2> /dev/null
+}
+# MAIN
+if [[ $# -ne $EXPECTED_ARGS ]]
+then
+    show_usage
+else
+    case $1 in
+        cmake)
+            echo "cleaning cmake junk"
+            cmake_junk
+            ;;
+        autotool)
+            echo "cleaning autotool junk"
+            autotool_junk
+            ;;
+        python)
+            echo "cleaning python junk"
+            python_junk
+            ;;
+        *)
+            show_usage
+            exit 1
+            ;;
+    esac
+fi

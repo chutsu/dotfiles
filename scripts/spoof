@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ip link set dev eth0 down
+ip link set dev eth0 address 48:5b:39:49:f8:86
+ip link set dev eth0 up

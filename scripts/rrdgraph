@@ -1,0 +1,154 @@
+#!/bin/bash
+OUTDIR=./graphs
+CORES=3 # starting from 0
+NODES=12
+
+while true
+do
+    echo `date` " creating rrd graphs"
+    # CPU
+    echo "plotting cpu graphs"
+    mkdir -p $OUTDIR/cpu
+    for CPU_NUMBER in $(seq 0 $CORES)
+    do
+        rrdtool graph \
+            $OUTDIR/cpu/cpu_$CPU_NUMBER.png \
+            -a PNG \
+            --width 1800 \
+            --height 180 \
+            --title="MongoDB Cluster - CPU $CPU_NUMBER" \
+            --vertical-label "Jiffy" \
+            --grid-dash 0:1 \
+            --font TITLE:18:Arial \
+            --font AXIS:12:Arial \
+            --font LEGEND:14:Arial \
+            --font UNIT:12:Arial \
+            DEF:mongo01=/var/lib/collectd/rrd/mongo01/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo02=/var/lib/collectd/rrd/mongo02/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo03=/var/lib/collectd/rrd/mongo03/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo04=/var/lib/collectd/rrd/mongo04/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo05=/var/lib/collectd/rrd/mongo05/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo06=/var/lib/collectd/rrd/mongo06/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo07=/var/lib/collectd/rrd/mongo07/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo08=/var/lib/collectd/rrd/mongo08/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo09=/var/lib/collectd/rrd/mongo09/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo10=/var/lib/collectd/rrd/mongo10/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo11=/var/lib/collectd/rrd/mongo11/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            DEF:mongo12=/var/lib/collectd/rrd/mongo12/cpu-$CPU_NUMBER/cpu-system.rrd:value:AVERAGE \
+            AREA:mongo01#32C734:"mongo01" \
+            AREA:mongo02#C77E31:"mongo02" \
+            AREA:mongo03#317AC7:"mongo03" \
+            AREA:mongo04#C731C5:"mongo04" \
+            AREA:mongo05#85DD1B:"mongo05" \
+            AREA:mongo06#DD1A23:"mongo06" \
+            AREA:mongo07#1ADDD4:"mongo07" \
+            AREA:mongo08#731ADD:"mongo08" \
+            AREA:mongo09#E80A0E:"mongo09" \
+            AREA:mongo10#7409E8:"mongo10" \
+            AREA:mongo11#7DE809:"mongo11" \
+            AREA:mongo12#09E8E3:"mongo12"
+    done
+
+
+    # MEMORY
+    echo "plotting memory graphs"
+    mkdir -p $OUTDIR/mem
+    for i in $(seq 1 $NODES)
+    do
+        NODE_NUMBER=`printf "%02d" $i`
+        OUT=$OUTDIR/mem/mongo$NODE_NUMBER
+
+        rrdtool graph \
+            ${OUT}.png \
+            -a PNG \
+            --width 1800 \
+            --height 180 \
+            --title="MongoDB $NODE_NUMBER - Memory" \
+            --vertical-label "" \
+            --grid-dash 0:1 \
+            --font TITLE:18:Arial \
+            --font AXIS:12:Arial \
+            --font LEGEND:14:Arial \
+            --font UNIT:12:Arial \
+            DEF:buffered=/var/lib/collectd/rrd/mongo$NODE_NUMBER/memory/memory-buffered.rrd:value:AVERAGE \
+            DEF:cached=/var/lib/collectd/rrd/mongo$NODE_NUMBER/memory/memory-cached.rrd:value:AVERAGE \
+            DEF:free=/var/lib/collectd/rrd/mongo$NODE_NUMBER/memory/memory-free.rrd:value:AVERAGE \
+            DEF:used=/var/lib/collectd/rrd/mongo$NODE_NUMBER/memory/memory-used.rrd:value:AVERAGE \
+            AREA:buffered#32C734:"buffered" \
+            AREA:cached#C77E31:"cached" \
+            AREA:free#317AC7:"free" \
+            AREA:used#C731C5:"used"
+    done
+
+
+    # INTERFACE
+    echo "plotting interface rx graphs"
+    mkdir -p $OUTDIR/interface/rx
+    for i in $(seq 1 $NODES)
+    do
+        NODE_NUMBER=`printf "%02d" $i`
+        OUT=$OUTDIR/interface/rx/mongo$NODE_NUMBER
+
+        rrdtool graph \
+            ${OUT}.png \
+            -a PNG \
+            --width 1800 \
+            --height 180 \
+            --title="MongoDB $NODE_NUMBER - Interface (RX)" \
+            --vertical-label "" \
+            --grid-dash 0:1 \
+            --font TITLE:18:Arial \
+            --font AXIS:12:Arial \
+            --font LEGEND:14:Arial \
+            --font UNIT:12:Arial \
+            DEF:eth0_errors=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_errors-eth0.rrd:rx:AVERAGE \
+            DEF:lo_errors=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_errors-lo.rrd:rx:AVERAGE \
+            DEF:eth0_octets=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_octets-eth0.rrd:rx:AVERAGE \
+            DEF:lo_octets=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_octets-lo.rrd:rx:AVERAGE \
+            DEF:eth0_packets=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_packets-eth0.rrd:rx:AVERAGE \
+            DEF:lo_packets=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_packets-lo.rrd:rx:AVERAGE \
+            AREA:eth0_errors#32C734:"eth0 errors" \
+            AREA:lo_errors#C77E31:"lo errors" \
+            AREA:eth0_octets#317AC7:"eth0 octets" \
+            AREA:lo_octets#C731C5:"lo octets" \
+            AREA:eth0_packets#85DD1B:"eth0 packets" \
+            AREA:lo_packets#DD1A23:"lo packets"
+    done
+
+
+    echo "plotting interface tx graphs"
+    mkdir -p $OUTDIR/interface/tx
+    for i in $(seq 1 $NODES)
+    do
+        NODE_NUMBER=`printf "%02d" $i`
+        OUT=$OUTDIR/interface/tx/mongo$NODE_NUMBER
+
+        rrdtool graph \
+            ${OUT}.png \
+            -a PNG \
+            --width 1800 \
+            --height 180 \
+            --title="MongoDB $NODE_NUMBER - Interface (TX)" \
+            --vertical-label "" \
+            --grid-dash 0:1 \
+            --font TITLE:18:Arial \
+            --font AXIS:12:Arial \
+            --font LEGEND:14:Arial \
+            --font UNIT:12:Arial \
+            DEF:eth0_errors=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_errors-eth0.rrd:tx:AVERAGE \
+            DEF:lo_errors=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_errors-lo.rrd:tx:AVERAGE \
+            DEF:eth0_octets=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_octets-eth0.rrd:tx:AVERAGE \
+            DEF:lo_octets=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_octets-lo.rrd:tx:AVERAGE \
+            DEF:eth0_packets=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_packets-eth0.rrd:tx:AVERAGE \
+            DEF:lo_packets=/var/lib/collectd/rrd/mongo$NODE_NUMBER/interface/if_packets-lo.rrd:tx:AVERAGE \
+            AREA:eth0_errors#32C734:"eth0 errors" \
+            AREA:lo_errors#C77E31:"lo errors" \
+            AREA:eth0_octets#317AC7:"eth0 octets" \
+            AREA:lo_octets#C731C5:"lo octets" \
+            AREA:eth0_packets#85DD1B:"eth0 packets" \
+            AREA:lo_packets#DD1A23:"lo packets"
+    done
+
+    echo `date` " sleeping for 5 minutes"
+    sleep 300
+done
