@@ -24,3 +24,37 @@ alias travel_republic  Travel Republic  mail@e.travelrepublic.co.uk
 alias ruth_hoffmann  Ruth Hoffmann  rh347@st-andrews.ac.uk
 alias academia.edu  Academia.edu  noreply@academia-mail.com
 alias robert_garcia  Robert Garcia RoGarcia@lucasgroup.com
+alias soylent  Soylent  info@soylent.me
+alias vijay_peterson  Vijay Peterson Vijay_Peterson@syntelinc.com
+alias inc._united_airlines  Inc. United Airlines unitedairlines@united.com
+alias maurizio_proietti  Maurizio Proietti  maurizio.proietti@IASI.CNR.IT
+alias first_financial_hr  First Financial HR  firstfinancial@firstfinancialhr.com
+alias paypal_credit  PayPal Credit  PayPal@e.paypal.co.uk
+alias e-alert  e-alert  e-alert.2253116.147521.406629938@mail.hangseng.com
+alias robert_fulford  Robert Fulford  Robert.Fulford@northpointrecruitment.com
+alias mariam_(airbnb)  Mariam (Airbnb)  express@airbnb.com
+alias service@paypal.co.uk  service@paypal.co.uk  service@paypal.co.uk
+alias uber_receipts  Uber Receipts  receipts.san.francisco@uber.com
+alias ike@recann.co.uk  ike@recann.co.uk From: ike@recann.co.uk
+alias monthly_ns  Monthly NS  monthly-ns@st-andrews.ac.uk
+alias angela_miguel  Angela Miguel  angiem@mcs.st-and.ac.uk
+alias amazon.com_associates_program  Amazon.com Associates Program  store-news@amazon.com
+alias tom_kelsey  Tom Kelsey  twk@st-andrews.ac.uk
+alias alexander_voss  Alexander Voss  alex.voss@st-andrews.ac.uk
+alias vikram_bhan  Vikram Bhan  vikram@continuuity.com
+alias alex_voss  Alex Voss  alexvoss.uk@gmail.com
+alias mark-jan_nederhof  Mark-Jan Nederhof  mn31@st-andrews.ac.uk
+alias mark_nederhof  Mark Nederhof  mn31@st-andrews.ac.uk
+alias meetup  Meetup  info@meetup.com
+alias no-reply@uber.com  no-reply@uber.com From: no-reply@uber.com
+alias san_francisco_coreos_meetup  San Francisco CoreOS Meetup  info@meetup.com
+alias jessica_morin  Jessica Morin  jessica@cask.co
+alias donotreply@uber.com  donotreply@uber.com From: donotreply@uber.com
+alias do-not-reply@state.gov  DO-NOT-REPLY@STATE.GOV From: DO-NOT-REPLY@STATE.GOV
+alias noreply@rektorat.ethz.ch  noreply@rektorat.ethz.ch From: noreply@rektorat.ethz.ch
+alias james_mitchell  James Mitchell  jdm3@st-andrews.ac.uk
+alias hazel_mcallister  Hazel McAllister  hazel.mcallister@strath.ac.uk
+alias custserv@clippercard.com  custserv@clippercard.com From: custserv@clippercard.com
+alias supernews  Supernews  support@supernews.com
+alias cinde  Cinde  cinde.lee@gmail.com
+alias michael_hughes  Michael Hughes  michael.hughes@loopup.com

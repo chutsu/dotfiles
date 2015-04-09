@@ -1,3 +1,64 @@
+function! Vundle()
+    set nocompatible              " be iMproved, required
+    filetype off                  " required
+
+    " set the runtime path to include Vundle and initialize
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    " alternatively, pass a path where Vundle should install plugins
+    "call vundle#begin('~/some/path/here')
+
+    " let Vundle manage Vundle, required
+    Plugin 'gmarik/Vundle.vim'
+
+    " The following are vim packages
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tomtom/tcomment_vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'jistr/vim-nerdtree-tabs'
+    Plugin 'derekwyatt/vim-fswitch'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'bronson/vim-trailing-whitespace'
+    Plugin 'petRUShka/vim-opencl'
+    Plugin 'Lokaltog/vim-easymotion'
+    Plugin 'tpope/vim-unimpaired'
+    Plugin 'bling/vim-airline'
+    Plugin 'vim-scripts/taglist.vim'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'vim-scripts/EasyGrep'
+    Plugin 'klen/python-mode'
+    Plugin 'shinokada/SWTC.vim'
+    Plugin 'kris89/vim-multiple-cursors'
+    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'junegunn/fzf'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'vim-scripts/javaimp.vim'
+    Plugin 'godlygeek/tabular'
+    Plugin 'plasticboy/vim-markdown'
+    Plugin 'reedes/vim-pencil'
+
+    " All of your Plugins must be added before the following line'
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+    " To ignore plugin indent changes, instead use:
+    " filetype plugin on
+
+    " Brief help
+    " :PluginList       - lists configured plugins
+    " :PluginInstall    - installs plugins; append `!` to update or just
+    " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+    " :PluginClean      - confirms removal of unused plugins; append `!` to
+    " auto-approve removal
+
+    " see :h vundle for more details or wiki for FAQ
+    " Put your non-Plugin stuff after this line
+endfunction
+
+function! StartUp()
+    autocmd VimEnter * NERDTree
+endfunction
+
 function! EditorAppearance()
     syntax on
     set laststatus=2
@@ -45,7 +106,7 @@ function! EditorBehaviour()
     autocmd BufRead /tmp/mutt-* call Mutt()
 
     " plain text mode
-    autocmd FileType text,markdown call PlainText()
+    autocmd FileType vim,text,markdown call PlainText()
     autocmd BufNewFile,BufRead *.tex call PlainText()
 
     " reselect block after indentation
@@ -82,6 +143,7 @@ function! DefaultCodingStyle()
     autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 
     autocmd FileType java setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
     " highlight when code is over 80 columns
@@ -98,7 +160,6 @@ function! CommandModeKeyMappings()
     cmap w!! w !sudo tee % >/dev/null
     nmap <silent> ,/ :nohlsearch<CR>
 
-    nnoremap <F3> :NERDTreeToggle<CR><CR>
     set pastetoggle=<F10>
     map <F12> :tabnew run.sh<CR>
 
@@ -175,63 +236,11 @@ function! PlainText()
     " hardwrap shortcut keys
     nnoremap <F1> :set formatoptions+=a<CR>
     nnoremap <F2> :set formatoptions-=a<CR>
+
+    " enable pencil mode
+    call pencil#init({'wrap': 'hard', 'autoformat': 1})
+    let g:pencil#textwidth = 79
 endfunction
-
-function! Vundle()
-    set nocompatible              " be iMproved, required
-    filetype off                  " required
-
-    " set the runtime path to include Vundle and initialize
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    " alternatively, pass a path where Vundle should install plugins
-    "call vundle#begin('~/some/path/here')
-
-    " let Vundle manage Vundle, required
-    Plugin 'gmarik/Vundle.vim'
-
-    " The following are vim packages
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'tpope/vim-surround'
-    Plugin 'tomtom/tcomment_vim'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'derekwyatt/vim-fswitch'
-    Plugin 'scrooloose/syntastic'
-    Plugin 'bronson/vim-trailing-whitespace'
-    Plugin 'petRUShka/vim-opencl'
-    Plugin 'Lokaltog/vim-easymotion'
-    Plugin 'tpope/vim-unimpaired'
-    Plugin 'bling/vim-airline'
-    Plugin 'vim-scripts/taglist.vim'
-    Plugin 'kien/ctrlp.vim'
-    Plugin 'vim-scripts/EasyGrep'
-    Plugin 'klen/python-mode'
-    Plugin 'shinokada/SWTC.vim'
-    Plugin 'kris89/vim-multiple-cursors'
-    Plugin 'Valloric/YouCompleteMe'
-    Plugin 'junegunn/fzf'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'vim-scripts/javaimp.vim'
-    Plugin 'godlygeek/tabular'
-    Plugin 'plasticboy/vim-markdown'
-
-    " All of your Plugins must be added before the following line'
-    call vundle#end()            " required
-    filetype plugin indent on    " required
-    " To ignore plugin indent changes, instead use:
-    " filetype plugin on
-
-    " Brief help
-    " :PluginList       - lists configured plugins
-    " :PluginInstall    - installs plugins; append `!` to update or just
-    " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-    " :PluginClean      - confirms removal of unused plugins; append `!` to
-    " auto-approve removal
-
-    " see :h vundle for more details or wiki for FAQ
-    " Put your non-Plugin stuff after this line
-endfunction
-
 
 function! SyntasticOptions()
     " c specific settings
@@ -278,6 +287,7 @@ function! Airline()
 endfunction
 
 function! NerdTree()
+    nnoremap <F3> :NERDTreeTabsToggle<CR><CR>
     let g:NERDTreeWinSize=30 " set NerdTree size
     let g:NERDTreeWinPos='left'
 
@@ -295,6 +305,11 @@ function! YouCompleteMe()
     let g:ycm_server_keep_logfiles=1
     " let g:ycm_server_log_level="debug"
     let g:ycm_autoclose_preview_window_after_completion=1
+
+    " let g:ycm_key_list_select_completion=['<C-j>', '<Down>']
+    " let g:ycm_key_list_previous_completion=['<C-k>', '<Up>']
+    let g:ycm_key_list_select_completion=[]
+    let g:ycm_key_list_previous_completion=[]
 endfunction
 
 function! Taglist()
@@ -381,45 +396,15 @@ function! EasyGrep()
     let g:EasyGrepReplaceWindowMode=2
 endfunction
 
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
 function! Ultisnips()
-    " Trigger configuration. Do not use <tab> if you use
-    " https://github.com/Valloric/YouCompleteMe.
+    " double check and make sure you're not colliding with
+    " YouCompleteMe
     let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<c-b>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
     " snippet search path
-    let g:UltisnipsSnippetsDir="~/vim/snippets/"
-
-    " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
-
-    " set python version
-    let g:UltiSnipsUsePythonVersion=2
-
-    " au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-    " let g:UltiSnipsJumpForwardTrigger="<tab>"
-    " let g:UltiSnipsListSnippets="<c-e>"
-
-    " this mapping Enter key to <C-y> to chose the current highlight item
-    " and close the selection list, same as other IDEs.
-    " CONFLICT with some plugins like tpope/Endwise
-    " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    let g:UltisnipsSnippetsDir="$HOME/vim/snippets/"
 endfunction
 
 function! VimMarkDown()
@@ -430,6 +415,7 @@ endfunction
 
 " MAIN
 call Vundle()
+call StartUp()
 call EditorAppearance()
 call EditorBehaviour()
 call CommandModeKeyMappings()

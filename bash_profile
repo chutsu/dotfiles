@@ -41,7 +41,7 @@ alias recall="cd $PROJECTS/websites/recall"
 
 # membank
 alias membank="cd $PROJECTS/membank/"
-alias notes="cd $DROPBOX/notes; vim $DROPBOX/notes; cd -;"
+alias notes="cd $DROPBOX/notes; vim;"
 alias papers="cd $PROJECTS/membank/papers"
 alias docs="cd $PROJECTS/membank/docs"
 
