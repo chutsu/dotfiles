@@ -1,0 +1,31 @@
+snippet mm "python main" b
+if __name__ == "__main__":
+	$0
+endsnippet
+
+snippet test "standard python unittest" b
+import os
+import sys
+import unittest
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
+
+class $1Tests(unittest.TestCase):
+    def setUp(self):
+        pass
+
+	$0
+
+
+if __name__ == "__main__":
+    unittest.main()
+endsnippet
+
+snippet pp "pretty print" !
+pprint.pprint($1)
+endsnippet
+
+snippet ppp "pretty print with import" !
+import pprint
+pprint.pprint($1)
+endsnippet

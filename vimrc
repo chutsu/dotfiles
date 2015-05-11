@@ -36,7 +36,6 @@ function! Vundle()
     Plugin 'vim-scripts/javaimp.vim'
     Plugin 'godlygeek/tabular'
     Plugin 'plasticboy/vim-markdown'
-    Plugin 'reedes/vim-pencil'
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -68,6 +67,7 @@ function! EditorAppearance()
     colorscheme eyecandy
     set cursorline
     set fillchars=" split char
+    set encoding=utf-8
 endfunction
 
 function! EditorBehaviour()
@@ -143,7 +143,7 @@ function! DefaultCodingStyle()
     autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 
+    autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType java setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
     " highlight when code is over 80 columns
@@ -298,10 +298,14 @@ function! NerdTree()
             \ && b:NERDTreeType == "primary")
             \ | q |
     \ endif
+
+    " switch off dir arrows
+    " let g:NERDTreeDirArrows=0
 endfunction
 
 function! YouCompleteMe()
     nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+    let g:ycm_auto_trigger = 1  " turn YCM back on
     let g:ycm_server_keep_logfiles=1
     " let g:ycm_server_log_level="debug"
     let g:ycm_autoclose_preview_window_after_completion=1

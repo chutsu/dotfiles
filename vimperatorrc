@@ -1,0 +1,6 @@
+map <C-h> :tabNext<CR>
+map <C-l> :tabnext<CR>
+
+autocmd LocationChange .*                             js modes.passAllKeys = false
+autocmd LocationChange mail\\.google\\.com            js modes.passAllKeys = true
+autocmd LocationChange www\\.google\\.com/calendar    js modes.passAllKeys = true

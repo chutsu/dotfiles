@@ -15,12 +15,12 @@ esac
 
 # STARTX
 if [ $OS == LINUX ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -z "$SSH_CONNECTION" ]; then
-    [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx
+    [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx && xbindkeys && nm-applet
 fi
 
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
-export PROJECTS="$DROPBOX/proj"
+export PROJECTS="$HOME/proj"
 export SCRIPTS="$PROJECTS/scripts"
 export DOTFILES="$PROJECTS/dotfiles"
 
@@ -41,32 +41,25 @@ alias recall="cd $PROJECTS/websites/recall"
 
 # membank
 alias membank="cd $PROJECTS/membank/"
-alias notes="cd $DROPBOX/notes; vim;"
+alias notes="cd $DROPBOX/notes; vim; cd -"
 alias papers="cd $PROJECTS/membank/papers"
 alias docs="cd $PROJECTS/membank/docs"
 
 # projects
-alias ids="cd $PROJECTS/toys/ids/"
-alias evolve="cd $PROJECTS/toys/evolve"
-alias al="cd $PROJECTS/toys/al/"
-alias munit="cd $PROJECTS/toys/munit"
-alias dbg="cd $PROJECTS/toys/dbg"
-alias dstruct="cd $PROJECTS/toys/dstruct"
-alias eyes="cd $PROJECTS/toys/eyes"
-alias bowtie="cd $PROJECTS/toys/bowtie"
-alias playground="cd $PROJECTS/toys/playground"
-alias qfly="cd $PROJECTS/toys/qfly"
-alias prototype="cd $PROJECTS/toys/prototype"
-alias ditto="cd $PROJECTS/toys/ditto"
-alias wire="cd $PROJECTS/toys/wire"
-alias cog="cd $PROJECTS/toys/cog"
+alias ids="cd $PROJECTS/ids/"
+alias evolve="cd $PROJECTS/evolve"
+alias al="cd $PROJECTS/al/"
+alias munit="cd $PROJECTS/munit"
+alias eyes="cd $PROJECTS/eyes"
+alias playground="cd $PROJECTS/playground"
+alias qfly="cd $PROJECTS/qfly"
+alias prototype="cd $PROJECTS/prototype"
+alias ditto="cd $PROJECTS/ditto"
+alias wire="cd $PROJECTS/wire"
+alias cog="cd $PROJECTS/cog"
 
 alias sandbox="cd $DROPBOX/sandbox"
-alias q="cd $DROPBOX/sandbox/q"
 alias r2sams="cd $DROPBOX/sandbox/r2sams"
-
-# folders
-alias cask="cd ~/cask"
 
 # GIT ALIASES
 alias lg="git log --graph \
@@ -82,6 +75,8 @@ alias lg="git log --graph \
 if [ $OS == LINUX ]; then
     alias ls='ls -lh --group-directories-first --color'
     alias la='ls -lha --color'
+    alias install='sudo apt-get install -y --force-yes'
+    alias search='apt-cache search'
 elif [ $OS == MAC ]; then
     alias ls='ls -lh'
     alias la='ls -lha'
@@ -105,7 +100,7 @@ fi
 export GDK_USE_XFT=1
 export QT_XFT=true
 
-export PATH=$PATH:$HOME/Dropbox/proj/dotfiles/scripts
+export PATH=$PATH:$HOME/proj/dotfiles/scripts
 export PATH=/usr/sbin:$PATH
 export PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
 export PATH=/usr/local/bin:/usr/texbin:$PATH
@@ -119,10 +114,6 @@ if [ $OS == MAC ]; then
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
-
-    # HADOOP
-    export HADOOP_OPTS="-Djava.security.krb5.realm=OX.AC.UK -Djava.security.krb5.kdc=kdc0.ox.ac.uk:kdc1.ox.ac.uk"
-    export HADOOP_HOME=/usr/local/bin/hadoop
 fi
 
 

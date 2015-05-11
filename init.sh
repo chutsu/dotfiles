@@ -34,6 +34,7 @@ ln -fs $PWD/xinitrc $HOME/.xinitrc
 ln -fs $PWD/Xdefaults $HOME/.Xdefaults
 ln -fs $PWD/muttrc $HOME/.muttrc
 ln -fs $PWD/mutt $HOME/.mutt
+ln -fs $PWD/vimperatorrc $HOME/.vimperatorrc
 ln -fs $PWD/xbindkeysrc $HOME/.xbindkeysrc
 
 # FZF

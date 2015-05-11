@@ -1,0 +1,2 @@
+#!/bin/sh
+test ! -c /dev/net/tun && echo openvpn requires tun support || echo 1
