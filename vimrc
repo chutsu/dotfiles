@@ -153,6 +153,19 @@ function! DefaultCodingStyle()
     augroup END
 endfunction
 
+function! CloseTab()
+    let response = input("keep output (y/n)?")
+    if response != "y"
+        q!
+    endif
+endfunction
+
+function! PromptCloseTab()
+    if input("close tab (y/n)?") != "y"
+        q!
+    endif
+endfunction
+
 function! CommandModeKeyMappings()
     map <C-h> <C-w>h
     map <C-l> <C-w>l
@@ -161,10 +174,11 @@ function! CommandModeKeyMappings()
     nmap <silent> ,/ :nohlsearch<CR>
 
     set pastetoggle=<F10>
-    map <F12> :tabnew run.sh<CR>
 
     " run script file
-    map <S-r> :!clear && bash run.sh<CR>
+    map <S-r> :tabnew
+        \ <CR>:read !sh $PWD/run.sh
+        \ <CR>:call PromptCloseTab()<CR>
 
     " Show syntax highlighting groups for word under cursor
     nmap <C-G> :call <SID>SynStack()<CR>
@@ -236,10 +250,6 @@ function! PlainText()
     " hardwrap shortcut keys
     nnoremap <F1> :set formatoptions+=a<CR>
     nnoremap <F2> :set formatoptions-=a<CR>
-
-    " enable pencil mode
-    call pencil#init({'wrap': 'hard', 'autoformat': 1})
-    let g:pencil#textwidth = 79
 endfunction
 
 function! SyntasticOptions()
@@ -282,8 +292,18 @@ function! SyntasticOptions()
 endfunction
 
 function! Airline()
-    " let g:airline_powerline_fonts = 1
-    " let g:airline_theme = "jellybeans"
+    let g:airline_powerline_fonts = 0
+    let g:airline#extensions#tabline#enabled = 0
+
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+
+    " unicode symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_sep = ''
 endfunction
 
 function! NerdTree()
