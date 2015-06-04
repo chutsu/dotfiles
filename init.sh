@@ -42,7 +42,8 @@ exec ./vim/bundle/fzf/install
 
 
 echo "Install vim plugins"
-git submodule init
+git submodule update
+vim -c VundleInstall -c quitall
 # git submodule add https://github.com/tpope/vim-fugitive.git vim/bundle/vim-fugitive
 # git submodule add -f https://github.com/tomtom/tlib_vim.git vim/bundle/tlib_vim
 # git submodule add https://github.com/MarcWeber/vim-addon-mw-utils.git vim/bundle/vim-addon-mw-utils
@@ -56,6 +57,5 @@ git submodule init
 # git submodule add https://github.com/terryma/vim-multiple-cursors.git vim/bundle/vim-multiple-cursors
 # git submodule add https://github.com/skammer/vim-css-color.git vim/bundle/vim-css-color
 # git submodule add https://github.com/Lokaltog/vim-powerline.git vim/bundle/vim-powerline
-git submodule update
 
 echo "Done! :)"
