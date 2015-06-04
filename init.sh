@@ -37,11 +37,8 @@ ln -fs $PWD/mutt $HOME/.mutt
 ln -fs $PWD/vimperatorrc $HOME/.vimperatorrc
 ln -fs $PWD/xbindkeysrc $HOME/.xbindkeysrc
 
-# FZF
-exec ./vim/bundle/fzf/install
-
-
 echo "Install vim plugins"
+git submodule init
 git submodule update
 vim -c VundleInstall -c quitall
 # git submodule add https://github.com/tpope/vim-fugitive.git vim/bundle/vim-fugitive
@@ -57,5 +54,9 @@ vim -c VundleInstall -c quitall
 # git submodule add https://github.com/terryma/vim-multiple-cursors.git vim/bundle/vim-multiple-cursors
 # git submodule add https://github.com/skammer/vim-css-color.git vim/bundle/vim-css-color
 # git submodule add https://github.com/Lokaltog/vim-powerline.git vim/bundle/vim-powerline
+
+# FZF
+exec ./vim/bundle/fzf/install
+
 
 echo "Done! :)"
