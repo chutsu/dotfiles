@@ -36,6 +36,8 @@ function! Vundle()
     Plugin 'vim-scripts/javaimp.vim'
     Plugin 'godlygeek/tabular'
     Plugin 'plasticboy/vim-markdown'
+    Plugin 'vim-scripts/AnsiEsc.vim'
+
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -153,19 +155,6 @@ function! DefaultCodingStyle()
     augroup END
 endfunction
 
-function! CloseTab()
-    let response = input("keep output (y/n)?")
-    if response != "y"
-        q!
-    endif
-endfunction
-
-function! PromptCloseTab()
-    if input("close tab (y/n)?") != "y"
-        q!
-    endif
-endfunction
-
 function! CommandModeKeyMappings()
     map <C-h> <C-w>h
     map <C-l> <C-w>l
@@ -176,9 +165,7 @@ function! CommandModeKeyMappings()
     set pastetoggle=<F10>
 
     " run script file
-    map <S-r> :tabnew
-        \ <CR>:read !sh $PWD/run.sh
-        \ <CR>:call PromptCloseTab()<CR>
+    map <S-r> :!clear && bash run.sh<CR>
 
     " Show syntax highlighting groups for word under cursor
     nmap <C-G> :call <SID>SynStack()<CR>

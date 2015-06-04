@@ -1,5 +1,5 @@
-map <C-h> :tabNext<CR>
-map <C-l> :tabnext<CR>
+:nnoremap <C-h> :tabNext<CR>
+:nnoremap <C-l> :tabnext<CR>
 
 autocmd LocationChange .*                             js modes.passAllKeys = false
 autocmd LocationChange mail\\.google\\.com            js modes.passAllKeys = true
