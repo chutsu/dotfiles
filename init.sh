@@ -41,19 +41,7 @@ echo "Install vim plugins"
 git submodule init
 git submodule update
 vim -c VundleInstall -c quitall
-# git submodule add https://github.com/tpope/vim-fugitive.git vim/bundle/vim-fugitive
-# git submodule add -f https://github.com/tomtom/tlib_vim.git vim/bundle/tlib_vim
-# git submodule add https://github.com/MarcWeber/vim-addon-mw-utils.git vim/bundle/vim-addon-mw-utils
-# git submodule add https://github.com/tpope/vim-surround.git vim/bundle/vim-surround
-# git submodule add https://github.com/tpope/vim-markdown.git vim/bundle/vim-markdown
-# git submodule add https://github.com/tomtom/tcomment_vim.git vim/bundle/tcomment_vim
-# git submodule add https://github.com/scrooloose/nerdtree.git vim/bundle/nerdtree
-# git submodule add https://github.com/derekwyatt/vim-fswitch.git vim/bundle/vim-fswitch
-# git submodule add https://github.com/scrooloose/syntastic.git vim/bundle/syntastic
-# git submodule add https://github.com/bronson/vim-trailing-whitespace.git vim/bundle/vim-trailing-whitespace
-# git submodule add https://github.com/terryma/vim-multiple-cursors.git vim/bundle/vim-multiple-cursors
-# git submodule add https://github.com/skammer/vim-css-color.git vim/bundle/vim-css-color
-# git submodule add https://github.com/Lokaltog/vim-powerline.git vim/bundle/vim-powerline
+./vim/bundle/YouCompleteMe/install.sh --clang-completer
 
 # FZF
 exec ./vim/bundle/fzf/install
