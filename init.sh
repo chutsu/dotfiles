@@ -42,9 +42,6 @@ git submodule init
 git submodule update
 vim -c VundleInstall -c quitall
 ./vim/bundle/YouCompleteMe/install.sh --clang-completer
-
-# FZF
 exec ./vim/bundle/fzf/install
-
 
 echo "Done! :)"

@@ -108,7 +108,7 @@ function! EditorBehaviour()
     autocmd BufRead /tmp/mutt-* call Mutt()
 
     " plain text mode
-    autocmd FileType vim,text,markdown call PlainText()
+    autocmd FileType vim,text,mkd call PlainText()
     autocmd BufNewFile,BufRead *.tex call PlainText()
 
     " reselect block after indentation
@@ -222,17 +222,35 @@ function! Multiple_cursors_after()
     let g:ycm_auto_trigger = 1  " turn YCM back on
 endfunction
 
+" function MarkDownChecker()
+"     let curr_line = getline('.')
+"     let x = curr_line[0:3]
+"
+"     let prev_line_no = line(".") - 1
+"     let prev_line = getline(prev_line_no)
+"     let y = prev_line[0:3]
+"
+"     if x[0] == "#" || x[0] == "-" || x[0] == "\t" || x == "    "
+"         echo "off"
+"         set formatoptions-=a
+"     else
+"         echo "on"
+"         set formatoptions+=a
+"     endif
+" endfunction
+
 function! PlainText()
     " spell checker
     set spell
     set spelllang=en_gb
-    set formatoptions+=a
+    " set formatoptions+=a
 
     " do not highlight extra whitespace
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
 
-    " hardwrap ignore lines starting with variable "-", "=", "#", "\"
-    set comments+=n:--,n:==,n:#,n:\
+    " auto hardwrap based on first few chars on current line
+    " autocmd CursorMoved *.md call MarkDownChecker()
+    " autocmd CursorMovedI *.md call MarkDownChecker()
 
     " hardwrap shortcut keys
     nnoremap <F1> :set formatoptions+=a<CR>
@@ -295,6 +313,7 @@ endfunction
 
 function! NerdTree()
     nnoremap <F3> :NERDTreeTabsToggle<CR><CR>
+    " let g:NERDTreeDirArrows=0
     let g:NERDTreeWinSize=30 " set NerdTree size
     let g:NERDTreeWinPos='left'
 
@@ -421,6 +440,8 @@ endfunction
 function! VimMarkDown()
     let g:vim_markdown_folding_disabled=1
 endfunction
+
+
 
 
 

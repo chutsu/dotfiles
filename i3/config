@@ -28,7 +28,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec xterm
-bindsym $mod+t exec gnome-terminal
+bindsym $mod+t exec xterm
 
 # kill focused window
 bindsym $mod+q kill
@@ -70,11 +70,10 @@ bindsym $mod+Shift+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+# fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -150,5 +149,14 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        # status_command i3status
+        status_command i3status
 }
+
+# volume
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 10%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 10%- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
