@@ -313,6 +313,7 @@ endfunction
 
 function! NerdTree()
     nnoremap <F3> :NERDTreeTabsToggle<CR><CR>
+    " let g:NERDTreeDirArrows=0
     let g:NERDTreeWinSize=30 " set NerdTree size
     let g:NERDTreeWinPos='left'
 
@@ -439,6 +440,7 @@ endfunction
 function! VimMarkDown()
     let g:vim_markdown_folding_disabled=1
 endfunction
+
 
 
 

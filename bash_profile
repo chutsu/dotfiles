@@ -79,6 +79,9 @@ if [ $OS == LINUX ]; then
     alias la='ls -lha --color'
     alias install='sudo apt-get install -y --force-yes'
     alias search='apt-cache search'
+    alias update='sudo apt-get update'
+    alias remove='sudo apt-get remove'
+    alias purge='sudo apt-get purge'
 elif [ $OS == MAC ]; then
     alias ls='ls -lh'
     alias la='ls -lha'
