@@ -1,5 +1,5 @@
 #!/bin/sh
 xbindkeys
-# exec startfluxbox
 exec i3
+# exec startxfce4
 fbsetroot -solid grey30

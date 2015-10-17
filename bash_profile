@@ -20,9 +20,9 @@ fi
 
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
-export PROJECTS="$HOME/proj"
-export SCRIPTS="$PROJECTS/scripts"
+export PROJECTS="$DROPBOX/proj"
 export DOTFILES="$PROJECTS/dotfiles"
+export SCRIPTS="$DOTFILES/scripts"
 
 # DIR SHORTCUTS
 alias down="cd ~/Downloads";
@@ -57,6 +57,8 @@ alias prototype="cd $PROJECTS/prototype"
 alias ditto="cd $PROJECTS/ditto"
 alias wire="cd $PROJECTS/wire"
 alias cog="cd $PROJECTS/cog"
+alias recognizer="cd $PROJECTS/recognizer"
+alias qsim="cd $PROJECTS/qsim"
 
 alias sandbox="cd $DROPBOX/sandbox"
 alias r2sams="cd $DROPBOX/sandbox/r2sams"
@@ -85,36 +87,12 @@ fi
 alias vimrc="vim $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
-alias cc218="ssh -X cc218@cc218.host.cs.st-andrews.ac.uk"
 
-alias pg_start="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log start"
-alias pg_stop="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log stop"
-alias pg_restart="pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres9.3/server.log restart"
-
-if [ $OS == MAC ]; then
-    export PATH="$PATH:/usr/local/CrossPack-AVR/bin/";
-    export JAVA_HOME="$(/usr/libexec/java_home)";
-fi
 
 # ENVIRONMENTAL SETTINGS
-export GDK_USE_XFT=1
-export QT_XFT=true
-
-export PATH=$PATH:$HOME/proj/dotfiles/scripts
-export PATH=/usr/sbin:$PATH
-export PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
-export PATH=/usr/local/bin:/usr/texbin:$PATH
+export PATH=$PATH:$PROJECTS/dotfiles/scripts
 export VISUAL=vim
 export EDITOR=vim
-
-
-if [ $OS == MAC ]; then
-    export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
-
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-    fi
-fi
 
 
 # SHELL SETTINGS
