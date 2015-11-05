@@ -99,6 +99,7 @@ export EDITOR=vim
 
 
 # SHELL SETTINGS
+export PS1="[\w] > "
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000000
 export CLICOLOR=1
@@ -106,8 +107,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
-
-export PS1="[\w] > "
+stty -ixon  # disable ctrl-s (software flow control)
 
 
 # START TMUX ON BASH STARTUP

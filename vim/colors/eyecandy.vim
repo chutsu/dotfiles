@@ -32,3 +32,10 @@ hi Special ctermfg=198
 hi Error ctermfg=196
 hi PreProc ctermfg=105
 hi String ctermfg=120
+
+
+" spell check colors
+hi SpellBad cterm=underline ctermfg=196
+hi SpellCap cterm=underline ctermfg=196
+hi SpellRare cterm=underline ctermfg=196
+hi SpellLocal cterm=underline ctermfg=171 ctermbg=None
