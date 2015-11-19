@@ -30,6 +30,10 @@ function! Vundle()
     Plugin 'junegunn/fzf'
     Plugin 'godlygeek/tabular'
     Plugin 'vim-scripts/AnsiEsc.vim'
+    Plugin 'ajh17/VimCompletesMe'
+    Plugin 'justmao945/vim-clang'
+    Plugin 'craigemery/vim-autotag'
+    Plugin 'vim-scripts/camelcasemotion'
 
 
     " All of your Plugins must be added before the following line'
@@ -107,6 +111,9 @@ function! EditorBehaviour()
     " reselect block after indentation
     vnoremap < <gv
     vnoremap > >gv
+
+    map w ,w
+    map b ,b
 
     " restore cursor's last position in file
     autocmd BufReadPost *
@@ -434,6 +441,10 @@ function! VimMarkDown()
     let g:vim_markdown_folding_disabled=1
 endfunction
 
+function! VimCompletesMe()
+    " prevent enter key from creating new line when selecting complete
+    inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endfunction
 
 
 
@@ -460,3 +471,4 @@ call PythonMode()
 call EasyGrep()
 call Ultisnips()
 call VimMarkDown()
+call VimCompletesMe()
