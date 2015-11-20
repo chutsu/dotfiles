@@ -34,6 +34,7 @@ function! Vundle()
     Plugin 'justmao945/vim-clang'
     Plugin 'craigemery/vim-autotag'
     Plugin 'vim-scripts/camelcasemotion'
+    Plugin 'reedes/vim-pencil'
 
 
     " All of your Plugins must be added before the following line'
@@ -222,23 +223,6 @@ function! Multiple_cursors_after()
     let g:ycm_auto_trigger = 1  " turn YCM back on
 endfunction
 
-" function MarkDownChecker()
-"     let curr_line = getline('.')
-"     let x = curr_line[0:3]
-"
-"     let prev_line_no = line(".") - 1
-"     let prev_line = getline(prev_line_no)
-"     let y = prev_line[0:3]
-"
-"     if x[0] == "#" || x[0] == "-" || x[0] == "\t" || x == "    "
-"         echo "off"
-"         set formatoptions-=a
-"     else
-"         echo "on"
-"         set formatoptions+=a
-"     endif
-" endfunction
-
 function! PlainText()
     " spell checker
     set spell
@@ -247,10 +231,6 @@ function! PlainText()
 
     " do not highlight extra whitespace
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
-
-    " auto hardwrap based on first few chars on current line
-    " autocmd CursorMoved *.md call MarkDownChecker()
-    " autocmd CursorMovedI *.md call MarkDownChecker()
 
     " hardwrap shortcut keys
     nnoremap <F1> :set formatoptions+=a<CR>
@@ -329,42 +309,6 @@ function! NerdTree()
     " let g:NERDTreeDirArrows=0
 endfunction
 
-function! YouCompleteMe()
-    nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-    let g:ycm_auto_trigger = 1  " turn YCM back on
-    let g:ycm_server_keep_logfiles=1
-    " let g:ycm_server_log_level="debug"
-    let g:ycm_autoclose_preview_window_after_completion=1
-
-    " let g:ycm_key_list_select_completion=['<C-j>', '<Down>']
-    " let g:ycm_key_list_previous_completion=['<C-k>', '<Up>']
-    let g:ycm_key_list_select_completion=[]
-    let g:ycm_key_list_previous_completion=[]
-endfunction
-
-function! Taglist()
-    let g:Tlist_WinWidth=50
-    let g:Tlist_Use_Right_Window=1
-    nnoremap <silent> <F6> :TlistToggle<CR>
-endfunction
-
-function! Mutt()
-    set tw=72
-    set fo+=aw
-endfunction
-
-function! PythonMode()
-    let g:pymode_lint=1
-    let g:pymode_folding=0
-    let g:pymode_doc=0
-    let g:pymode_lint_on_fly=0
-    let g:pymode_rope_completion=0
-    let g:pymode_options_colorcolumn=0
-
-    " shortcut key to bring up corresponding unit test
-    " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
-endfunction
-
 function! CMode()
     " shortcut key to bring up corresponding unit test
     map <S-t> :vsplit %:s?src?tests?:r_test.c<CR>
@@ -373,72 +317,9 @@ function! CMode()
     call HeaderSwitchMappings()
 endfunction
 
-function! JavaInsertImport()
-  exe "normal mz"
-  let cur_class = expand("<cword>")
-  try
-    if search('^\s*import\s.*\.' . cur_class . '\s*;') > 0
-      throw getline('.') . ": import already exist!"
-    endif
-    wincmd }
-    wincmd P
-    1
-    if search('^\s*public.*\s\%(class\|interface\)\s\+' . cur_class) > 0
-      1
-      if search('^\s*package\s') > 0
-        yank y
-      else
-        throw "Package definition not found!"
-      endif
-    else
-      throw cur_class . ": class not found!"
-    endif
-    wincmd p
-    normal! G
-    " insert after last import or in first line
-    if search('^\s*import\s', 'b') > 0
-      put y
-    else
-      1
-      put! y
-    endif
-    substitute/^\s*package/import/g
-    substitute/\s\+/ /g
-    exe "normal! 2ER." . cur_class . ";\<Esc>lD"
-  catch /.*/
-    echoerr v:exception
-  finally
-    " wipe preview window (from buffer list)
-    silent! wincmd P
-    if &previewwindow
-      bwipeout
-    endif
-    exe "normal! `z"
-  endtry
-endfunction
-
-function! JavaMode()
-    map <F5> :call JavaInsertImport()<CR>
-endfunction
-
 function! EasyGrep()
     let g:EasyGrepRecursive=1
     let g:EasyGrepReplaceWindowMode=2
-endfunction
-
-function! Ultisnips()
-    " double check and make sure you're not colliding with
-    " YouCompleteMe
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<tab>"
-    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-    " snippet search path
-    let g:UltisnipsSnippetsDir="$HOME/vim/snippets/"
-endfunction
-
-function! VimMarkDown()
-    let g:vim_markdown_folding_disabled=1
 endfunction
 
 function! VimCompletesMe()
@@ -464,11 +345,6 @@ call EscapeCommonOperationTypos()
 " PLUGIN SETTINGS
 call Airline()
 call SyntasticOptions()
-call YouCompleteMe()
 call NerdTree()
-call Taglist()
-call PythonMode()
 call EasyGrep()
-call Ultisnips()
-call VimMarkDown()
 call VimCompletesMe()
