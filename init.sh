@@ -27,7 +27,7 @@ init_dotfiles()
     rm -f $HOME/.xbindkeysrc
 
     # SYMLINKS
-    echo "creating symlinks for the dotfiles"
+    echo "symlinks dotfiles"
     ln -fs $PWD/vim $HOME/.vim
     ln -fs $PWD/vim/vimrc $HOME/.vimrc
     ln -fs $PWD/tmux/tmux.conf $HOME/.tmux.conf
