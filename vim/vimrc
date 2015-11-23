@@ -34,6 +34,7 @@ function! Vundle()
     Plugin 'justmao945/vim-clang'
     Plugin 'craigemery/vim-autotag'
     Plugin 'vim-scripts/camelcasemotion'
+    Plugin 'reedes/vim-pencil'
 
 
     " All of your Plugins must be added before the following line'
