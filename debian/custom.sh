@@ -10,7 +10,7 @@ if [ $(whoami) != "root" ]; then
 fi
 
 
-setup()
+setup_dirs()
 {
     mkdir -p $DOWNLOADS_PATH
 }
@@ -47,6 +47,6 @@ install_dropbox()
 }
 
 
-setup
+setup_dirs
 # install_firefox
 # install_dropbox

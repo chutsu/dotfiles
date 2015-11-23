@@ -68,7 +68,7 @@ alias sandbox="cd $DROPBOX/sandbox"
 alias r2sams="cd $DROPBOX/sandbox/r2sams"
 
 # GIT ALIASES
-alias lg="git log --graph \
+alias gitlog="git log --graph \
     --abbrev-commit \
     --decorate \
     --date=relative \
@@ -81,7 +81,7 @@ alias lg="git log --graph \
 if [ $OS == LINUX ]; then
     alias ls='ls -lh --group-directories-first --color'
     alias la='ls -lha --color'
-    alias install='sudo apt-get install -y --force-yes'
+    alias get='sudo apt-get install -y'
     alias search='apt-cache search'
     alias update='sudo apt-get update'
     alias remove='sudo apt-get remove'
