@@ -25,6 +25,7 @@ init_dotfiles()
     rm -f $HOME/.muttrc
     rm -rf $HOME/.mutt
     rm -f $HOME/.xbindkeysrc
+    rm -f $HOME/.screenlayout
 
     # SYMLINKS
     echo "symlinks dotfiles"
@@ -38,6 +39,7 @@ init_dotfiles()
     ln -fs $PWD/configs/xbindkeysrc $HOME/.xbindkeysrc
     ln -fs $PWD/configs/vimperatorrc $HOME/.vimperatorrc
     ln -fs $PWD/configs/bash_profile $HOME/.bash_profile
+    ln -fs $PWD/screenlayout $HOME/.screenlayout
 
     return 0;
 }
