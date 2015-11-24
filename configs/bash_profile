@@ -81,7 +81,9 @@ alias gitlog="git log --graph \
 if [ $OS == LINUX ]; then
     alias ls='ls -lh --group-directories-first --color'
     alias la='ls -lha --color'
-    alias get='sudo apt-get install -y'
+    alias get='\
+        vim /home/chutsu/dotfiles/debian/deb.pkgs; \
+        sudo sh /home/chutsu/dotfiles/debian/deb_init.sh'
     alias search='apt-cache search'
     alias update='sudo apt-get update'
     alias remove='sudo apt-get remove'
