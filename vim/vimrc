@@ -35,7 +35,9 @@ function! Vundle()
     Plugin 'craigemery/vim-autotag'
     Plugin 'vim-scripts/camelcasemotion'
     Plugin 'reedes/vim-pencil'
-
+    Plugin 'inside/vim-search-pulse'
+    Plugin 'ludovicchabant/vim-gutentags'
+    Plugin 'skammer/vim-css-color'
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -108,6 +110,7 @@ function! EditorBehaviour()
     " plain text mode
     autocmd FileType vim,text,mkd call PlainText()
     autocmd BufNewFile,BufRead *.tex call PlainText()
+    autocmd FileType markdown,mkd call pencil#init({"wrap": "hard"})
 
     " reselect block after indentation
     vnoremap < <gv
@@ -167,6 +170,7 @@ function! CommandModeKeyMappings()
 
     " run script file
     map <S-r> :!clear && bash run.sh<CR>
+    nnoremap <F12> :tabnew<CR>:e run.sh<CR>
 
     " Show syntax highlighting groups for word under cursor
     nmap <C-G> :call <SID>SynStack()<CR>
@@ -227,14 +231,9 @@ function! PlainText()
     " spell checker
     set spell
     set spelllang=en_gb
-    " set formatoptions+=a
 
     " do not highlight extra whitespace
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
-
-    " hardwrap shortcut keys
-    nnoremap <F1> :set formatoptions+=a<CR>
-    nnoremap <F2> :set formatoptions-=a<CR>
 endfunction
 
 function! SyntasticOptions()
@@ -327,6 +326,18 @@ function! VimCompletesMe()
     inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endfunction
 
+function! PythonMode()
+    let g:pymode_lint=1
+    let g:pymode_folding=0
+    let g:pymode_doc=0
+    let g:pymode_lint_on_fly=0
+    let g:pymode_rope_completion=0
+    let g:pymode_options_colorcolumn=0
+
+    " shortcut key to bring up corresponding unit test
+    " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
+endfunction
+
 
 
 
@@ -348,3 +359,4 @@ call SyntasticOptions()
 call NerdTree()
 call EasyGrep()
 call VimCompletesMe()
+call PythonMode()

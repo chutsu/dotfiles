@@ -1,25 +1,27 @@
-Xterm*utf8: 1
-xterm*background: rgb:26/26/26
-xterm*foreground: white
+xterm*utf8: 1
+! xterm*background: rgb:26/26/26
+xterm*background: #1a1a1a
+xterm*foreground: #ffffff
 xterm*faceName: clean:antialias=true
 xterm*faceSize: 9
 
-XTerm*color0:       #000000
-XTerm*color1:       #FF0000
-XTerm*color2:       #5CC65C
-XTerm*color3:       #C2C266
-XTerm*color4:       #0000b2
-XTerm*color5:       #b200b2
-XTerm*color6:       #00a6b2
-XTerm*color7:       #bfbfbf
-XTerm*color8:       #666666
-XTerm*color9:       #e50000
-XTerm*color10:      #00d900
-XTerm*color11:      #e5e500
-XTerm*color12:      #6666FF
-XTerm*color13:      #e500e5
-XTerm*color14:      #00e5e5
-XTerm*color15:      #e5e5e5
+xterm*color0:       #000000
+xterm*color1:       #FF0000
+xterm*color2:       #5CC65C
+xterm*color3:       #C2C266
+! xterm*color4:       #0000b2
+xterm*color4:       #6666ff
+xterm*color5:       #b200b2
+xterm*color6:       #00a6b2
+xterm*color7:       #bfbfbf
+xterm*color8:       #666666
+xterm*color9:       #e50000
+xterm*color10:      #00d900
+xterm*color11:      #e5e500
+xterm*color12:      #6666FF
+xterm*color13:      #e500e5
+xterm*color14:      #00e5e5
+xterm*color15:      #e5e5e5
 
 *VT100.Translations: #override \
     <Key>BackSpace: string(0x7F)\n\

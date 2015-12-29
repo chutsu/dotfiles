@@ -1,6 +1,7 @@
 #!/bin/bash
 export TERM=screen-256color
 source ~/.fzf.bash
+set -o vi
 
 
 # WHICH OS?
@@ -77,7 +78,7 @@ alias lg="git log --graph \
 if [ $OS == LINUX ]; then
     alias ls='ls -lh --group-directories-first --color'
     alias la='ls -lha --color'
-    alias install='sudo apt-get install -y --force-yes'
+    alias get='sudo apt-get install -y --force-yes'
     alias search='apt-cache search'
     alias update='sudo apt-get update'
     alias remove='sudo apt-get remove'
@@ -98,12 +99,15 @@ export VISUAL=vim
 export EDITOR=vim
 
 
+
+
 # SHELL SETTINGS
-export PS1="[\w] > "
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
+}
+PS1='[\w]\[\033[1;35m\]$(parse_git_branch)\[\033[0m\] > '
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000000
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
