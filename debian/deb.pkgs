@@ -1,0 +1,50 @@
+# system
+sudo
+htop
+tar
+curl
+wget
+xterm
+ntfs-3g
+gvfs
+gvfs-*
+
+# window manager
+i3
+thunar
+thunar-*
+chromium
+gnome-icon-theme
+viewnior
+flashplugin-nonfree
+alsa-utils
+pulseaudio-*
+pavucontrol
+xinit
+
+# special
+ttf-mscorefonts-installer
+xserver-xorg-video-nvidia
+
+# development
+vim
+git
+tmux
+gcc
+clang
+python
+python-pip
+python-numpy
+python-scipy
+python-matplotlib
+python3
+python3-pip
+python3-scipy
+python3-numpy
+python3-matplotlib
+valgrind
+parallel
+virtualbox
+
+# user apps
+gimp

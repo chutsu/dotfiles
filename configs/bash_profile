@@ -16,6 +16,10 @@ esac
 
 # STARTX
 if [ $OS == LINUX ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -z "$SSH_CONNECTION" ]; then
+    # screen layout
+    sh ~/.screenlayout/lemonster.sh
+
+    # window manager
     [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx && xbindkeys && nm-applet
 fi
 
@@ -65,7 +69,7 @@ alias sandbox="cd $DROPBOX/sandbox"
 alias r2sams="cd $DROPBOX/sandbox/r2sams"
 
 # GIT ALIASES
-alias lg="git log --graph \
+alias gitlog="git log --graph \
     --abbrev-commit \
     --decorate \
     --date=relative \
@@ -78,7 +82,9 @@ alias lg="git log --graph \
 if [ $OS == LINUX ]; then
     alias ls='ls -lh --group-directories-first --color'
     alias la='ls -lha --color'
-    alias get='sudo apt-get install -y --force-yes'
+    alias get='\
+        vim /home/chutsu/dotfiles/debian/deb.pkgs; \
+        sudo sh /home/chutsu/dotfiles/debian/deb_init.sh'
     alias search='apt-cache search'
     alias update='sudo apt-get update'
     alias remove='sudo apt-get remove'
