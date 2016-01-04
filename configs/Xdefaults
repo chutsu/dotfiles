@@ -1,6 +1,5 @@
 xterm*utf8: 1
-! xterm*background: rgb:26/26/26
-xterm*background: #1a1a1a
+xterm*background: rgb:26/26/26
 xterm*foreground: #ffffff
 xterm*faceName: clean:antialias=true
 xterm*faceSize: 9
@@ -9,7 +8,6 @@ xterm*color0:       #000000
 xterm*color1:       #FF0000
 xterm*color2:       #5CC65C
 xterm*color3:       #C2C266
-! xterm*color4:       #0000b2
 xterm*color4:       #6666ff
 xterm*color5:       #b200b2
 xterm*color6:       #00a6b2

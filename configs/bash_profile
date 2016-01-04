@@ -66,9 +66,6 @@ alias cog="cd $PROJECTS/cog"
 alias recognizer="cd $PROJECTS/recognizer"
 alias qsim="cd $PROJECTS/qsim"
 
-alias sandbox="cd $DROPBOX/sandbox"
-alias r2sams="cd $DROPBOX/sandbox/r2sams"
-
 # GIT ALIASES
 alias gitlog="git log --graph \
     --abbrev-commit \
@@ -84,8 +81,8 @@ if [ $OS == LINUX ]; then
     alias ls='ls -lh --group-directories-first --color'
     alias la='ls -lha --color'
     alias get='\
-        vim /home/chutsu/dotfiles/debian/deb.pkgs; \
-        sudo sh /home/chutsu/dotfiles/debian/deb_init.sh'
+        vim $PROJECTS/dotfiles/debian/deb.pkgs; \
+        sudo sh $PROJECTS/dotfiles/debian/deb_init.sh'
     alias search='apt-cache search'
     alias update='sudo apt-get update'
     alias remove='sudo apt-get remove'
