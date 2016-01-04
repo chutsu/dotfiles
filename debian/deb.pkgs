@@ -8,6 +8,13 @@ xterm
 ntfs-3g
 gvfs
 gvfs-*
+exfat-fuse
+rar
+ttf-mscorefonts-installer
+
+# nvidia specific
+xserver-xorg-video-nvidia
+nvidia-cuda-*
 
 # window manager
 i3
@@ -20,31 +27,58 @@ flashplugin-nonfree
 alsa-utils
 pulseaudio-*
 pavucontrol
+gtk-chtheme
+xfce4-screenshooter
 xinit
-
-# special
-ttf-mscorefonts-installer
-xserver-xorg-video-nvidia
 
 # development
 vim
 git
 tmux
+ctags
 gcc
+ddd
 clang
+libatlas-dev
+libatlas-doc
+libatlas-test
 python
 python-pip
+python-dev
 python-numpy
 python-scipy
 python-matplotlib
 python3
 python3-pip
+python3-dev
 python3-scipy
 python3-numpy
 python3-matplotlib
 valgrind
 parallel
 virtualbox
+virtualbox-guest-x11
+virtualbox-guest-dkms
+virtualbox-guest-utils
+hdf5-tools
+libhdf5-*
+libclblas-bin
+libclblas-dev
+libclblas-doc
+libgomp1
+libopencv-dev
+python-opencv
+
 
 # user apps
+dia
+tree
 gimp
+evince
+evince-gtk
+imagemagick
+mplayer
+pandoc
+libreoffice
+texstudio
+texlive-full
