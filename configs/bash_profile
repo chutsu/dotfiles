@@ -2,7 +2,8 @@
 export TERM=screen-256color
 set -o vi  # set bash to vim mode
 source ~/.fzf.bash
-set -o vi
+xsetroot -solid "#777777"
+xrdb ~/.Xdefaults
 
 
 # WHICH OS?
@@ -18,7 +19,7 @@ esac
 # STARTX
 if [ $OS == LINUX ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -z "$SSH_CONNECTION" ]; then
     # screen layout
-    sh ~/.screenlayout/lemonster.sh
+    # sh ~/.screenlayout/lemonster.sh
 
     # window manager
     [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx && xbindkeys && nm-applet
@@ -65,6 +66,7 @@ alias wire="cd $PROJECTS/wire"
 alias cog="cd $PROJECTS/cog"
 alias recognizer="cd $PROJECTS/recognizer"
 alias qsim="cd $PROJECTS/qsim"
+alias robotics="cd $PROJECTS/robotics"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -124,3 +126,13 @@ if [ $OS == "LINUX" ]; then
         [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
     fi
 fi
+
+source /opt/ros/indigo/setup.bash
+source /home/chutsu/awesomo_catkin_ws/devel/setup.bash
+
+alias awesomo="cd $HOME/catkin_ws/src/awesomo"
+alias awesomo_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
+alias odroid="ssh -X odroid@192.168.1.6"
+
+
+export ROS_MASTER_URI=http://192.168.1.6:11311

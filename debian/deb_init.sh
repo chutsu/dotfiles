@@ -1,9 +1,9 @@
 #!/bin/sh
 BASEDIR=$(dirname $0)
-echo $BASEDIR
 
-ln -fs $BASEDIR/configs/sudoers /etc/sudoers
-ln -fs $BASEDIR/configs/sources.list /etc/apt/sources.list
+# cp $BASEDIR/configs/sudoers $BASEDIR/configs/sudoers.tmp
+# mv $BASEDIR/configs/sudoers.tmp /etc/sudoers
+# ln -fs $BASEDIR/configs/sources.list /etc/apt/sources.list
 
 apt-get update
 grep -v '^#' $BASEDIR/deb.pkgs | xargs apt-get install -y
