@@ -28,7 +28,6 @@ function! Vundle()
     Plugin 'shinokada/SWTC.vim'
     Plugin 'kris89/vim-multiple-cursors'
     Plugin 'junegunn/fzf'
-    Plugin 'godlygeek/tabular'
     Plugin 'vim-scripts/AnsiEsc.vim'
     Plugin 'craigemery/vim-autotag'
     Plugin 'vim-scripts/camelcasemotion'
@@ -36,7 +35,6 @@ function! Vundle()
     Plugin 'inside/vim-search-pulse'
     Plugin 'ludovicchabant/vim-gutentags'
     Plugin 'skammer/vim-css-color'
-    Plugin 'tpope/vim-markdown'
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -108,12 +106,13 @@ function! EditorBehaviour()
     autocmd FileType c call CMode()
     autocmd FileType java call JavaMode()
     autocmd BufRead /tmp/mutt-* call Mutt()
+    " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
     " plain text mode
     autocmd FileType vim,text,mkd call PlainText()
     autocmd BufNewFile,BufRead *.tex call PlainText()
-    autocmd FileType markdown,mkd
-        \ call pencil#init({"wrap": "hard"})
+    " autocmd FileType markdown,mkd
+    "     \ call pencil#init({"wrap": "hard"})
         
 
     " reselect block after indentation
@@ -141,6 +140,10 @@ function! EditorBehaviour()
     " scroll to top when jusing jump-to in ctags
     nnoremap <C-]> <C-]>zt
     nnoremap <C-t> <C-t>zt
+
+    " keep search matches in the middle of the screen
+    nnoremap n nzz
+    nnoremap N Nzz
 
 endfunction
 
@@ -342,19 +345,6 @@ function! PythonMode()
     " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
 endfunction
 
-function! VimMarkdown()
-    " pencil concealelevel
-    let g:pencil#conceallevel=0
-
-    autocmd FileType markdown |
-        \hi def link markdownItalic              NONE |
-        \hi def link markdownItalicDelimiter     NONE |
-        \hi def link markdownBold                NONE |
-        \hi def link markdownBoldDelimiter       NONE |
-        \hi def link markdownBoldItalic          NONE |
-        \hi def link markdownBoldItalicDelimiter NONE
-endfunction
-
 
 
 
@@ -377,4 +367,3 @@ call NerdTree()
 call EasyGrep()
 call VimCompletesMe()
 call PythonMode()
-call VimMarkdown()

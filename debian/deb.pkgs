@@ -22,6 +22,7 @@ thunar
 thunar-*
 # chromium
 gnome-icon-theme
+# gnome-icon-theme-full
 # viewnior
 flashplugin-nonfree
 alsa-utils
@@ -75,12 +76,18 @@ python-opencv
 dia
 tree
 gimp
+<<<<<<< HEAD
 # evince
 # evince-gtk
+xpdf
 imagemagick
-thunderbird
 mplayer
 pandoc
 libreoffice
+epstool
+fig2ps
 texstudio
 texlive-full
+
+# ROS
+# gazebo5

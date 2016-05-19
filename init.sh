@@ -40,8 +40,6 @@ init_dotfiles()
     ln -fs $PWD/configs/vimperatorrc $HOME/.vimperatorrc
     ln -fs $PWD/configs/bash_profile $HOME/.bash_profile
     ln -fs $PWD/screenlayout $HOME/.screenlayout
-    ln -fs $PWD/debian/configs/sources.list /etc/apt/sources.list
-    mv $PWD/debian/configs/sudoers /etc/sudoers
 
     return 0;
 }
