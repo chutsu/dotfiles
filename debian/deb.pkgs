@@ -10,7 +10,7 @@ gvfs
 gvfs-*
 exfat-fuse
 rar
-ttf-mscorefonts-installer
+# ttf-mscorefonts-installer
 
 # nvidia specific
 # xserver-xorg-video-nvidia
@@ -76,6 +76,9 @@ python-opencv
 dia
 tree
 gimp
+<<<<<<< HEAD
+# evince
+# evince-gtk
 xpdf
 imagemagick
 mplayer
