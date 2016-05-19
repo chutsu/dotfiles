@@ -10,19 +10,19 @@ gvfs
 gvfs-*
 exfat-fuse
 rar
-ttf-mscorefonts-installer
+# ttf-mscorefonts-installer
 
 # nvidia specific
-xserver-xorg-video-nvidia
-nvidia-cuda-*
+# xserver-xorg-video-nvidia
+# nvidia-cuda-*
 
 # window manager
 i3
 thunar
 thunar-*
-chromium
+# chromium
 gnome-icon-theme
-viewnior
+# viewnior
 flashplugin-nonfree
 alsa-utils
 pulseaudio-*
@@ -39,6 +39,7 @@ ctags
 gcc
 ddd
 clang
+octave
 libatlas-dev
 libatlas-doc
 libatlas-test
@@ -57,14 +58,14 @@ python3-matplotlib
 valgrind
 parallel
 virtualbox
-virtualbox-guest-x11
-virtualbox-guest-dkms
-virtualbox-guest-utils
-hdf5-tools
-libhdf5-*
-libclblas-bin
-libclblas-dev
-libclblas-doc
+# virtualbox-guest-x11
+# virtualbox-guest-dkms
+# virtualbox-guest-utils
+# hdf5-tools
+# libhdf5-*
+# libclblas-bin
+# libclblas-dev
+# libclblas-doc
 libgomp1
 libopencv-dev
 python-opencv
@@ -74,8 +75,8 @@ python-opencv
 dia
 tree
 gimp
-evince
-evince-gtk
+# evince
+# evince-gtk
 imagemagick
 thunderbird
 mplayer

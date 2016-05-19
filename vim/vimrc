@@ -30,14 +30,13 @@ function! Vundle()
     Plugin 'junegunn/fzf'
     Plugin 'godlygeek/tabular'
     Plugin 'vim-scripts/AnsiEsc.vim'
-    Plugin 'ajh17/VimCompletesMe'
-    Plugin 'justmao945/vim-clang'
     Plugin 'craigemery/vim-autotag'
     Plugin 'vim-scripts/camelcasemotion'
     Plugin 'reedes/vim-pencil'
     Plugin 'inside/vim-search-pulse'
     Plugin 'ludovicchabant/vim-gutentags'
     Plugin 'skammer/vim-css-color'
+    Plugin 'tpope/vim-markdown'
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -70,6 +69,9 @@ function! EditorAppearance()
     set cursorline
     set fillchars=" split char
     set encoding=utf-8
+
+    " let terminal resize scale the internal windows
+    autocmd VimResized * :wincmd =
 endfunction
 
 function! EditorBehaviour()
@@ -95,7 +97,7 @@ function! EditorBehaviour()
     set scrolloff=10  " top/bottom padding when scrolling
 
     " remove trailing whitespace automatically when saving
-    autocmd FileType c,cpp,java,php,python,javascript
+    autocmd FileType c,cpp,java,php,python,javascript,markdown
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
     " reload vimrc after update
@@ -110,7 +112,9 @@ function! EditorBehaviour()
     " plain text mode
     autocmd FileType vim,text,mkd call PlainText()
     autocmd BufNewFile,BufRead *.tex call PlainText()
-    autocmd FileType markdown,mkd call pencil#init({"wrap": "hard"})
+    autocmd FileType markdown,mkd
+        \ call pencil#init({"wrap": "hard"})
+        
 
     " reselect block after indentation
     vnoremap < <gv
@@ -338,6 +342,19 @@ function! PythonMode()
     " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
 endfunction
 
+function! VimMarkdown()
+    " pencil concealelevel
+    let g:pencil#conceallevel=0
+
+    autocmd FileType markdown |
+        \hi def link markdownItalic              NONE |
+        \hi def link markdownItalicDelimiter     NONE |
+        \hi def link markdownBold                NONE |
+        \hi def link markdownBoldDelimiter       NONE |
+        \hi def link markdownBoldItalic          NONE |
+        \hi def link markdownBoldItalicDelimiter NONE
+endfunction
+
 
 
 
@@ -360,3 +377,4 @@ call NerdTree()
 call EasyGrep()
 call VimCompletesMe()
 call PythonMode()
+call VimMarkdown()

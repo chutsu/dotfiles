@@ -1,8 +1,10 @@
 #!/bin/bash
 export TERM=screen-256color
-set -o vi  # set bash to vim mode
 source ~/.fzf.bash
-set -o vi
+xrdb ~/.Xdefaults
+
+source /opt/ros/indigo/setup.bash
+source $HOME/catkin_ws/devel/setup.bash
 
 
 # WHICH OS?
@@ -65,6 +67,8 @@ alias wire="cd $PROJECTS/wire"
 alias cog="cd $PROJECTS/cog"
 alias recognizer="cd $PROJECTS/recognizer"
 alias qsim="cd $PROJECTS/qsim"
+alias awesomo="cd $PROJECTS/awesomo"
+alias robotics="cd $PROJECTS/robotics"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -81,8 +85,8 @@ if [ $OS == LINUX ]; then
     alias ls='ls -lh --group-directories-first --color'
     alias la='ls -lha --color'
     alias get='\
-        vim $PROJECTS/dotfiles/debian/deb.pkgs; \
-        sudo sh $PROJECTS/dotfiles/debian/deb_init.sh'
+        vim $HOME/dotfiles/debian/deb.pkgs; \
+        sudo sh $HOME/dotfiles/debian/deb_init.sh'
     alias search='apt-cache search'
     alias update='sudo apt-get update'
     alias remove='sudo apt-get remove'
@@ -95,6 +99,7 @@ fi
 alias vimrc="vim $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
+alias qgc="cd $HOME/qgroundcontrol/ && ./qgroundcontrol-start.sh && cd -";
 
 
 # ENVIRONMENTAL SETTINGS
@@ -124,3 +129,5 @@ if [ $OS == "LINUX" ]; then
         [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
     fi
 fi
+
+alias odroid="ssh -X odroid@192.168.1.6"
