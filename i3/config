@@ -30,6 +30,9 @@ floating_modifier $mod
 # bindsym $mod+Return exec xterm
 bindsym $mod+t exec xterm
 
+# start thunar
+bindsym $mod+b exec thunar
+
 # screenshot
 bindsym $mod+s exec xfce4-screenshooter
 
