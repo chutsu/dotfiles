@@ -67,6 +67,7 @@ alias recognizer="cd $PROJECTS/recognizer"
 alias qsim="cd $PROJECTS/qsim"
 alias awesomo="cd $PROJECTS/awesomo"
 alias robotics="cd $PROJECTS/robotics"
+alias atim="cd $PROJECTS/atim"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -123,8 +124,12 @@ stty -ixon  # disable ctrl-s (software flow control)
 
 # START TMUX ON BASH STARTUP
 if [ $OS == "LINUX" ]; then
-    if which tmux 2>&1 >/dev/null; then
-        [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
+    if which tmux 2>&1 >/dev/null; then  # check if tmux is installed
+        if tmux ls 2>&1 >/dev/null; then  # check if tmux already has sessions
+            [[ -z "$TMUX" ]] && exec tmux attach
+        else
+            [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
+        fi
     fi
 fi
 
@@ -135,9 +140,8 @@ source /home/chutsu/awesomo_catkin_ws/devel/setup.bash
 alias awesomo="cd $HOME/catkin_ws/src/awesomo"
 alias awesomo_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
 alias odroid="ssh -X odroid@192.168.1.6"
-
-
-# export ROS_MASTER_URI=http://192.168.1.6:11311
-# alias matlab="cd $HOME/matlab/bin/ && ./matlab"
+alias mocap="cd catkin_ws/src/mocap_optitrack/"
+alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_awesomo.launch; cd -"
 
 export PATH=$PATH:$HOME/matlab/bin/
+
