@@ -1,8 +1,6 @@
 #!/bin/bash
 export TERM=screen-256color
 source ~/.fzf.bash
-xrdb ~/.Xdefaults
-xsetroot -solid "#777777"
 
 
 # WHICH OS?
@@ -21,7 +19,7 @@ if [ $OS == LINUX ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -z "$SSH_C
     # sh ~/.screenlayout/lemonster.sh
 
     # window manager
-    [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx && xbindkeys && nm-applet
+    [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx && xbindkeys
 fi
 
 # DIR PATHS
@@ -68,6 +66,8 @@ alias qsim="cd $PROJECTS/qsim"
 alias awesomo="cd $PROJECTS/awesomo"
 alias robotics="cd $PROJECTS/robotics"
 alias atim="cd $PROJECTS/atim"
+alias numbers="cd $PROJECTS/numbers"
+alias sr="cd $PROJECTS/sr"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -135,13 +135,9 @@ fi
 
 alias odroid="ssh -X odroid@192.168.1.6"
 source /opt/ros/indigo/setup.bash
-source /home/chutsu/awesomo_catkin_ws/devel/setup.bash
 
 alias awesomo="cd $HOME/catkin_ws/src/awesomo"
 alias awesomo_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
 alias odroid="ssh -X odroid@192.168.1.6"
 alias mocap="cd catkin_ws/src/mocap_optitrack/"
 alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_awesomo.launch; cd -"
-
-export PATH=$PATH:$HOME/matlab/bin/
-

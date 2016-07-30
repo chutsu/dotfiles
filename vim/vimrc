@@ -17,8 +17,8 @@ function! Vundle()
     Plugin 'tomtom/tcomment_vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'jistr/vim-nerdtree-tabs'
-    Plugin 'derekwyatt/vim-fswitch'
     Plugin 'scrooloose/syntastic'
+    Plugin 'derekwyatt/vim-fswitch'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'petRUShka/vim-opencl'
     Plugin 'bling/vim-airline'
@@ -29,7 +29,6 @@ function! Vundle()
     Plugin 'kris89/vim-multiple-cursors'
     Plugin 'junegunn/fzf'
     Plugin 'vim-scripts/AnsiEsc.vim'
-    Plugin 'craigemery/vim-autotag'
     Plugin 'vim-scripts/camelcasemotion'
     Plugin 'reedes/vim-pencil'
     Plugin 'inside/vim-search-pulse'
@@ -204,13 +203,6 @@ function! VimSplitsKeyMappings()
     map <S-l> :wincmd l<CR>
 endfunction
 
-function! HeaderSwitchMappings()
-    nnoremap <F7> :vsplit<CR>:FSLeft<CR>
-    nnoremap <F8> :FSHere<CR>
-    nnoremap <F9> :vsplit<CR>:FSRight<CR>
-    nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
-endfunction
-
 function! EscapeCommonOperationTypos()
     cmap Wq wq
     cmap WQ wq
@@ -243,6 +235,28 @@ function! PlainText()
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=None guibg=None
 endfunction
 
+function! Airline()
+    let g:airline_powerline_fonts = 0
+    let g:airline#extensions#tabline#enabled = 0
+
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+
+    " unicode symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_sep = ''
+endfunction
+
+function! FSwitch()
+    nmap <F7> :vsplit<CR>:FSLeft<CR>
+    nmap <F8> :FSHere<CR>
+    nmap <F9> :vsplit<CR>:FSRight<CR>
+    " nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
+endfunction
+
 function! SyntasticOptions()
     " c specific settings
     let g:syntastic_c_config_file='.syntastic_config'
@@ -260,6 +274,7 @@ function! SyntasticOptions()
     let g:syntastic_cpp_include_dirs=[
         \ 'src'
     \ ]
+    let g:syntastic_cpp_checkers=['']
 
     " java specific settings
     let g:syntastic_java_javac_classpath='./bin/classes:'
@@ -280,21 +295,6 @@ function! SyntasticOptions()
     let g:syntastic_error_symbol         = 'E'
     let g:syntastic_style_error_symbol   = 'SE'
     let g:syntastic_style_warning_symbol = 'SW'
-endfunction
-
-function! Airline()
-    let g:airline_powerline_fonts = 0
-    let g:airline#extensions#tabline#enabled = 0
-
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-
-    " unicode symbols
-    let g:airline_left_sep = ''
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_sep = ''
 endfunction
 
 function! NerdTree()
@@ -318,9 +318,6 @@ endfunction
 function! CMode()
     " shortcut key to bring up corresponding unit test
     map <S-t> :vsplit %:s?src?tests?:r_test.c<CR>
-
-    " header shortcuts
-    call HeaderSwitchMappings()
 endfunction
 
 function! EasyGrep()
@@ -362,6 +359,7 @@ call EscapeCommonOperationTypos()
 
 " PLUGIN SETTINGS
 call Airline()
+call FSwitch()
 call SyntasticOptions()
 call NerdTree()
 call EasyGrep()

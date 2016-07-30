@@ -13,6 +13,14 @@ if len(sys.argv) == 2:
         print("C Header Files")
         os.system("find . -name *.h | xargs wc -l")
 
+    if mode == "cpp":
+        print("C++ Source Files")
+        os.system("find . -name *.cpp | xargs wc -l")
+
+        print ""
+        print("C++ Header Files")
+        os.system("find . -name *.hpp | xargs wc -l")
+
     elif mode == "python":
         print("Python Source Files")
         os.system("find . -name '*.py' | xargs wc -l")
