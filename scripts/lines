@@ -1,34 +1,37 @@
-#!/usr/bin/env python2
-import os
-import sys
+#!/bin/bash
+set -e  # halt on first error
 
-if len(sys.argv) == 2:
-    mode = sys.argv[1]
+show_usage() {
+    echo "Usage: lines [c|cpp|python]"
+}
 
-    if mode == "c":
-        print("C Source Files")
-        os.system("find . -name *.c | xargs wc -l")
 
-        print ""
-        print("C Header Files")
-        os.system("find . -name *.h | xargs wc -l")
+if [ "$#" -ne 1 ]; then
+    show_usage
+    exit 1
+fi
 
-    if mode == "cpp":
-        print("C++ Source Files")
-        os.system("find . -name *.cpp | xargs wc -l")
 
-        print ""
-        print("C++ Header Files")
-        os.system("find . -name *.hpp | xargs wc -l")
+if [ "$1" == "c" ]; then
+    echo "C Source Files"
+    find . -name *.c | xargs wc -l
+    echo ""
 
-    elif mode == "python":
-        print("Python Source Files")
-        os.system("find . -name '*.py' | xargs wc -l")
+    echo "C Header Files"
+    find . -name *.h | xargs wc -l
 
-    else:
-        print("""
-Missing commandline arguemnt!
-options:
-    c
-    python
-        """)
+elif [ "$1" == "cpp" ]; then
+    echo "C++ Source Files"
+    find . -name *.cpp | xargs wc -l
+    echo ""
+
+    echo "C++ Header Files"
+    find . -name *.hpp | xargs wc -l
+
+elif [ "$1" == "python" ]; then
+    echo "Python Source Files"
+    find . -name '*.py' | xargs wc -l
+
+else
+    show_usage
+fi

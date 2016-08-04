@@ -1,54 +1,28 @@
-#!/usr/bin/env python
-import os
-import sys
+#!/bin/sh
+set -e  # halt on first error
 
+show_usage() {
+    echo "Usage: unpack <archived / compressed file>"
+    echo "supports: gz, tgz, xz, bz2, tar, rar, zip"
+}
 
-def print_usage():
-    usage = """\
-Usage: unpack <archived / compressed file>
+if [ "$#" -ne 1 ]; then
+    show_usage
+    exit 1
+fi
 
-This script unpacks common archive file formats
-Supports:
-  - .gz
-  - .bz2
-  - .tar
-  - .zip
-  - .rar
-archive files
+FILENAME=$(basename "$1")
+EXT="${FILENAME##*.}"
+echo "unpacking archive [$EXT]"
 
-Depends on:
-  - tar
-  - bzip
-  - gunzip
-  - unrar
-  - unzip
-    """
-    print usage
+case "$EXT" in
+    gz) tar -xzvf $1;;
+    tgz) tar -xzvf $1;;
+    xz) tar -xzvf $1;;
+    bz2) tar -xvjpf $1;;
+    tar) tar -xvf $1;;
+    rar) unrar e $1;;
+    zip) unzip $1;;
+esac
 
-
-if len(sys.argv) == 2:
-    f = sys.argv[1]
-    extension = f.split(".")[-1]
-    redirect_out = "> /dev/null  2>&1"
-    result = 1
-
-    print("unpacking archive [{0}]".format(f))
-    if extension == "gz":
-        result = os.system("tar -xzvf {0} {1}".format(f, redirect_out))
-    elif extension == "tgz":
-        result = os.system("tar -xzvf {0} {1}".format(f, redirect_out))
-    elif extension == "xz":
-        result = os.system("tar -xzvf {0} {1}".format(f, redirect_out))
-    elif extension == "bz2":
-        result = os.system("tar -xvjpf {0} {1}".format(f, redirect_out))
-    elif extension == "tar":
-        result = os.system("tar -xvf {0} {1}".format(f, redirect_out))
-    elif extension == "rar":
-        result = os.system("unrar e {0} {1}".format(f, redirect_out))
-    elif extension == "zip":
-        result = os.system("unzip {0} {1}".format(f, redirect_out))
-
-    print("done! :)" if result == 0 else "failed")
-
-else:
-    print_usage()
+echo "done! :)"

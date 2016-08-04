@@ -102,7 +102,7 @@ alias qgc="cd $HOME/qgroundcontrol/ && ./qgroundcontrol-start.sh && cd -";
 
 
 # ENVIRONMENTAL SETTINGS
-export PATH=$PATH:$PROJECTS/dotfiles/scripts
+export PATH=$PATH:$PROJECTS/dotfiles/scripts:/usr/local/cuda/bin
 export VISUAL=vim
 export EDITOR=vim
 
