@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e  # halt on first error
 
 show_usage() {
@@ -12,7 +12,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 
-if [ "$1" == "c" ]; then
+if [ "$1" = "c" ]; then
     echo "C Source Files"
     find . -name *.c | xargs wc -l
     echo ""
@@ -20,7 +20,7 @@ if [ "$1" == "c" ]; then
     echo "C Header Files"
     find . -name *.h | xargs wc -l
 
-elif [ "$1" == "cpp" ]; then
+elif [ "$1" = "cpp" ]; then
     echo "C++ Source Files"
     find . -name *.cpp | xargs wc -l
     echo ""
@@ -28,7 +28,7 @@ elif [ "$1" == "cpp" ]; then
     echo "C++ Header Files"
     find . -name *.hpp | xargs wc -l
 
-elif [ "$1" == "python" ]; then
+elif [ "$1" = "python" ]; then
     echo "Python Source Files"
     find . -name '*.py' | xargs wc -l
 
