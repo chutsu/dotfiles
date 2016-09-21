@@ -46,7 +46,7 @@ alias recall="cd $PROJECTS/websites/recall"
 # membank
 alias membank="cd $PROJECTS/membank/"
 alias notes="cd $DROPBOX/notes; vim; cd -"
-alias papers="cd $PROJECTS/membank/papers"
+alias papers="cd $PROJECTS/papers"
 alias docs="cd $PROJECTS/membank/docs"
 
 # projects
@@ -68,6 +68,8 @@ alias robotics="cd $PROJECTS/robotics"
 alias atim="cd $PROJECTS/atim"
 alias numbers="cd $PROJECTS/numbers"
 alias sr="cd $PROJECTS/sr"
+alias slam="cd $PROJECTS/slam"
+alias piq="cd $PROJECTS/piq"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -136,8 +138,12 @@ fi
 alias odroid="ssh -X odroid@192.168.1.6"
 source /opt/ros/indigo/setup.bash
 
+alias mavros="roslaunch mavros px4.launch"
 alias awesomo="cd $HOME/catkin_ws/src/awesomo"
 alias awesomo_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
 alias odroid="ssh -X odroid@192.168.1.6"
 alias mocap="cd catkin_ws/src/mocap_optitrack/"
 alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_awesomo.launch; cd -"
+alias sbgc="cd ~/SimpleBGC_GUI_2_56b7/; java -jar SimpleBGC_GUI.jar; cd -"
+alias tx1="ssh -X ubuntu@192.168.1.24"
+alias zero="ssh -X pi@192.168.1.100"

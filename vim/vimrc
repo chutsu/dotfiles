@@ -97,6 +97,10 @@ function! EditorBehaviour()
     autocmd FileType c,cpp,java,php,python,javascript,markdown
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+    " retab file when saving
+    autocmd FileType c,cpp,java,php,python,javascript,markdown
+            \ autocmd BufWritePre <buffer> :retab
+
     " reload vimrc after update
     " autocmd BufWritePost .vimrc so ~/.vimrc
 
