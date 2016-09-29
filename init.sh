@@ -11,6 +11,15 @@ Darwin)
 esac
 
 
+install_dependencies()
+{
+    sudo apt-get install \
+        git \
+        vim \
+        i3 \
+        xinit
+}
+
 init_dotfiles()
 {
     # REMOVE OLD DOTFILES
@@ -57,9 +66,12 @@ init_vim()
 
 init()
 {
+    install_dependencies
     init_dotfiles
     init_vim
     echo "Done! :)"
 }
 
+
+# MAIN
 init
