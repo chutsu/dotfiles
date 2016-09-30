@@ -107,6 +107,7 @@ function! EditorBehaviour()
     " correct filetype recognition
     autocmd BufRead,BufNewFile *.h set filetype=c
     autocmd FileType c call CMode()
+    autocmd FileType cpp call CPPMode()
     autocmd FileType java call JavaMode()
     autocmd BufRead /tmp/mutt-* call Mutt()
     " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -322,6 +323,11 @@ endfunction
 function! CMode()
     " shortcut key to bring up corresponding unit test
     map <S-t> :vsplit %:s?src?tests?:r_test.c<CR>
+endfunction
+
+function! CPPMode()
+    " shortcut key to bring up corresponding unit test
+    map <S-t> :vsplit %:s?src?tests?:r_test.cpp<CR>
 endfunction
 
 function! EasyGrep()

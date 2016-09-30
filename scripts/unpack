@@ -1,11 +1,14 @@
 #!/bin/sh
 set -e  # halt on first error
 
-show_usage() {
+show_usage()
+{
     echo "Usage: unpack <archived / compressed file>"
     echo "supports: gz, tgz, xz, bz2, tar, rar, zip"
 }
 
+
+# MAIN
 if [ "$#" -ne 1 ]; then
     show_usage
     exit 1

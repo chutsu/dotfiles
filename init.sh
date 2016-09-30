@@ -25,7 +25,8 @@ install_dependencies()
         network-manager-gnome \
         thunar \
         gnome-icon-theme-full \
-        pavucontrol
+        pavucontrol \
+        v4l-utils
 }
 
 git_config()
@@ -33,7 +34,6 @@ git_config()
     git config --global user.name "Chris Choi"
     git config --global user.email "chutsu@gmail.com"
     git config --global push.default matching
-
 }
 
 init_dotfiles()
