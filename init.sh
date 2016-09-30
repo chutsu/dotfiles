@@ -28,6 +28,14 @@ install_dependencies()
         pavucontrol
 }
 
+git_config()
+{
+    git config --global user.name "Chris Choi"
+    git config --global user.email "chutsu@gmail.com"
+    git config --global push.default matching
+
+}
+
 init_dotfiles()
 {
     # REMOVE OLD DOTFILES
@@ -75,6 +83,7 @@ init_vim()
 init()
 {
     install_dependencies
+    git_config
     init_dotfiles
     init_vim
     echo "Done! :)"
