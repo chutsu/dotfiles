@@ -13,11 +13,19 @@ esac
 
 install_dependencies()
 {
-    sudo apt-get install \
+    sudo apt-get update
+    sudo apt-get install -y \
+        xterm \
+        exuberant-ctags \
         git \
         vim \
         i3 \
-        xinit
+        xinit \
+        xbacklight \
+        network-manager-gnome \
+        thunar \
+        gnome-icon-theme-full \
+        pavucontrol
 }
 
 init_dotfiles()
