@@ -17,7 +17,8 @@ install_dependencies()
         git \
         vim \
         i3 \
-        xinit
+        xinit \
+        v4l-utils
 }
 
 init_dotfiles()
