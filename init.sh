@@ -1,4 +1,5 @@
 #/bin/sh
+set -e  # exit on first error
 
 # determine os
 case $(uname -s) in
@@ -18,6 +19,7 @@ install_dependencies()
         xterm \
         exuberant-ctags \
         git \
+	automake \
         vim \
         i3 \
         xinit \
@@ -27,6 +29,30 @@ install_dependencies()
         gnome-icon-theme-full \
         pavucontrol \
         v4l-utils
+}
+
+install_tmux()
+{
+    cd /tmp
+    sudo apt-get install -y \
+        libevent-2.0-5 \
+        libevent-dev \
+        libncurses5-dev \
+        libncursesw5-dev
+
+    git clone https://github.com/tmux/tmux.git
+    cd tmux
+    sh autogen.sh
+    ./configure && make
+    cd ..
+}
+
+install_dropbox()
+{
+    cd $HOME
+    wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    ~/.dropbox-dist/dropboxd
+    cd -
 }
 
 git_config()
@@ -82,10 +108,12 @@ init_vim()
 
 init()
 {
-    install_dependencies
-    git_config
+    #install_dependencies
+    #install_tmux
+    #install_dropbox
+    #git_config
     init_dotfiles
-    init_vim
+    #init_vim
     echo "Done! :)"
 }
 

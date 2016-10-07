@@ -1,6 +1,7 @@
 #!/bin/bash
 export TERM=screen-256color
 source ~/.fzf.bash
+cd $HOME
 
 
 # WHICH OS?
