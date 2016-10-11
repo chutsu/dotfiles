@@ -51,7 +51,7 @@ install_dropbox()
 {
     cd $HOME
     wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-    ~/.dropbox-dist/dropboxd
+    ~/.dropbox-dist/dropboxd &
     cd -
 }
 
@@ -99,6 +99,10 @@ init_dotfiles()
 
 init_vim()
 {
+    cd $HOME
+    git clone https://github.com/chutsu/dotfiles
+    cd dotfiles
+    
     echo "install vim plugins"
     git submodule init
     git submodule update
@@ -114,8 +118,8 @@ init()
     install_tmux
     install_dropbox
     git_config
-    init_dotfiles
     init_vim
+    init_dotfiles
     echo "Done! :)"
 }
 
