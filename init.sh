@@ -44,6 +44,7 @@ install_tmux()
     cd tmux
     sh autogen.sh
     ./configure && make
+    cp tmux /usr/local/bin
     cd ..
 }
 
@@ -96,6 +97,7 @@ init_dotfiles()
     ln -fs $PWD/configs/xbindkeysrc $HOME/.xbindkeysrc
     ln -fs $PWD/configs/vimperatorrc $HOME/.vimperatorrc
     ln -fs $PWD/configs/bash_profile $HOME/.bash_profile
+    echo "source ~/.bash_profile" >> $HOME/.bashrc
     ln -fs $PWD/configs/gitconfig $HOME/.gitconfig
     ln -fs $PWD/screenlayout $HOME/.screenlayout
 
