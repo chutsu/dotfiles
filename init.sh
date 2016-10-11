@@ -19,7 +19,7 @@ install_dependencies()
         xterm \
         exuberant-ctags \
         git \
-	automake \
+        automake \
         vim \
         i3 \
         xinit \
@@ -77,6 +77,7 @@ init_dotfiles()
     rm -rf $HOME/.mutt
     rm -f $HOME/.xbindkeysrc
     rm -f $HOME/.screenlayout
+    rm -f $HOME/.gitconfig
 
     # SYMLINKS
     echo "symlinks dotfiles"
@@ -90,6 +91,7 @@ init_dotfiles()
     ln -fs $PWD/configs/xbindkeysrc $HOME/.xbindkeysrc
     ln -fs $PWD/configs/vimperatorrc $HOME/.vimperatorrc
     ln -fs $PWD/configs/bash_profile $HOME/.bash_profile
+    ln -fs $PWD/configs/gitconfig $HOME/.gitconfig
     ln -fs $PWD/screenlayout $HOME/.screenlayout
 
     return 0;
@@ -108,12 +110,12 @@ init_vim()
 
 init()
 {
-    #install_dependencies
-    #install_tmux
-    #install_dropbox
-    #git_config
+    install_dependencies
+    install_tmux
+    install_dropbox
+    git_config
     init_dotfiles
-    #init_vim
+    init_vim
     echo "Done! :)"
 }
 
