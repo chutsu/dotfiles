@@ -15,3 +15,8 @@ This dotfile repo contains configuration for:
     - vim
     - i3
     - vimperator
+
+
+## Install
+
+    curl -L https://git.io/vPzOt > init.sh && sh init.sh
