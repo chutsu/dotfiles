@@ -1,7 +1,6 @@
 set path=.,**
 set tabstop=2 shiftwidth=2 softtabstop=2
 
-
 if !exists('*CPPSwitch')
     function! CPPSwitch()
         let fext = expand('%:e')
