@@ -18,11 +18,11 @@ function! Vundle()
     Plugin 'scrooloose/nerdtree'
     Plugin 'jistr/vim-nerdtree-tabs'
     Plugin 'scrooloose/syntastic'
-    Plugin 'derekwyatt/vim-fswitch'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'petRUShka/vim-opencl'
     Plugin 'bling/vim-airline'
     Plugin 'kien/ctrlp.vim'
+    Plugin 'vim-scripts/a.vim'
     Plugin 'vim-scripts/EasyGrep'
     Plugin 'klen/python-mode'
     Plugin 'shinokada/SWTC.vim'
@@ -34,6 +34,8 @@ function! Vundle()
     Plugin 'inside/vim-search-pulse'
     Plugin 'ludovicchabant/vim-gutentags'
     Plugin 'skammer/vim-css-color'
+    Plugin 'jvirtanen/vim-octave'
+
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -117,7 +119,7 @@ function! EditorBehaviour()
     autocmd BufNewFile,BufRead *.tex call PlainText()
     " autocmd FileType markdown,mkd
     "     \ call pencil#init({"wrap": "hard"})
-        
+
 
     " reselect block after indentation
     vnoremap < <gv
@@ -157,8 +159,6 @@ function! DefaultCodingStyle()
     set softtabstop=4
     set expandtab " expand tabs as spaces
 
-    autocmd FileType c setlocal tabstop=4 shiftwidth=4 softtabstop=4
-    autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 softtabstop=4
     autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType java setlocal tabstop=2 shiftwidth=2 softtabstop=2
@@ -166,7 +166,7 @@ function! DefaultCodingStyle()
     " highlight when code is over 80 columns
     augroup vimrc_autocmds
         autocmd BufEnter * highlight OverLength ctermbg=darkgrey
-        autocmd BufEnter * match OverLength /\%80v.*/
+        autocmd BufEnter * match OverLength /\%78v.*/
     augroup END
 endfunction
 
@@ -253,13 +253,6 @@ function! Airline()
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_sep = ''
-endfunction
-
-function! FSwitch()
-    nmap <F7> :vsplit<CR>:FSLeft<CR>
-    nmap <F8> :FSHere<CR>
-    nmap <F9> :vsplit<CR>:FSRight<CR>
-    " nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
 endfunction
 
 function! SyntasticOptions()
@@ -352,6 +345,9 @@ function! PythonMode()
     " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
 endfunction
 
+function! NeoComplete()
+    let g:neocomplete#enable_at_startup = 1
+endfunction
 
 
 
@@ -369,9 +365,10 @@ call EscapeCommonOperationTypos()
 
 " PLUGIN SETTINGS
 call Airline()
-call FSwitch()
+" call FSwitch()
 call SyntasticOptions()
 call NerdTree()
 call EasyGrep()
 call VimCompletesMe()
 call PythonMode()
+call NeoComplete()

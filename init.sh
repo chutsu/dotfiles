@@ -66,9 +66,9 @@ git_config()
 init_dotfiles()
 {
     # CLONE DOTFILES
-    cd $HOME
-    git clone https://github.com/chutsu/dotfiles
-    cd dotfiles
+    #cd $HOME
+    #git clone https://github.com/chutsu/dotfiles
+    #cd dotfiles
 
     # REMOVE OLD DOTFILES
     echo "remove old dotfiles"
@@ -117,10 +117,10 @@ init_vim()
 
 init()
 {
-    install_dependencies
-    install_tmux
-    install_dropbox
-    git_config
+    #install_dependencies
+    #install_tmux
+    #install_dropbox
+    #git_config
    
     init_dotfiles
     init_vim

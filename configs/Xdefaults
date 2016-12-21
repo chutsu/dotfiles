@@ -2,7 +2,7 @@ xterm*utf8: 1
 xterm*background: rgb:26/26/26
 xterm*foreground: #ffffff
 xterm*faceName: clean:antialias=false
-xterm*faceSize: 9
+xterm*faceSize: 11
 
 xterm*color0:       #000000
 xterm*color1:       #FF0000
