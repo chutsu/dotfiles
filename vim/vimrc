@@ -159,6 +159,7 @@ function! DefaultCodingStyle()
     set softtabstop=4
     set expandtab " expand tabs as spaces
 
+    autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType java setlocal tabstop=2 shiftwidth=2 softtabstop=2

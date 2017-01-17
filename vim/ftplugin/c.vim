@@ -12,5 +12,3 @@ if !exists('*CSwitch')
     endfunction
 endif
 
-nmap <F8> :call CSwitch()<CR>
-nmap <F9> :vsplit call CSwitch()<CR>

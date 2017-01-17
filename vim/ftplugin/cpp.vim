@@ -12,5 +12,6 @@ if !exists('*CPPSwitch')
     endfunction
 endif
 
+nmap <F7> :vsplit <bar> call CPPSwitch()<CR>
 nmap <F8> :call CPPSwitch()<CR>
-nmap <F9> :vsplit call CPPSwitch()<CR>
+nmap <F9> :set splitright <bar> vsplit <bar> call CPPSwitch()<CR>
