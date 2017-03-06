@@ -35,6 +35,7 @@ function! Vundle()
     Plugin 'ludovicchabant/vim-gutentags'
     Plugin 'skammer/vim-css-color'
     Plugin 'jvirtanen/vim-octave'
+    Plugin 'gabrielelana/vim-markdown'
 
 
     " All of your Plugins must be added before the following line'

@@ -71,6 +71,7 @@ alias numbers="cd $PROJECTS/numbers"
 alias sr="cd $PROJECTS/sr"
 alias slam="cd $PROJECTS/slam"
 alias piq="cd $PROJECTS/piq"
+alias paper="cd ~/docs/papers/2017_03-IROS-Autonomous_Landing"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -138,6 +139,7 @@ fi
 
 alias odroid="ssh -X odroid@192.168.1.6"
 source /opt/ros/indigo/setup.bash
+source ~/catkin_ws/devel/setup.bash
 
 alias mavros="roslaunch mavros px4.launch"
 alias awesomo="cd $HOME/catkin_ws/src/awesomo"
@@ -146,5 +148,11 @@ alias odroid="ssh -X odroid@192.168.1.6"
 alias mocap="cd catkin_ws/src/mocap_optitrack/"
 alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_awesomo.launch; cd -"
 alias sbgc="cd ~/SimpleBGC_GUI_2_56b7/; java -jar SimpleBGC_GUI.jar; cd -"
+alias pi="ssh -X pi@192.168.1.21"
 alias tx1="ssh -X ubuntu@192.168.1.24"
 alias zero="ssh -X pi@192.168.1.100"
+alias catkin_ws="cd ~/catkin_ws/"
+alias awesomo_record="sh ~/catkin_ws/src/awesomo/scripts/awesomo_record.sh"
+
+# export ROS_MASTER_URI=http://192.168.1.24:11311
+# alias awesomo_tower="sh ~/catkin_ws/src/awesomo/scripts/awesomo_tower.sh"
