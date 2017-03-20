@@ -70,7 +70,8 @@ alias atim="cd $PROJECTS/atim"
 alias numbers="cd $PROJECTS/numbers"
 alias sr="cd $PROJECTS/sr"
 alias slam="cd $PROJECTS/slam"
-alias piq="cd $PROJECTS/piq"
+alias libwave="cd $PROJECTS/libwave"
+alias flightstack="cd $PROJECTS/flightstack"
 alias paper="cd ~/docs/papers/2017_03-IROS-Autonomous_Landing"
 
 # GIT ALIASES
@@ -138,7 +139,7 @@ if [ $OS == "LINUX" ]; then
 fi
 
 alias odroid="ssh -X odroid@192.168.1.6"
-source /opt/ros/indigo/setup.bash
+source /opt/ros/kinetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
 alias mavros="roslaunch mavros px4.launch"

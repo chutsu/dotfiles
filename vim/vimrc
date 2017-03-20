@@ -22,7 +22,6 @@ function! Vundle()
     Plugin 'petRUShka/vim-opencl'
     Plugin 'bling/vim-airline'
     Plugin 'kien/ctrlp.vim'
-    Plugin 'vim-scripts/a.vim'
     Plugin 'vim-scripts/EasyGrep'
     Plugin 'klen/python-mode'
     Plugin 'shinokada/SWTC.vim'
@@ -35,7 +34,7 @@ function! Vundle()
     Plugin 'ludovicchabant/vim-gutentags'
     Plugin 'skammer/vim-css-color'
     Plugin 'jvirtanen/vim-octave'
-    Plugin 'gabrielelana/vim-markdown'
+    Plugin 'tpope/vim-markdown'
 
 
     " All of your Plugins must be added before the following line'
@@ -113,7 +112,7 @@ function! EditorBehaviour()
     autocmd FileType cpp call CPPMode()
     autocmd FileType java call JavaMode()
     autocmd BufRead /tmp/mutt-* call Mutt()
-    " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+    autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
     " plain text mode
     autocmd FileType vim,text,mkd call PlainText()
@@ -347,10 +346,6 @@ function! PythonMode()
     " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
 endfunction
 
-function! NeoComplete()
-    let g:neocomplete#enable_at_startup = 1
-endfunction
-
 
 
 " MAIN
@@ -373,4 +368,3 @@ call NerdTree()
 call EasyGrep()
 call VimCompletesMe()
 call PythonMode()
-call NeoComplete()
