@@ -11,9 +11,7 @@ Darwin)
     ;;
 esac
 
-
-install_dependencies()
-{
+install_dependencies() {
     sudo apt-get update
     sudo apt-get install -y \
         xterm \
@@ -31,45 +29,13 @@ install_dependencies()
         v4l-utils
 }
 
-install_tmux()
-{
-    cd /tmp
-    sudo apt-get install -y \
-        libevent-2.0-5 \
-        libevent-dev \
-        libncurses5-dev \
-        libncursesw5-dev
-
-    git clone https://github.com/tmux/tmux.git
-    cd tmux
-    sh autogen.sh
-    ./configure && make
-    cp tmux /usr/local/bin
-    cd ..
-}
-
-install_dropbox()
-{
-    cd $HOME
-    wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-    ~/.dropbox-dist/dropboxd &
-    cd -
-}
-
-git_config()
-{
+git_config() {
     git config --global user.name "Chris Choi"
     git config --global user.email "chutsu@gmail.com"
     git config --global push.default matching
 }
 
-init_dotfiles()
-{
-    # CLONE DOTFILES
-    #cd $HOME
-    #git clone https://github.com/chutsu/dotfiles
-    #cd dotfiles
-
+init_dotfiles() {
     # REMOVE OLD DOTFILES
     echo "remove old dotfiles"
     rm -rf $HOME/.vim
@@ -104,8 +70,7 @@ init_dotfiles()
     return 0;
 }
 
-init_vim()
-{
+init_vim() {
     echo "install vim plugins"
     git submodule init
     git submodule update
@@ -115,18 +80,14 @@ init_vim()
     return 0;
 }
 
-init()
-{
-    #install_dependencies
-    #install_tmux
-    #install_dropbox
-    #git_config
-   
+init() {
+    install_dependencies
+    git_config
+
     init_dotfiles
     init_vim
     echo "Done! :)"
 }
-
 
 # MAIN
 init
