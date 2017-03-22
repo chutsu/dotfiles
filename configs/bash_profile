@@ -33,9 +33,7 @@ export SCRIPTS="$DOTFILES/scripts"
 alias down="cd ~/Downloads";
 alias dotfiles="cd $DOTFILES";
 alias p="cd $PROJECTS";
-alias toys="cd $PROJECTS/toys"
 alias scripts="cd $SCRIPTS"
-alias work="cd $DROPBOX/work"
 
 # websites
 alias websites="cd $PROJECTS/websites/"
@@ -46,24 +44,15 @@ alias recall="cd $PROJECTS/websites/recall"
 
 # membank
 alias membank="cd $PROJECTS/membank/"
-alias notes="cd $DROPBOX/notes; vim; cd -"
+alias notes="cd $DROPBOX/proj/dotfiles/docs/notes; vim; cd -"
 alias papers="cd $PROJECTS/papers"
-alias docs="cd $PROJECTS/membank/docs"
 
 # projects
-alias ids="cd $PROJECTS/ids/"
 alias evolve="cd $PROJECTS/evolve"
-alias al="cd $PROJECTS/al/"
-alias munit="cd $PROJECTS/munit"
-alias eyes="cd $PROJECTS/eyes"
 alias playground="cd $PROJECTS/playground"
-alias qfly="cd $PROJECTS/qfly"
 alias prototype="cd $PROJECTS/prototype"
 alias ditto="cd $PROJECTS/ditto"
-alias wire="cd $PROJECTS/wire"
 alias cog="cd $PROJECTS/cog"
-alias recognizer="cd $PROJECTS/recognizer"
-alias qsim="cd $PROJECTS/qsim"
 alias awesomo="cd $PROJECTS/awesomo"
 alias robotics="cd $PROJECTS/robotics"
 alias atim="cd $PROJECTS/atim"
@@ -83,36 +72,21 @@ alias gitlog="git log --graph \
     - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' \
     --all"
 
-
 # EXECUTIONAL SHORTCUTS
-if [ $OS == LINUX ]; then
-    alias ls='ls -lh --group-directories-first --color'
-    alias la='ls -lha --color'
-    alias get='\
-        vim $HOME/dotfiles/debian/deb.pkgs; \
-        sudo sh $HOME/dotfiles/debian/deb_init.sh'
-    alias search='apt-cache search'
-    alias update='sudo apt-get update'
-    alias remove='sudo apt-get remove'
-    alias purge='sudo apt-get purge'
-elif [ $OS == MAC ]; then
-    alias ls='ls -lh'
-    alias la='ls -lha'
-fi
-
+alias ls='ls -lh --group-directories-first --color'
+alias la='ls -lha --color'
+alias search='apt-cache search'
+alias update='sudo apt-get update'
+alias remove='sudo apt-get remove'
+alias purge='sudo apt-get purge'
 alias vimrc="vim $HOME/.vimrc";
 alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
-alias qgc="cd $HOME/qgroundcontrol/ && ./qgroundcontrol-start.sh && cd -";
-
 
 # ENVIRONMENTAL SETTINGS
-export PATH=$PATH:$PROJECTS/dotfiles/scripts:/usr/local/cuda/bin
+export PATH=$PATH:$PROJECTS/dotfiles/scripts
 export VISUAL=vim
 export EDITOR=vim
-
-
-
 
 # SHELL SETTINGS
 parse_git_branch() {
@@ -125,7 +99,6 @@ if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
 stty -ixon  # disable ctrl-s (software flow control)
-
 
 # START TMUX ON BASH STARTUP
 if [ $OS == "LINUX" ]; then
