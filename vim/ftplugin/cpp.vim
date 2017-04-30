@@ -15,3 +15,4 @@ endif
 nmap <F7> :vsplit <bar> call CPPSwitch()<CR>
 nmap <F8> :call CPPSwitch()<CR>
 nmap <F9> :set splitright <bar> vsplit <bar> call CPPSwitch()<CR>
+map <S-t> :vsplit %:s?src?tests?:r_test.cpp<CR>

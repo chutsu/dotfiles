@@ -1,5 +1,5 @@
 set path=.,**
-set tabstop=4 shiftwidth=4 softtabstop=4
+set tabstop=2 shiftwidth=2 softtabstop=2
 
 if !exists('*CSwitch')
     function! CSwitch()
@@ -12,3 +12,6 @@ if !exists('*CSwitch')
     endfunction
 endif
 
+" nmap <F7> :vsplit <bar> call CSwitch()<CR>
+" nmap <F8> :call CSwitch()<CR>
+" nmap <F9> :set splitright <bar> vsplit <bar> call CSwitch()<CR>

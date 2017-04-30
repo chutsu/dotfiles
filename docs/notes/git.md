@@ -1,3 +1,14 @@
+- Find difference between git branches
+- Update old_branch against target_branch
+- Remove git submodule
+- Pull latests submodules
+- Reset git branch
+- Fix commit message
+- Undo last commit
+- How to supress 'modified content'/dirty submodule entries?
+- Remove local branches no longer on remote
+
+
 ## Find difference between git branches
 
     git diff --name-status master..branchName
@@ -123,3 +134,21 @@ destroyed, and do this:
 You've now resurrected that commit. Commits don't actually get destroyed in Git
 for some 90 days, so you can usually go back and rescue one you didn't mean to
 get rid of.
+
+
+## How to supress 'modified content'/dirty submodule entries?
+
+Add `ignore = dirty` line to the git module in `.gitmodules` file:
+
+    [submodule "bundle/fugitive"]
+      path = bundle/fugitive
+      url = git://github.com/tpope/vim-fugitive.git
+      ignore = dirty
+
+
+## Remove local branches no longer on remote
+
+    git remote prune origin
+
+
+

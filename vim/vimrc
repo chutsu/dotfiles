@@ -24,7 +24,6 @@ function! Vundle()
     Plugin 'kien/ctrlp.vim'
     Plugin 'vim-scripts/EasyGrep'
     Plugin 'klen/python-mode'
-    Plugin 'shinokada/SWTC.vim'
     Plugin 'kris89/vim-multiple-cursors'
     Plugin 'junegunn/fzf'
     Plugin 'vim-scripts/AnsiEsc.vim'
@@ -32,9 +31,10 @@ function! Vundle()
     Plugin 'reedes/vim-pencil'
     Plugin 'inside/vim-search-pulse'
     Plugin 'ludovicchabant/vim-gutentags'
-    Plugin 'skammer/vim-css-color'
     Plugin 'jvirtanen/vim-octave'
-    Plugin 'tpope/vim-markdown'
+    Plugin 'vim-scripts/DoxygenToolkit.vim'
+    Plugin 'godlygeek/tabular'
+    Plugin 'plasticboy/vim-markdown'
 
 
     " All of your Plugins must be added before the following line'
@@ -75,6 +75,7 @@ endfunction
 
 function! EditorBehaviour()
     filetype plugin indent on
+    set autoread
     set backupdir=/tmp
     set directory=/tmp
     set title
@@ -95,6 +96,13 @@ function! EditorBehaviour()
     set mouse=a  " enable mouse
     set scrolloff=10  " top/bottom padding when scrolling
 
+    " load git repo specific vim settings if any
+    let git_settings = system("git config --get vim.settings")
+    if strlen(git_settings)
+        filetype plugin off
+        exe "set" git_settings
+    endif
+
     " remove trailing whitespace automatically when saving
     autocmd FileType c,cpp,java,php,python,javascript,markdown
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -107,9 +115,10 @@ function! EditorBehaviour()
     " autocmd BufWritePost .vimrc so ~/.vimrc
 
     " correct filetype recognition
-    autocmd BufRead,BufNewFile *.h set filetype=c
-    autocmd FileType c call CMode()
-    autocmd FileType cpp call CPPMode()
+    autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+    autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp
+    " autocmd FileType c call CMode()
+    " autocmd FileType cpp call CPPMode()
     autocmd FileType java call JavaMode()
     autocmd BufRead /tmp/mutt-* call Mutt()
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -117,8 +126,8 @@ function! EditorBehaviour()
     " plain text mode
     autocmd FileType vim,text,mkd call PlainText()
     autocmd BufNewFile,BufRead *.tex call PlainText()
-    " autocmd FileType markdown,mkd
-    "     \ call pencil#init({"wrap": "hard"})
+    autocmd FileType markdown,mkd
+        \ call pencil#init({"wrap": "hard"})
 
 
     " reselect block after indentation
@@ -164,10 +173,10 @@ function! DefaultCodingStyle()
     autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType java setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-    " highlight when code is over 80 columns
+    " highlight when code is over 81 columns
     augroup vimrc_autocmds
         autocmd BufEnter * highlight OverLength ctermbg=darkgrey
-        autocmd BufEnter * match OverLength /\%78v.*/
+        autocmd BufEnter * match OverLength /\%81v.*/
     augroup END
 endfunction
 
@@ -346,6 +355,14 @@ function! PythonMode()
     " map <S-t> :vsplit %:s?:h?tests?:r_tests.py<CR>
 endfunction
 
+function! MarkDownMode()
+    let g:vim_markdown_folding_disabled = 1
+    let g:vim_markdown_override_foldtext = 0
+    let g:vim_markdown_emphasis_multiline = 0
+    let g:vim_markdown_conceal = 0
+    let g:tex_conceal = ""
+    let g:vim_markdown_math = 1
+endfunction
 
 
 " MAIN
@@ -368,3 +385,4 @@ call NerdTree()
 call EasyGrep()
 call VimCompletesMe()
 call PythonMode()
+call MarkDownMode()

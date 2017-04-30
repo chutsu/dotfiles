@@ -49,11 +49,13 @@ alias papers="cd $PROJECTS/papers"
 
 # projects
 alias evolve="cd $PROJECTS/evolve"
+alias yarl="cd $PROJECTS/yarl"
 alias playground="cd $PROJECTS/playground"
 alias prototype="cd $PROJECTS/prototype"
 alias ditto="cd $PROJECTS/ditto"
 alias cog="cd $PROJECTS/cog"
 alias awesomo="cd $PROJECTS/awesomo"
+alias wavesim="cd $PROJECTS/wavesim"
 alias robotics="cd $PROJECTS/robotics"
 alias atim="cd $PROJECTS/atim"
 alias numbers="cd $PROJECTS/numbers"
