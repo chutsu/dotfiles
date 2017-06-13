@@ -7,6 +7,7 @@
 - Undo last commit
 - How to supress 'modified content'/dirty submodule entries?
 - Remove local branches no longer on remote
+- Fix commit in wrong branch
 
 
 ## Find difference between git branches
@@ -152,3 +153,18 @@ Add `ignore = dirty` line to the git module in `.gitmodules` file:
 
 
 
+## Fix commit in wrong branch
+
+If you haven't yet pushed your changes, you can also do a soft reset:
+
+		git reset --soft HEAD^
+
+This will revert the commit, but put the committed changes back into your
+index. Assuming the branches are relatively up-to-date with regard to each
+other, git will let you do a checkout into the other branch, whereupon you can
+simply commit:
+
+		git checkout branch
+		git commit
+
+The disadvantage is that you need to re-enter your commit message.

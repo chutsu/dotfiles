@@ -3,6 +3,7 @@ xterm*background: rgb:26/26/26
 xterm*foreground: #ffffff
 xterm*faceName: clean:antialias=false
 xterm*faceSize: 10
+xterm*selectToClipboard:true
 
 xterm*color0:       #000000
 xterm*color1:       #FF0000

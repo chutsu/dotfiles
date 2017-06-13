@@ -26,7 +26,7 @@ install_dependencies() {
         thunar \
         gnome-icon-theme-full \
         pavucontrol \
-        v4l-utils
+        texlive-*
 }
 
 git_config() {

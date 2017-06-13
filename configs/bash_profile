@@ -114,8 +114,8 @@ if [ $OS == "LINUX" ]; then
 fi
 
 alias odroid="ssh -X odroid@192.168.1.6"
-source /opt/ros/kinetic/setup.bash
-source ~/catkin_ws/devel/setup.bash
+# source /opt/ros/kinetic/setup.bash
+# source ~/catkin_ws/devel/setup.bash
 
 alias mavros="roslaunch mavros px4.launch"
 alias awesomo="cd $HOME/catkin_ws/src/awesomo"
