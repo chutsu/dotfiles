@@ -266,50 +266,53 @@ function! Airline()
     let g:airline_right_sep = ''
 endfunction
 
-" function! SyntasticOptions()
-"     " general settings
-"     let g:syntastic_enable_highlighting=1
-"     let g:syntastic_check_on_open=1
-"     let g:syntastic_enable_signs=1
-"
-"     " warning and error symbols
-"     let g:syntastic_warning_symbol       = 'W'
-"     let g:syntastic_error_symbol         = 'E'
-"     let g:syntastic_style_error_symbol   = 'SE'
-"     let g:syntastic_style_warning_symbol = 'SW'
-"
-"     " c specific settings
-"     let g:syntastic_c_config_file='.syntastic_config'
-"     let g:syntastic_c_include_dirs=[
-"         \ 'include',
-"         \ '/usr/include',
-"         \ '/usr/local/include',
-"     \ ]
-"     let g:syntastic_c_checkers=['gcc']
-"     let g:syntastic_c_compiler = 'clang'
-"
-"     " cpp specific settings
-"     let g:syntastic_cpp_include_dirs=[
-"         \ 'include'
-"     \ ]
-"     let g:syntastic_cpp_checkers=['clang-tidy', 'gcc']
-"     let g:syntastic_cpp_compiler_options = ' -std=c++0x'
-"     let g:syntastic_cpp_clang_tidy_post_args = ""
-"
-"     " java specific settings
-"     let g:syntastic_java_javac_classpath='./bin/classes:'
-"
-"     " python specific settings
-"     let g:syntastic_python_checkers=['flake8']
-"     " let g:syntastic_ignore_files = ['\.py$']
-"
-"     " html specific settings
-"     let g:syntastic_html_checkers=['']  " disable syntastic for html files
-"
-"     " javascript specific settings
-"     let g:syntastic_javascript_checkers = ['jshint']
-"
-" endfunction
+function! SyntasticOptions()
+    " general settings
+    let g:syntastic_enable_highlighting=1
+    let g:syntastic_check_on_open=1
+    let g:syntastic_enable_signs=1
+
+    " warning and error symbols
+    let g:syntastic_warning_symbol       = 'W'
+    let g:syntastic_error_symbol         = 'E'
+    let g:syntastic_style_error_symbol   = 'SE'
+    let g:syntastic_style_warning_symbol = 'SW'
+
+    " c specific settings
+    let g:syntastic_c_config_file='.syntastic_config'
+    let g:syntastic_c_include_dirs=[
+        \ 'include',
+        \ '/usr/include',
+        \ '/usr/local/include',
+    \ ]
+    let g:syntastic_c_checkers=['gcc']
+    let g:syntastic_c_compiler = 'clang'
+
+    " cpp specific settings
+    let g:syntastic_cpp_include_dirs=[
+        \ 'include'
+    \ ]
+    let g:syntastic_cpp_checkers=['clang-tidy', 'gcc']
+    let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+    let g:syntastic_cpp_clang_tidy_post_args = ""
+
+    " java specific settings
+    let g:syntastic_java_javac_classpath='./bin/classes:'
+
+    " python specific settings
+    let g:syntastic_python_checkers=['flake8']
+    " let g:syntastic_ignore_files = ['\.py$']
+
+    " tex specific settings
+    let g:syntastic_tex_checkers=['']
+
+    " html specific settings
+    let g:syntastic_html_checkers=['']  " disable syntastic for html files
+
+    " javascript specific settings
+    let g:syntastic_javascript_checkers = ['jshint']
+
+endfunction
 
 function! AleOptions()
     let g:ale_linters = {'cpp': ['clang', 'gcc']}
@@ -323,7 +326,7 @@ function! AleOptions()
     " do not run linters when opening a file
     let g:ale_lint_on_enter = 0
 
-    " customize errors and warning signs 
+    " customize errors and warning signs
     let g:ale_sign_error = 'EE'
     let g:ale_sign_warning = 'WW'
     " highlight clear ALEErrorSign
@@ -404,7 +407,7 @@ call EscapeCommonOperationTypos()
 
 " PLUGIN SETTINGS
 call Airline()
-" call SyntasticOptions()
+call SyntasticOptions()
 call AleOptions()
 call NerdTree()
 call EasyGrep()

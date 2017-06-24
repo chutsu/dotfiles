@@ -54,7 +54,7 @@ alias playground="cd $PROJECTS/playground"
 alias prototype="cd $PROJECTS/prototype"
 alias ditto="cd $PROJECTS/ditto"
 alias cog="cd $PROJECTS/cog"
-alias awesomo="cd $PROJECTS/awesomo"
+alias atl="cd $PROJECTS/atl"
 alias wavesim="cd $PROJECTS/wavesim"
 alias robotics="cd $PROJECTS/robotics"
 alias atim="cd $PROJECTS/atim"
@@ -64,6 +64,7 @@ alias slam="cd $PROJECTS/slam"
 alias libwave="cd $PROJECTS/libwave"
 alias flightstack="cd $PROJECTS/flightstack"
 alias paper="cd ~/docs/papers/2017_03-IROS-Autonomous_Landing"
+alias imu="cd ~/Dropbox/latex/presentations/imu_noise_characterization"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -114,21 +115,21 @@ if [ $OS == "LINUX" ]; then
 fi
 
 alias odroid="ssh -X odroid@192.168.1.6"
-# source /opt/ros/kinetic/setup.bash
+source /opt/ros/kinetic/setup.bash
 # source ~/catkin_ws/devel/setup.bash
 
 alias mavros="roslaunch mavros px4.launch"
-alias awesomo="cd $HOME/catkin_ws/src/awesomo"
-alias awesomo_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
+alias atl="cd $HOME/catkin_ws/src/atl"
+alias atl_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
 alias odroid="ssh -X odroid@192.168.1.6"
 alias mocap="cd catkin_ws/src/mocap_optitrack/"
-alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_awesomo.launch; cd -"
+alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_atl.launch; cd -"
 alias sbgc="cd ~/SimpleBGC_GUI_2_56b7/; java -jar SimpleBGC_GUI.jar; cd -"
 alias pi="ssh -X pi@192.168.1.21"
 alias tx1="ssh -X ubuntu@192.168.1.24"
 alias zero="ssh -X pi@192.168.1.100"
 alias catkin_ws="cd ~/catkin_ws/"
-alias awesomo_record="sh ~/catkin_ws/src/awesomo/scripts/awesomo_record.sh"
+alias atl_record="sh ~/catkin_ws/src/atl/scripts/atl_record.sh"
 
 # export ROS_MASTER_URI=http://192.168.1.24:11311
-# alias awesomo_tower="sh ~/catkin_ws/src/awesomo/scripts/awesomo_tower.sh"
+# alias atl_tower="sh ~/catkin_ws/src/atl/scripts/atl_tower.sh"
