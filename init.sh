@@ -18,7 +18,7 @@ install_dependencies() {
         exuberant-ctags \
         git \
         automake \
-        vim \
+        vim-nox \
         i3 \
         xinit \
         xbacklight \
