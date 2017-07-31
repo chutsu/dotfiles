@@ -65,6 +65,7 @@ alias libwave="cd $PROJECTS/libwave"
 alias flightstack="cd $PROJECTS/flightstack"
 alias paper="cd ~/docs/papers/2017_03-IROS-Autonomous_Landing"
 alias imu="cd ~/Dropbox/latex/presentations/imu_noise_characterization"
+alias dso="cd ~/Dropbox/latex/presentations/dso"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -87,7 +88,8 @@ alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
 
 # ENVIRONMENTAL SETTINGS
-export PATH=$PATH:$PROJECTS/dotfiles/scripts
+export PATH=$PATH:$PROJECTS/dotfiles/scripts:/usr/local/src/zapcc/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/src/zapcc/lib
 export VISUAL=vim
 export EDITOR=vim
 
@@ -114,14 +116,14 @@ if [ $OS == "LINUX" ]; then
     fi
 fi
 
-alias odroid="ssh -X odroid@192.168.1.6"
+alias odroid_eth="ssh -X odroid@192.168.1.10"
+alias odroid_wifi="ssh -X odroid@192.168.1.11"
 source /opt/ros/kinetic/setup.bash
-# source ~/catkin_ws/devel/setup.bash
+source ~/catkin_ws/devel/setup.bash
 
 alias mavros="roslaunch mavros px4.launch"
 alias atl="cd $HOME/catkin_ws/src/atl"
 alias atl_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
-alias odroid="ssh -X odroid@192.168.1.6"
 alias mocap="cd catkin_ws/src/mocap_optitrack/"
 alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_atl.launch; cd -"
 alias sbgc="cd ~/SimpleBGC_GUI_2_56b7/; java -jar SimpleBGC_GUI.jar; cd -"

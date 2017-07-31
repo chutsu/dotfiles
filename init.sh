@@ -20,6 +20,7 @@ install_dependencies() {
         automake \
         vim-nox \
         i3 \
+        tree \
         xinit \
         xbacklight \
         network-manager-gnome \
