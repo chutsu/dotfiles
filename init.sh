@@ -16,6 +16,7 @@ install_dependencies() {
     sudo apt-get install -y \
         xterm \
         exuberant-ctags \
+        cmake \
         git \
         automake \
         vim-nox \
