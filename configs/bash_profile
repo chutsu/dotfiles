@@ -63,9 +63,9 @@ alias sr="cd $PROJECTS/sr"
 alias slam="cd $PROJECTS/slam"
 alias libwave="cd $PROJECTS/libwave"
 alias flightstack="cd $PROJECTS/flightstack"
-alias paper="cd ~/docs/papers/2017_03-IROS-Autonomous_Landing"
 alias imu="cd ~/Dropbox/latex/presentations/imu_noise_characterization"
 alias dso="cd ~/Dropbox/latex/presentations/dso"
+alias thesis="cd ~/Dropbox/proj/uwthesis"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -83,8 +83,8 @@ alias search='apt-cache search'
 alias update='sudo apt-get update'
 alias remove='sudo apt-get remove'
 alias purge='sudo apt-get purge'
-alias vimrc="vim $HOME/.vimrc";
-alias bashrc="vim $HOME/.bash_profile && source $HOME/.bash_profile";
+alias vimrc="cd $HOME && vim .vimrc && cd -";
+alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
 
 # ENVIRONMENTAL SETTINGS
@@ -118,12 +118,13 @@ fi
 
 alias odroid_eth="ssh -X odroid@192.168.1.10"
 alias odroid_wifi="ssh -X odroid@192.168.1.11"
-source /opt/ros/kinetic/setup.bash
+# source /opt/ros/kinetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
 alias mavros="roslaunch mavros px4.launch"
 alias atl="cd $HOME/catkin_ws/src/atl"
 alias atl_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
+alias atl_record="sh ~/catkin_ws/src/atl/scripts/atl_record.sh"
 alias mocap="cd catkin_ws/src/mocap_optitrack/"
 alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_atl.launch; cd -"
 alias sbgc="cd ~/SimpleBGC_GUI_2_56b7/; java -jar SimpleBGC_GUI.jar; cd -"
@@ -131,7 +132,10 @@ alias pi="ssh -X pi@192.168.1.21"
 alias tx1="ssh -X ubuntu@192.168.1.24"
 alias zero="ssh -X pi@192.168.1.100"
 alias catkin_ws="cd ~/catkin_ws/"
-alias atl_record="sh ~/catkin_ws/src/atl/scripts/atl_record.sh"
 
-# export ROS_MASTER_URI=http://192.168.1.24:11311
+alias odroid_view="ROS_MASTER_URI=http://192.168.1.11:11311 rqt_image_view"
+alias odroid_topics="ROS_MASTER_URI=http://192.168.1.11:11311 rostopic list"
+alias odroid_echo="ROS_MASTER_URI=http://192.168.1.11:11311 rostopic echo"
+
+# export ROS_MASTER_URI=http://192.168.1.11:11311
 # alias atl_tower="sh ~/catkin_ws/src/atl/scripts/atl_tower.sh"

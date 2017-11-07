@@ -36,7 +36,7 @@ function! Vundle()
     Plugin 'plasticboy/vim-markdown'
     Plugin 'sirtaj/vim-openscad'
     Plugin 'w0rp/ale'
-
+    Plugin 'ericcurtin/CurtineIncSw.vim'
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -392,6 +392,27 @@ function! MarkDownMode()
     let g:vim_markdown_math = 1
 endfunction
 
+function! CurtineIncSw()
+    nmap <F7> :vsplit <bar> wincmd h <bar> call CurtineIncSw()<CR>
+    nmap <F8> :call CurtineIncSw()<CR>
+    nmap <F9> :set splitright <bar> vsplit <bar> call CurtineIncSw()<CR>
+endfunction
+
+function! Session()
+    " Save session on quitting Vim
+    if argc() == 0 && filereadable(".git/config")
+        autocmd VimLeave * NERDTreeClose
+        autocmd VimLeave * mksession! .git/session.vim
+    endif
+
+    " Restore session on starting Vim
+    if argc() == 0 && filereadable(".git/session.vim")
+        autocmd VimEnter * source .git/session.vim
+    endif
+    autocmd VimEnter * NERDTree
+    autocmd VimResized * wincmd =
+endfunction
+
 
 " MAIN
 call Vundle()
@@ -404,6 +425,7 @@ call NavImproved()
 call VimTabsKeyMappings()
 call VimSplitsKeyMappings()
 call EscapeCommonOperationTypos()
+call Session()
 
 " PLUGIN SETTINGS
 call Airline()
@@ -414,3 +436,4 @@ call EasyGrep()
 call VimCompletesMe()
 call PythonMode()
 call MarkDownMode()
+call CurtineIncSw()
