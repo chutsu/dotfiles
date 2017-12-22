@@ -16,16 +16,16 @@ install_dependencies() {
     sudo apt-get install -y \
         xterm \
         exuberant-ctags \
-        cmake \
         git \
         automake \
+        cmake \
         vim-nox \
         i3 \
         tree \
         xinit \
         xbacklight \
         network-manager-gnome \
-        thunar \
+        pcmanfm \
         gnome-icon-theme-full \
         pavucontrol \
         texlive-*

@@ -48,8 +48,10 @@ alias notes="cd $DROPBOX/proj/dotfiles/docs/notes; vim; cd -"
 alias papers="cd $PROJECTS/papers"
 
 # projects
+alias poke="cd $PROJECTS/poke"
 alias evolve="cd $PROJECTS/evolve"
 alias yarl="cd $PROJECTS/yarl"
+alias gvio="cd $PROJECTS/gvio"
 alias playground="cd $PROJECTS/playground"
 alias prototype="cd $PROJECTS/prototype"
 alias ditto="cd $PROJECTS/ditto"
@@ -80,12 +82,14 @@ alias gitlog="git log --graph \
 alias ls='ls -lh --group-directories-first --color'
 alias la='ls -lha --color'
 alias search='apt-cache search'
+alias install='sudo apt-get install'
 alias update='sudo apt-get update'
 alias remove='sudo apt-get remove'
 alias purge='sudo apt-get purge'
 alias vimrc="cd $HOME && vim .vimrc && cd -";
 alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
+alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 
 # ENVIRONMENTAL SETTINGS
 export PATH=$PATH:$PROJECTS/dotfiles/scripts:/usr/local/src/zapcc/bin
@@ -118,7 +122,7 @@ fi
 
 alias odroid_eth="ssh -X odroid@192.168.1.10"
 alias odroid_wifi="ssh -X odroid@192.168.1.11"
-# source /opt/ros/kinetic/setup.bash
+source /opt/ros/kinetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
 alias mavros="roslaunch mavros px4.launch"

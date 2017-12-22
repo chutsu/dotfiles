@@ -14,6 +14,7 @@ function! Vundle()
     " The following are vim packages
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
+    Plugin 'vim-syntastic/syntastic'
     Plugin 'tomtom/tcomment_vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'jistr/vim-nerdtree-tabs'
@@ -35,8 +36,8 @@ function! Vundle()
     Plugin 'godlygeek/tabular'
     Plugin 'plasticboy/vim-markdown'
     Plugin 'sirtaj/vim-openscad'
-    Plugin 'w0rp/ale'
     Plugin 'ericcurtin/CurtineIncSw.vim'
+    Plugin 'Valloric/YouCompleteMe'
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -91,6 +92,7 @@ function! EditorBehaviour()
     set shiftround
     set backspace=indent,eol,start
     set smartcase
+    set expandtab
     set smarttab
     set hlsearch
     set incsearch
@@ -112,12 +114,20 @@ function! EditorBehaviour()
     autocmd FileType c,cpp,java,php,python,javascript,markdown
             \ autocmd BufWritePre <buffer> :retab
 
+    " " expandtab when saving
+    " autocmd FileType c,cpp,java,php,python,javascript,markdown
+    "         \ autocmd BufWritePre <buffer> :set expandtab
+    "
+    " " replace tabs in file when saving
+    " autocmd FileType python
+    "         \ autocmd BufWritePre <buffer> :%s/\t/\ \ \ \ /g
+
     " reload vimrc after update
     " autocmd BufWritePost .vimrc so ~/.vimrc
 
     " correct filetype recognition
-    autocmd BufRead,BufNewFile *.h,*.c set filetype=c
-    autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp
+    " autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+    " autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp
     " autocmd FileType c call CMode()
     " autocmd FileType cpp call CPPMode()
     autocmd FileType java call JavaMode()
@@ -267,10 +277,16 @@ function! Airline()
 endfunction
 
 function! SyntasticOptions()
+    " debug mode
+    let g:syntastic_debug=0
+
     " general settings
     let g:syntastic_enable_highlighting=1
     let g:syntastic_check_on_open=1
     let g:syntastic_enable_signs=1
+    let g:syntastic_always_populate_loc_list=0
+    let g:syntastic_auto_loc_list = 0
+    let g:syntastic_check_on_wq = 0
 
     " warning and error symbols
     let g:syntastic_warning_symbol       = 'W'
@@ -279,25 +295,11 @@ function! SyntasticOptions()
     let g:syntastic_style_warning_symbol = 'SW'
 
     " c specific settings
-    let g:syntastic_c_config_file='.syntastic_config'
-    let g:syntastic_c_include_dirs=[
-        \ 'include',
-        \ '/usr/include',
-        \ '/usr/local/include',
-    \ ]
-    let g:syntastic_c_checkers=['gcc']
-    let g:syntastic_c_compiler = 'clang'
-
     " cpp specific settings
     let g:syntastic_cpp_include_dirs=[
-        \ 'include'
+        \ 'include',
+        \ '/usr/include/eigen3',
     \ ]
-    let g:syntastic_cpp_checkers=['clang-tidy', 'gcc']
-    let g:syntastic_cpp_compiler_options = ' -std=c++0x'
-    let g:syntastic_cpp_clang_tidy_post_args = ""
-
-    " java specific settings
-    let g:syntastic_java_javac_classpath='./bin/classes:'
 
     " python specific settings
     let g:syntastic_python_checkers=['flake8']
@@ -308,10 +310,6 @@ function! SyntasticOptions()
 
     " html specific settings
     let g:syntastic_html_checkers=['']  " disable syntastic for html files
-
-    " javascript specific settings
-    let g:syntastic_javascript_checkers = ['jshint']
-
 endfunction
 
 function! AleOptions()
