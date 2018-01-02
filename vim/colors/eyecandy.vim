@@ -6,7 +6,7 @@ if exists("syntax_on")
 endif
 let g:colors_name="eyecandy"
 
-" general colors
+" General colors
 hi Normal ctermbg=235
 hi LineNr ctermfg=249 ctermbg=236
 hi Cursor ctermfg=255 ctermbg=16
@@ -19,10 +19,9 @@ hi NonText ctermfg=235
 hi Pmenu ctermfg=255 ctermbg=239
 hi PmenuSel ctermfg=255 ctermbg=237
 hi Search ctermfg=234 ctermbg=255
-hi SpellBad ctermfg=196 ctermbg=NONE 
+hi SpellBad ctermfg=196 ctermbg=NONE
 
-
-" syntax highlighting groups
+" Syntax highlighting groups
 hi Comment ctermfg=105
 hi Constant ctermfg=120
 hi Identifier ctermfg=81
@@ -34,9 +33,7 @@ hi Error ctermfg=196
 hi PreProc ctermfg=105
 hi String ctermfg=120
 
-
-
-" spell check colors
+" Spell check colors
 hi SpellBad cterm=underline ctermfg=196
 hi SpellCap cterm=underline ctermfg=196
 hi SpellRare cterm=underline ctermfg=196

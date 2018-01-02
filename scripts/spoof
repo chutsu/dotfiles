@@ -2,14 +2,14 @@
 set -e  # halt on first error
 
 show_usage() {
-    echo "Usage: spoof [new_mac_addr]"
+  echo "Usage: spoof [new_mac_addr]"
 }
 
 if [ "$#" -ne 1 ]; then
-    show_usage
-    exit 1
+  show_usage
+  exit 1
 fi
 
 ip link set dev eth0 down
-ip link set dev eth0 address $1
+ip link set dev eth0 address "$1"
 ip link set dev eth0 up

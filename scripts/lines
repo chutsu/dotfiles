@@ -2,35 +2,35 @@
 set -e  # halt on first error
 
 show_usage() {
-    echo "Usage: lines [c|cpp|python]"
+  echo "Usage: lines [c|cpp|python]"
 }
 
 
 if [ "$#" -ne 1 ]; then
-    show_usage
-    exit 1
+  show_usage
+  exit 1
 fi
 
 
 if [ "$1" = "c" ]; then
-    echo "C Source Files"
-    find . -name *.c | xargs wc -l
-    echo ""
+  echo "C Source Files"
+  find . -name "*.c" -print0 | xargs wc -l
+  echo ""
 
-    echo "C Header Files"
-    find . -name *.h | xargs wc -l
+  echo "C Header Files"
+  find . -name "*.h" -print0 | xargs wc -l
 
 elif [ "$1" = "cpp" ]; then
-    echo "C++ Source Files"
-    find . -name *.cpp | xargs wc -l
-    echo ""
+  echo "C++ Source Files"
+  find . -name "*.cpp" -print0 | xargs wc -l
+  echo ""
 
-    echo "C++ Header Files"
-    find . -name *.hpp | xargs wc -l
+  echo "C++ Header Files"
+  find . -name "*.hpp" -print0 | xargs wc -l
 
 elif [ "$1" = "python" ]; then
-    echo "Python Source Files"
-    find . -name '*.py' | xargs wc -l
+  echo "Python Source Files"
+  find . -name "*.py" -print0 | xargs wc -l
 
 else
     show_usage

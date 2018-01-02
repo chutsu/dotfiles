@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e  # halt on first error
-
-git checkout gh-pages
-git merge master
-git push
-git checkout master

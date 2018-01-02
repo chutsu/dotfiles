@@ -1,14 +1,12 @@
 #!/bin/sh
 set -e  # exit on first error
 
-
 check_dependency()
 {
-    command -v $1 >/dev/null 2>&1 || {
-        echo "ERROR [${1}] is not installed! Aborting." >&2; exit 1;
-    }
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "ERROR [${1}] is not installed! Aborting." >&2; exit 1;
+  }
 }
-
 
 check_dependency v4l2-ctl
 v4l2-ctl --list-formats-ext
