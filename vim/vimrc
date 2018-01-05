@@ -18,7 +18,7 @@ function! Vundle()
     Plugin 'scrooloose/nerdtree'
     Plugin 'junegunn/fzf'
     Plugin 'bling/vim-airline'
-    Plugin 'ericcurtin/CurtineIncSw.vim'
+    " Plugin 'ericcurtin/CurtineIncSw.vim'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'osyo-manga/vim-over'
@@ -160,7 +160,6 @@ function! EditorBehaviour()
     command! -range=% SoftWrap
         \ <line2>put _ |
         \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
-
 
     " Scroll to top when using jump-to in ctags
     nnoremap <C-]> <C-]>zt
@@ -328,10 +327,8 @@ function! EasyGrep()
     let g:EasyGrepReplaceWindowMode=2
 endfunction
 
-function! CurtineIncSw()
-    nmap <F7> :vsplit <bar> wincmd h <bar> call CurtineIncSw()<CR>
-    nmap <F8> :call CurtineIncSw()<CR>
-    nmap <F9> :set splitright <bar> vsplit <bar> call CurtineIncSw()<CR>
+function! FZF()
+    nmap <C-p> :FZF<CR>
 endfunction
 
 function! MultiCursors()
@@ -354,6 +351,36 @@ function! UltiSnips()
     let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
 endfunction
 
+function! SwitchToSource()
+  let l:header_file=expand('%:r')
+  let l:cpp_file=expand(join(['src'] + split(l:header_file, '/')[2:-1], '/') . '.cpp')
+  execute 'edit' l:cpp_file
+endfunction
+
+function! SwitchToHeader()
+  let l:header_path="include/".g:project_name
+  :e %:s?src?\=l:header_path?:r.hpp
+endfunction
+
+function! SwitchCPPFile()
+  if expand('%:e') == 'hpp'
+    call SwitchToSource()
+    return
+  endif
+
+  if expand('%:e') == 'cpp'
+    call SwitchToHeader()
+    return
+  endif
+
+  echo 'Error a recognized C++ File!'
+endfunction
+
+function! CPPSwitch()
+  nmap <F8> :call SwitchCPPFile()<CR>
+endfunction
+
+
 
 " MAIN
 call Vundle()
@@ -372,6 +399,7 @@ call Airline()
 call SyntasticOptions()
 call NerdTree()
 call EasyGrep()
-call CurtineIncSw()
+call CPPSwitch()
+call FZF()
 call MultiCursors()
 call YouCompleteMe()

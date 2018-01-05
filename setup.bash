@@ -73,7 +73,7 @@ setup_dotfiles() {
   rm -rf "${HOME}/.mutt"
   rm -f "${HOME}/.xbindkeysrc"
   rm -f "${HOME}/.screenlayout"
-  rm -f "${HOME}/.gitconfig"
+  rm -rf "${HOME}/.gitconfig"
 
   # SYMLINKS
   echo "symlinks dotfiles"
@@ -88,8 +88,8 @@ setup_dotfiles() {
   ln -fs "${PWD}/configs/vimperatorrc" "${HOME}/.vimperatorrc"
   ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile"
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc"
-  ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig"
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout"
+  ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig"
 
   return 0;
 }
@@ -102,8 +102,8 @@ setup_vim() {
   "./vim/bundle/fzf/install" --all
 
   # Build YouCompleteMe
-  # cd ./vim/bundle/YouCompleteMe
-  # ./install.py --clang-completer
+  cd ./vim/bundle/YouCompleteMe
+  ./install.py --clang-completer
 
   return 0;
 }

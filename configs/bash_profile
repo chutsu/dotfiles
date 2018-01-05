@@ -26,7 +26,7 @@ fi
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
 export PROJECTS="$DROPBOX/proj"
-export DOTFILES="$PROJECTS/dotfiles"
+export DOTFILES="$HOME/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
 
 # DIR SHORTCUTS
