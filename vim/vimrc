@@ -181,8 +181,8 @@ function! CommandModeKeyMappings()
     set pastetoggle=<F10>
 
     " Run script file
-    map <S-r> :!clear && bash run.sh<CR>
-    nnoremap <F12> :tabnew<CR>:e run.sh<CR>
+    map <S-r> :!clear && bash scripts/run.sh<CR>
+    nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>
 endfunction
 
 function! NavImproved()
