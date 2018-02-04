@@ -1,6 +1,6 @@
 ## List network devices
 
-List network devices in Arch with:
+List network devices with:
 
     ip link
 
