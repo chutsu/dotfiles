@@ -1,8 +1,39 @@
 #/bin/bash
-set -e  # exit on first error
+set -e  # Exit on first error
+
+install_dev_pkgs() {
+  # General dev tools
+  sudo apt-get install -y -qq \
+    xterm \
+    git \
+    vim-nox \
+    tree \
+    htop
+
+  # C / C++
+  sudo apt-get install -y -qq \
+    exuberant-ctags \
+    automake \
+    cmake \
+    gcc \
+    clang \
+    clang-format \
+    clang-tidy \
+
+  # Python
+  sudo apt-get install -y -qq \
+    libpython-dev \
+    python-pip \
+    libpython3-dev \
+    python3-pip
+
+  # Sh / Bash
+  sudo apt-get install -y -qq \
+    shellcheck
+}
 
 install_desktop_pkgs() {
-  sudo apt-get install -y \
+  sudo apt-get install -y -qq \
     xterm \
     i3 \
     xinit \
@@ -13,43 +44,12 @@ install_desktop_pkgs() {
     pavucontrol
 }
 
-install_dev_pkgs() {
-  # General dev tools
-  sudo apt-get install -y \
-    xterm \
-    git \
-    vim-nox \
-    tree \
-    htop
-
-  # C / C++
-  sudo apt-get install -y \
-    exuberant-ctags \
-    automake \
-    cmake \
-    gcc \
-    clang \
-    clang-format \
-    clang-tidy \
-
-  # Python
-  sudo apt-get install -y \
-    libpython-dev \
-    python-pip \
-    libpython3-dev \
-    python3-pip
-
-  # Sh / Bash
-  sudo apt-get install -y \
-    shellcheck
-}
-
 install_user_pkgs() {
-  sudo apt-get install -y \
+  sudo apt-get install -y -qq \
     gtk-recordmydesktop \
     vlc
 
-  sudo apt-get install -y \
+  sudo apt-get install -y -qq \
     texlive-*
 }
 
@@ -95,7 +95,9 @@ setup_dotfiles() {
 }
 
 setup_vim() {
+  # Install vim and its plugins
   echo "install vim plugins"
+  sudo apt-get install vim-nox -y -qq
   git submodule init
   git submodule update
   vim -c VundleInstall -c quitall
@@ -110,6 +112,10 @@ setup_vim() {
 
 setup() {
   git_config
+
+  install_dev_pkgs
+  install_desktop_pkgs
+  install_user_pkgs
 
   setup_dotfiles
   setup_vim
