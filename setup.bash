@@ -8,7 +8,8 @@ install_dev_pkgs() {
     git \
     vim-nox \
     tree \
-    htop
+    htop \
+    tmux
 
   # C / C++
   sudo apt-get install -y -qq \
@@ -24,8 +25,14 @@ install_dev_pkgs() {
   sudo apt-get install -y -qq \
     libpython-dev \
     python-pip \
+    python-numpy \
+    python-scipy \
+    python-matplotlib \
     libpython3-dev \
-    python3-pip
+    python3-pip \
+    python3-numpy \
+    python3-scipy \
+    python3-matplotlib
 
   # Sh / Bash
   sudo apt-get install -y -qq \
@@ -116,6 +123,10 @@ setup() {
   install_dev_pkgs
   install_desktop_pkgs
   install_user_pkgs
+
+  # wget https://s3.amazonaws.com/tunnelbear/linux/openvpn.zip
+  # sudo nmcli connection import type openvpn file TunnelBear\ Hong\ Kong.ovpn
+  # ...
 
   setup_dotfiles
   setup_vim
