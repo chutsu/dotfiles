@@ -133,7 +133,7 @@ alias mocap="cd catkin_ws/src/mocap_optitrack/"
 alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_atl.launch; cd -"
 alias sbgc="cd ~/SimpleBGC_GUI_2_56b7/; java -jar SimpleBGC_GUI.jar; cd -"
 alias pi="ssh -X pi@192.168.1.21"
-alias tx1="ssh -X ubuntu@192.168.1.24"
+alias tx1="ssh -X ubuntu@192.168.1.31"
 alias zero="ssh -X pi@192.168.1.100"
 alias catkin_ws="cd ~/catkin_ws/"
 

@@ -167,3 +167,23 @@ In the above example empty braces do not mean an empty initializer list and as
 a result it doesn't call constructor two. If you wanted to use the second
 constructor you would use a call like ```SomeClass c6{{}}; // or SomeClass
 c6({});```
+
+
+
+## How can I use `std::cout << MyClass`
+
+Typically by overloading `operator<<` for your class:
+
+    struct MyClass {
+      int i;
+    };
+
+    std::ostream &operator<<(std::ostream &os, MyClass const &m) {
+      return os << m.i;
+    }
+
+    int main() {
+      MyClass x(10);
+      std::cout << x;
+      return 0;
+    }
