@@ -52,6 +52,7 @@ alias poke="cd $PROJECTS/poke"
 alias evolve="cd $PROJECTS/evolve"
 alias yarl="cd $PROJECTS/yarl"
 alias gvio="cd $PROJECTS/gvio"
+alias gvio_ros="cd $PROJECTS/gvio_ros"
 alias playground="cd $PROJECTS/playground"
 alias prototype="cd $PROJECTS/prototype"
 alias ditto="cd $PROJECTS/ditto"
@@ -90,6 +91,7 @@ alias vimrc="cd $HOME && vim .vimrc && cd -";
 alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
+alias search="grep -nr $1 ."
 
 # ENVIRONMENTAL SETTINGS
 export PATH=$PATH:$PROJECTS/dotfiles/scripts:/usr/local/src/zapcc/bin
