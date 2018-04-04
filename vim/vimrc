@@ -1,3 +1,5 @@
+set nocompatible              " Be iMproved, required
+
 function! Vundle()
     set nocompatible              " Be iMproved, required
     filetype off                  " Required
@@ -66,7 +68,7 @@ function! EditorAppearance()
     set t_Co=256
     colorscheme eyecandy
     set cursorline
-    set fillchars=" split char
+    " set fillchars=" split char
     set encoding=utf-8
 
     " Let terminal resize scale the internal windows
@@ -401,4 +403,4 @@ call EasyGrep()
 call CPPSwitch()
 call FZF()
 call MultiCursors()
-" call YouCompleteMe()
+call YouCompleteMe()

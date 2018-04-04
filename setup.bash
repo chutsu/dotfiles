@@ -103,25 +103,83 @@ setup_dotfiles() {
   return 0;
 }
 
+install_vim() {
+  # Remove existing vim installation
+  sudo apt-get remove --purge \
+    vim \
+    vim-runtime \
+    vim-gnome \
+    vim-tiny \
+    vim-gui-common
+  sudo rm -rf /usr/local/share/vim /usr/bin/vim
+
+  # Install pre-requisits
+  sudo apt-get install git \
+    ncurses-dev \
+    python-dev \
+    python3-dev \
+    libncurses5-dev \
+    libatk1.0-dev \
+    libx11-dev \
+    libxpm-dev \
+    libxt-dev
+
+  # Clone repo
+  cd /usr/local/src
+  if [[ ! -d vim ]]; then
+    sudo git clone https://github.com/vim/vim
+  fi
+
+  # Update repo
+  cd vim
+  sudo git pull && sudo git fetch
+
+  # In case Vim was already installed
+  cd src
+  sudo make distclean
+  cd ..
+
+  # Build and install vim
+  sudo ./configure \
+    --enable-multibyte \
+    --enable-pythoninterp=dynamic \
+    --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
+    --enable-python3interp \
+    --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+    --enable-cscope \
+    --enable-gui=auto \
+    --with-features=huge \
+    --with-x \
+    --enable-fontset \
+    --enable-largefile \
+    --disable-netbeans \
+    --enable-fail-if-missing
+  sudo make && sudo make install
+}
+
 setup_vim() {
-  # Install vim and its plugins
-  echo "install vim plugins"
-  sudo apt-get install vim-nox -y -qq
+  # Install vim
+  echo "Installing vim ..."
+  # sudo apt-get install vim-nox -y -qq
+  install_vim
+
+  # Install vim plugins
+  echo "Installing vim plugins ..."
   git submodule init
   git submodule update
   vim -c VundleInstall -c quitall
-  "./vim/bundle/fzf/install" --all
+  "$HOME/.vim/bundle/fzf/install" --all
 
   # Build YouCompleteMe
-  cd ./vim/bundle/YouCompleteMe
+  cd "$HOME/.vim/bundle/YouCompleteMe"
   ./install.py --clang-completer
 
   return 0;
 }
 
 setup() {
-  # git_config
-  #
+  git_config
+
   # install_dev_pkgs
   # install_desktop_pkgs
   # install_user_pkgs
