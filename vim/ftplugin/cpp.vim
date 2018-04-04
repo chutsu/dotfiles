@@ -6,8 +6,13 @@ set tabstop=2 shiftwidth=2 softtabstop=2
 let g:project_path=fnamemodify('.', ':p')
 let g:project_name=split(g:project_path, "/")[-1]
 
+function! IsTestFile()
+  return expand('%:t')=~"test"
+endfunction
+
 " Shortcut key to bring up unit-test
-map <S-t> :vsplit %:s?src?tests?:r_test.cpp<CR>
+" map <S-t> :vsplit %:s?src?tests?:r_test.cpp<CR>
+map <expr> <S-t> IsTestFile() ? ':echom "Already a test file!!!"<CR>':':vsplit %:s?src?tests?:r_test.cpp<CR>'
 
 
 
