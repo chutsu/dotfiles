@@ -73,10 +73,10 @@ function! EditorAppearance()
     autocmd VimResized * :wincmd =
 
     " Highlight when code is over 81 columns
-    augroup vimrc_autocmds
-        autocmd BufEnter * highlight OverLength ctermbg=darkgrey
-        autocmd BufEnter * match OverLength /\%81v.*/
-    augroup END
+    " augroup vimrc_autocmds
+    "     autocmd BufEnter * highlight OverLength ctermbg=darkgrey
+    "     autocmd BufEnter * match OverLength /\%81v.*/
+    " augroup END
 endfunction
 
 function! EditorBehaviour()
@@ -381,7 +381,6 @@ function! CPPSwitch()
 endfunction
 
 
-
 " MAIN
 call Vundle()
 call StartUp()
@@ -392,7 +391,7 @@ call NavImproved()
 call VimTabsKeyMappings()
 call VimSplitsKeyMappings()
 call EscapeCommonOperationTypos()
-call Session()
+" call Session()
 
 " PLUGIN SETTINGS
 call Airline()
@@ -402,4 +401,4 @@ call EasyGrep()
 call CPPSwitch()
 call FZF()
 call MultiCursors()
-call YouCompleteMe()
+" call YouCompleteMe()
