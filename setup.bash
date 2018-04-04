@@ -97,6 +97,8 @@ setup_dotfiles() {
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc"
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout"
   ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig"
+  ln -fs "${PWD}/csgo/autoexec.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
+  ln -fs "${PWD}/csgo/practice.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/practice.cfg"
 
   return 0;
 }
@@ -118,19 +120,19 @@ setup_vim() {
 }
 
 setup() {
-  git_config
-
-  install_dev_pkgs
-  install_desktop_pkgs
-  install_user_pkgs
+  # git_config
+  #
+  # install_dev_pkgs
+  # install_desktop_pkgs
+  # install_user_pkgs
 
   # wget https://s3.amazonaws.com/tunnelbear/linux/openvpn.zip
   # sudo nmcli connection import type openvpn file TunnelBear\ Hong\ Kong.ovpn
   # ...
 
   setup_dotfiles
-  setup_vim
-  echo "Done! :)"
+  # setup_vim
+  # echo "Done! :)"
 }
 
 # MAIN
