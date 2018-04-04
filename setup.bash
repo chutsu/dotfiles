@@ -105,7 +105,7 @@ setup_dotfiles() {
 
 install_vim() {
   # Remove existing vim installation
-  sudo apt-get remove --purge \
+  sudo apt-get remove -qq -y --purge \
     vim \
     vim-runtime \
     vim-gnome \
@@ -114,7 +114,8 @@ install_vim() {
   sudo rm -rf /usr/local/share/vim /usr/bin/vim
 
   # Install pre-requisits
-  sudo apt-get install git \
+  sudo apt-get install -qq -y \
+    git \
     ncurses-dev \
     python-dev \
     python3-dev \
@@ -133,11 +134,6 @@ install_vim() {
   # Update repo
   cd vim
   sudo git pull && sudo git fetch
-
-  # In case Vim was already installed
-  cd src
-  sudo make distclean
-  cd ..
 
   # Build and install vim
   sudo ./configure \
@@ -180,17 +176,17 @@ setup_vim() {
 setup() {
   git_config
 
-  # install_dev_pkgs
-  # install_desktop_pkgs
-  # install_user_pkgs
+  install_dev_pkgs
+  install_desktop_pkgs
+  install_user_pkgs
 
   # wget https://s3.amazonaws.com/tunnelbear/linux/openvpn.zip
   # sudo nmcli connection import type openvpn file TunnelBear\ Hong\ Kong.ovpn
   # ...
 
   setup_dotfiles
-  # setup_vim
-  # echo "Done! :)"
+  setup_vim
+  echo "Done! :)"
 }
 
 # MAIN
