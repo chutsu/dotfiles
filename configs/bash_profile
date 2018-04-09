@@ -87,7 +87,7 @@ alias install='sudo apt-get install'
 alias update='sudo apt-get update'
 alias remove='sudo apt-get remove'
 alias purge='sudo apt-get purge'
-alias vimrc="cd $HOME && vim .vimrc && cd -";
+alias vimrc="cd $HOME/dotfiles && vim vim/vimrc && cd -";
 alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
 alias todo="vim $DROPBOX/TODO";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";

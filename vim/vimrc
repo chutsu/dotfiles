@@ -379,7 +379,7 @@ function! SwitchCPPFile()
 endfunction
 
 function! CPPSwitch()
-  nmap <F8> :call SwitchCPPFile()<CR>
+  nmap <expr> <F8> expand('%:t')=~"test" ? ':echom "Invalid operation!"<CR>':':call SwitchCPPFile()<CR>'
 endfunction
 
 
