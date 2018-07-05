@@ -14,23 +14,23 @@ fi
 
 if [ "$1" = "c" ]; then
   echo "C Source Files"
-  find . -name "*.c" -print0 | xargs wc -l
+  find . -name "*.c" -print0 | xargs --null wc -l
   echo ""
 
   echo "C Header Files"
-  find . -name "*.h" -print0 | xargs wc -l
+  find . -name "*.h" -print0 | xargs --null wc -l
 
 elif [ "$1" = "cpp" ]; then
   echo "C++ Source Files"
-  find . -name "*.cpp" -print0 | xargs wc -l
+  find . -name "*.cpp" -print0 | xargs --null wc -l
   echo ""
 
   echo "C++ Header Files"
-  find . -name "*.hpp" -print0 | xargs wc -l
+  find . -name "*.hpp" -print0 | xargs --null wc -l
 
 elif [ "$1" = "python" ]; then
   echo "Python Source Files"
-  find . -name "*.py" -print0 | xargs wc -l
+  find . -name "*.py" -print0 | xargs --null wc -l
 
 else
     show_usage
