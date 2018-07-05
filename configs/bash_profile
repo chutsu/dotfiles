@@ -94,7 +94,7 @@ alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
 
 # ENVIRONMENTAL SETTINGS
-export PATH=$PATH:$PROJECTS/dotfiles/scripts:/usr/local/src/zapcc/bin
+export PATH=$PATH:~/dotfiles/scripts
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/src/zapcc/lib
 export VISUAL=vim
 export EDITOR=vim

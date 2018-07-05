@@ -3,7 +3,7 @@ set -e  # Exit on first error
 
 install_dev_pkgs() {
   # General dev tools
-  sudo apt-get install -y -qq \
+  sudo apt-get install -y \
     xterm \
     git \
     vim-nox \
@@ -12,7 +12,7 @@ install_dev_pkgs() {
     tmux
 
   # C / C++
-  sudo apt-get install -y -qq \
+  sudo apt-get install -y \
     exuberant-ctags \
     automake \
     cmake \
@@ -22,7 +22,7 @@ install_dev_pkgs() {
     clang-tidy \
 
   # Python
-  sudo apt-get install -y -qq \
+  sudo apt-get install -y \
     libpython-dev \
     python-pip \
     python-numpy \
@@ -35,12 +35,12 @@ install_dev_pkgs() {
     python3-matplotlib
 
   # Sh / Bash
-  sudo apt-get install -y -qq \
+  sudo apt-get install -y \
     shellcheck
 }
 
 install_desktop_pkgs() {
-  sudo apt-get install -y -qq \
+  sudo apt-get install -y \
     xterm \
     i3 \
     xinit \
@@ -52,11 +52,11 @@ install_desktop_pkgs() {
 }
 
 install_user_pkgs() {
-  sudo apt-get install -y -qq \
+  sudo apt-get install -y \
     gtk-recordmydesktop \
     vlc
 
-  sudo apt-get install -y -qq \
+  sudo apt-get install -y \
     texlive-*
 }
 
@@ -97,15 +97,15 @@ setup_dotfiles() {
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc"
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout"
   ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig"
-  ln -fs "${PWD}/csgo/autoexec.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
-  ln -fs "${PWD}/csgo/practice.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/practice.cfg"
+  #ln -fs "${PWD}/csgo/autoexec.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
+  #ln -fs "${PWD}/csgo/practice.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/practice.cfg"
 
   return 0;
 }
 
 install_vim() {
   # Remove existing vim installation
-  sudo apt-get remove -qq -y --purge \
+  sudo apt-get remove -y --purge \
     vim \
     vim-runtime \
     vim-gnome \
@@ -114,7 +114,7 @@ install_vim() {
   sudo rm -rf /usr/local/share/vim /usr/bin/vim
 
   # Install pre-requisits
-  sudo apt-get install -qq -y \
+  sudo apt-get install -y \
     git \
     ncurses-dev \
     python-dev \
@@ -157,7 +157,7 @@ setup_vim() {
   # Install vim
   echo "Installing vim ..."
   # sudo apt-get install vim-nox -y -qq
-  install_vim
+  # install_vim
 
   # Install vim plugins
   echo "Installing vim plugins ..."
