@@ -47,7 +47,7 @@ install_desktop_pkgs() {
     xbacklight \
     network-manager-gnome \
     pcmanfm \
-    gnome-icon-theme-full \
+    gnome-icon-theme \
     pavucontrol
 }
 
@@ -94,9 +94,10 @@ setup_dotfiles() {
   ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc"
   ln -fs "${PWD}/configs/vimperatorrc" "${HOME}/.vimperatorrc"
   ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile"
+  ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig"
+  ln -fs "${PWD}/configs/latexmkrc" "${HOME}/.latexmkrc"
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc"
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout"
-  ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig"
   #ln -fs "${PWD}/csgo/autoexec.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
   #ln -fs "${PWD}/csgo/practice.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/practice.cfg"
 
