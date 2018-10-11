@@ -1,8 +1,8 @@
 xterm*utf8: 1
 xterm*background: rgb:26/26/26
 xterm*foreground: #ffffff
-xterm*faceName: Monospace:antialias=false
-xterm*faceSize: 10
+xterm*faceName: Monospace:antialias=true
+xterm*faceSize: 11
 xterm*selectToClipboard:true
 
 xterm*color0:       #000000

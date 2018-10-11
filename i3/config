@@ -24,7 +24,7 @@ floating_modifier $mod
 #set mouse_warping none
 
 # Start a terminal
-bindsym $mod+t exec gnome-terminal
+bindsym $mod+t exec xterm
 
 # Start thunar
 bindsym $mod+b exec thunar
