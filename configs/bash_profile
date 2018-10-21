@@ -99,6 +99,12 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/src/zapcc/lib
 export VISUAL=vim
 export EDITOR=vim
 
+# FZF Settings
+# -- Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+# -- Apply the command to CTRL-T as well
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # SHELL SETTINGS
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'

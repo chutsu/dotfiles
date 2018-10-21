@@ -12,11 +12,11 @@ endfunction
 
 " Shortcut key to bring up unit-test
 " map <S-t> :vsplit %:s?src?tests?:r_test.cpp<CR>
-map <expr> <S-t> IsTestFile() ? ':echom "Invalid operation!"<CR>':':vsplit %:s?src?tests?:r_test.cpp<CR>'
-
-
+map <expr> <S-t> IsTestFile() ? ':echom "Invalid operation!"<CR>':':vsplit %:s?src?tests?:r.cpp<CR>'
 
 " Sane line joins
 if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
+
+nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>:vsplit CMakeLists.txt<CR>

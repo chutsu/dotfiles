@@ -1,7 +1,7 @@
 # Startup programs
 # exec --no-startup-id dropbox start # dropbox
 # # exec --no-startup-id ~/.dropbox-dist/dropboxd # dropbox
-exec --no-startup-id nm-tray # network manager
+exec --no-startup-id nm-applet # network manager
 exec --no-startup-id xsetroot -solid "#222222"  # background
 # exec --no-startup-id xset -dpms # energy savings off
 exec --no-startup-id xset s off  # screensaver off

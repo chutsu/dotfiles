@@ -16,6 +16,7 @@ install_dev_pkgs() {
     exuberant-ctags \
     automake \
     cmake \
+    ccache \
     gcc \
     clang \
     clang-format \
@@ -36,7 +37,8 @@ install_dev_pkgs() {
 
   # Sh / Bash
   sudo apt-get install -y \
-    shellcheck
+    shellcheck \
+    silversearcher-ag
 }
 
 install_desktop_pkgs() {

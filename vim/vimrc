@@ -327,6 +327,8 @@ augroup END
 function! EasyGrep()
     let g:EasyGrepRecursive=1
     let g:EasyGrepReplaceWindowMode=2
+    let g:EasyGrepIgnoreCase=0
+    let g:EasyGrepBinary=0
 endfunction
 
 function! FZF()
