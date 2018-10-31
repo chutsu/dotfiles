@@ -355,36 +355,6 @@ function! UltiSnips()
     let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
 endfunction
 
-function! SwitchToSource()
-  let l:header_file=expand('%:r')
-  let l:cpp_file=expand(join(['src'] + split(l:header_file, '/')[2:-1], '/') . '.cpp')
-  execute 'edit' l:cpp_file
-endfunction
-
-function! SwitchToHeader()
-  let l:header_path="include/".g:project_name
-  :e %:s?src?\=l:header_path?:r.hpp
-endfunction
-
-function! SwitchCPPFile()
-  if expand('%:e') == 'hpp'
-    call SwitchToSource()
-    return
-  endif
-
-  if expand('%:e') == 'cpp'
-    call SwitchToHeader()
-    return
-  endif
-
-  echo 'Error a recognized C++ File!'
-endfunction
-
-function! CPPSwitch()
-  nmap <expr> <F8> expand('%:t')=~"test" ? ':echom "Invalid operation!"<CR>':':call SwitchCPPFile()<CR>'
-endfunction
-
-
 " MAIN
 call Vundle()
 call StartUp()
@@ -402,7 +372,7 @@ call Airline()
 call SyntasticOptions()
 call NerdTree()
 call EasyGrep()
-call CPPSwitch()
+" call CPPSwitch()
 call FZF()
 call MultiCursors()
 call YouCompleteMe()
