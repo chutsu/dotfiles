@@ -56,11 +56,10 @@ bindsym $mod+Control+j move down
 bindsym $mod+Control+k move up
 bindsym $mod+Control+l move right
 
-# Alternatively, you can use the cursor keys:
-bindsym $mod+Control+Left move left
-bindsym $mod+Control+Down move down
-bindsym $mod+Control+Up move up
-bindsym $mod+Control+Right move right
+# Screen layouts
+bindsym $mod+Control+Shift+h exec ~/.screenlayout/home.sh
+bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh
+bindsym $mod+Control+Shift+l exec ~/.screenlayout/laptop.sh
 
 # Split in horizontal orientation
 bindsym $mod+Shift+h split h
