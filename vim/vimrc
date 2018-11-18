@@ -74,6 +74,9 @@ function! EditorAppearance()
     " Let terminal resize scale the internal windows
     autocmd VimResized * :wincmd =
 
+    " Set syntax highlighting for tex files
+    autocmd FileType tex set syntax=plaintex
+
     " Highlight when code is over 81 columns
     " augroup vimrc_autocmds
     "     autocmd BufEnter * highlight OverLength ctermbg=darkgrey
