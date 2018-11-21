@@ -1,0 +1,16 @@
+only
+
+filextype *.html,*.htm
+  \ {Open webpage with google-chrome}
+  \ google-chrome %f > /dev/null 2>&1 &
+
+filextype *.pdf
+  \ {Open pdfs with xpdf}
+  \ xpdf %f > /dev/null 2>&1 &
+
+filetype *.jpg,*.jpeg,*.png,*.gif
+  \ {Open images with feh}
+  \ feh --scale-down --auto-zoom %f > /dev/null 2>&1 &
+
+fileviewer *.tar,*.tar.gz
+  \ tar -tvf %c

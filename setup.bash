@@ -88,6 +88,7 @@ setup_dotfiles() {
   echo "symlinks dotfiles"
   ln -fs "${PWD}/vim" "${HOME}/.vim"
   ln -fs "${PWD}/vim/vimrc" "${HOME}/.vimrc"
+  ln -fs "${PWD}/vifm" "${HOME}/.vifm"
   ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf"
   ln -fs "${PWD}/i3" "${HOME}/.i3"
   ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc"
@@ -177,18 +178,18 @@ setup_vim() {
 }
 
 setup() {
-  git_config
-
-  install_dev_pkgs
-  install_desktop_pkgs
-  install_user_pkgs
+  # git_config
+  #
+  # install_dev_pkgs
+  # install_desktop_pkgs
+  # install_user_pkgs
 
   # wget https://s3.amazonaws.com/tunnelbear/linux/openvpn.zip
   # sudo nmcli connection import type openvpn file TunnelBear\ Hong\ Kong.ovpn
   # ...
 
   setup_dotfiles
-  setup_vim
+  # setup_vim
   echo "Done! :)"
 }
 

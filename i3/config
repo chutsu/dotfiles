@@ -58,7 +58,7 @@ bindsym $mod+Control+l move right
 
 # Screen layouts
 bindsym $mod+Control+Shift+h exec ~/.screenlayout/home.sh
-bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh
+bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh; move workspace to output HDMI-0
 bindsym $mod+Control+Shift+l exec ~/.screenlayout/laptop.sh
 
 # Split in horizontal orientation
@@ -74,6 +74,9 @@ bindsym $mod+f fullscreen
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+# Move workspace to external monitor and back
+bindsym $mod+m move workspace to output HDMI-0
+
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -87,28 +90,22 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace number 1 www
+bindsym $mod+2 workspace number 2 code
+bindsym $mod+3 workspace number 3 fm
+bindsym $mod+4 workspace number 4 misc
+bindsym $mod+5 workspace number 5 misc2
+
+# Force a window on a named workspace
+assign [class="Google-chrome"] 1 www
+assign [class="Pcmanfm"] 3 fm
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace number 1 www
+bindsym $mod+Shift+2 move container to workspace number 2 code
+bindsym $mod+Shift+3 move container to workspace number 3 fm
+bindsym $mod+Shift+4 move container to workspace number 4 misc
+bindsym $mod+Shift+5 move container to workspace number 5 misc2
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
