@@ -14,3 +14,8 @@ filetype *.jpg,*.jpeg,*.png,*.gif
 
 fileviewer *.tar,*.tar.gz
   \ tar -tvf %c
+
+set statusline="  %t%= %A %10u:%-7g %15E %20d  "
+
+
+command! fzf :execute '!fzf 2>&0 %%IU || echo %c' | normal! gf
