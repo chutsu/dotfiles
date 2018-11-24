@@ -130,7 +130,7 @@ fi
 
 alias odroid_eth="ssh -X odroid@192.168.1.10"
 alias odroid_wifi="ssh -X odroid@192.168.1.11"
-source /opt/ros/kinetic/setup.bash
+source /opt/ros/melodic/setup.bash
 # source ~/catkin_ws/devel/setup.bash
 
 alias mavros="roslaunch mavros px4.launch"
