@@ -25,7 +25,7 @@ function! SwitchCPPFile()
     return
   endif
 
-  echo 'Error a recognized C++ File!'
+  echo 'Error! Not a recognized C++ File!'
 endfunction
 
 function! CPPSwitch()

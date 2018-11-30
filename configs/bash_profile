@@ -1,74 +1,25 @@
 #!/bin/bash
 export TERM=screen-256color
 source ~/.fzf.bash
-cd $HOME
-
-
-# WHICH OS?
-case $( uname -s ) in
-Linux)
-    OS="LINUX"
-    ;;
-Darwin)
-    OS="MAC"
-    ;;
-esac
-
-# STARTX
-if [ $OS == LINUX ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -z "$SSH_CONNECTION" ]; then
-    # screen layout
-    # sh ~/.screenlayout/lemonster.sh
-
-    # window manager
-    [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx && xbindkeys
-fi
 
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
-export PROJECTS="$DROPBOX/proj"
+export PROJECTS="$HOME/projects"
 export DOTFILES="$HOME/dotfiles"
-export SCRIPTS="$DOTFILES/scripts"
 
 # DIR SHORTCUTS
-alias down="cd ~/Downloads";
+alias downloads="cd $HOME/Downloads";
 alias dotfiles="cd $DOTFILES";
-alias p="cd $PROJECTS";
-alias scripts="cd $SCRIPTS"
+alias scripts="cd $HOME/dotfiles/scripts"
+alias catkin_ws="cd ~/catkin_ws/"
 
 # websites
-alias websites="cd $PROJECTS/websites/"
-alias domino="cd $PROJECTS/websites/domino"
-alias chamber="cd $PROJECTS/websites/chamber"
 alias chutsu="cd $PROJECTS/websites/chutsu.github.com"
-alias recall="cd $PROJECTS/websites/recall"
-
-# membank
-alias membank="cd $PROJECTS/membank/"
-alias notes="cd $HOME/dotfiles/docs/notes; vim; cd -"
-alias papers="cd $PROJECTS/papers"
 
 # projects
-alias poke="cd $PROJECTS/poke"
-alias evolve="cd $PROJECTS/evolve"
-alias yarl="cd $PROJECTS/yarl"
-alias gvio="cd $PROJECTS/gvio"
-alias gvio_ros="cd $PROJECTS/gvio_ros"
-alias playground="cd $PROJECTS/playground"
 alias prototype="cd $PROJECTS/prototype"
+alias srl="cd $PROJECTS/srl"
 alias ditto="cd $PROJECTS/ditto"
-alias cog="cd $PROJECTS/cog"
-alias atl="cd $PROJECTS/atl"
-alias wavesim="cd $PROJECTS/wavesim"
-alias robotics="cd $PROJECTS/robotics"
-alias atim="cd $PROJECTS/atim"
-alias numbers="cd $PROJECTS/numbers"
-alias sr="cd $PROJECTS/sr"
-alias slam="cd $PROJECTS/slam"
-alias libwave="cd $PROJECTS/libwave"
-alias flightstack="cd $PROJECTS/flightstack"
-alias imu="cd ~/Dropbox/latex/presentations/imu_noise_characterization"
-alias dso="cd ~/Dropbox/latex/presentations/dso"
-alias thesis="cd ~/Dropbox/proj/uwthesis"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -118,9 +69,9 @@ fi
 stty -ixon  # disable ctrl-s (software flow control)
 
 # START TMUX ON BASH STARTUP
-if [ $OS == "LINUX" ]; then
-    if which tmux 2>&1 >/dev/null; then  # check if tmux is installed
-        if tmux ls 2>&1 >/dev/null; then  # check if tmux already has sessions
+if [[ $OS == "LINUX" ]]; then
+    if which tmux >/dev/null 2>&1; then  # check if tmux is installed
+        if tmux ls >/dev/null 2>&1; then  # check if tmux already has sessions
             [[ -z "$TMUX" ]] && exec tmux attach
         else
             [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
@@ -128,26 +79,5 @@ if [ $OS == "LINUX" ]; then
     fi
 fi
 
-alias odroid_eth="ssh -X odroid@192.168.1.10"
-alias odroid_wifi="ssh -X odroid@192.168.1.11"
 source /opt/ros/melodic/setup.bash
 # source ~/catkin_ws/devel/setup.bash
-
-alias mavros="roslaunch mavros px4.launch"
-alias atl="cd $HOME/catkin_ws/src/atl"
-alias atl_make="cd $HOME/catkin_ws/ && catkin_make && cd -"
-alias atl_record="sh ~/catkin_ws/src/atl/scripts/atl_record.sh"
-alias mocap="cd catkin_ws/src/mocap_optitrack/"
-alias mocap_start="cd catkin_ws/src/mocap_optitrack/; roslaunch launch/mocap_atl.launch; cd -"
-alias sbgc="cd ~/SimpleBGC_GUI_2_56b7/; java -jar SimpleBGC_GUI.jar; cd -"
-alias pi="ssh -X pi@192.168.1.21"
-alias tx1="ssh -X ubuntu@192.168.1.31"
-alias zero="ssh -X pi@192.168.1.100"
-alias catkin_ws="cd ~/catkin_ws/"
-
-alias odroid_view="ROS_MASTER_URI=http://192.168.1.11:11311 rqt_image_view"
-alias odroid_topics="ROS_MASTER_URI=http://192.168.1.11:11311 rostopic list"
-alias odroid_echo="ROS_MASTER_URI=http://192.168.1.11:11311 rostopic echo"
-
-# export ROS_MASTER_URI=http://192.168.1.11:11311
-# alias atl_tower="sh ~/catkin_ws/src/atl/scripts/atl_tower.sh"
