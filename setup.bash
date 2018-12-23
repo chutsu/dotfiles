@@ -1,18 +1,21 @@
 #/bin/bash
 set -e  # Exit on first error
+APT_INSTALL='sudo apt-get install -y -qq'
 
 install_dev_pkgs() {
   # General dev tools
-  sudo apt-get install -y \
+  $APT_INSTALL \
     xterm \
     git \
     vim-nox \
     tree \
     htop \
     tmux
+}
 
+install_cpp_pkgs() {
   # C / C++
-  sudo apt-get install -y \
+  $APT_INSTALL \
     exuberant-ctags \
     automake \
     cmake \
@@ -20,10 +23,12 @@ install_dev_pkgs() {
     gcc \
     clang \
     clang-format \
-    clang-tidy \
+    clang-tidy
+}
 
+install_python_pkgs() {
   # Python
-  sudo apt-get install -y \
+  $APT_INSTALL \
     libpython-dev \
     python-pip \
     python-numpy \
@@ -34,15 +39,17 @@ install_dev_pkgs() {
     python3-numpy \
     python3-scipy \
     python3-matplotlib
+}
 
+install_bash_pkgs() {
   # Sh / Bash
-  sudo apt-get install -y \
+  $APT_INSTALL \
     shellcheck \
     silversearcher-ag
 }
 
 install_desktop_pkgs() {
-  sudo apt-get install -y \
+  $APT_INSTALL \
     xterm \
     i3 \
     xinit \
@@ -51,60 +58,59 @@ install_desktop_pkgs() {
     pcmanfm \
     gnome-icon-theme \
     pavucontrol
-}
 
-install_user_pkgs() {
-  sudo apt-get install -y \
+  $APT_INSTALL \
     gtk-recordmydesktop \
     vlc
 
-  sudo apt-get install -y \
+  $APT_INSTALL \
     texlive-*
 }
 
 git_config() {
-  git config --global user.name "Chris Choi"
-  git config --global user.email "chutsu@gmail.com"
-  git config --global push.default matching
+  git config --global user.name "Chris Choi";
+  git config --global user.email "chutsu@gmail.com";
+  git config --global push.default matching;
 }
 
 setup_dotfiles() {
   # REMOVE OLD DOTFILES
-  echo "remove old dotfiles"
-  rm -rf "${HOME}/.vim"
-  rm -f "${HOME}/.vimrc"
-  rm -f "${HOME}/.bash_profile"
-  rm -f "${HOME}/.tmux.conf"
-  rm -rf "${HOME}/.i3"
-  rm -f "${HOME}/.xinitrc"
-  rm -f "${HOME}/.Xdefaults"
-  rm -f "${HOME}/.muttrc"
-  rm -rf "${HOME}/.mutt"
-  rm -f "${HOME}/.xbindkeysrc"
-  rm -f "${HOME}/.screenlayout"
-  rm -rf "${HOME}/.gitconfig"
+  echo "remove old dotfiles";
+  rm -rf "${HOME}/.vim";
+  rm -f "${HOME}/.vimrc";
+  rm -f "${HOME}/.vifm";
+  rm -f "${HOME}/.vifmrc";
+  rm -f "${HOME}/.bash_profile";
+  rm -f "${HOME}/.tmux.conf";
+  rm -rf "${HOME}/.i3";
+  rm -f "${HOME}/.xinitrc";
+  rm -f "${HOME}/.Xdefaults";
+  rm -f "${HOME}/.muttrc";
+  rm -rf "${HOME}/.mutt";
+  rm -f "${HOME}/.xbindkeysrc";
+  rm -f "${HOME}/.screenlayout";
+  rm -rf "${HOME}/.gitconfig";
 
   # SYMLINKS
-  echo "symlinks dotfiles"
-  ln -fs "${PWD}/vim" "${HOME}/.vim"
-  ln -fs "${PWD}/vim/vimrc" "${HOME}/.vimrc"
-  ln -fs "${PWD}/vifm" "${HOME}/.vifm"
-  ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf"
-  ln -fs "${PWD}/i3" "${HOME}/.i3"
-  ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc"
-  ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc"
-  ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults"
-  ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc"
-  ln -fs "${PWD}/configs/vimperatorrc" "${HOME}/.vimperatorrc"
-  ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile"
-  ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig"
-  ln -fs "${PWD}/configs/latexmkrc" "${HOME}/.latexmkrc"
-  echo "source ~/.bash_profile" >> "${HOME}/.bashrc"
-  ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout"
+  echo "symlinks dotfiles";
+  ln -fs "${PWD}/vim" "${HOME}/.vim";
+  ln -fs "${PWD}/vim/vimrc" "${HOME}/.vimrc";
+  ln -fs "${PWD}/vifm" "${HOME}/.vifm";
+  ln -fs "${PWD}/vifm/vifmrc" "${HOME}/.vifmrc";
+  ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
+  ln -fs "${PWD}/i3" "${HOME}/.i3";
+  ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
+  ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
+  ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
+  ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
+  ln -fs "${PWD}/configs/vimperatorrc" "${HOME}/.vimperatorrc";
+  ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile";
+  ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig";
+  ln -fs "${PWD}/configs/latexmkrc" "${HOME}/.latexmkrc";
+  echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
+  ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
   #ln -fs "${PWD}/csgo/autoexec.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
   #ln -fs "${PWD}/csgo/practice.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/practice.cfg"
-
-  return 0;
 }
 
 install_vim() {
@@ -118,7 +124,7 @@ install_vim() {
   sudo rm -rf /usr/local/share/vim /usr/bin/vim
 
   # Install pre-requisits
-  sudo apt-get install -y \
+  $APT_INSTALL \
     git \
     ncurses-dev \
     python-dev \
@@ -161,7 +167,7 @@ setup_vim() {
   # Install vim
   echo "Installing vim ..."
   # sudo apt-get install vim-nox -y -qq
-  # install_vim
+  install_vim
 
   # Install vim plugins
   echo "Installing vim plugins ..."
@@ -173,25 +179,31 @@ setup_vim() {
   # Build YouCompleteMe
   cd "$HOME/.vim/bundle/YouCompleteMe"
   ./install.py --clang-completer
-
-  return 0;
 }
 
 setup() {
-  # git_config
-  #
-  # install_dev_pkgs
-  # install_desktop_pkgs
-  # install_user_pkgs
+  MODE=$1;
+  git_config;
+  install_dev_pkgs;
+  install_cpp_pkgs;
+  install_bash_pkgs;
 
-  # wget https://s3.amazonaws.com/tunnelbear/linux/openvpn.zip
-  # sudo nmcli connection import type openvpn file TunnelBear\ Hong\ Kong.ovpn
-  # ...
+  if [ "$MODE" == "full" ]; then
+    install_python_pkgs;
+    install_desktop_pkgs;
+  fi
 
-  setup_dotfiles
-  # setup_vim
+  setup_dotfiles;
+  setup_vim;
   echo "Done! :)"
 }
 
+print_usage() {
+  echo "setup.bash [full | mini]"
+}
+
 # MAIN
-setup
+if [ "$#" != "1" ]; then
+  print_usage;
+fi
+setup "${1}"

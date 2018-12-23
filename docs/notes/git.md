@@ -8,6 +8,7 @@
 - How to supress 'modified content'/dirty submodule entries?
 - Remove local branches no longer on remote
 - Fix commit in wrong branch
+- Push to both github and bitbucket
 
 
 ## Find difference between git branches
@@ -157,14 +158,40 @@ Add `ignore = dirty` line to the git module in `.gitmodules` file:
 
 If you haven't yet pushed your changes, you can also do a soft reset:
 
-		git reset --soft HEAD^
+```
+git reset --soft HEAD^
+```
 
 This will revert the commit, but put the committed changes back into your
 index. Assuming the branches are relatively up-to-date with regard to each
 other, git will let you do a checkout into the other branch, whereupon you can
 simply commit:
 
-		git checkout branch
-		git commit
+```
+git checkout branch
+git commit
+```
 
 The disadvantage is that you need to re-enter your commit message.
+
+
+## Push to both github and bitbucket
+
+Often times you have a project you host on both github and bitbucket. With git
+you can easily push your repo to both remote hosts.
+
+First setup the remotes:
+
+```
+git remote add github git@github.com:<username>/<repo>.git
+git remote add bitbucket git@bitbucket.org:<username>/<repo>.git
+```
+
+With the above git remote targets setup, you can explicitly push to both github
+and bitbucket individually. To push to **both** remotes at the same time with
+a single command, an alias can be created for that purpose:
+
+```
+git config alias.pushall '!git push bitbucket master && git push github master'
+git pushall
+```

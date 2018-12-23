@@ -2,6 +2,9 @@
 export TERM=screen-256color
 source ~/.fzf.bash
 
+# Suppress GTK accessibility known bug with this env var
+export NO_AT_BRIDGE=1
+
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
 export PROJECTS="$HOME/projects"
@@ -69,14 +72,12 @@ fi
 stty -ixon  # disable ctrl-s (software flow control)
 
 # START TMUX ON BASH STARTUP
-if [[ $OS == "LINUX" ]]; then
-    if which tmux >/dev/null 2>&1; then  # check if tmux is installed
-        if tmux ls >/dev/null 2>&1; then  # check if tmux already has sessions
-            [[ -z "$TMUX" ]] && exec tmux attach
-        else
-            [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
-        fi
-    fi
+if which tmux >/dev/null 2>&1; then  # check if tmux is installed
+  if tmux ls >/dev/null 2>&1; then  # check if tmux already has sessions
+    [[ -z "$TMUX" ]] && exec tmux attach
+  else
+    [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
+  fi
 fi
 
 source /opt/ros/melodic/setup.bash

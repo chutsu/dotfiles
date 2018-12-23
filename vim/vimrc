@@ -20,7 +20,6 @@ function! Vundle()
     Plugin 'scrooloose/nerdtree'
     Plugin 'junegunn/fzf'
     Plugin 'bling/vim-airline'
-    " Plugin 'ericcurtin/CurtineIncSw.vim'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'osyo-manga/vim-over'
@@ -34,7 +33,6 @@ function! Vundle()
     Plugin 'ludovicchabant/vim-gutentags'
     Plugin 'tomtom/tcomment_vim'
     Plugin 'jvirtanen/vim-octave'
-    Plugin 'petRUShka/vim-opencl'
     Plugin 'plasticboy/vim-markdown'
     Plugin 'sirtaj/vim-openscad'
     Plugin 'SirVer/ultisnips'
@@ -120,16 +118,16 @@ function! EditorBehaviour()
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
     " Retab file when saving
-    " autocmd FileType c,cpp,java,php,python,javascript,markdown
-    "         \ autocmd BufWritePre <buffer> :retab
+    autocmd FileType c,cpp,java,php,python,javascript,markdown
+            \ autocmd BufWritePre <buffer> :retab
 
     " Expandtab when saving
-    " autocmd FileType c,cpp,java,php,python,javascript,markdown
-    "         \ autocmd BufWritePre <buffer> :set expandtab
+    autocmd FileType c,cpp,java,php,python,javascript,markdown
+            \ autocmd BufWritePre <buffer> :set expandtab
 
     " Replace tabs in file when saving
-    " autocmd FileType python
-    "         \ autocmd BufWritePre <buffer> :%s/\t/\ \ \ \ /g
+    autocmd FileType python
+            \ autocmd BufWritePre <buffer> :%s/\t/\ \ \ \ /g
 
     " Reload vimrc after update
     " autocmd BufWritePost .vimrc so ~/.vimrc
@@ -142,7 +140,6 @@ function! EditorBehaviour()
     " Plain text mode
     autocmd FileType markdown,mkd
         \ call pencil#init({"wrap": "hard"})
-
 
     " Reselect block after indentation
     vnoremap < <gv
@@ -282,6 +279,7 @@ function! SyntasticOptions()
     \ ]
 
     let g:syntastic_cpp_checkers=['']
+
     " python specific settings
     let g:syntastic_python_checkers=['flake8']
     " let g:syntastic_ignore_files = ['\.py$']
@@ -336,6 +334,9 @@ endfunction
 
 function! FZF()
     nmap <C-p> :FZF<CR>
+
+    " [Buffers] Jump to the existing window if possible
+    let g:fzf_buffers_jump=1
 endfunction
 
 function! MultiCursors()
@@ -368,14 +369,12 @@ call NavImproved()
 call VimTabsKeyMappings()
 call VimSplitsKeyMappings()
 call EscapeCommonOperationTypos()
-" call Session()
 
 " PLUGIN SETTINGS
 call Airline()
 call SyntasticOptions()
 call NerdTree()
 call EasyGrep()
-" call CPPSwitch()
 call FZF()
 call MultiCursors()
 call YouCompleteMe()

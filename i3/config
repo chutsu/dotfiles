@@ -58,7 +58,7 @@ bindsym $mod+Control+l move right
 
 # Screen layouts
 bindsym $mod+Control+Shift+h exec ~/.screenlayout/home.sh
-bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh; move workspace to output HDMI-0
+bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh
 bindsym $mod+Control+Shift+l exec ~/.screenlayout/laptop.sh
 
 # Split in horizontal orientation

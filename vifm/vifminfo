@@ -1,14 +1,22 @@
 # You can edit this file by hand, but it's recommended not to do that.
 
 # Marks:
+'a
+	/home/chutsu/catkin_ws
+	..
+1544183936
 'd
-	/home/chutsu/Downloads
-	Downloads
-1542893685
+	/home/chutsu/projects/zp3
+	zp3
+1544694493
 'h
 	/home/chutsu/
 	Home
 1542882411
+'m
+	/data/euroc_mav/cam_april
+	aprilgrid_data
+1544400838
 'p
 	/home/chutsu/projects
 	Projects
@@ -35,3 +43,29 @@ t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2018-11-13_13-38-36.png
 	/home/chutsu/Screenshot_2018-11-13_13-38-36.png
 t/home/chutsu/.local/share/vifm/Trash/000_images
 	/home/chutsu/Downloads/images
+t/home/chutsu/.local/share/vifm/Trash/000_SRLlogo_3_vsmall.png
+	/home/chutsu/SRLlogo_3_vsmall.png
+t/home/chutsu/.local/share/vifm/Trash/000_SRLlogo_3_full.png
+	/home/chutsu/SRLlogo_3_full.png
+t/home/chutsu/.local/share/vifm/Trash/000_drawing.svg
+	/home/chutsu/drawing.svg
+t/home/chutsu/.local/share/vifm/Trash/000_logo_copy.png
+	/home/chutsu/logo_copy.png
+t/home/chutsu/.local/share/vifm/Trash/000_patch.diff
+	/home/chutsu/patch.diff
+t/home/chutsu/.local/share/vifm/Trash/000_srl_logo.png
+	/home/chutsu/srl_logo.png
+t/home/chutsu/.local/share/vifm/Trash/000_equi
+	/home/chutsu/projects/prototype/octave/notes/equi
+t/home/chutsu/.local/share/vifm/Trash/000_radtan
+	/home/chutsu/projects/prototype/octave/notes/radtan
+t/home/chutsu/.local/share/vifm/Trash/000_catkin_ws
+	/home/chutsu/catkin_ws
+t/home/chutsu/.local/share/vifm/Trash/000_src
+	/home/chutsu/src
+t/home/chutsu/.local/share/vifm/Trash/000_devel
+	/home/chutsu/devel
+t/home/chutsu/.local/share/vifm/Trash/000_tests
+	/home/chutsu/projects/zp3/zp3/tests
+t/home/chutsu/.local/share/vifm/Trash/000___init__.py
+	/home/chutsu/projects/zp3/zp3/__init__.py

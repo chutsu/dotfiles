@@ -1,5 +1,3 @@
-- **clean_autojunk**: cleans auto generated files from autoconf
-- **closeport**: close network port
 - **colortest**: displays all 255 terminal colours
 - **latexthis**: runs command `pdflatex` multiple times, and erases log files
 - **lines**: count source code lines
