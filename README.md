@@ -42,28 +42,28 @@ vim
 Tabbing in vim
 ==============
 
-Create new tab (in command mode): `:tabnew`
-Kill tab (in command mode): `:q`
-Tab left: `Ctrl-h`
-Tab right: `Ctrl-l`
+- Create new tab (in command mode): `:tabnew`
+- Kill tab (in command mode): `:q`
+- Tab left: `Ctrl-h`
+- Tab right: `Ctrl-l`
 
 
 Splits in vim
 =============
 
-Split horizontally `:split`
-Split vertically: `:vsplit`
-Switch to left split: `<Shift> + h`
-Switch to down split: `<Shift> + j`
-Switch to up split: `<Shift> + k`
-Switch to right split: `<Shift> + l`
+- Split horizontally `:split`
+- Split vertically: `:vsplit`
+- Switch to left split: `<Shift> + h`
+- Switch to down split: `<Shift> + j`
+- Switch to up split: `<Shift> + k`
+- Switch to right split: `<Shift> + l`
 
 
 ### Surround
 
-Add double quote surround by highlighting word: `viwS"`
-Change current double quote surround to single quote under cursor: `cs"'`
-Remove current surround under cursor: `ds`
+- Add double quote surround by highlighting word: `viwS"`
+- Change current double quote surround to single quote under cursor: `cs"'`
+- Remove current surround under cursor: `ds`
 
 ---
 
@@ -81,32 +81,32 @@ press ctrl-b + c to create a new tab.
 Tabbing in tmux
 ===============
 
-Create new tab: `prefix + c`
-Kill tab: `ctrl-d`
-Next tab: `prefix + n`
-Previous tab: `prefix + p`
-Go back to previous tab: `prefix + prefix`
+- Create new tab: `prefix + c`
+- Kill tab: `ctrl-d`
+- Next tab: `prefix + n`
+- Previous tab: `prefix + p`
+- Go back to previous tab: `prefix + prefix`
 
 
 Splits in tmux
 ==============
 
-Split Navigation shortcuts (hjkl arrow keys: vim inspired):
+- Split Navigation shortcuts (hjkl arrow keys: vim inspired):
 
     navigate up: prefix + k
     navigate down: prefix + j
     navigate left: prefix + h
     navigate right: prefix + l
 
-Split horizontally: `prefix + "`
-Split vertically: `prefix + %`
-Kill split: `Ctrl-d`
+- Split horizontally: `prefix + "`
+- Split vertically: `prefix + %`
+- Kill split: `Ctrl-d`
 
 
 Sessions in tmux
 ================
 
-List sessions: `tmux list-sessions`
-Switch session: `tmux switch -t<session id>`
-Kill session: `tmux kill-session -t<session id>`
-Kill all detached sessions: `tmux kill-session -a`
+- List sessions: `tmux list-sessions`
+- Switch session: `tmux switch -t<session id>`
+- Kill session: `tmux kill-session -t<session id>`
+- Kill all detached sessions: `tmux kill-session -a`
