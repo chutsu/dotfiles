@@ -195,3 +195,17 @@ a single command, an alias can be created for that purpose:
 git config alias.pushall '!git push bitbucket master && git push github master'
 git pushall
 ```
+
+
+## Ignore changes in git submodules
+
+Once you added a submodule there will be a file named .gitmodules in the root
+of your repository. Just the line `ignore = dirty` in the submodule section in
+the `.gitmodules` file:
+
+```
+[submodule "bundle/fugitive"]
+    path = bundle/fugitive
+    url = git://github.com/tpope/vim-fugitive.git
+    ignore = dirty
+```

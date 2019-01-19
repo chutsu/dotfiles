@@ -6,17 +6,17 @@
 	..
 1544183936
 'd
-	/home/chutsu/projects/zp3
-	zp3
-1544694493
+	/home/chutsu/Downloads
+	Downloads
+1546526293
 'h
 	/home/chutsu/
 	Home
 1542882411
 'm
-	/data/euroc_mav/cam_april
-	aprilgrid_data
-1544400838
+	/home/chutsu/Downloads
+	08360450.pdf
+1546615630
 'p
 	/home/chutsu/projects
 	Projects
@@ -69,3 +69,5 @@ t/home/chutsu/.local/share/vifm/Trash/000_tests
 	/home/chutsu/projects/zp3/zp3/tests
 t/home/chutsu/.local/share/vifm/Trash/000___init__.py
 	/home/chutsu/projects/zp3/zp3/__init__.py
+t/home/chutsu/.local/share/vifm/Trash/000_tags
+	/home/chutsu/projects/papers/tags

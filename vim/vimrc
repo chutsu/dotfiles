@@ -137,9 +137,9 @@ function! EditorBehaviour()
     autocmd BufRead /tmp/mutt-* call Mutt()
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-    " Plain text mode
-    autocmd FileType markdown,mkd
-        \ call pencil#init({"wrap": "hard"})
+    " " Plain text mode
+    " autocmd FileType markdown,mkd
+    "     \ call pencil#init({"wrap": "hard"})
 
     " Reselect block after indentation
     vnoremap < <gv
@@ -251,6 +251,11 @@ function! Airline()
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_sep = ''
+endfunction
+
+function! Pencil()
+  let g:pencil#textwidth = 78
+  let g:pencil#autoformat = 1
 endfunction
 
 function! SyntasticOptions()
@@ -372,6 +377,7 @@ call EscapeCommonOperationTypos()
 
 " PLUGIN SETTINGS
 call Airline()
+"call Pencil()
 call SyntasticOptions()
 call NerdTree()
 call EasyGrep()

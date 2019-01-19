@@ -15,14 +15,17 @@ alias downloads="cd $HOME/Downloads";
 alias dotfiles="cd $DOTFILES";
 alias scripts="cd $HOME/dotfiles/scripts"
 alias catkin_ws="cd ~/catkin_ws/"
+alias notes="cd ~$PROJECTS/chutsu.github.io/notes"
 
 # websites
-alias chutsu="cd $PROJECTS/websites/chutsu.github.com"
+alias chutsu="cd $PROJECTS/chutsu.github.io"
 
 # projects
 alias prototype="cd $PROJECTS/prototype"
 alias srl="cd $PROJECTS/srl"
 alias ditto="cd $PROJECTS/ditto"
+alias papers="cd $PROJECTS/papers"
+alias zp3="cd $PROJECTS/zp3"
 
 # GIT ALIASES
 alias gitlog="git log --graph \

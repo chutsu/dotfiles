@@ -1,3 +1,8 @@
+- List network devices
+- Enable / disable network device
+
+
+
 ## List network devices
 
 List network devices with:

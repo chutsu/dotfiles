@@ -1,4 +1,5 @@
-# chutsu's dotfiles
+chutsu's dotfiles
+-----------------
 
 **WARNING**: DO NOT BLINDLY USE MY CONFIGURATIONS, THEY CAN BE DANGEROUS TO
 YOUR NEEDS!
@@ -10,13 +11,156 @@ system.
 
 This dotfile repo contains configuration for:
 
-    - bash
-    - tmux
-    - vim
-    - i3
-    - vimperator
+- bash
+- i3
+- arandr
+- tmux
+- vifm
+- vim
 
 
-## Install
+Install
+-------
 
-    curl -L https://git.io/vPzOt > init.sh && sh init.sh
+For the lazy:
+
+```
+curl -L https://git.io/vPzOt > init.sh && sh init.sh
+```
+
+
+---
+
+
+Contents
+--------
+- [vim](#vim)
+    - [Tabs](#vim-tabs)
+    - [Surround](#vim-tabs)
+- [tmux](#tmux)
+    - [Tabs](#tmux-tabs)
+    - [Splits](#tmux-splits)
+    - [Sessions](#tmux-sessions)
+
+
+---
+
+
+vim
+---
+
+### Tabs
+
+**Create new tab (in command mode)**
+
+    :tabnew
+
+**Kill tab (in command mode)**
+
+    :q
+
+**Tab Left**
+
+    Ctrl-h
+
+**Tab Right**
+
+    Ctrl-l
+
+
+### Surround
+
+**Add double quote surround by highlighting word**
+
+    viwS"
+
+**Change current double quote surround to single quote under cursor**
+
+    cs"'
+
+**Remove current surround under cursor**
+
+    ds
+
+
+
+---
+
+
+
+tmux
+----
+
+IMPORTANT: When running tmux in a terminal you need to be able to send commands
+to tmux. In tmux vocabulary, they call it the prefix (which is ctrl-b in our
+case). This tells the terminal I want to send a command to tmux, for example,
+lets say I want to create a new tmux tab (which is prefix + c), you would then
+press ctrl-b + c to create a new tab.
+
+
+### Tabs
+
+**Create new tab**
+
+    prefix + c
+
+**Kill tab**
+
+    ctrl-d
+
+**Next tab**
+
+    prefix + n
+
+**Previous tab**
+
+    prefix + p
+
+**previous visited tab**
+
+    prefix + prefix
+
+
+
+### Splits
+
+**Split Navigation shortcuts (hjkl arrow keys: vim inspired)**
+
+    navigate up: prefix + k
+    navigate down: prefix + j
+    navigate left: prefix + h
+    navigate right: prefix + l
+
+**Split horizontally**
+
+    prefix + "
+
+
+**Split vertically**
+
+    prefix + %
+
+
+**Kill split**
+
+    Ctrl-d
+
+
+### Sessions
+
+**List sessions**
+
+    tmux list-sessions
+
+**Switch session**
+
+    tmux switch -t<session id>
+
+**Kill session**
+
+    tmux kill-session -t<session id>
+
+
+**Kill all detached sessions**
+
+    tmux kill-session -a

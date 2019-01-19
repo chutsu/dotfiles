@@ -97,8 +97,8 @@ bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 
 # Force a window on a named workspace
-assign [class="Google-chrome"] 1
-assign [class="Pcmanfm"] 3
+# assign [class="Google-chrome"] 1
+# assign [class="Pcmanfm"] 3
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
