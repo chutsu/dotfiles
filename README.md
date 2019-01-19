@@ -35,8 +35,8 @@ curl -L https://git.io/vPzOt > init.sh && sh init.sh
 Contents
 --------
 - [vim](#vim)
-    - [Tabs](#vim-tabs)
-    - [Surround](#vim-tabs)
+    - [Tabs](#tabbing-in-vim)
+    - [Surround](#surround)
 - [tmux](#tmux)
     - [Tabs](#tmux-tabs)
     - [Splits](#tmux-splits)
@@ -49,23 +49,12 @@ Contents
 vim
 ---
 
-### Tabs
+### Tabbing in vim
 
-**Create new tab (in command mode)**
-
-    :tabnew
-
-**Kill tab (in command mode)**
-
-    :q
-
-**Tab Left**
-
-    Ctrl-h
-
-**Tab Right**
-
-    Ctrl-l
+    :tabnew  Create new tab (in command mode)
+    :q  Kill tab (in command mode)
+    Ctrl-h Tab left
+    Ctrl-l Tab right
 
 
 ### Surround
