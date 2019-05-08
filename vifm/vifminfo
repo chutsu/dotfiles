@@ -6,9 +6,9 @@
 	..
 1544183936
 'd
-	/home/chutsu/Downloads
-	Downloads
-1546526293
+	/data/intel_d435i
+	data
+1551702184
 'h
 	/home/chutsu/
 	Home
@@ -71,3 +71,5 @@ t/home/chutsu/.local/share/vifm/Trash/000___init__.py
 	/home/chutsu/projects/zp3/zp3/__init__.py
 t/home/chutsu/.local/share/vifm/Trash/000_tags
 	/home/chutsu/projects/papers/tags
+t/home/chutsu/.local/share/vifm/Trash/000_data
+	/data/intel_d435i/data

@@ -10,13 +10,20 @@ function ftplugin#cpp#SwitchToHeader()
 endfunction
 
 function ftplugin#cpp#SwitchCPPFile()
+  if expand('%:t') == "test"
+    echo 'Invalid operation!'
+    return
+  endif
+
   if expand('%:e') == 'hpp'
-    call ftplugin#cpp#SwitchToSource()
+    " call ftplugin#cpp#SwitchToSource()
+    find %:t:r.cpp
     return
   endif
 
   if expand('%:e') == 'cpp'
-    call ftplugin#cpp#SwitchToHeader()
+    " call ftplugin#cpp#SwitchToHeader()
+    find %:t:r.hpp
     return
   endif
 

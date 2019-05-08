@@ -30,12 +30,12 @@ function! Vundle()
     Plugin 'vim-scripts/AnsiEsc.vim'
     Plugin 'reedes/vim-pencil'
     Plugin 'inside/vim-search-pulse'
-    Plugin 'ludovicchabant/vim-gutentags'
     Plugin 'tomtom/tcomment_vim'
     Plugin 'jvirtanen/vim-octave'
     Plugin 'plasticboy/vim-markdown'
     Plugin 'sirtaj/vim-openscad'
     Plugin 'SirVer/ultisnips'
+
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -117,25 +117,32 @@ function! EditorBehaviour()
     autocmd FileType c,cpp,java,php,python,javascript,markdown
             \ autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-    " Retab file when saving
-    autocmd FileType c,cpp,java,php,python,javascript,markdown
-            \ autocmd BufWritePre <buffer> :retab
+    " " Retab file when saving
+    " autocmd FileType c,cpp,java,php,python,javascript,markdown
+    "         \ autocmd BufWritePre <buffer> :retab
 
-    " Expandtab when saving
-    autocmd FileType c,cpp,java,php,python,javascript,markdown
-            \ autocmd BufWritePre <buffer> :set expandtab
+    " " Expandtab when saving
+    " autocmd FileType c,cpp,java,php,python,javascript,markdown
+    "         \ autocmd BufWritePre <buffer> :set expandtab
 
-    " Replace tabs in file when saving
-    autocmd FileType python
-            \ autocmd BufWritePre <buffer> :%s/\t/\ \ \ \ /g
+    " " Replace tabs in file when saving
+    " autocmd FileType python
+    "         \ autocmd BufWritePre <buffer> :%s/\t/\ \ \ \ /g
 
     " Reload vimrc after update
     " autocmd BufWritePost .vimrc so ~/.vimrc
+
+    " Generate ctags
+    autocmd BufWritePost *
+      \ call system('ctags -R --exclude=dep --exclude=build --exclude=docs --exclude=octave .')
 
     " Correct filetype recognition
     autocmd FileType java call JavaMode()
     autocmd BufRead /tmp/mutt-* call Mutt()
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+    autocmd BufNewFile,BufReadPost *.launch set filetype=xml
+    autocmd BufNewFile,BufReadPost *.h set filetype=c
+    autocmd BufNewFile,BufReadPost *.c set filetype=c
 
     " " Plain text mode
     " autocmd FileType markdown,mkd

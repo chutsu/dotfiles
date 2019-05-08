@@ -15,17 +15,21 @@ alias downloads="cd $HOME/Downloads";
 alias dotfiles="cd $DOTFILES";
 alias scripts="cd $HOME/dotfiles/scripts"
 alias catkin_ws="cd ~/catkin_ws/"
-alias notes="cd ~$PROJECTS/chutsu.github.io/notes"
+alias notes="cd $PROJECTS/chutsu.github.io/docs/notes; vim; cd -"
 
 # websites
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 
 # projects
+alias autocal="cd $PROJECTS/autocal"
 alias prototype="cd $PROJECTS/prototype"
-alias srl="cd $PROJECTS/srl"
+alias prototype_ros="cd $PROJECTS/prototype_ros"
+alias play="cd $PROJECTS/play"
 alias ditto="cd $PROJECTS/ditto"
 alias papers="cd $PROJECTS/papers"
 alias zp3="cd $PROJECTS/zp3"
+alias zero="cd $PROJECTS/zero"
+alias red="cd $PROJECTS/red"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -46,7 +50,7 @@ alias remove='sudo apt-get remove'
 alias purge='sudo apt-get purge'
 alias vimrc="cd $HOME/dotfiles && vim vim/vimrc && cd -";
 alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
-alias todo="vim $DROPBOX/TODO";
+alias todo="vim $HOME/projects/TODO; cd -";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
 
@@ -75,13 +79,13 @@ fi
 stty -ixon  # disable ctrl-s (software flow control)
 
 # START TMUX ON BASH STARTUP
-if which tmux >/dev/null 2>&1; then  # check if tmux is installed
-  if tmux ls >/dev/null 2>&1; then  # check if tmux already has sessions
-    [[ -z "$TMUX" ]] && exec tmux attach
-  else
-    [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
-  fi
-fi
+# if which tmux >/dev/null 2>&1; then  # check if tmux is installed
+#   if tmux ls >/dev/null 2>&1; then  # check if tmux already has sessions
+#     [[ -z "$TMUX" ]] && exec tmux attach
+#   else
+#     [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
+#   fi
+# fi
 
 source /opt/ros/melodic/setup.bash
 # source ~/catkin_ws/devel/setup.bash
