@@ -170,10 +170,7 @@ setup_vim() {
 
   # Install vim plugins
   echo "Installing vim plugins ..."
-  git clone https://github.com/chutsu/dotfiles
-  cd dotfiles
-  git submodule init
-  git submodule update
+  cd "$HOME/dotfiles"
   vim -c VundleInstall -c quitall
   "$HOME/.vim/bundle/fzf/install" --all
 
@@ -193,6 +190,11 @@ setup() {
     install_python_pkgs;
     install_desktop_pkgs;
   fi
+
+  cd "$HOME"
+  git clone https://github.com/chutsu/dotfiles
+  git submodule init
+  git submodule update
 
   setup_dotfiles;
   setup_vim;
