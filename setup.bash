@@ -193,6 +193,7 @@ setup() {
 
   cd "$HOME"
   git clone https://github.com/chutsu/dotfiles
+  cd dotfiles
   git submodule init
   git submodule update
 
