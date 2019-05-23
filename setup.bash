@@ -193,6 +193,7 @@ setup() {
     install_desktop_pkgs;
   fi
 
+  git clone https://github.com/chutsu/dotfiles
   setup_dotfiles;
   setup_vim;
   echo "Done! :)"
