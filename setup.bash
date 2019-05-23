@@ -7,7 +7,6 @@ install_dev_pkgs() {
   $APT_INSTALL \
     xterm \
     git \
-    vim-nox \
     tree \
     htop \
     tmux
@@ -171,6 +170,8 @@ setup_vim() {
 
   # Install vim plugins
   echo "Installing vim plugins ..."
+  git clone https://github.com/chutsu/dotfiles
+  cd dotfiles
   git submodule init
   git submodule update
   vim -c VundleInstall -c quitall
@@ -193,7 +194,6 @@ setup() {
     install_desktop_pkgs;
   fi
 
-  git clone https://github.com/chutsu/dotfiles
   setup_dotfiles;
   setup_vim;
   echo "Done! :)"
