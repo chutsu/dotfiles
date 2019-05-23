@@ -19,7 +19,7 @@ Install
 For the lazy:
 
 ```
-curl -L https://git.io/vPzOt > setup.bash && bash setup.bash
+curl -L https://git.io/fjBqV > setup.bash && bash setup.bash
 ```
 
 
