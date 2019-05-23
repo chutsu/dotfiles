@@ -55,7 +55,7 @@ function! Vundle()
 endfunction
 
 function! StartUp()
-    autocmd VimEnter * NERDTree
+    autocmd VimEnter * NERDTree | wincmd p
 endfunction
 
 function! EditorAppearance()
