@@ -132,10 +132,6 @@ function! EditorBehaviour()
     " Reload vimrc after update
     " autocmd BufWritePost .vimrc so ~/.vimrc
 
-    " Generate ctags
-    autocmd BufWritePost *
-      \ call system('ctags -R --exclude=dep --exclude=build --exclude=docs --exclude=octave .')
-
     " Correct filetype recognition
     autocmd FileType java call JavaMode()
     autocmd BufRead /tmp/mutt-* call Mutt()

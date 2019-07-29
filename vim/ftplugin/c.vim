@@ -3,14 +3,12 @@ if (&ft != 'c')
   finish
 endif
 
-" function! CSwitch()
-"   nmap <expr> <F8> expand('%:t')=~"test" ? ':echom "Invalid operation!"<CR>':':call CSwitchFile()<CR>'
-" endfunction
+" Generate ctags
+autocmd BufWritePost *
+  \ call system('ctags -R --exclude=dep --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
 
-"map <F8> :call CSwitchFile()<CR>
 command -buffer CSwitchFile call ftplugin#c#SwitchFile()
 nnoremap <buffer> <F8> :call ftplugin#c#SwitchFile()<CR>
-
 
 " Code format style
 set path=.,**

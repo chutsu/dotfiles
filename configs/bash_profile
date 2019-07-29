@@ -17,12 +17,10 @@ alias scripts="cd $HOME/dotfiles/scripts"
 alias catkin_ws="cd ~/catkin_ws/"
 alias notes="cd $PROJECTS/chutsu.github.io/docs/notes; vim; cd -"
 
-# websites
-alias chutsu="cd $PROJECTS/chutsu.github.io"
-
-# projects
+# Projects
 alias autocal="cd $PROJECTS/autocal"
 alias prototype="cd $PROJECTS/prototype"
+alias poct="cd $PROJECTS/prototype/octave"
 alias prototype_ros="cd $PROJECTS/prototype_ros"
 alias play="cd $PROJECTS/play"
 alias ditto="cd $PROJECTS/ditto"
@@ -30,6 +28,8 @@ alias papers="cd $PROJECTS/papers"
 alias zp3="cd $PROJECTS/zp3"
 alias zero="cd $PROJECTS/zero"
 alias red="cd $PROJECTS/red"
+alias phd="cd $PROJECTS/phd"
+alias chutsu="cd $PROJECTS/chutsu.github.io"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -56,7 +56,7 @@ alias search="grep -nr $1 ."
 
 # ENVIRONMENTAL SETTINGS
 export PATH=$PATH:~/dotfiles/scripts
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/src/zapcc/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 export VISUAL=vim
 export EDITOR=vim
 
@@ -86,6 +86,3 @@ stty -ixon  # disable ctrl-s (software flow control)
 #     [[ -z "$TMUX" ]] && exec tmux -2 -f ~/.tmux.conf
 #   fi
 # fi
-
-source /opt/ros/melodic/setup.bash
-# source ~/catkin_ws/devel/setup.bash

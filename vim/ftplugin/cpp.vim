@@ -2,6 +2,10 @@ if (&ft != 'cpp')
   finish
 endif
 
+" Generate ctags
+autocmd BufWritePost *
+  \ call system('ctags -R --exclude=dep --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
+
 " Code format style
 set path=.,**
 set tabstop=2 shiftwidth=2 softtabstop=2
