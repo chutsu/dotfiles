@@ -2,9 +2,9 @@ if (&ft != 'cpp')
   finish
 endif
 
-" Generate ctags
-autocmd BufWritePost *
-  \ call system('ctags -R --exclude=dep --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
+" " Generate ctags
+" autocmd BufWritePost *
+"   \ call system('ctags -R --exclude=dep --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
 
 " Code format style
 set path=.,**
@@ -22,3 +22,4 @@ nmap <expr> <F8> ':call ftplugin#cpp#SwitchCPPFile()<CR>'
 " map <expr> <S-t>
 "   \ ftplugin#cpp#IsTestFile()
 "   \ ? ':echom "Invalid operation!"<CR>':':vsplit %:s?src?tests?:r.cpp<CR>'
+

@@ -280,12 +280,7 @@ function! SyntasticOptions()
     let g:syntastic_style_warning_symbol = 'SW'
 
     " c specific settings
-    " cpp specific settings
-    let g:syntastic_cpp_include_dirs=[
-        \ 'include',
-        \ '/usr/include/eigen3',
-    \ ]
-
+    let g:syntastic_c_checkers=['']
     let g:syntastic_cpp_checkers=['']
 
     " python specific settings

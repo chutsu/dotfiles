@@ -1,5 +1,7 @@
 only
 
+colorscheme custom
+
 mark h ~/ Home
 mark p ~/projects Projects
 mark d ~/Downloads Downloads
@@ -17,7 +19,7 @@ filextype *.pdf
 
 filetype *.jpg,*.jpeg,*.png,*.gif
   \ {Open images with feh}
-  \ feh --scale-down --auto-zoom %f > /dev/null 2>&1 &
+  \ feh -Z %d -g 1024x768 --start-at %d/%c 2>/dev/null
 
 fileviewer *.tar,*.tar.gz
   \ tar -tvf %c

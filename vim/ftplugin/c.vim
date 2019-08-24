@@ -5,7 +5,7 @@ endif
 
 " Generate ctags
 autocmd BufWritePost *
-  \ call system('ctags -R --exclude=dep --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
+  \ call system('ctags -R --exclude=bin --exclude=dep --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
 
 command -buffer CSwitchFile call ftplugin#c#SwitchFile()
 nnoremap <buffer> <F8> :call ftplugin#c#SwitchFile()<CR>

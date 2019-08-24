@@ -2,9 +2,13 @@
 
 # Marks:
 'a
-	/home/chutsu/catkin_ws
+	/home/chutsu/projects/proto
 	..
-1544183936
+1566522750
+'c
+	/home/chutsu/kalibr_ws/intel_d435i/camcam
+	april_6x6.yaml
+1565356918
 'd
 	/home/chutsu/Downloads
 	Downloads
@@ -14,9 +18,9 @@
 	Home
 1542882411
 'm
-	/home/chutsu/Downloads
-	08360450.pdf
-1546615630
+	/home/chutsu/projects/proto/src
+	ros
+1566520561
 'p
 	/home/chutsu/projects
 	Projects
@@ -73,3 +77,47 @@ t/home/chutsu/.local/share/vifm/Trash/000_tags
 	/home/chutsu/projects/papers/tags
 t/home/chutsu/.local/share/vifm/Trash/000_data
 	/data/intel_d435i/data
+t/home/chutsu/.local/share/vifm/Trash/000_cmake
+	/home/chutsu/projects/proto/cmake
+t/home/chutsu/.local/share/vifm/Trash/000_build
+	/home/chutsu/projects/proto/build
+t/home/chutsu/.local/share/vifm/Trash/000_octave
+	/home/chutsu/octave
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-07-31_17-23-46.png
+	/home/chutsu/Screenshot_2019-07-31_17-23-46.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-01_10-42-29.png
+	/home/chutsu/Screenshot_2019-08-01_10-42-29.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-01_10-42-48.png
+	/home/chutsu/Screenshot_2019-08-01_10-42-48.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-02_16-16-45.png
+	/home/chutsu/Screenshot_2019-08-02_16-16-45.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-02_16-17-17.png
+	/home/chutsu/Screenshot_2019-08-02_16-17-17.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-02_16-45-30.png
+	/home/chutsu/Screenshot_2019-08-02_16-45-30.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-05_22-42-00.png
+	/home/chutsu/Screenshot_2019-08-05_22-42-00.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-09_16-38-23.png
+	/home/chutsu/Screenshot_2019-08-09_16-38-23.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-09_16-40-13.png
+	/home/chutsu/Screenshot_2019-08-09_16-40-13.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-11_16-19-27.png
+	/home/chutsu/Screenshot_2019-08-11_16-19-27.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-11_16-30-02.png
+	/home/chutsu/Screenshot_2019-08-11_16-30-02.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-12_21-53-56.png
+	/home/chutsu/Screenshot_2019-08-12_21-53-56.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-15_23-22-25.png
+	/home/chutsu/Screenshot_2019-08-15_23-22-25.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-16_00-10-27.png
+	/home/chutsu/Screenshot_2019-08-16_00-10-27.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-16_00-12-15.png
+	/home/chutsu/Screenshot_2019-08-16_00-12-15.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-18_20-46-12.png
+	/home/chutsu/Screenshot_2019-08-18_20-46-12.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-21_19-18-14.png
+	/home/chutsu/Screenshot_2019-08-21_19-18-14.png
+t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-21_20-31-12.png
+	/home/chutsu/Screenshot_2019-08-21_20-31-12.png
+t/home/chutsu/.local/share/vifm/Trash/000_R
+	/home/chutsu/R

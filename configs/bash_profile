@@ -19,9 +19,9 @@ alias notes="cd $PROJECTS/chutsu.github.io/docs/notes; vim; cd -"
 
 # Projects
 alias autocal="cd $PROJECTS/autocal"
-alias prototype="cd $PROJECTS/prototype"
-alias poct="cd $PROJECTS/prototype/octave"
-alias prototype_ros="cd $PROJECTS/prototype_ros"
+alias proto="cd $PROJECTS/proto"
+alias poct="cd $PROJECTS/proto/octave"
+alias proto_ros="cd $PROJECTS/proto_ros"
 alias play="cd $PROJECTS/play"
 alias ditto="cd $PROJECTS/ditto"
 alias papers="cd $PROJECTS/papers"
@@ -30,6 +30,7 @@ alias zero="cd $PROJECTS/zero"
 alias red="cd $PROJECTS/red"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
+alias rs4se="cd $PROJECTS/rs4se"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
