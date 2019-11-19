@@ -12,15 +12,15 @@
 'd
 	/home/chutsu/Downloads
 	Downloads
-1562923786
+1572968115
 'h
 	/home/chutsu/
 	Home
 1542882411
 'm
-	/home/chutsu/projects/proto/src
-	ros
-1566520561
+	/home/chutsu/projects/zero/firmware
+	MPU6050.ino
+1571580586
 'p
 	/home/chutsu/projects
 	Projects
@@ -121,3 +121,125 @@ t/home/chutsu/.local/share/vifm/Trash/000_Screenshot_2019-08-21_20-31-12.png
 	/home/chutsu/Screenshot_2019-08-21_20-31-12.png
 t/home/chutsu/.local/share/vifm/Trash/000_R
 	/home/chutsu/R
+t/home/chutsu/.local/share/vifm/Trash/000_activity_3943246589.tcx
+	/home/chutsu/Downloads/activity_3943246589.tcx
+t/home/chutsu/.local/share/vifm/Trash/000_bundler-v0.4-source.zip
+	/home/chutsu/Downloads/bundler-v0.4-source.zip
+t/home/chutsu/.local/share/vifm/Trash/000_image.png
+	/home/chutsu/Downloads/image.png
+t/home/chutsu/.local/share/vifm/Trash/000_report-intrinsics.pdf
+	/home/chutsu/Downloads/report-intrinsics.pdf
+t/home/chutsu/.local/share/vifm/Trash/000_bundler-v0.4-source
+	/home/chutsu/Downloads/bundler-v0.4-source
+t/home/chutsu/.local/share/vifm/Trash/000_Activities.csv
+	/home/chutsu/Downloads/Activities.csv
+t/home/chutsu/.local/share/vifm/Trash/000_68710456_2352993278321339_1938345871993208832_n.jpg
+	/home/chutsu/Downloads/68710456_2352993278321339_1938345871993208832_n.jpg
+t/.vifm-Trash-0/000_glad
+	/usr/local/src/glad
+t/.vifm-Trash-0/000_imgui
+	/usr/local/src/imgui
+t/.vifm-Trash-0/000_prototype
+	/usr/local/src/prototype
+t/.vifm-Trash-0/000_tinyspline
+	/usr/local/src/tinyspline
+t/home/chutsu/.local/share/vifm/Trash/000_calib_data
+	/data/intel_d435i/calib_data
+t/home/chutsu/.local/share/vifm/Trash/000_realsense-ros
+	/home/chutsu/projects/realsense-ros
+t/home/chutsu/.local/share/vifm/Trash/000_VINS-Mono
+	/home/chutsu/projects/VINS-Mono
+t/home/chutsu/.local/share/vifm/Trash/000_Flow
+	/home/chutsu/projects/Flow
+t/home/chutsu/.local/share/vifm/Trash/000_apriltag
+	/home/chutsu/projects/apriltag
+t/home/chutsu/.local/share/vifm/Trash/000_apriltags
+	/home/chutsu/projects/apriltags
+t/home/chutsu/.local/share/vifm/Trash/000_dso
+	/home/chutsu/projects/dso
+t/home/chutsu/.local/share/vifm/Trash/000_eigen
+	/home/chutsu/projects/eigen
+t/home/chutsu/.local/share/vifm/Trash/000_geo-num-2016
+	/home/chutsu/projects/geo-num-2016
+t/home/chutsu/.local/share/vifm/Trash/000_imgui_bootstrap
+	/home/chutsu/projects/imgui_bootstrap
+t/home/chutsu/.local/share/vifm/Trash/000_librealsense
+	/home/chutsu/projects/librealsense
+t/home/chutsu/.local/share/vifm/Trash/000_linux-minidisc
+	/home/chutsu/projects/linux-minidisc
+t/home/chutsu/.local/share/vifm/Trash/000_mu
+	/home/chutsu/projects/mu
+t/home/chutsu/.local/share/vifm/Trash/000_okvis
+	/home/chutsu/projects/okvis
+t/home/chutsu/.local/share/vifm/Trash/000_play
+	/home/chutsu/projects/play
+t/home/chutsu/.local/share/vifm/Trash/000_proto
+	/home/chutsu/projects/proto
+t/home/chutsu/.local/share/vifm/Trash/000_proto_ros
+	/home/chutsu/projects/proto_ros
+t/home/chutsu/.local/share/vifm/Trash/000_sandbox
+	/home/chutsu/projects/sandbox
+t/home/chutsu/.local/share/vifm/Trash/000_kalibr_ws
+	/home/chutsu/kalibr_ws
+t/home/chutsu/.local/share/vifm/Trash/000_QGroundControl
+	/home/chutsu/QGroundControl
+t/home/chutsu/.local/share/vifm/Trash/000_Dropbox
+	/home/chutsu/Dropbox
+t/home/chutsu/.local/share/vifm/Trash/001_sandbox
+	/home/chutsu/sandbox
+t/home/chutsu/.local/share/vifm/Trash/000_vibench_ws
+	/home/chutsu/vibench_ws
+t/home/chutsu/.local/share/vifm/Trash/000_travis_debug.bash
+	/home/chutsu/travis_debug.bash
+t/home/chutsu/.local/share/vifm/Trash/000_Unconfirmed 449514.crdownload
+	/home/chutsu/Downloads/Unconfirmed 449514.crdownload
+t/home/chutsu/.local/share/vifm/Trash/000_cv
+	/home/chutsu/projects/zero/src/cv
+t/home/chutsu/.local/share/vifm/Trash/000_fw
+	/home/chutsu/projects/zero/src/fw
+t/home/chutsu/.local/share/vifm/Trash/002_cv
+	/home/chutsu/projects/zero/include/zero/cv
+t/home/chutsu/.local/share/vifm/Trash/000_src
+	/home/chutsu/projects/zero/src
+t/home/chutsu/.local/share/vifm/Trash/000_include
+	/home/chutsu/projects/zero/include
+t/home/chutsu/.local/share/vifm/Trash/000_Makefile
+	/home/chutsu/projects/zero/firmware/Makefile
+t/home/chutsu/.local/share/vifm/Trash/000_i2c.c
+	/home/chutsu/projects/zero/firmware/i2c.c
+t/home/chutsu/.local/share/vifm/Trash/000_i2c.h
+	/home/chutsu/projects/zero/firmware/i2c.h
+t/home/chutsu/.local/share/vifm/Trash/000_log.h
+	/home/chutsu/projects/zero/firmware/log.h
+t/home/chutsu/.local/share/vifm/Trash/000_serial.c
+	/home/chutsu/projects/zero/firmware/serial.c
+t/home/chutsu/.local/share/vifm/Trash/000_serial.h
+	/home/chutsu/projects/zero/firmware/serial.h
+t/home/chutsu/.local/share/vifm/Trash/000_stm32f1.ld
+	/home/chutsu/projects/zero/firmware/stm32f1.ld
+t/home/chutsu/.local/share/vifm/Trash/000_MPU6050
+	/home/chutsu/projects/zero/firmware/MPU6050
+t/home/chutsu/.local/share/vifm/Trash/000_nuc_vicon
+	/home/chutsu/nuc_vicon
+t/home/chutsu/.local/share/vifm/Trash/000_nuc_vicon.stl
+	/home/chutsu/nuc_vicon.stl
+t/home/chutsu/.local/share/vifm/Trash/000_supereight.bash
+	/home/chutsu/supereight.bash
+t/home/chutsu/.local/share/vifm/Trash/000_vicon
+	/home/chutsu/vicon
+t/home/chutsu/.local/share/vifm/Trash/000_3d_structure.vtk
+	/home/chutsu/3d_structure.vtk
+t/home/chutsu/.local/share/vifm/Trash/000_aprilgrid_vicon.stl
+	/home/chutsu/aprilgrid_vicon.stl
+t/home/chutsu/.local/share/vifm/Trash/000_vicon_capture.bag
+	/data/vicon_capture.bag
+t/home/chutsu/.local/share/vifm/Trash/000_vicon_capture_keep.bag
+	/data/vicon_capture_keep.bag
+t/home/chutsu/.local/share/vifm/Trash/000_vicon_capture_keep2.bag
+	/data/vicon_capture_keep2.bag
+t/home/chutsu/.local/share/vifm/Trash/000_vicon_capture_keep3.bag
+	/data/vicon_capture_keep3.bag
+t/home/chutsu/.local/share/vifm/Trash/000_vicon_capture_keep_infra.bag
+	/data/vicon_capture_keep_infra.bag
+t/home/chutsu/.local/share/vifm/Trash/000_rosbag
+	/tmp/rosbag

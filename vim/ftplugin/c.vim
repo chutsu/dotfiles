@@ -5,7 +5,7 @@ endif
 
 " Generate ctags
 autocmd BufWritePost *
-  \ call system('ctags -R --exclude=bin --exclude=dep --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
+  \ call system('ctags -R --exclude=bin --exclude=deps --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
 
 command -buffer CSwitchFile call ftplugin#c#SwitchFile()
 nnoremap <buffer> <F8> :call ftplugin#c#SwitchFile()<CR>
@@ -25,5 +25,7 @@ if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
 
-map <F11> :e CMakeLists.txt<CR>
-map <F12> :e scripts/run.sh<CR>
+" map <F11> :e CMakeLists.txt<CR>
+" map <F12> :e scripts/run.sh<CR>
+
+nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>

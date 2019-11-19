@@ -22,18 +22,15 @@ function! Vundle()
     Plugin 'bling/vim-airline'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'Valloric/YouCompleteMe'
-    Plugin 'osyo-manga/vim-over'
     Plugin 'kris89/vim-multiple-cursors'
     Plugin 'vim-scripts/camelcasemotion'
     Plugin 'vim-scripts/EasyGrep'
-    Plugin 'klen/python-mode'
     Plugin 'vim-scripts/AnsiEsc.vim'
-    Plugin 'reedes/vim-pencil'
     Plugin 'inside/vim-search-pulse'
     Plugin 'tomtom/tcomment_vim'
     Plugin 'jvirtanen/vim-octave'
-    Plugin 'plasticboy/vim-markdown'
     Plugin 'sirtaj/vim-openscad'
+    Plugin 'plasticboy/vim-markdown'
     Plugin 'SirVer/ultisnips'
 
 
@@ -66,7 +63,6 @@ function! EditorAppearance()
     set t_Co=256
     colorscheme eyecandy
     set cursorline
-    " set fillchars=" split char
     set encoding=utf-8
 
     " Let terminal resize scale the internal windows
@@ -134,7 +130,6 @@ function! EditorBehaviour()
 
     " Correct filetype recognition
     autocmd FileType java call JavaMode()
-    autocmd BufRead /tmp/mutt-* call Mutt()
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     autocmd BufNewFile,BufReadPost *.launch set filetype=xml
     autocmd BufNewFile,BufReadPost *.h set filetype=c
@@ -178,7 +173,6 @@ endfunction
 function! CommandModeKeyMappings()
     map <C-h> <C-w>h
     map <C-l> <C-w>l
-    map <S-x> :wq<CR>
     cmap w!! w !sudo tee % >/dev/null
     nmap <silent> ,/ :nohlsearch<CR>
 
@@ -187,7 +181,7 @@ function! CommandModeKeyMappings()
 
     " Run script file
     map <S-r> :!clear && bash scripts/run.sh<CR>
-    nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>
+    " nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>
 endfunction
 
 function! NavImproved()
@@ -216,21 +210,6 @@ function! EscapeCommonOperationTypos()
     cmap WQ wq
 endfunction
 
-function! Session()
-    " Save session on quitting Vim
-    if argc() == 0 && filereadable(".git/config")
-        autocmd VimLeave * NERDTreeClose
-        autocmd VimLeave * mksession! .git/session.vim
-    endif
-
-    " Restore session on starting Vim
-    if argc() == 0 && filereadable(".git/session.vim")
-        autocmd VimEnter * source .git/session.vim
-    endif
-    autocmd VimEnter * NERDTree
-    autocmd VimResized * wincmd =
-endfunction
-
 function! Multiple_cursors_before()
     echo 'Disabled autocomplete'
     let g:ycm_auto_trigger = 0  " switch off YCM temporarily
@@ -254,11 +233,6 @@ function! Airline()
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
     let g:airline_right_sep = ''
-endfunction
-
-function! Pencil()
-  let g:pencil#textwidth = 78
-  let g:pencil#autoformat = 1
 endfunction
 
 function! SyntasticOptions()
@@ -375,7 +349,6 @@ call EscapeCommonOperationTypos()
 
 " PLUGIN SETTINGS
 call Airline()
-"call Pencil()
 call SyntasticOptions()
 call NerdTree()
 call EasyGrep()
