@@ -1,0 +1,69 @@
+source ~/.mutt/theme.muttrc
+
+set realname = "Chris Choi"
+set from = "chutsu@gmail.com"
+set use_from = yes
+set envelope_from = yes
+
+set header_cache = "~/.cache"
+set message_cachedir = "~/.cache"
+
+# Gmail settings ------------------------------------
+set imap_user = "chutsu@gmail.com"
+set smtp_url = "smtps://chutsu@gmail.com@smtp.gmail.com:465/"
+set imap_pass = "oanzhuuvfoxqxmgc"
+set smtp_pass = "oanzhuuvfoxqxmgc"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
+
+# G to get mail
+bind index G imap-fetch-mail
+set editor = "vim"
+set charset = "utf-8"
+set record = ''
+
+set wrap=80
+set smart_wrap
+
+bind generic             z         noop
+bind index,pager,attach  g         noop
+bind index,pager         s         noop
+bind index,pager         c         noop
+bind generic,pager       t         noop
+bind generic,pager       u         noop
+bind index,pager         d         noop            # Disable delete
+bind index,pager         \Cd       next-page
+bind index,pager         \Cu       previous-page
+
+# Index View Options ---------------------------------
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads                         # like gmail
+set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+# Pager Key Bindings ---------------------------------
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+bind pager R  group-reply
+bind attach <return> view-mailcap  # View attachments properly.
