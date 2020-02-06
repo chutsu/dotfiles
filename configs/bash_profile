@@ -33,6 +33,7 @@ alias sr="cd $PROJECTS/sr"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias rs4se="cd $PROJECTS/rs4se"
+alias bag2se="cd $PROJECTS/bag2se"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
@@ -79,7 +80,7 @@ export HISTFILESIZE=1000000000
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
-stty -ixon  # disable ctrl-s (software flow control)
+[[ $- == *i* ]] && stty -ixon  # disable ctrl-s (software flow control)
 
 # START TMUX ON BASH STARTUP
 # if which tmux >/dev/null 2>&1; then  # check if tmux is installed

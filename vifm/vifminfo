@@ -2,9 +2,9 @@
 
 # Marks:
 'a
-	/home/chutsu/projects/proto
-	..
-1566522750
+	/data/euroc_mav
+	scripts
+1578399701
 'c
 	/home/chutsu/kalibr_ws/intel_d435i/camcam
 	april_6x6.yaml
@@ -12,15 +12,15 @@
 'd
 	/home/chutsu/Downloads
 	Downloads
-1572968115
+1577033954
 'h
 	/home/chutsu/
 	Home
 1542882411
 'm
-	/home/chutsu/projects/zero/firmware
-	MPU6050.ino
-1571580586
+	/home/chutsu/projects/vicon_calib/src
+	msg.cpp
+1576251786
 'p
 	/home/chutsu/projects
 	Projects
@@ -243,3 +243,599 @@ t/home/chutsu/.local/share/vifm/Trash/000_vicon_capture_keep_infra.bag
 	/data/vicon_capture_keep_infra.bag
 t/home/chutsu/.local/share/vifm/Trash/000_rosbag
 	/tmp/rosbag
+t/media/chutsu/NEW VOLUME/.vifm-Trash-1000/000_2019-11-04-18-47-53.bag
+	/media/chutsu/NEW VOLUME/2019-11-04-18-47-53.bag
+t/home/chutsu/.local/share/vifm/Trash/000_calib_vicon_data
+	/data/intel_d435i/calib_vicon_data
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-04-18-47-53.bag
+	/data/2019-11-04-18-47-53.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-06-12-16-26.bag
+	/data/2019-11-06-12-16-26.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-06-12-16-49.bag
+	/data/2019-11-06-12-16-49.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-06-12-17-08.bag
+	/data/2019-11-06-12-17-08.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-06-12-17-53.bag
+	/data/2019-11-06-12-17-53.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-06-12-18-16.bag
+	/data/2019-11-06-12-18-16.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-13-16-14-06.bag
+	/data/2019-11-13-16-14-06.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-13-16-19-36.bag
+	/data/2019-11-13-16-19-36.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-13-16-20-03.bag
+	/data/2019-11-13-16-20-03.bag
+t/home/chutsu/.local/share/vifm/Trash/000_2019-11-13-16-20-26.bag
+	/data/2019-11-13-16-20-26.bag
+t/tmp/000_test.conf
+	/data/configs/test.conf
+t/tmp/vifm_trash/000_000_test.conf
+	/tmp/000_test.conf
+t/tmp/vifm_trash/000_vicon-ucl.bag
+	/data/vicon-ucl.bag
+t/tmp/vifm_trash/000_vicon-ucl-0.bag
+	/data/vicon/vicon-ucl-0.bag
+t/tmp/vifm_trash/000_vicon-ucl-1.bag
+	/data/vicon/vicon-ucl-1.bag
+t/tmp/vifm_trash/000_vicon-ucl-2.bag
+	/data/vicon/vicon-ucl-2.bag
+t/tmp/vifm_trash/000_vicon_capture_keep_good.bag
+	/data/vicon/vicon_capture_keep_good.bag
+t/tmp/vifm_trash/000_vicon_capture_keep_good_2.bag
+	/data/vicon/vicon_capture_keep_good_2.bag
+t/tmp/vifm_trash/000_scan-0
+	/tmp/scan-0
+t/tmp/vifm_trash/000_red2
+	/data/red2
+t/tmp/vifm_trash/000_scripts
+	/data/scripts
+t/tmp/vifm_trash/000_srl-191203-0.bag
+	/data/srl-191203-0.bag
+t/tmp/vifm_trash/000_srl-191203-1.bag
+	/data/srl-191203-1.bag
+t/tmp/vifm_trash/000_2019-12-03-12-22-56.bag
+	/media/chutsu/Quack/2019-12-03-12-22-56.bag
+t/tmp/vifm_trash/000_scan-6
+	/data/scan_data/scan-6
+t/tmp/vifm_trash/000_scan-8
+	/data/scan_data/scan-8
+t/tmp/vifm_trash/000_scan-0
+	/data/scan_data/scan-0
+t/tmp/vifm_trash/000_scan-1
+	/data/scan_data/scan-1
+t/tmp/vifm_trash/000_scan-2
+	/data/scan_data/scan-2
+t/tmp/vifm_trash/000_scan-3
+	/data/scan_data/scan-3
+t/tmp/vifm_trash/000_scan-4
+	/data/scan_data/scan-4
+t/tmp/vifm_trash/000_scan-7
+	/data/scan_data/scan-7
+t/tmp/vifm_trash/000_scan0-heightmaps
+	/data/scan_data/scan0-heightmaps
+t/tmp/vifm_trash/000_scan1-heightmaps
+	/data/scan_data/scan1-heightmaps
+t/tmp/vifm_trash/000_scan2-heightmaps
+	/data/scan_data/scan2-heightmaps
+t/tmp/vifm_trash/000_scan3-heightmaps
+	/data/scan_data/scan3-heightmaps
+t/tmp/vifm_trash/000_scan4-heightmaps
+	/data/scan_data/scan4-heightmaps
+t/tmp/vifm_trash/000_heightmaps.zip
+	/data/scan_data/heightmaps.zip
+t/tmp/vifm_trash/000_scan_desk-0
+	/data/scan_data/scan_desk-0
+t/tmp/vifm_trash/000_scan_desk-0.bag
+	/data/scan_data/scan_desk-0.bag
+t/tmp/vifm_trash/000_scan-8-mocap_closest
+	/data/scan_data/scan-8-mocap_closest
+t/tmp/vifm_trash/000_scan-8-mocal_lerped
+	/data/scan_data/scan-8-mocal_lerped
+t/tmp/vifm_trash/000_scan0.bag
+	/data/ucl/scan0.bag
+t/tmp/vifm_trash/000_scan1.bag
+	/data/ucl/scan1.bag
+t/tmp/vifm_trash/000_scan2.bag
+	/data/ucl/scan2.bag
+t/tmp/vifm_trash/000_srl-0.bag
+	/data/srl/srl-0.bag
+t/tmp/vifm_trash/000_srl-1.bag
+	/data/srl/srl-1.bag
+t/tmp/vifm_trash/000_vicon
+	/data/vicon
+t/tmp/vifm_trash/000_2019-11-13-18-34-33-TUM
+	/media/chutsu/usb/Chris/2019-11-13-18-34-33-TUM
+t/tmp/vifm_trash/000_data
+	/media/chutsu/usb/Chris/data
+t/tmp/vifm_trash/000_notes.txt
+	/home/chutsu/notes.txt
+t/tmp/vifm_trash/000_progress_update.zip
+	/home/chutsu/progress_update.zip
+t/tmp/vifm_trash/000_scan3d-heightmap.png
+	/home/chutsu/scan3d-heightmap.png
+t/tmp/vifm_trash/000_scan3d-photo.jpg
+	/home/chutsu/scan3d-photo.jpg
+t/tmp/vifm_trash/000_scan3d-supereight.png
+	/home/chutsu/scan3d-supereight.png
+t/tmp/vifm_trash/000_2016_rotors.pdf
+	/media/chutsu/usb/Chris/Downloads/2016_rotors.pdf
+t/tmp/vifm_trash/000_BS53.pdf
+	/media/chutsu/usb/Chris/Downloads/BS53.pdf
+t/tmp/vifm_trash/000_PROCURATION POUR ACQUERIR CHOI.pdf
+	/media/chutsu/usb/Chris/Downloads/PROCURATION POUR ACQUERIR CHOI.pdf
+t/tmp/vifm_trash/000_Signed PoA to sell 191208.pdf
+	/media/chutsu/usb/Chris/Downloads/Signed PoA to sell 191208.pdf
+t/tmp/vifm_trash/000_furrer2016.pdf
+	/media/chutsu/usb/Chris/Downloads/furrer2016.pdf
+t/tmp/vifm_trash/000_multiview.ppt
+	/media/chutsu/usb/Chris/Downloads/multiview.ppt
+t/tmp/vifm_trash/000_pb5a.pdf
+	/media/chutsu/usb/Chris/Downloads/pb5a.pdf
+t/tmp/vifm_trash/000_pixracer-rc12-12-06-2015-1330.pdf
+	/media/chutsu/usb/Chris/Downloads/pixracer-rc12-12-06-2015-1330.pdf
+t/tmp/vifm_trash/000_trajectory
+	/media/chutsu/usb/Chris/Downloads/trajectory
+t/tmp/vifm_trash/000_arduino-1.8.10
+	/media/chutsu/usb/Chris/Downloads/arduino-1.8.10
+t/tmp/vifm_trash/000_frame-1.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-1.raw
+t/tmp/vifm_trash/000_frame-10.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-10.raw
+t/tmp/vifm_trash/000_frame-11.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-11.raw
+t/tmp/vifm_trash/000_frame-12.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-12.raw
+t/tmp/vifm_trash/000_frame-13.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-13.raw
+t/tmp/vifm_trash/000_frame-14.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-14.raw
+t/tmp/vifm_trash/000_frame-15.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-15.raw
+t/tmp/vifm_trash/000_frame-16.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-16.raw
+t/tmp/vifm_trash/000_frame-17.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-17.raw
+t/tmp/vifm_trash/000_frame-18.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-18.raw
+t/tmp/vifm_trash/000_frame-19.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-19.raw
+t/tmp/vifm_trash/000_frame-2.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-2.raw
+t/tmp/vifm_trash/000_frame-20.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-20.raw
+t/tmp/vifm_trash/000_frame-21.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-21.raw
+t/tmp/vifm_trash/000_frame-22.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-22.raw
+t/tmp/vifm_trash/000_frame-23.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-23.raw
+t/tmp/vifm_trash/000_frame-24.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-24.raw
+t/tmp/vifm_trash/000_frame-25.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-25.raw
+t/tmp/vifm_trash/000_frame-26.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-26.raw
+t/tmp/vifm_trash/000_frame-27.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-27.raw
+t/tmp/vifm_trash/000_frame-28.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-28.raw
+t/tmp/vifm_trash/000_frame-29.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-29.raw
+t/tmp/vifm_trash/000_frame-3.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-3.raw
+t/tmp/vifm_trash/000_frame-4.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-4.raw
+t/tmp/vifm_trash/000_frame-5.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-5.raw
+t/tmp/vifm_trash/000_frame-6.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-6.raw
+t/tmp/vifm_trash/000_frame-7.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-7.raw
+t/tmp/vifm_trash/000_frame-8.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-8.raw
+t/tmp/vifm_trash/000_frame-9.raw
+	/home/chutsu/projects/sandbox/v4l2/frame-9.raw
+t/tmp/vifm_trash/000_array_test_c
+	/home/chutsu/projects/sandbox/c_vs_cpp/array_test_c
+t/tmp/vifm_trash/000_array_test_cpp
+	/home/chutsu/projects/sandbox/c_vs_cpp/array_test_cpp
+t/tmp/vifm_trash/000_array_vector_test_cpp
+	/home/chutsu/projects/sandbox/c_vs_cpp/array_vector_test_cpp
+t/tmp/vifm_trash/000_rob.21729.pdf
+	/home/chutsu/rob.21729.pdf
+t/tmp/vifm_trash/000_1-s2.0-S1474667016434890-main.pdf
+	/home/chutsu/1-s2.0-S1474667016434890-main.pdf
+t/tmp/vifm_trash/000_2011_09_28_drive_0002_sync.zip
+	/media/chutsu/SRL/Chris/kitti/2011_09_28_drive_0002_sync.zip
+t/tmp/vifm_trash/000_model_cityscapes
+	/home/chutsu/model_cityscapes
+t/tmp/vifm_trash/000_sketchbook
+	/home/chutsu/sketchbook
+t/tmp/vifm_trash/000_RegularConvolution.png
+	/home/chutsu/RegularConvolution.png
+t/tmp/vifm_trash/000_FreeCAD
+	/home/chutsu/FreeCAD
+t/tmp/vifm_trash/000_1-s2.0-S2096579619300063-main.pdf
+	/home/chutsu/Downloads/1-s2.0-S2096579619300063-main.pdf
+t/tmp/vifm_trash/000_2016_rotors.pdf
+	/home/chutsu/Downloads/2016_rotors.pdf
+t/tmp/vifm_trash/000_PROCURATION POUR ACQUERIR CHOI.pdf
+	/home/chutsu/Downloads/PROCURATION POUR ACQUERIR CHOI.pdf
+t/tmp/vifm_trash/000_BS53.pdf
+	/home/chutsu/Downloads/BS53.pdf
+t/tmp/vifm_trash/000_Signed PoA to sell 191208.pdf
+	/home/chutsu/Downloads/Signed PoA to sell 191208.pdf
+t/tmp/vifm_trash/000_furrer2016.pdf
+	/home/chutsu/Downloads/furrer2016.pdf
+t/tmp/vifm_trash/000_ko1011_f.pdf
+	/home/chutsu/Downloads/ko1011_f.pdf
+t/tmp/vifm_trash/000_multiview.ppt
+	/home/chutsu/Downloads/multiview.ppt
+t/tmp/vifm_trash/000_pb5a.pdf
+	/home/chutsu/Downloads/pb5a.pdf
+t/tmp/vifm_trash/000_pixracer-rc12-12-06-2015-1330.pdf
+	/home/chutsu/Downloads/pixracer-rc12-12-06-2015-1330.pdf
+t/tmp/vifm_trash/000_progress_update.zip
+	/home/chutsu/Downloads/progress_update.zip
+t/tmp/vifm_trash/000_uvccapture-0.5.tar.bz2
+	/home/chutsu/Downloads/uvccapture-0.5.tar.bz2
+t/tmp/vifm_trash/000_2011_09_26_drive_0001_sync.zip
+	/home/chutsu/Downloads/2011_09_26_drive_0001_sync.zip
+t/tmp/vifm_trash/000_2011_09_26_drive_0093_sync.zip
+	/home/chutsu/Downloads/2011_09_26_drive_0093_sync.zip
+t/tmp/vifm_trash/000_Neural Machine Translation By Jointly Learning to Align and Translate.pdf
+	/home/chutsu/Downloads/Neural Machine Translation By Jointly Learning to Align and Translate.pdf
+t/tmp/vifm_trash/000_OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks.pdf
+	/home/chutsu/Downloads/OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks.pdf
+t/tmp/vifm_trash/000_Parsing Natural Scenes and Natural Language with Recursive Neural Networks.pdf
+	/home/chutsu/Downloads/Parsing Natural Scenes and Natural Language with Recursive Neural Networks.pdf
+t/tmp/vifm_trash/000_Sequence to Sequence Learning with Neural Networks.pdf
+	/home/chutsu/Downloads/Sequence to Sequence Learning with Neural Networks.pdf
+t/tmp/vifm_trash/000_Speech Recognition with Deep Recurrent Neural Network.pdf
+	/home/chutsu/Downloads/Speech Recognition with Deep Recurrent Neural Network.pdf
+t/tmp/vifm_trash/000_papers.zip
+	/home/chutsu/Downloads/papers.zip
+t/tmp/vifm_trash/000_cam_poses.csv
+	/tmp/ba_data/cam_poses.csv
+t/tmp/vifm_trash/000_cam.csv
+	/tmp/ba_data/cam.csv
+t/tmp/vifm_trash/000_svd (1).c
+	/home/chutsu/Downloads/svd (1).c
+t/tmp/vifm_trash/000_svd (2).c
+	/home/chutsu/Downloads/svd (2).c
+t/tmp/vifm_trash/000_svd (3).c
+	/home/chutsu/Downloads/svd (3).c
+t/tmp/vifm_trash/000_svd (4).c
+	/home/chutsu/Downloads/svd (4).c
+t/tmp/vifm_trash/000_svd.c
+	/home/chutsu/Downloads/svd.c
+t/tmp/vifm_trash/000_mtwist-1.5.tgz
+	/home/chutsu/Downloads/mtwist-1.5.tgz
+t/tmp/vifm_trash/000_IMG_1224.JPG
+	/home/chutsu/Downloads/IMG_1224.JPG
+t/tmp/vifm_trash/000_cblas.h
+	/usr/local/include/cblas.h
+t/tmp/vifm_trash/000_f77blas.h
+	/usr/local/include/f77blas.h
+t/tmp/vifm_trash/000_lapacke.h
+	/usr/local/include/lapacke.h
+t/tmp/vifm_trash/000_lapacke_config.h
+	/usr/local/include/lapacke_config.h
+t/tmp/vifm_trash/000_lapacke_mangling.h
+	/usr/local/include/lapacke_mangling.h
+t/tmp/vifm_trash/000_lapacke_utils.h
+	/usr/local/include/lapacke_utils.h
+t/tmp/vifm_trash/000_openblas_config.h
+	/usr/local/include/openblas_config.h
+t/tmp/vifm_trash/000_feature2d
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/feature2d
+t/tmp/vifm_trash/000_gimbal
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/gimbal
+t/tmp/vifm_trash/000_imu
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/imu
+t/tmp/vifm_trash/000_missions
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/missions
+t/tmp/vifm_trash/000_msckf
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/msckf
+t/tmp/vifm_trash/000_quadrotor
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/quadrotor
+t/tmp/vifm_trash/000_sim
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/sim
+t/tmp/vifm_trash/000_trajectory
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/trajectory
+t/tmp/vifm_trash/000_estimation
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/estimation
+t/tmp/vifm_trash/000_control
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/control
+t/tmp/vifm_trash/000_config
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/config
+t/tmp/vifm_trash/000_camera
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/camera
+t/tmp/vifm_trash/000_apriltag
+	/home/chutsu/projects/autocal/autocal/tests/test_configs/apriltag
+t/tmp/vifm_trash/000_cam1.csv
+	/tmp/cam1.csv
+t/tmp/vifm_trash/000_cam0.csv
+	/tmp/cam0.csv
+t/tmp/vifm_trash/000_imucam0_pose.csv.swp
+	/tmp/autocal/imucam0_pose.csv.swp
+t/tmp/vifm_trash/000_imu_april
+	/data/euroc_mav/imu_april
+t/tmp/vifm_trash/000_aprilgrid_6x6_kalibr.yaml
+	/home/chutsu/projects/autocal/autocal_ros/configs/aprilgrid_6x6_kalibr.yaml
+t/tmp/vifm_trash/000_aprilgrid_6x6_small.yaml
+	/home/chutsu/projects/autocal/autocal_ros/configs/aprilgrid_6x6_small.yaml
+t/tmp/vifm_trash/000_calib_webcam.yaml
+	/home/chutsu/projects/autocal/autocal_ros/configs/calib_webcam.yaml
+t/tmp/vifm_trash/000_1_BMngs93_rm2_BpJFH2mS0Q.gif
+	/home/chutsu/1_BMngs93_rm2_BpJFH2mS0Q.gif
+t/tmp/vifm_trash/000_1_Lpn4nag_KRMfGkx1k6bV-g.gif
+	/home/chutsu/1_Lpn4nag_KRMfGkx1k6bV-g.gif
+t/tmp/vifm_trash/000_Screenshot_2020-01-09_22-01-21.png
+	/home/chutsu/Screenshot_2020-01-09_22-01-21.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-09_22-01-59.png
+	/home/chutsu/Screenshot_2020-01-09_22-01-59.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-09_22-14-07.png
+	/home/chutsu/Screenshot_2020-01-09_22-14-07.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-09_22-20-42.png
+	/home/chutsu/Screenshot_2020-01-09_22-20-42.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_09-59-21.png
+	/home/chutsu/Screenshot_2020-01-10_09-59-21.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_10-00-47.png
+	/home/chutsu/Screenshot_2020-01-10_10-00-47.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_10-02-46.png
+	/home/chutsu/Screenshot_2020-01-10_10-02-46.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_10-06-33.png
+	/home/chutsu/Screenshot_2020-01-10_10-06-33.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_10-07-29.png
+	/home/chutsu/Screenshot_2020-01-10_10-07-29.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_10-08-06.png
+	/home/chutsu/Screenshot_2020-01-10_10-08-06.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_10-18-24.png
+	/home/chutsu/Screenshot_2020-01-10_10-18-24.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_11-59-20.png
+	/home/chutsu/Screenshot_2020-01-10_11-59-20.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_12-00-28.png
+	/home/chutsu/Screenshot_2020-01-10_12-00-28.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_16-41-49.png
+	/home/chutsu/Screenshot_2020-01-10_16-41-49.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_16-46-18.png
+	/home/chutsu/Screenshot_2020-01-10_16-46-18.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_16-47-20.png
+	/home/chutsu/Screenshot_2020-01-10_16-47-20.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_16-47-29.png
+	/home/chutsu/Screenshot_2020-01-10_16-47-29.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-10_16-47-57.png
+	/home/chutsu/Screenshot_2020-01-10_16-47-57.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_10-35-09.png
+	/home/chutsu/Screenshot_2020-01-13_10-35-09.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_10-42-12.png
+	/home/chutsu/Screenshot_2020-01-13_10-42-12.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_10-42-24.png
+	/home/chutsu/Screenshot_2020-01-13_10-42-24.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_10-47-40.png
+	/home/chutsu/Screenshot_2020-01-13_10-47-40.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_11-44-13.png
+	/home/chutsu/Screenshot_2020-01-13_11-44-13.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_15-00-56.png
+	/home/chutsu/Screenshot_2020-01-13_15-00-56.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_15-01-06.png
+	/home/chutsu/Screenshot_2020-01-13_15-01-06.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_15-09-04.png
+	/home/chutsu/Screenshot_2020-01-13_15-09-04.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_15-12-44.png
+	/home/chutsu/Screenshot_2020-01-13_15-12-44.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_19-31-15.png
+	/home/chutsu/Screenshot_2020-01-13_19-31-15.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-13_22-57-47.png
+	/home/chutsu/Screenshot_2020-01-13_22-57-47.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_09-32-01.png
+	/home/chutsu/Screenshot_2020-01-14_09-32-01.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_09-33-10.png
+	/home/chutsu/Screenshot_2020-01-14_09-33-10.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_10-09-51.png
+	/home/chutsu/Screenshot_2020-01-14_10-09-51.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_10-53-57.png
+	/home/chutsu/Screenshot_2020-01-14_10-53-57.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_12-01-24.png
+	/home/chutsu/Screenshot_2020-01-14_12-01-24.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_13-28-29.png
+	/home/chutsu/Screenshot_2020-01-14_13-28-29.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_14-33-01.png
+	/home/chutsu/Screenshot_2020-01-14_14-33-01.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_14-36-27.png
+	/home/chutsu/Screenshot_2020-01-14_14-36-27.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_15-48-29.png
+	/home/chutsu/Screenshot_2020-01-14_15-48-29.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_16-01-15.png
+	/home/chutsu/Screenshot_2020-01-14_16-01-15.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_16-01-48.png
+	/home/chutsu/Screenshot_2020-01-14_16-01-48.png
+t/tmp/vifm_trash/000_Screenshot_2020-01-14_20-54-41.png
+	/home/chutsu/Screenshot_2020-01-14_20-54-41.png
+t/tmp/vifm_trash/000_YyCu2.gif
+	/home/chutsu/YyCu2.gif
+t/tmp/vifm_trash/000_teaser.gif
+	/home/chutsu/teaser.gif
+t/tmp/vifm_trash/000_rosbag_record.sh
+	/data/ucl/drone_scans/rosbag_record.sh
+t/tmp/vifm_trash/000_drone_scans
+	/data/ucl/drone_scans
+t/tmp/vifm_trash/000_MPU6050.lib
+	/home/chutsu/projects/zero/schematics/MPU6050.lib
+t/tmp/vifm_trash/000_scan_data
+	/data/scan_data
+t/tmp/vifm_trash/000_200115-scan-3heightmapsheight_profile.csv
+	/data/scan_data/200115-scan-3heightmapsheight_profile.csv
+t/tmp/vifm_trash/000_200115-scan-3heightmaps
+	/data/scan_data/200115-scan-3heightmaps
+t/tmp/vifm_trash/000_heightmap_0.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_0.pgm
+t/tmp/vifm_trash/000_heightmap_1.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_1.pgm
+t/tmp/vifm_trash/000_heightmap_10.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_10.pgm
+t/tmp/vifm_trash/000_heightmap_11.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_11.pgm
+t/tmp/vifm_trash/000_heightmap_12.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_12.pgm
+t/tmp/vifm_trash/000_heightmap_13.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_13.pgm
+t/tmp/vifm_trash/000_heightmap_14.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_14.pgm
+t/tmp/vifm_trash/000_heightmap_15.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_15.pgm
+t/tmp/vifm_trash/000_heightmap_16.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_16.pgm
+t/tmp/vifm_trash/000_heightmap_17.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_17.pgm
+t/tmp/vifm_trash/000_heightmap_18.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_18.pgm
+t/tmp/vifm_trash/000_heightmap_19.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_19.pgm
+t/tmp/vifm_trash/000_heightmap_2.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_2.pgm
+t/tmp/vifm_trash/000_heightmap_20.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_20.pgm
+t/tmp/vifm_trash/000_heightmap_21.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_21.pgm
+t/tmp/vifm_trash/000_heightmap_22.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_22.pgm
+t/tmp/vifm_trash/000_heightmap_23.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_23.pgm
+t/tmp/vifm_trash/000_heightmap_24.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_24.pgm
+t/tmp/vifm_trash/000_heightmap_25.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_25.pgm
+t/tmp/vifm_trash/000_heightmap_26.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_26.pgm
+t/tmp/vifm_trash/000_heightmap_27.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_27.pgm
+t/tmp/vifm_trash/000_heightmap_28.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_28.pgm
+t/tmp/vifm_trash/000_heightmap_29.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_29.pgm
+t/tmp/vifm_trash/000_heightmap_3.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_3.pgm
+t/tmp/vifm_trash/000_heightmap_30.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_30.pgm
+t/tmp/vifm_trash/000_heightmap_31.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_31.pgm
+t/tmp/vifm_trash/000_heightmap_32.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_32.pgm
+t/tmp/vifm_trash/000_heightmap_33.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_33.pgm
+t/tmp/vifm_trash/000_heightmap_34.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_34.pgm
+t/tmp/vifm_trash/000_heightmap_35.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_35.pgm
+t/tmp/vifm_trash/000_heightmap_36.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_36.pgm
+t/tmp/vifm_trash/000_heightmap_37.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_37.pgm
+t/tmp/vifm_trash/000_heightmap_38.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_38.pgm
+t/tmp/vifm_trash/000_heightmap_39.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_39.pgm
+t/tmp/vifm_trash/000_heightmap_4.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_4.pgm
+t/tmp/vifm_trash/000_heightmap_40.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_40.pgm
+t/tmp/vifm_trash/000_heightmap_41.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_41.pgm
+t/tmp/vifm_trash/000_heightmap_42.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_42.pgm
+t/tmp/vifm_trash/000_heightmap_43.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_43.pgm
+t/tmp/vifm_trash/000_heightmap_44.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_44.pgm
+t/tmp/vifm_trash/000_heightmap_45.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_45.pgm
+t/tmp/vifm_trash/000_heightmap_46.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_46.pgm
+t/tmp/vifm_trash/000_heightmap_47.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_47.pgm
+t/tmp/vifm_trash/000_heightmap_48.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_48.pgm
+t/tmp/vifm_trash/000_heightmap_49.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_49.pgm
+t/tmp/vifm_trash/000_heightmap_5.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_5.pgm
+t/tmp/vifm_trash/000_heightmap_50.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_50.pgm
+t/tmp/vifm_trash/000_heightmap_51.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_51.pgm
+t/tmp/vifm_trash/000_heightmap_52.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_52.pgm
+t/tmp/vifm_trash/000_heightmap_53.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_53.pgm
+t/tmp/vifm_trash/000_heightmap_54.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_54.pgm
+t/tmp/vifm_trash/000_heightmap_55.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_55.pgm
+t/tmp/vifm_trash/000_heightmap_56.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_56.pgm
+t/tmp/vifm_trash/000_heightmap_57.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_57.pgm
+t/tmp/vifm_trash/000_heightmap_58.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_58.pgm
+t/tmp/vifm_trash/000_heightmap_59.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_59.pgm
+t/tmp/vifm_trash/000_heightmap_6.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_6.pgm
+t/tmp/vifm_trash/000_heightmap_60.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_60.pgm
+t/tmp/vifm_trash/000_heightmap_61.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_61.pgm
+t/tmp/vifm_trash/000_heightmap_62.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_62.pgm
+t/tmp/vifm_trash/000_heightmap_63.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_63.pgm
+t/tmp/vifm_trash/000_heightmap_64.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_64.pgm
+t/tmp/vifm_trash/000_heightmap_65.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_65.pgm
+t/tmp/vifm_trash/000_heightmap_66.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_66.pgm
+t/tmp/vifm_trash/000_heightmap_67.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_67.pgm
+t/tmp/vifm_trash/000_heightmap_68.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_68.pgm
+t/tmp/vifm_trash/000_heightmap_69.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_69.pgm
+t/tmp/vifm_trash/000_heightmap_7.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_7.pgm
+t/tmp/vifm_trash/000_heightmap_70.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_70.pgm
+t/tmp/vifm_trash/000_heightmap_71.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_71.pgm
+t/tmp/vifm_trash/000_heightmap_72.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_72.pgm
+t/tmp/vifm_trash/000_heightmap_73.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_73.pgm
+t/tmp/vifm_trash/000_heightmap_74.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_74.pgm
+t/tmp/vifm_trash/000_heightmap_75.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_75.pgm
+t/tmp/vifm_trash/000_heightmap_76.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_76.pgm
+t/tmp/vifm_trash/000_heightmap_77.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_77.pgm
+t/tmp/vifm_trash/000_heightmap_78.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_78.pgm
+t/tmp/vifm_trash/000_heightmap_8.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_8.pgm
+t/tmp/vifm_trash/000_heightmap_9.pgm
+	/data/scan_data/200115-scan-3_heightmaps/heightmap_9.pgm
+t/tmp/vifm_trash/000_scene.raw
+	/data/scan_data/200115-scan-3/scene.raw
+t/tmp/vifm_trash/000_200115-scan-3_heightmaps
+	/data/scan_data/200115-scan-3_heightmaps
+t/tmp/vifm_trash/000_3d_structure.vtk
+	/data/scan_data/200115-scan-3/3d_structure.vtk
+t/tmp/vifm_trash/000_3d_structure.vtk.bt
+	/data/scan_data/200115-scan-3/3d_structure.vtk.bt
+t/tmp/vifm_trash/000_test_scan_heightmaps
+	/data/aabm/test_scan_heightmaps
+t/tmp/vifm_trash/000_heightmap_0.pgm
+	/data/aabm/test_scan/heightmap_0.pgm

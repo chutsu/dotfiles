@@ -26,3 +26,9 @@ fileviewer *.tar,*.tar.gz
 
 " FZF file search
 command! fzf :execute '!fzf 2>&0 %%IU || echo %c' | normal! gf
+
+" Show progress bar when copying or moving
+set syscalls
+
+" Set trash directory
+set trashdir=/tmp/vifm_trash
