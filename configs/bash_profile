@@ -19,6 +19,8 @@ alias notes="cd $PROJECTS/chutsu.github.io/docs/notes; vim; cd -"
 
 # Projects
 alias autocal="cd $PROJECTS/autocal"
+alias yac="cd $PROJECTS/yac"
+alias alpha="cd $PROJECTS/alpha"
 alias proto="cd $PROJECTS/proto"
 alias proto_ros="cd $PROJECTS/proto_ros"
 alias poct="cd $PROJECTS/proto/octave"
@@ -57,6 +59,9 @@ alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
 alias todo="vim $HOME/projects/TODO; cd -";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
+alias headphones="pulseaudio --start; sleep 5; \
+                  bluetoothctl connect 74:45:CE:0B:42:F9; sleep 5; \
+                  pacmd set-card-profile bluez_card.74_45_CE_0B_42_F9 a2dp_sink"
 
 # ENVIRONMENTAL SETTINGS
 export PATH=$PATH:~/dotfiles/scripts
