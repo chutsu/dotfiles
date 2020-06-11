@@ -3,5 +3,6 @@
 .netrwhist
 mutt/cache
 run.sh
+vifm/vifminfo
 vim/bundle
 tags
