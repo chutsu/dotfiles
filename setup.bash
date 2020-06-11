@@ -97,7 +97,7 @@ setup_dotfiles() {
   ln -fs "${PWD}/vifm" "${HOME}/.vifm";
   ln -fs "${PWD}/vifm/vifmrc" "${HOME}/.vifmrc";
   ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
-  ln -fs "${PWD}/i3" "${HOME}/.i3";
+  ln -fs "${PWD}/i3" "${HOME}/.configs/i3";
   ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
   ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
   ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
