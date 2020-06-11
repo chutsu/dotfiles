@@ -14,7 +14,6 @@ function! Vundle()
     Plugin 'gmarik/Vundle.vim'
 
     " The following are vim packages
-    Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
     Plugin 'scrooloose/nerdtree'
     Plugin 'junegunn/fzf'
@@ -28,8 +27,6 @@ function! Vundle()
     Plugin 'inside/vim-search-pulse'
     Plugin 'tomtom/tcomment_vim'
     Plugin 'jvirtanen/vim-octave'
-    Plugin 'sirtaj/vim-openscad'
-
 
     " All of your Plugins must be added before the following line'
     call vundle#end()            " required
@@ -126,7 +123,6 @@ function! EditorBehaviour()
     " autocmd BufWritePost .vimrc so ~/.vimrc
 
     " Correct filetype recognition
-    autocmd FileType java call JavaMode()
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
     autocmd BufNewFile,BufReadPost *.launch set filetype=xml
     autocmd BufNewFile,BufReadPost *.h set filetype=c
@@ -266,7 +262,7 @@ function! SyntasticOptions()
 endfunction
 
 function! NerdTree()
-    nnoremap <F3> :NERDTreeToggle<CR><CR>
+    nnoremap ` :NERDTreeToggle<CR><CR>
     " let g:NERDTreeDirArrows=0
     let g:NERDTreeWinSize=30 " set NerdTree size
     let g:NERDTreeWinPos='left'
@@ -328,8 +324,8 @@ endfunction
 
 function! UltiSnips()
     let g:UltiSnipsExpandTrigger = "<TAB>"
-    let g:UltiSnipsJumpForwardTrigger` = "<TAB>"
-    let g:UltiSnipsJumpBackwardTrigger = "<S-TAB>
+    let g:UltiSnipsJumpForwardTrigger = "<TAB>"
+    let g:UltiSnipsJumpBackwardTrigger = "<S-TAB>"
     let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
 endfunction
 
@@ -352,3 +348,4 @@ call EasyGrep()
 call FZF()
 call MultiCursors()
 call YouCompleteMe()
+call UltiSnips()

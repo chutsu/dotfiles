@@ -29,7 +29,7 @@ hi Statement ctermfg=198
 hi Type ctermfg=81
 hi Function ctermfg=81
 hi Special ctermfg=198
-hi Error ctermfg=196
+hi Error ctermfg=196 ctermbg=None
 hi PreProc ctermfg=105
 hi String ctermfg=120
 
