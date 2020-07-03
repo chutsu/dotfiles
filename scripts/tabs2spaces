@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+for FILE in `find . -name "*.m"`; do
+  echo "Removing tabs in [$FILE]";
+  sed -i 's/\t/  /g' "$FILE";
+done
+
 for FILE in `find . -name "*.c"`; do
   echo "Removing tabs in [$FILE]";
   sed -i 's/\t/  /g' "$FILE";
