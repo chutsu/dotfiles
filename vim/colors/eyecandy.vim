@@ -11,7 +11,7 @@ hi Normal ctermbg=235
 hi LineNr ctermfg=249 ctermbg=236
 hi Cursor ctermfg=255 ctermbg=16
 hi CursorLine cterm=NONE ctermbg=236
-hi CursorLineNR ctermfg=255 ctermbg=240
+hi CursorLineNR cterm=NONE ctermfg=NONE ctermbg=240
 hi Directory ctermfg=75
 hi ErrorMsg ctermbg=196 ctermfg=white
 hi VertSplit ctermfg=236
