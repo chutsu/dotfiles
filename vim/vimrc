@@ -228,39 +228,6 @@ function! Airline()
     let g:airline_right_sep = ''
 endfunction
 
-function! SyntasticOptions()
-    " debug mode
-    let g:syntastic_debug=0
-
-    " general settings
-    let g:syntastic_enable_highlighting=1
-    let g:syntastic_check_on_open=1
-    let g:syntastic_enable_signs=1
-    let g:syntastic_always_populate_loc_list=0
-    let g:syntastic_auto_loc_list = 0
-    let g:syntastic_check_on_wq = 0
-
-    " warning and error symbols
-    let g:syntastic_warning_symbol       = 'W'
-    let g:syntastic_error_symbol         = 'E'
-    let g:syntastic_style_error_symbol   = 'SE'
-    let g:syntastic_style_warning_symbol = 'SW'
-
-    " c specific settings
-    let g:syntastic_c_checkers=['']
-    let g:syntastic_cpp_checkers=['']
-
-    " python specific settings
-    let g:syntastic_python_checkers=['flake8']
-    " let g:syntastic_ignore_files = ['\.py$']
-
-    " tex specific settings
-    let g:syntastic_tex_checkers=['']
-
-    " html specific settings
-    let g:syntastic_html_checkers=['']  " disable syntastic for html files
-endfunction
-
 function! NerdTree()
     nnoremap ` :NERDTreeToggle<CR><CR>
     " let g:NERDTreeDirArrows=0
@@ -322,13 +289,6 @@ function! YouCompleteMe()
     let g:SuperTabDefaultCompletionType = '<C-n>'
 endfunction
 
-function! UltiSnips()
-    let g:UltiSnipsExpandTrigger = "<TAB>"
-    let g:UltiSnipsJumpForwardTrigger = "<TAB>"
-    let g:UltiSnipsJumpBackwardTrigger = "<S-TAB>"
-    let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
-endfunction
-
 " MAIN
 call Vundle()
 call StartUp()
@@ -342,10 +302,8 @@ call EscapeCommonOperationTypos()
 
 " PLUGIN SETTINGS
 call Airline()
-call SyntasticOptions()
 call NerdTree()
 call EasyGrep()
 call FZF()
 call MultiCursors()
 call YouCompleteMe()
-call UltiSnips()
