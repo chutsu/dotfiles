@@ -7,6 +7,7 @@ exec --no-startup-id xsetroot -solid "#222222"  # background
 exec --no-startup-id xset s off  # screensaver off
 exec --no-startup-id xrdb ~/.Xdefaults  # terminal settings
 # exec --no-startup-id synclient MaxTapTime=0  # disable tap to click
+exec --no-startup-id blueman-applet
 
 # Set ALT as mod key
 set $mod Mod1
@@ -68,10 +69,11 @@ bindsym $mod+Control+l move right
 bindsym $mod+Control+Shift+h exec ~/.screenlayout/home.sh
 bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh
 bindsym $mod+Control+Shift+l exec ~/.screenlayout/laptop.sh
-workspace 1 output HDMI-0 DP-2
-workspace 2 output HDMI-0 DP-2
-workspace 3 output HDMI-0 DP-2
-workspace 5 output DP-2 HDMI-0
+workspace 1 output HDMI-1 eDP-1
+workspace 2 output HDMI-1 eDP-1
+workspace 3 output HDMI-1 eDP-1
+workspace 4 output eDP-1 HDMI-1
+workspace 5 output eDP-1 HDMI-1
 
 # Split in horizontal orientation
 bindsym $mod+Shift+h split h
@@ -170,7 +172,7 @@ bar {
     position top
 
     # i3bar status
-    status_command i3status -c ~/.i3/i3status.conf
+    status_command i3status -c ~/.config/i3/i3status.conf
 }
 
 # volume
