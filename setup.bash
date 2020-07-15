@@ -25,6 +25,10 @@ install_cpp_pkgs() {
     clang-tidy
 }
 
+install_octave_pkgs() {
+  $APT_INSTALL octave-*
+}
+
 install_python_pkgs() {
   # Python
   $APT_INSTALL \
@@ -56,7 +60,10 @@ install_desktop_pkgs() {
     network-manager-gnome \
     pcmanfm \
     gnome-icon-theme \
-    pavucontrol
+    pavucontrol \
+    arandr \
+    bluetooth bluez bluez-tools rfkill blueman
+
 
   $APT_INSTALL \
     gtk-recordmydesktop \
@@ -97,7 +104,7 @@ setup_dotfiles() {
   ln -fs "${PWD}/vifm" "${HOME}/.vifm";
   ln -fs "${PWD}/vifm/vifmrc" "${HOME}/.vifmrc";
   ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
-  ln -fs "${PWD}/i3" "${HOME}/.configs/i3";
+  ln -fs "${PWD}/i3" "${HOME}/.config/";
   ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
   ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
   ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
@@ -147,10 +154,8 @@ install_vim() {
   # Build and install vim
   sudo ./configure \
     --enable-multibyte \
-    --enable-pythoninterp=dynamic \
-    --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
-    --enable-python3interp \
-    --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+    --enable-python3interp=yes \
+    --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
     --enable-cscope \
     --enable-gui=auto \
     --with-features=huge \
@@ -184,6 +189,7 @@ setup() {
   git_config;
   install_dev_pkgs;
   install_cpp_pkgs;
+  install_octave_pkgs;
   install_bash_pkgs;
 
   if [ "$MODE" == "full" ]; then
@@ -191,11 +197,11 @@ setup() {
     install_desktop_pkgs;
   fi
 
-  cd "$HOME"
-  git clone https://github.com/chutsu/dotfiles
-  cd dotfiles
-  git submodule init
-  git submodule update
+  #cd "$HOME"
+  #git clone https://github.com/chutsu/dotfiles
+  #cd dotfiles
+  #git submodule init
+  #git submodule update
 
   setup_dotfiles;
   setup_vim;
