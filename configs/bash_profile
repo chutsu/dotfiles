@@ -1,6 +1,7 @@
 #!/bin/bash
 export TERM=screen-256color
 source ~/.fzf.bash
+source /opt/ros/melodic/setup.bash
 
 # Suppress GTK accessibility known bug with this env var
 export NO_AT_BRIDGE=1
@@ -60,7 +61,7 @@ alias todo="vim $HOME/projects/TODO; cd -";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
 alias headphones="pulseaudio --start; sleep 5; \
-                  bluetoothctl connect 74:45:CE:0B:42:F9; sleep 5; \
+                  echo -e 'connect 74:45:CE:0B:42:F9' | bluetoothctl ; sleep 5; \
                   pacmd set-card-profile bluez_card.74_45_CE_0B_42_F9 a2dp_sink"
 
 # ENVIRONMENTAL SETTINGS
