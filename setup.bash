@@ -32,11 +32,6 @@ install_octave_pkgs() {
 install_python_pkgs() {
   # Python
   $APT_INSTALL \
-    libpython-dev \
-    python-pip \
-    python-numpy \
-    python-scipy \
-    python-matplotlib \
     libpython3-dev \
     python3-pip \
     python3-numpy \
@@ -66,7 +61,7 @@ install_desktop_pkgs() {
 
 
   $APT_INSTALL \
-    gtk-recordmydesktop \
+    vokoscreen \
     vlc
 
   $APT_INSTALL \
