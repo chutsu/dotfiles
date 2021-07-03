@@ -47,6 +47,7 @@ endfunction
 
 function! StartUp()
     autocmd VimEnter * NERDTree | wincmd p
+    autocmd GuiEnter * silent NERDTree
 endfunction
 
 function! EditorAppearance()
@@ -173,8 +174,9 @@ function! CommandModeKeyMappings()
     set pastetoggle=<F10>
 
     " Run script file
-    map <S-r> :!clear && bash scripts/run.sh<CR>
-    " nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>
+    " map <S-r> :!clear && bash scripts/run.sh<CR>
+    map <S-r> :!clear && bash $HOME/run.sh<CR>
+    nnoremap <F12> :tabnew<CR>:e $HOME/run.sh<CR>
 endfunction
 
 function! NavImproved()
@@ -227,6 +229,18 @@ function! Airline()
     let g:airline_right_sep = ''
     let g:airline_right_sep = ''
 endfunction
+
+" " automatic NERDTree mirroring on tab switching
+" " when having just one window in the tab
+" function MirrorNerdTreeIfOneWindow()
+"   if winnr("$") < 2
+"     NERDTreeMirror
+"
+"     " hack to move the focus from the NERDTree to the main window
+"     wincmd p
+"     wincmd l
+"   endif
+" endfunction
 
 function! NerdTree()
     nnoremap ` :NERDTreeToggle<CR><CR>
