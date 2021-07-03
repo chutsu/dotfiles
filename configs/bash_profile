@@ -48,6 +48,7 @@ alias gitlog="git log --graph \
     --all"
 
 # EXECUTIONAL SHORTCUTS
+alias vim='nvim'
 alias ls='ls -lh --group-directories-first --color'
 alias la='ls -lha --color'
 alias search='apt-cache search'
