@@ -8,7 +8,7 @@ export NO_AT_BRIDGE=1
 
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
-export PROJECTS="$HOME/projects"
+export PROJECTS="$HOME/sync/projects"
 export DOTFILES="$HOME/dotfiles"
 
 # DIR SHORTCUTS
