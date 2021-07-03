@@ -69,11 +69,18 @@ bindsym $mod+Control+l move right
 bindsym $mod+Control+Shift+h exec ~/.screenlayout/home.sh
 bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh
 bindsym $mod+Control+Shift+l exec ~/.screenlayout/laptop.sh
-workspace 1 output HDMI-1 eDP-1
-workspace 2 output HDMI-1 eDP-1
-workspace 3 output HDMI-1 eDP-1
-workspace 4 output eDP-1 HDMI-1
-workspace 5 output eDP-1 HDMI-1
+
+# workspace 1 output HDMI-1 eDP-1
+# workspace 2 output HDMI-1 eDP-1
+# workspace 3 output HDMI-1 eDP-1
+# workspace 4 output eDP-1 HDMI-1
+# workspace 5 output eDP-1 HDMI-1
+
+workspace 1 output eDP-1 HDMI-1
+workspace 2 output eDP-1 HDMI-1
+workspace 3 output eDP-1 HDMI-1
+workspace 4 output HDMI-1 eDP-1
+workspace 5 output HDMI-1 eDP-1
 
 # Split in horizontal orientation
 bindsym $mod+Shift+h split h
@@ -184,7 +191,7 @@ bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
-# colors                border      background	text
-client.focused          #000000     #3A5894 	#EEEEEE
-client.unfocused        #555555		#333333     #EEEEEE
-client.background       #444444     #444444     #EEEEEE
+# colors           border   background  text
+client.focused     #000000  #3A5894     #EEEEEE
+client.unfocused   #555555  #333333     #EEEEEE
+client.background  #444444  #444444     #EEEEEE
