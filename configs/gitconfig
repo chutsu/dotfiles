@@ -13,3 +13,8 @@
 
 [http]
 	cookiefile = /home/chutsu/.gitcookies
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
+	required = true
