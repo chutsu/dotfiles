@@ -17,18 +17,18 @@ function! Startup()
   " Visual
   Plug 'bling/vim-airline'
 
+  " Code linter
+  " Plug 'dense-analysis/ale'
+
   " Code Formatter
-  " Plug 'sbdchd/neoformat' " Doesn't seem to work well with clang-format
   Plug 'rhysd/vim-clang-format'
 
   " Search
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-media-files.nvim'
 
   " Syntax
   Plug 'jvirtanen/vim-octave'
@@ -132,7 +132,7 @@ function! EditorBehaviour()
   nnoremap N Nzz
 
   " Reload nvimrc
-  nnoremap <F5> :source $MYVIMRC<CR>
+  map <F5> :source $MYVIMRC<CR>
 endfunction
 
 function! CommandModeKeyMappings()
@@ -174,7 +174,7 @@ function! Netrw()
   let g:netrw_liststyle = 3
   let g:netrw_altv = 1
   let g:netrw_keepdir = 0
-  nnoremap ` :Explore<CR>
+  nnoremap ` :e .<CR>
 endfunction
 
 function! VimEasyAlign()
@@ -186,18 +186,19 @@ function! VimEasyAlign()
 endfunction
 
 function! FZF()
-    nmap <C-p> :FZF<CR>
+    nmap <C-p> :Files .<CR>
+    nmap <C-g> :Ag<cr>
 
     " [Buffers] Jump to the existing window if possible
     let g:fzf_buffers_jump=1
 endfunction
 
-function! Telescope()
-  nnoremap <leader>ff <cmd>Telescope find_files<cr>
-  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-  nnoremap <leader>fb <cmd>Telescope buffers<cr>
-  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-endfunction
+" function! Telescope()
+"   nnoremap <leader>ff <cmd>Telescope find_files<cr>
+"   nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+"   nnoremap <leader>fb <cmd>Telescope buffers<cr>
+"   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" endfunction
 
 function! ClangFormat()
   let g:clang_format#auto_format = 1
@@ -209,6 +210,19 @@ function! ClangFormat()
   nmap <Leader>cf :ClangFormatAutoToggle<CR>
 endfunction
 
+" function! ALE()
+"   let g:airline#extensions#ale#enabled = 1
+"   let g:ale_set_loclist = 0
+"   let g:ale_set_quickfix = 1
+"   let g:ale_open_list = 1
+"
+"   let g:ale_linters = {
+"     \ 'cpp': ['cc', 'clangtidy'],
+"     \}
+"
+"   " let g:ale_cpp_cc_options='-std=cxx -Wall'
+" endfunction
+
 call Startup()
 call EditorAppearance()
 call EditorBehaviour()
@@ -218,5 +232,6 @@ call Navigation()
 call Netrw()
 call VimEasyAlign()
 call FZF()
-call Telescope()
+" call Telescope()
 call ClangFormat()
+" call ALE()
