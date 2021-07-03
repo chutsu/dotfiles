@@ -5,4 +5,7 @@ mutt/cache
 run.sh
 vifm/vifminfo
 vim/bundle
+nvim/plugged
 tags
+.nvimlog
+

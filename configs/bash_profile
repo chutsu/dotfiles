@@ -8,7 +8,7 @@ export NO_AT_BRIDGE=1
 
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
-export PROJECTS="$HOME/projects"
+export PROJECTS="$HOME/sync/projects"
 export DOTFILES="$HOME/dotfiles"
 
 # DIR SHORTCUTS
@@ -48,6 +48,7 @@ alias gitlog="git log --graph \
     --all"
 
 # EXECUTIONAL SHORTCUTS
+alias vim='nvim'
 alias ls='ls -lh --group-directories-first --color'
 alias la='ls -lha --color'
 alias search='apt-cache search'
