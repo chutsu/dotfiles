@@ -7,4 +7,5 @@ vifm/vifminfo
 vim/bundle
 nvim/plugged
 tags
-nvim.log
+.nvimlog
+
