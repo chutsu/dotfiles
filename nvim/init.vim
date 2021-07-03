@@ -4,24 +4,34 @@ function! Startup()
   " - Avoid using standard Vim directory names like 'plugin'
   call plug#begin('~/.config/nvim/plugged')
 
+  " Editing
+  Plug 'vim-scripts/camelcasemotion'
+  Plug 'kris89/vim-multiple-cursors'
+  Plug 'bronson/vim-trailing-whitespace'
   Plug 'junegunn/vim-easy-align'
   Plug 'tpope/vim-surround'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'bling/vim-airline'
-  Plug 'bronson/vim-trailing-whitespace'
-  Plug 'kris89/vim-multiple-cursors'
-  Plug 'vim-scripts/camelcasemotion'
-  Plug 'vim-scripts/EasyGrep'
   Plug 'vim-scripts/AnsiEsc.vim'
   Plug 'inside/vim-search-pulse'
   Plug 'tomtom/tcomment_vim'
-  Plug 'jvirtanen/vim-octave'
+
+  " Visual
+  Plug 'bling/vim-airline'
+
+  " Code Formatter
+  " Plug 'sbdchd/neoformat' " Doesn't seem to work well with clang-format
+  Plug 'rhysd/vim-clang-format'
+
+  " Search
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-media-files.nvim'
+
+  " Syntax
+  Plug 'jvirtanen/vim-octave'
 
   call plug#end()
 endfunction
@@ -120,6 +130,9 @@ function! EditorBehaviour()
   " Keep search matches in the middle of the screen
   nnoremap n nzz
   nnoremap N Nzz
+
+  " Reload nvimrc
+  nnoremap <F5> :source $MYVIMRC<CR>
 endfunction
 
 function! CommandModeKeyMappings()
@@ -186,6 +199,16 @@ function! Telescope()
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 endfunction
 
+function! ClangFormat()
+  let g:clang_format#auto_format = 1
+  let g:clang_format#detect_style_file = 1
+
+  autocmd FileType c,cpp ClangFormatAutoEnable
+  autocmd FileType c,cpp nnoremap <buffer><Leader><Leader> :<C-u>ClangFormat<CR>
+  autocmd FileType c,cpp vnoremap <buffer><Leader><Leader> :ClangFormat<CR>
+  nmap <Leader>cf :ClangFormatAutoToggle<CR>
+endfunction
+
 call Startup()
 call EditorAppearance()
 call EditorBehaviour()
@@ -196,3 +219,4 @@ call Netrw()
 call VimEasyAlign()
 call FZF()
 call Telescope()
+call ClangFormat()
