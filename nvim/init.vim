@@ -105,17 +105,17 @@ function! EditorBehaviour()
 
   " Restore cursor's last position in file
   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
 
   " Highlight non-ascii characters
   set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 
   " Softwrap lines
   command! -range=% SoftWrap
-      \ <line2>put _ |
-      \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
+        \ <line2>put _ |
+        \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
 
   " Scroll to top when using jump-to in ctags
   nnoremap <C-]> <C-]>zt
@@ -180,9 +180,8 @@ function! VimEasyAlign()
 endfunction
 
 function! FZF()
-  nmap <C-p> :Files .<CR>
+  nmap <C-f> :Files<CR>
   nmap <C-g> :Ag<cr>
-  set noautochdir
 
   " [Buffers] Jump to the existing window if possible
   let g:fzf_buffers_jump=1
