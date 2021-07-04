@@ -1,7 +1,4 @@
-function! Startup()
-  " Specify a directory for plugins
-  " - For Neovim: stdpath('data') . '/plugged'
-  " - Avoid using standard Vim directory names like 'plugin'
+function! Plugins()
   call plug#begin('~/.config/nvim/plugged')
 
   " Editing
@@ -16,9 +13,6 @@ function! Startup()
 
   " Visual
   Plug 'bling/vim-airline'
-
-  " Code linter
-  " Plug 'dense-analysis/ale'
 
   " Code Formatter
   Plug 'rhysd/vim-clang-format'
@@ -111,17 +105,17 @@ function! EditorBehaviour()
 
   " Restore cursor's last position in file
   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
 
   " Highlight non-ascii characters
   set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 
   " Softwrap lines
   command! -range=% SoftWrap
-      \ <line2>put _ |
-      \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
+        \ <line2>put _ |
+        \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
 
   " Scroll to top when using jump-to in ctags
   nnoremap <C-]> <C-]>zt
@@ -171,9 +165,9 @@ function! Netrw()
   let g:netrw_banner = 0
   let g:netrw_browse_split = 0
   let g:netrw_winsize = 25
-  let g:netrw_liststyle = 3
+  let g:netrw_liststyle = 1
   let g:netrw_altv = 1
-  let g:netrw_keepdir = 0
+  let g:netrw_keepdir = 1
   nnoremap ` :e .<CR>
 endfunction
 
@@ -186,44 +180,20 @@ function! VimEasyAlign()
 endfunction
 
 function! FZF()
-    nmap <C-p> :Files .<CR>
-    nmap <C-g> :Ag<cr>
+  nmap <C-f> :Files<CR>
+  nmap <C-g> :Ag<cr>
 
-    " [Buffers] Jump to the existing window if possible
-    let g:fzf_buffers_jump=1
+  " [Buffers] Jump to the existing window if possible
+  let g:fzf_buffers_jump=1
 endfunction
-
-" function! Telescope()
-"   nnoremap <leader>ff <cmd>Telescope find_files<cr>
-"   nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-"   nnoremap <leader>fb <cmd>Telescope buffers<cr>
-"   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-" endfunction
 
 function! ClangFormat()
   let g:clang_format#auto_format = 1
   let g:clang_format#detect_style_file = 1
-
-  autocmd FileType c,cpp ClangFormatAutoEnable
-  autocmd FileType c,cpp nnoremap <buffer><Leader><Leader> :<C-u>ClangFormat<CR>
-  autocmd FileType c,cpp vnoremap <buffer><Leader><Leader> :ClangFormat<CR>
   nmap <Leader>cf :ClangFormatAutoToggle<CR>
 endfunction
 
-" function! ALE()
-"   let g:airline#extensions#ale#enabled = 1
-"   let g:ale_set_loclist = 0
-"   let g:ale_set_quickfix = 1
-"   let g:ale_open_list = 1
-"
-"   let g:ale_linters = {
-"     \ 'cpp': ['cc', 'clangtidy'],
-"     \}
-"
-"   " let g:ale_cpp_cc_options='-std=cxx -Wall'
-" endfunction
-
-call Startup()
+call Plugins()
 call EditorAppearance()
 call EditorBehaviour()
 call CommandModeKeyMappings()
@@ -232,6 +202,4 @@ call Navigation()
 call Netrw()
 call VimEasyAlign()
 call FZF()
-" call Telescope()
 call ClangFormat()
-" call ALE()
