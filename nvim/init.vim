@@ -27,6 +27,9 @@ function! Plugins()
   " Syntax
   Plug 'jvirtanen/vim-octave'
 
+  " Misc
+  Plug 'voldikss/vim-browser-search'
+
   call plug#end()
 endfunction
 
@@ -180,7 +183,7 @@ function! VimEasyAlign()
 endfunction
 
 function! FZF()
-  nmap <C-f> :Files<CR>
+  nmap <C-p> :Files<CR>
   nmap <C-g> :Ag<cr>
 
   " [Buffers] Jump to the existing window if possible
@@ -193,6 +196,11 @@ function! ClangFormat()
   nmap <Leader>cf :ClangFormatAutoToggle<CR>
 endfunction
 
+function VimBrowserSearch()
+  nmap <silent> <Leader>s <Plug>SearchNormal
+  vmap <silent> <Leader>s <Plug>SearchVisual
+endfunction
+
 call Plugins()
 call EditorAppearance()
 call EditorBehaviour()
@@ -203,3 +211,4 @@ call Netrw()
 call VimEasyAlign()
 call FZF()
 call ClangFormat()
+call VimBrowserSearch()
