@@ -10,6 +10,7 @@ function! Plugins()
   Plug 'vim-scripts/AnsiEsc.vim'
   Plug 'inside/vim-search-pulse'
   Plug 'tomtom/tcomment_vim'
+  Plug 'preservim/nerdtree'
 
   " Visual
   Plug 'bling/vim-airline'
@@ -144,7 +145,7 @@ function! CommandModeKeyMappings()
   set pastetoggle=<F10>
 
   " Run script file
-  map <S-r> :!bash ~/run.sh<CR>
+  map <S-r> :silent !bash ~/run.sh<CR>
 endfunction
 
 function! Navigation()
@@ -172,6 +173,23 @@ function! Netrw()
   let g:netrw_altv = 1
   let g:netrw_keepdir = 1
   nnoremap ` :e .<CR>
+endfunction
+
+function! NerdTree()
+  autocmd VimEnter * NERDTree | wincmd p
+
+  nnoremap ` :NERDTreeToggle<CR><CR>
+    " let g:NERDTreeDirArrows=0
+    let g:NERDTreeWinSize=30 " set NerdTree size
+    let g:NERDTreeWinPos='left'
+
+    " if NerdTree is last thing open in vim, close vim completely
+    autocmd bufenter * if (
+            \ winnr("$") == 1
+            \ && exists("b:NERDTreeType")
+            \ && b:NERDTreeType == "primary")
+            \ | q |
+    \ endif
 endfunction
 
 function! VimEasyAlign()
@@ -207,7 +225,8 @@ call EditorBehaviour()
 call CommandModeKeyMappings()
 call Navigation()
 
-call Netrw()
+" call Netrw()
+call NerdTree()
 call VimEasyAlign()
 call FZF()
 call ClangFormat()
