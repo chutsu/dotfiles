@@ -11,6 +11,7 @@ function! Plugins()
   Plug 'inside/vim-search-pulse'
   Plug 'tomtom/tcomment_vim'
   Plug 'preservim/nerdtree'
+  Plug 'easymotion/vim-easymotion'
 
   " Visual
   Plug 'bling/vim-airline'
@@ -145,7 +146,7 @@ function! CommandModeKeyMappings()
   set pastetoggle=<F10>
 
   " Run script file
-  map <S-r> :silent !bash ~/run.sh<CR>
+  map <S-r> :!bash ~/run.sh<CR>
 endfunction
 
 function! Navigation()
@@ -219,6 +220,11 @@ function VimBrowserSearch()
   vmap <silent> <Leader>s <Plug>SearchVisual
 endfunction
 
+function EasyMotion()
+  map <Leader> <Plug>(easymotion-prefix)
+  map f <Plug>(easymotion-bd-w)
+endfunction
+
 call Plugins()
 call EditorAppearance()
 call EditorBehaviour()
@@ -231,3 +237,4 @@ call VimEasyAlign()
 call FZF()
 call ClangFormat()
 call VimBrowserSearch()
+call EasyMotion()
