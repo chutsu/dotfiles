@@ -1,0 +1,17 @@
+#!/bin/sh -e
+session='sandbox'
+tmux new-session -d -s $session
+
+# Window0 - nvim
+tmux rename-window -t $session:0 'dev'
+tmux send-keys -t $session:0 'nvim' C-m
+
+# Window1 - debug
+tmux new-window -t $session:1 -n 'debug'
+
+# Window2 - vifm
+tmux new-window -t $session:2 -n 'vifm'
+tmux send-keys -t $session:2 'vifm' C-m
+
+# Attach to session
+tmux attach-session -t $session:0
