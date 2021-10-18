@@ -178,6 +178,7 @@ endfunction
 
 function! NerdTree()
   autocmd VimEnter * NERDTree | wincmd p
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
   nnoremap ` :NERDTreeToggle<CR><CR>
     " let g:NERDTreeDirArrows=0
