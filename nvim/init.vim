@@ -29,6 +29,9 @@ function! Plugins()
   " Syntax
   Plug 'jvirtanen/vim-octave'
 
+  " Python
+  Plug 'sbdchd/neoformat'
+
   " Misc
   Plug 'voldikss/vim-browser-search'
 
@@ -57,6 +60,7 @@ endfunction
 
 function! EditorBehaviour()
   filetype plugin indent on
+  set exrc  " Neovim will execute .exrc, .vimrc, nvimrc found in cwd
   set autoread
   set backupdir=/tmp
   set directory=/tmp
@@ -91,6 +95,9 @@ function! EditorBehaviour()
   autocmd BufNewFile,BufReadPost *.launch set filetype=xml
   autocmd BufNewFile,BufReadPost *.h set filetype=c
   autocmd BufNewFile,BufReadPost *.c set filetype=c
+
+
+  autocmd FileType python setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
   " Remove trailing whitespaces
   highlight ExtraWhitespace ctermbg=red guibg=red
@@ -131,7 +138,7 @@ function! EditorBehaviour()
   nnoremap N Nzz
 
   " Reload nvimrc
-  map <F5> :source $MYVIMRC<CR>
+  map <F5> :source ~/.config/nvim/init.vim<CR>
 endfunction
 
 function! CommandModeKeyMappings()
@@ -176,21 +183,10 @@ function! Netrw()
   nnoremap ` :e .<CR>
 endfunction
 
-" automatic NERDTree mirroring on tab switching
-" when having just one window in the tab
-function MirrorNerdTreeIfOneWindow()
-  if winnr("$") < 2
-    NERDTreeMirror
-
-    " hack to move the focus from the NERDTree to the main window
-    wincmd p
-    wincmd l
-  endif
-endfunction
-
 function! NerdTree()
+  let NERDTreeShowHidden=1
+
   autocmd VimEnter * NERDTree | wincmd p
-  autocmd TabEnter * silent exe MirrorNerdTreeIfOneWindow()
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
   nnoremap ` :NERDTreeToggle<CR><CR>
@@ -229,14 +225,19 @@ function! ClangFormat()
   nmap <Leader>cf :ClangFormatAutoToggle<CR>
 endfunction
 
-function VimBrowserSearch()
+function! VimBrowserSearch()
   nmap <silent> <Leader>s <Plug>SearchNormal
   vmap <silent> <Leader>s <Plug>SearchVisual
 endfunction
 
-function EasyMotion()
+function! EasyMotion()
   map <Leader> <Plug>(easymotion-prefix)
   map f <Plug>(easymotion-bd-w)
+endfunction
+
+function! NeoFormat()
+  autocmd BufWritePre *.py Neoformat
+  let g:neoformat_enabled_python = ['yapf']
 endfunction
 
 call Plugins()
@@ -252,3 +253,4 @@ call FZF()
 call ClangFormat()
 call VimBrowserSearch()
 call EasyMotion()
+call NeoFormat()
