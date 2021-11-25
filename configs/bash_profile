@@ -38,6 +38,10 @@ alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias rs4se="cd $PROJECTS/rs4se"
 alias bag2se="cd $PROJECTS/bag2se"
 
+# Wayve
+alias sensor_calibration="cd ~/WayveCode/wayve/robot/modules/sensor_calibration"
+alias state_estimation="cd ~/WayveCode/wayve/robot/modules/state_estimation"
+
 # GIT ALIASES
 alias gitlog="git log --graph \
     --abbrev-commit \
