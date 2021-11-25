@@ -23,6 +23,8 @@ for_window [title="VTK"] floating enable
 for_window [title="viz"] floating enable move position 0 0
 for_window [title="Viz"] floating enable
 for_window [title="dev"] floating enable
+# for_window [title="Viz"] floating enable move position 50 px 400 px
+for_window [title='Gnuplot window 0'] floating enable
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -124,6 +126,7 @@ bindsym $mod+5 workspace 5
 # Force a window on a named workspace
 # assign [class="Google-chrome"] 1
 # assign [class="Pcmanfm"] 3
+assign [title="Viz"] 4
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
