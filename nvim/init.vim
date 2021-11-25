@@ -48,11 +48,11 @@ function! EditorAppearance()
   " Let terminal resize scale the internal windows
   autocmd VimResized * :wincmd =
 
-  " Highlight when code is over 81 columns
-  augroup vimrc_autocmds
-    autocmd BufEnter * highlight OverLength ctermbg=darkgrey
-    autocmd BufEnter * match OverLength /\%81v.*/
-  augroup END
+  " " Highlight when code is over 81 columns
+  " augroup vimrc_autocmds
+  "   autocmd BufEnter * highlight OverLength ctermbg=darkgrey
+  "   autocmd BufEnter * match OverLength /\%81v.*/
+  " augroup END
 endfunction
 
 function! EditorBehaviour()
