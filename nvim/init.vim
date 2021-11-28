@@ -30,7 +30,7 @@ function! Plugins()
   Plug 'jvirtanen/vim-octave'
 
   " Python
-  Plug 'sbdchd/neoformat'
+  Plug 'dense-analysis/ale'
 
   " Misc
   Plug 'voldikss/vim-browser-search'
@@ -235,9 +235,24 @@ function! EasyMotion()
   map f <Plug>(easymotion-bd-w)
 endfunction
 
-function! NeoFormat()
-  autocmd BufWritePre *.py Neoformat
-  let g:neoformat_enabled_python = ['yapf']
+" function! NeoFormat()
+"   autocmd BufWritePre *.py Neoformat
+"   let g:neoformat_enabled_python = ['yapf']
+" endfunction
+
+function! ALE()
+  " let g:ale_python_pylint_executable = '/usr/bin/pylint3'
+  " let g:ale_python_pylint_options = --indent-string='  '
+
+  " YAPF
+  let g:ale_python_yapf_executable = '/usr/bin/yapf3'
+  let g:airline#extensions#ale#enabled = 1
+
+  " Fix settings
+  let g:ale_fix_on_save = 1
+  let g:ale_fixers = {
+  \ 'python': ['yapf'],
+  \}
 endfunction
 
 call Plugins()
@@ -253,4 +268,5 @@ call FZF()
 call ClangFormat()
 call VimBrowserSearch()
 call EasyMotion()
-call NeoFormat()
+" call NeoFormat()
+call ALE()
