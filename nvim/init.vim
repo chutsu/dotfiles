@@ -235,13 +235,8 @@ function! EasyMotion()
   map f <Plug>(easymotion-bd-w)
 endfunction
 
-" function! NeoFormat()
-"   autocmd BufWritePre *.py Neoformat
-"   let g:neoformat_enabled_python = ['yapf']
-" endfunction
-
 function! ALE()
-  " let g:ale_python_pylint_executable = '/usr/bin/pylint3'
+  let g:ale_python_pylint_executable = '/usr/bin/pylint3'
   " let g:ale_python_pylint_options = --indent-string='  '
 
   " YAPF
@@ -268,5 +263,4 @@ call FZF()
 call ClangFormat()
 call VimBrowserSearch()
 call EasyMotion()
-" call NeoFormat()
 call ALE()
