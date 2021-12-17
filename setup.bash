@@ -37,6 +37,8 @@ install_python_pkgs() {
     python3-numpy \
     python3-scipy \
     python3-matplotlib
+
+  pip3 install ueberzug
 }
 
 install_bash_pkgs() {

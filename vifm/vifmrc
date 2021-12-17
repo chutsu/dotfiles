@@ -1,4 +1,5 @@
-only
+" only
+view
 
 colorscheme custom
 
@@ -36,3 +37,53 @@ set trashdir=/tmp/vifm_trash
 " Automatically calculate folder sizes
 autocmd VimEnter * :normal gA
 autocmd DirEnter * :normal gA
+
+fileviewer *.pdf
+  \ vifmimg pdf %px %py %pw %ph %c
+  \ %pc
+  \ vifmimg clear
+
+fileviewer *.djvu
+  \ vifmimg djvu %px %py %pw %ph %c
+  \ %pc
+  \ vifmimg clear
+
+fileviewer *.epub
+  \ vifmimg epub %px %py %pw %ph %c
+  \ %pc
+  \ vifmimg clear
+
+fileviewer <video/*>
+  \ vifmimg video %px %py %pw %ph %c
+  \ %pc
+  \ vifmimg clear
+
+fileviewer <image/*>
+  \ vifmimg draw %px %py %pw %ph %c
+  \ %pc
+  \ vifmimg clear
+
+fileviewer <audio/*>
+  \ vifmimg audio %px %py %pw %ph %c
+  \ %pc
+  \ vifmimg clear
+
+fileviewer <font/*>
+  \ vifmimg font %px %py %pw %ph %c
+  \ %pc
+  \ vifmimg clear
+
+" Normal dirs
+fileview */ tree %c -L 1
+
+" Hidden dirs
+fileview *./ tree %c -L 1
+
+" .. Parent dir
+fileview ../ tree %c -L 1
+
+" Video
+filetype *.gif,*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+  \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+  \*.as[fx]
+  \ mplayer -vf scale -zoom -xy 1024 %c
