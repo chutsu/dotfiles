@@ -103,3 +103,8 @@ fileviewer <font/*>
 " Tar
 fileviewer *.tar,*.tar.gz
   \ tar -tvf %c
+
+" Zip
+filetype *.zip,*.jar,*.war,*.ear,*.oxt
+  \ {Mount with fuse-zip}
+  \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
