@@ -57,6 +57,7 @@ fileview *./ tree %c -L 1
 
 " Parent dir
 fileview ../ tree %c -L 1
+
 " PDF
 fileviewer *.pdf
   \ vifmimg pdf %px %py %pw %ph %c
