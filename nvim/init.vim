@@ -239,6 +239,10 @@ function! ALE()
   let g:ale_python_pylint_executable = '/usr/bin/pylint3'
   " let g:ale_python_pylint_options = --indent-string='  '
 
+	" Display ALE Virtual Text
+	let g:ale_virtual_text_ns = nvim_create_namespace('ale_virtual_text')
+  let g:ale_virtualtext_prefix = '> '
+
   " YAPF
   let g:ale_python_yapf_executable = '/usr/bin/yapf3'
   let g:airline#extensions#ale#enabled = 1
@@ -249,6 +253,38 @@ function! ALE()
   \ 'python': ['yapf'],
   \}
 endfunction
+
+function DisplayALEVirtualText() abort
+  for l:buffer in keys(g:ale_buffer_info)
+    let l:buffer = str2nr(l:buffer)
+    call nvim_buf_clear_namespace(l:buffer, g:ale_virtual_text_ns, 0, -1)
+    let l:loclist = ale#engine#GetLoclist(l:buffer)
+    for l:err in reverse(copy(l:loclist))
+      let l:chunks = GetALEVirtualTextChunks(l:err)
+      call nvim_buf_set_virtual_text(l:buffer, g:ale_virtual_text_ns, l:err.lnum-1, l:chunks, {})
+    endfor
+  endfor
+endfunction
+
+function GetALEVirtualTextChunks(err) abort
+  let l:text = g:ale_virtualtext_prefix . substitute(a:err.text, '\r', '', 'g')
+  if a:err.type is# 'E'
+    let l:hl_group = 'ALEVirtualTextError'
+  elseif a:err.type is# 'W'
+    let l:hl_group = 'ALEVirtualTextWarning'
+  else
+    let l:hl_group = 'ALEVirtualTextInfo'
+  endif
+  return [[' ', ' '], [l:text, l:hl_group]]
+endfunction
+
+augroup ale_virtual_text
+  autocmd!
+  autocmd User ALELintPost call DisplayALEVirtualText()
+	autocmd ColorScheme * highlight ALEVirtualTextError ctermfg=196 ctermbg=None
+										\ | highlight ALEVirtualTextWarning ctermfg=226 ctermbg=None
+augroup END
+
 
 call Plugins()
 call EditorAppearance()
