@@ -6,4 +6,4 @@ help:
 
 deps: ## Install dependencies
 	@echo "[Installing Dependencies]"
-	@bash setup.bash
+	@bash setup.bash full
