@@ -2,7 +2,11 @@
 
 colorscheme custom
 " only " Set single window
-view " Enable preview
+" view " Enable preview
+
+source ~/.vifm/scripts/favicons.vifm
+
+nmap <space> :view<CR>
 
 set syscalls                  " Show progress bar when copying or moving
 set trashdir=/tmp/vifm_trash  " Set trash directory
@@ -16,7 +20,7 @@ autocmd DirEnter * :normal gA
 
 " Bookmarks
 mark h ~/ Home
-mark p ~/projects Projects
+mark p ~/sync/projects Projects
 mark d ~/Downloads Downloads
 
 " Quit with q
@@ -103,8 +107,3 @@ fileviewer <font/*>
 " Tar
 fileviewer *.tar,*.tar.gz
   \ tar -tvf %c
-
-" Zip
-filetype *.zip,*.jar,*.war,*.ear,*.oxt
-  \ {Mount with fuse-zip}
-  \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
