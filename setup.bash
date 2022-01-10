@@ -9,7 +9,8 @@ install_dev_pkgs() {
     git \
     tree \
     htop \
-    tmux
+    tmux \
+    neovim
 }
 
 install_cpp_pkgs() {
@@ -103,18 +104,15 @@ setup_dotfiles() {
   ln -fs "${PWD}/vifm/vifmrc" "${HOME}/.vifmrc";
   ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
   ln -fs "${PWD}/i3" "${HOME}/.config/";
-  ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
-  ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
-  ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
-  ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
-  ln -fs "${PWD}/configs/vimperatorrc" "${HOME}/.vimperatorrc";
   ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile";
   ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig";
+  ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
   ln -fs "${PWD}/configs/latexmkrc" "${HOME}/.latexmkrc";
+  ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
+  ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
+  ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
-  #ln -fs "${PWD}/csgo/autoexec.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/autoexec.cfg"
-  #ln -fs "${PWD}/csgo/practice.cfg" "${HOME}/.steam/steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg/practice.cfg"
 }
 
 install_vim() {
@@ -195,14 +193,8 @@ setup() {
     install_desktop_pkgs;
   fi
 
-  #cd "$HOME"
-  #git clone https://github.com/chutsu/dotfiles
-  #cd dotfiles
-  #git submodule init
-  #git submodule update
-
   setup_dotfiles;
-  setup_vim;
+  # setup_vim;
   echo "Done! :)"
 }
 
