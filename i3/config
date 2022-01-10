@@ -21,11 +21,14 @@ for_window [class="Image"] floating enable
 for_window [class="Tk"] floating enable
 for_window [title="VTK"] floating enable
 for_window [title="viz"] floating enable move position 0 0
-for_window [title="Viz"] floating enable
+for_window [title="Viz"] floating enable move position 0 0
 for_window [title="dev"] floating enable
-# for_window [title="Viz"] floating enable move position 50 px 400 px
-for_window [title='Gnuplot window 0'] floating enable
+for_window [title="Gnuplot window 0"] floating enable
 for_window [class="vlc"] floating enable, resize set 640 480, move position center
+
+# Force a window on a named workspace
+assign [class="Firefox" instance="Navigator"] 1
+# assign [title="Viz"] 4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -77,17 +80,17 @@ bindsym $mod+Control+Shift+h exec ~/.screenlayout/home.sh
 bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh
 bindsym $mod+Control+Shift+l exec ~/.screenlayout/laptop.sh
 
-workspace 1 output HDMI-0 eDP-1-1
-workspace 2 output HDMI-0 eDP-1-1
-workspace 3 output HDMI-0 eDP-1-1
-workspace 4 output eDP-1-1 HDMI-0
-workspace 5 output eDP-1-1 HDMI-0
+# workspace 1 output HDMI-1 eDP-1
+# workspace 2 output HDMI-1 eDP-1
+# workspace 3 output HDMI-1 eDP-1
+# workspace 4 output eDP-1 HDMI-1
+# workspace 5 output eDP-1 HDMI-1
 
-# workspace 1 output eDP-1 HDMI-1
-# workspace 2 output eDP-1 HDMI-1
-# workspace 3 output eDP-1 HDMI-1
-# workspace 4 output HDMI-1 eDP-1
-# workspace 5 output HDMI-1 eDP-1
+workspace 1 output eDP-1 HDMI-1
+workspace 2 output eDP-1 HDMI-1
+workspace 3 output eDP-1 HDMI-1
+workspace 4 output HDMI-1 eDP-1
+workspace 5 output HDMI-1 eDP-1
 
 # Split in horizontal orientation
 bindsym $mod+Shift+h split h
@@ -123,11 +126,6 @@ bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
-
-# Force a window on a named workspace
-# assign [class="Google-chrome"] 1
-# assign [class="Pcmanfm"] 3
-assign [title="Viz"] 4
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
