@@ -1,33 +1,17 @@
 # Startup programs
-# exec --no-startup-id dropbox start # dropbox
-# # exec --no-startup-id ~/.dropbox-dist/dropboxd # dropbox
 exec --no-startup-id nm-applet # network manager
 exec --no-startup-id xsetroot -solid "#222222"  # background
-# exec --no-startup-id xset -dpms # energy savings off
 exec --no-startup-id xset s off  # screensaver off
 exec --no-startup-id xrdb ~/.Xdefaults  # terminal settings
-# exec --no-startup-id synclient MaxTapTime=0  # disable tap to click
 exec --no-startup-id blueman-applet
 
 # Set ALT as mod key
 set $mod Mod1
 
 # Float windows
-for_window [class="Play"] floating enable
-for_window [class="xmessage"] floating enable
-for_window [class="feh"] floating enable
-for_window [class="Kfusion Display"] floating enable
 for_window [class="Image"] floating enable
-for_window [class="Tk"] floating enable
-for_window [title="VTK"] floating enable
 for_window [title="viz"] floating enable move position 0 0
-for_window [title="Viz"] floating enable move position 0 0
 for_window [title="dev"] floating enable
-for_window [title="Gnuplot window 0"] floating enable
-for_window [class="vlc"] floating enable, resize set 640 480, move position center
-
-# Force a window on a named workspace
-assign [class="Firefox" instance="Navigator"] 1
 # assign [title="Viz"] 4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -39,14 +23,8 @@ font pango:DejaVu Sans Mono 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Mouse warping
-#set mouse_warping none
-
 # Start a terminal
 bindsym $mod+t exec xterm
-
-# Start thunar
-bindsym $mod+b exec thunar
 
 # Screenshot
 bindsym $mod+s exec xfce4-screenshooter
@@ -62,12 +40,6 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# Alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # Move focused window
 bindsym $mod+Control+h move left
@@ -114,12 +86,6 @@ bindsym $mod+Shift+space floating toggle
 # Change focus between tiling / floating windows
 bindsym $mod+Control+space focus mode_toggle
 
-# Focus the parent container
-bindsym $mod+a focus parent
-
-# Focus the child container
-#bindsym $mod+d focus child
-
 # Switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -134,9 +100,6 @@ bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 
-# Reload the configuration file
-bindsym $mod+Shift+c reload
-
 # Restart i3 inplace
 bindsym $mod+Shift+r restart
 
@@ -145,10 +108,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg e
 
 # Resize window
 mode "resize" {
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
     bindsym h resize shrink width 10 px or 10 ppt
     bindsym j resize grow height 10 px or 10 ppt
     bindsym k resize shrink height 10 px or 10 ppt
