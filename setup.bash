@@ -11,6 +11,9 @@ install_dev_pkgs() {
     htop \
     tmux \
     neovim
+
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
 install_cpp_pkgs() {
