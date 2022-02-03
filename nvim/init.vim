@@ -24,7 +24,7 @@ function! Plugins()
   Plug 'junegunn/fzf.vim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
+  " Plug 'nvim-telescope/telescope.nvim'
 
   " Syntax
   Plug 'jvirtanen/vim-octave'
@@ -153,7 +153,8 @@ function! CommandModeKeyMappings()
   set pastetoggle=<F10>
 
   " Run script file
-  map <S-r> :!bash ~/run.sh<CR>
+  map <S-r> :!bash scripts/run.sh<CR>
+  nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>
 endfunction
 
 function! Navigation()

@@ -21,8 +21,3 @@ map <S-t> :vsplit %:s?src?tests?test_:r.c<CR>
 if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
-
-" map <F11> :e CMakeLists.txt<CR>
-" map <F12> :e scripts/run.sh<CR>
-
-nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>
