@@ -43,7 +43,8 @@ install_python_pkgs() {
     python3-matplotlib \
     python3-setuptools
 
-  pip3 install ueberzug
+  # $APT_INSTALL \
+  # pip3 install ueberzug
 }
 
 install_bash_pkgs() {
@@ -114,6 +115,7 @@ setup_dotfiles() {
   ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
   ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
   ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
+  ln -fs "${PWD}/nvim" "${HOME}/.config/nvim";
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
 }
