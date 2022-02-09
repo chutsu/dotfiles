@@ -31,10 +31,6 @@ alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias rs4se="cd $PROJECTS/rs4se"
 
-# Wayve
-alias sensor_calibration="cd ~/WayveCode/wayve/robot/modules/sensor_calibration"
-alias state_estimation="cd ~/WayveCode/wayve/robot/modules/state_estimation"
-
 # GIT ALIASES
 alias gitlog="git log --graph \
     --abbrev-commit \
@@ -57,6 +53,7 @@ alias search="grep -nr $1 ."
 alias headphones="pulseaudio --start; sleep 5; \
                   echo -e 'connect 74:45:CE:0B:42:F9' | bluetoothctl ; sleep 5; \
                   pacmd set-card-profile bluez_card.74_45_CE_0B_42_F9 a2dp_sink"
+alias fan_max="echo level 7 | sudo tee /proc/acpi/ibm/fan"
 
 # ENVIRONMENTAL SETTINGS
 export PATH=$PATH:~/dotfiles/scripts

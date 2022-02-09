@@ -12,28 +12,19 @@ function! Plugins()
   Plug 'tomtom/tcomment_vim'
   Plug 'preservim/nerdtree'
   Plug 'easymotion/vim-easymotion'
-
-  " Visual
   Plug 'bling/vim-airline'
-
-  " Code Formatter
-  Plug 'rhysd/vim-clang-format'
 
   " Search
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
-  " Plug 'nvim-telescope/telescope.nvim'
-
-  " Syntax
-  Plug 'jvirtanen/vim-octave'
-
-  " Python
-  Plug 'dense-analysis/ale'
-
-  " Misc
   Plug 'voldikss/vim-browser-search'
+
+  " Programming Utils
+  Plug 'tpope/vim-fugitive'
+  Plug 'rhysd/vim-clang-format'
+  Plug 'dense-analysis/ale'
 
   call plug#end()
 endfunction
@@ -154,7 +145,7 @@ function! CommandModeKeyMappings()
 
   " Run script file
   map <S-r> :!bash scripts/run.sh<CR>
-  nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>
+  nnoremap <F12> :e scripts/run.sh<CR>
 endfunction
 
 function! Navigation()
