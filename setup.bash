@@ -1,8 +1,6 @@
 #/bin/bash
 set -e  # Exit on first error
 APT_INSTALL='sudo apt-get install -y -qq'
-
-install_dev_pkgs() {
   # General dev tools
   $APT_INSTALL \
     xterm \
@@ -43,7 +41,8 @@ install_python_pkgs() {
     python3-matplotlib \
     python3-setuptools
 
-  pip3 install ueberzug
+  # $APT_INSTALL \
+  # pip3 install ueberzug
 }
 
 install_bash_pkgs() {
@@ -56,6 +55,7 @@ install_bash_pkgs() {
 install_desktop_pkgs() {
   $APT_INSTALL \
     xterm \
+    vifm \
     i3 \
     xinit \
     xbacklight \
@@ -103,8 +103,7 @@ setup_dotfiles() {
   echo "symlinks dotfiles";
   ln -fs "${PWD}/vim" "${HOME}/.vim";
   ln -fs "${PWD}/vim/vimrc" "${HOME}/.vimrc";
-  ln -fs "${PWD}/vifm" "${HOME}/.vifm";
-  ln -fs "${PWD}/vifm/vifmrc" "${HOME}/.vifmrc";
+  ln -fs "${PWD}/vifm" "${HOME}/.config/";
   ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
   ln -fs "${PWD}/i3" "${HOME}/.config/";
   ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile";
@@ -114,6 +113,7 @@ setup_dotfiles() {
   ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
   ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
   ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
+  ln -fs "${PWD}/configs/nvim" "${HOME}/.config/";
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
 }
