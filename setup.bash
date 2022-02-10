@@ -84,28 +84,18 @@ git_config() {
 setup_dotfiles() {
   # REMOVE OLD DOTFILES
   echo "remove old dotfiles";
-  rm -rf "${HOME}/.vim";
-  rm -f "${HOME}/.vimrc";
-  rm -f "${HOME}/.vifm";
-  rm -f "${HOME}/.vifmrc";
-  rm -f "${HOME}/.bash_profile";
-  rm -f "${HOME}/.tmux.conf";
-  rm -rf "${HOME}/.i3";
   rm -f "${HOME}/.xinitrc";
   rm -f "${HOME}/.Xdefaults";
-  rm -f "${HOME}/.muttrc";
-  rm -rf "${HOME}/.mutt";
   rm -f "${HOME}/.xbindkeysrc";
-  rm -f "${HOME}/.screenlayout";
   rm -rf "${HOME}/.gitconfig";
+  rm -f "${HOME}/.bash_profile";
+  rm -f "${HOME}/.screenlayout";
+  rm -rf "${HOME}/.i3";
+  rm -f "${HOME}/.tmux.conf";
+  rm -f "${HOME}/.vifmrc";
 
   # SYMLINKS
   echo "symlinks dotfiles";
-  ln -fs "${PWD}/vim" "${HOME}/.vim";
-  ln -fs "${PWD}/vim/vimrc" "${HOME}/.vimrc";
-  ln -fs "${PWD}/vifm" "${HOME}/.config/";
-  ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
-  ln -fs "${PWD}/i3" "${HOME}/.config/";
   ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile";
   ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig";
   ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
@@ -114,8 +104,12 @@ setup_dotfiles() {
   ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
   ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
   ln -fs "${PWD}/configs/nvim" "${HOME}/.config/";
-  echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
+  ln -fs "${PWD}/i3" "${HOME}/.config/";
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
+  ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
+  ln -fs "${PWD}/vifm" "${HOME}/.vifm";
+  ln -fs "${PWD}/vifm/vifmrc" "${HOME}/.vifmrc";
+  echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
 }
 
 install_vim() {
