@@ -41,6 +41,11 @@ alias gitlog="git log --graph \
     --all"
 
 # EXECUTIONAL SHORTCUTS
+lock() {
+  i3lock -c 000000
+  xset dpms force off
+}
+
 alias vifm='vifmrun'
 alias vim='nvim'
 alias ls='ls -lh --group-directories-first --color'
