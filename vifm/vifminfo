@@ -17,12 +17,12 @@
 # Bookmarks:
 
 # Trash content:
-t/tmp/vifm_trash/000_build_apriltag.log
-	/home/chutsu/projects/yac/deps/build_apriltag.log
-t/tmp/vifm_trash/000_build_apriltag3.log
-	/home/chutsu/projects/yac/deps/build_apriltag3.log
-t/tmp/vifm_trash/000_build_apriltags.log
-	/home/chutsu/projects/yac/deps/build_apriltags.log
+t/tmp/vifm_trash/000_Documents
+	/home/chutsu/Documents
+t/tmp/vifm_trash/000_Downloads
+	/home/chutsu/Downloads
+t/tmp/vifm_trash/000_Screenshot_2022-02-06_11-27-50.png
+	/home/chutsu/Screenshot_2022-02-06_11-27-50.png
 t/tmp/vifm_trash/000_MH_01.dat
 	/data/euroc_results/results/MH_01.dat
 t/tmp/vifm_trash/000_MH_02.dat
@@ -45,6 +45,12 @@ t/tmp/vifm_trash/000_V2_02.dat
 	/data/euroc_results/results/V2_02.dat
 t/tmp/vifm_trash/000_V2_03.dat
 	/data/euroc_results/results/V2_03.dat
+t/tmp/vifm_trash/000_build_apriltag.log
+	/home/chutsu/projects/yac/deps/build_apriltag.log
+t/tmp/vifm_trash/000_build_apriltag3.log
+	/home/chutsu/projects/yac/deps/build_apriltag3.log
+t/tmp/vifm_trash/000_build_apriltags.log
+	/home/chutsu/projects/yac/deps/build_apriltags.log
 t/tmp/vifm_trash/000_euroc_results-stereo-kalibr_vs_yac.png
 	/data/euroc_results/euroc_results-stereo-kalibr_vs_yac.png
 t/tmp/vifm_trash/000_euroc_results-kalibr_vs_yac-2.png

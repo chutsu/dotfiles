@@ -5,9 +5,7 @@ Install
 =======
 
 ```
-# Deployment version
-curl -L https://git.io/fjBqV > setup.bash && bash setup.bash mini
-
-# Full version
-curl -L https://git.io/fjBqV > setup.bash && bash setup.bash full
+sudo apt-get install make git
+git clone git@github.com/chutsu:dotfiles.git
+cd dotfiles && bash setup.bash full
 ```
