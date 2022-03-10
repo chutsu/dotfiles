@@ -175,8 +175,8 @@ function! CommandModeKeyMappings()
 
     " Run script file
     " map <S-r> :!clear && bash scripts/run.sh<CR>
-    map <S-r> :!clear && bash $HOME/run.sh<CR>
-    nnoremap <F12> :tabnew<CR>:e $HOME/run.sh<CR>
+    map <S-r> :!clear && bash scripts/run.sh<CR>
+    nnoremap <F12> :tabnew<CR>:e scripts/run.sh<CR>
 endfunction
 
 function! NavImproved()
