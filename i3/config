@@ -11,6 +11,7 @@ set $mod Mod1
 # Float windows
 for_window [class="Image"] floating enable
 for_window [title="viz"] floating enable move position 0 0
+for_window [title="Viz"] floating enable move position 0 0
 for_window [title="dev"] floating enable
 # assign [title="Viz"] 4
 

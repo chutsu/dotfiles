@@ -41,6 +41,11 @@ alias gitlog="git log --graph \
     --all"
 
 # EXECUTIONAL SHORTCUTS
+lock() {
+  i3lock -c 000000
+  xset dpms force off
+}
+
 alias vifm='vifmrun'
 alias vim='nvim'
 alias ls='ls -lh --group-directories-first --color'
@@ -53,6 +58,7 @@ alias search="grep -nr $1 ."
 alias headphones="pulseaudio --start; sleep 5; \
                   echo -e 'connect 74:45:CE:0B:42:F9' | bluetoothctl ; sleep 5; \
                   pacmd set-card-profile bluez_card.74_45_CE_0B_42_F9 a2dp_sink"
+alias fan_max="echo level 7 | sudo tee /proc/acpi/ibm/fan"
 
 # ENVIRONMENTAL SETTINGS
 export PATH=$PATH:~/dotfiles/scripts

@@ -3,9 +3,8 @@
 .netrwhist
 mutt/cache
 run.sh
-vifm/vifminfo
+configs/vifm/vifminfo
+configs/nvim/plugged
 vim/bundle
-nvim/plugged
 tags
 .nvimlog
-
