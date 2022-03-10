@@ -31,10 +31,6 @@ alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias rs4se="cd $PROJECTS/rs4se"
 
-# Wayve
-alias sensor_calibration="cd ~/WayveCode/wayve/robot/modules/sensor_calibration"
-alias state_estimation="cd ~/WayveCode/wayve/robot/modules/state_estimation"
-
 # GIT ALIASES
 alias gitlog="git log --graph \
     --abbrev-commit \
@@ -63,6 +59,7 @@ export PATH=$PATH:~/dotfiles/scripts
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 export VISUAL=vim
 export EDITOR=vim
+export MAKEFLAGS=-j1
 
 # FZF Settings
 # -- Setting fd as the default source for fzf
@@ -74,7 +71,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
 }
-PS1='[\w]\[\033[1;35m\]$(parse_git_branch)\[\033[0m\] > '
+PS1='[\h:\w]\[\033[1;35m\]$(parse_git_branch)\[\033[0m\] > '
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000000
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
