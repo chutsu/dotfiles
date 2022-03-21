@@ -6,5 +6,6 @@ run.sh
 configs/vifm/vifminfo
 configs/nvim/plugged
 vim/bundle
+vifm/vimfminfo
 tags
 .nvimlog
