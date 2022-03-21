@@ -51,6 +51,11 @@ alias gitlog="git log --graph \
     --all"
 
 # EXECUTIONAL SHORTCUTS
+lock() {
+  i3lock -c 000000
+  xset dpms force off
+}
+
 alias vifm='vifmrun'
 alias vim='nvim'
 alias ls='ls -lh --group-directories-first --color'
@@ -75,7 +80,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
 }
-PS1='[\w]\[\033[1;35m\]$(parse_git_branch)\[\033[0m\] > '
+PS1='[\h:\w]\[\033[1;35m\]$(parse_git_branch)\[\033[0m\] > '
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000000
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
