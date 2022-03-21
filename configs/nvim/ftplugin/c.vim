@@ -7,7 +7,7 @@ endif
 autocmd BufWritePost *
   \ call system('ctags -R --exclude=bin --exclude=deps --exclude=deps --exclude=build --exclude=docs --exclude=octave .')
 
-command -buffer CSwitchFile call ftplugin#c#SwitchFile()
+command! -buffer CSwitchFile call ftplugin#c#SwitchFile()
 nnoremap <buffer> <C-i> :call ftplugin#c#SwitchFile()<CR>
 
 " Code format style

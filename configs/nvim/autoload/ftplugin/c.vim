@@ -1,4 +1,4 @@
-function ftplugin#c#SwitchFile()
+function! ftplugin#c#SwitchFile()
   if expand('%:e') == 'h'
     find %:t:r.c
     return
