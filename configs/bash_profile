@@ -7,6 +7,16 @@ if [ -f /opt/ros/noetic/setup.bash ]; then
   source /opt/ros/noetic/setup.bash
 fi
 
+# ENVIRONMENTAL SETTINGS
+export PATH=$PATH:~/dotfiles/scripts
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+export VISUAL=nvim
+export EDITOR=nvim
+
+# History
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 # Suppress GTK accessibility known bug with this env var
 export NO_AT_BRIDGE=1
 
@@ -54,12 +64,6 @@ alias headphones="pulseaudio --start; sleep 5; \
                   echo -e 'connect 74:45:CE:0B:42:F9' | bluetoothctl ; sleep 5; \
                   pacmd set-card-profile bluez_card.74_45_CE_0B_42_F9 a2dp_sink"
 alias fan_max="echo level 7 | sudo tee /proc/acpi/ibm/fan"
-
-# ENVIRONMENTAL SETTINGS
-export PATH=$PATH:~/dotfiles/scripts
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-export VISUAL=vim
-export EDITOR=vim
 
 # FZF Settings
 # -- Setting fd as the default source for fzf
