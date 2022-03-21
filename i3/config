@@ -11,7 +11,9 @@ set $mod Mod1
 # Float windows
 for_window [class="Image"] floating enable
 for_window [title="viz"] floating enable move position 0 0
+for_window [title="Viz"] floating enable move position 0 0
 for_window [title="dev"] floating enable
+for_window [title="Figure 1"] floating enable
 # assign [title="Viz"] 4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -58,11 +60,17 @@ bindsym $mod+Control+Shift+l exec ~/.screenlayout/laptop.sh
 # workspace 4 output eDP-1 HDMI-1
 # workspace 5 output eDP-1 HDMI-1
 
-workspace 1 output eDP-1 HDMI-1
-workspace 2 output eDP-1 HDMI-1
-workspace 3 output eDP-1 HDMI-1
-workspace 4 output HDMI-1 eDP-1
-workspace 5 output HDMI-1 eDP-1
+# workspace 1 output eDP-1 HDMI-1
+# workspace 2 output eDP-1 HDMI-1
+# workspace 3 output eDP-1 HDMI-1
+# workspace 4 output HDMI-1 eDP-1
+# workspace 5 output HDMI-1 eDP-1
+
+workspace 1 output eDP-1 DP-2
+workspace 2 output eDP-1 DP-2
+workspace 3 output eDP-1 DP-2
+workspace 4 output DP-2 eDP-1
+workspace 5 output DP-2 eDP-1
 
 # Split in horizontal orientation
 bindsym $mod+Shift+h split h
@@ -92,6 +100,7 @@ bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6 
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -99,6 +108,7 @@ bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
 
 # Restart i3 inplace
 bindsym $mod+Shift+r restart
