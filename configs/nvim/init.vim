@@ -25,6 +25,7 @@ function! Plugins()
   Plug 'tpope/vim-fugitive'
   Plug 'rhysd/vim-clang-format'
   Plug 'dense-analysis/ale'
+  Plug 'sirtaj/vim-openscad'
 
   call plug#end()
 endfunction
@@ -239,6 +240,11 @@ function! ALE()
   " YAPF
   let g:ale_python_yapf_executable = '/usr/bin/yapf3'
   let g:airline#extensions#ale#enabled = 1
+
+  " C
+  let g:ale_c_parse_makefile = 1
+  let g:ale_c_cc_options = '-Wall -Wextra -I/usr/include/SDL2'
+
 
   " Fixer settings
   let g:ale_fix_on_save = 1
