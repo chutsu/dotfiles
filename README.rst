@@ -1,7 +1,7 @@
 chutsu's dotfiles 
 =================
 
-.. image:: https://github.com/chutsu/dotfiles/workflows/ci.yml/badge.svg
+.. image:: https://github.com/chutsu/dotfiles/actions/workflows/ci.yml/badge.svg
   :target: https://github.com/chutsu/dotfiles/actions/workflows/ci.yml
   
 Install
