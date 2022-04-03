@@ -1,5 +1,8 @@
-chutsu's dotfiles
+chutsu's dotfiles 
 =================
+
+.. image:: https://github.com/chutsu/dotfiles/workflows/run_ci/badge.svg
+  :target: https://github.com/chutsu/dotfiles/actions?query=run_ci
 
 Install
 =======
