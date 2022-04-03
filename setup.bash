@@ -182,6 +182,7 @@ setup_vim() {
 setup() {
   MODE=$1;
   git_config;
+  sudo apt-get update
   install_dev_pkgs;
   install_cpp_pkgs;
   install_octave_pkgs;
