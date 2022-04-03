@@ -1,6 +1,8 @@
 #/bin/bash
 set -e  # Exit on first error
 APT_INSTALL='sudo apt-get install -y -qq'
+
+install_dev_pkgs() {
   # General dev tools
   $APT_INSTALL \
     xterm \
