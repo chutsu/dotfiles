@@ -1,6 +1,7 @@
 " -- GENERAL SETTINGS ----------------------------------------------------------
 
 colorscheme custom
+set vicmd=nvim
 " only " Set single window
 " view " Enable preview
 

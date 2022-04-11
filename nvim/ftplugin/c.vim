@@ -21,3 +21,6 @@ map <S-t> :vsplit %:s?src?tests?test_:r.c<CR>
 if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
+
+" Set comment string style
+autocmd FileType c setlocal commentstring=//\ %s
