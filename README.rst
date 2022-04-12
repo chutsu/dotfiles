@@ -9,6 +9,7 @@ Install
 
 .. code-block::
 
+  sudo apt-get update
   sudo apt-get install make git
-  git clone git@github.com/chutsu:dotfiles.git
+  git clone git@github.com:chutsu/dotfiles.git
   cd dotfiles && bash setup.bash full
