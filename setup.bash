@@ -86,14 +86,17 @@ git_config() {
 setup_dotfiles() {
   # REMOVE OLD DOTFILES
   echo "remove old dotfiles";
-  rm -f "${HOME}/.xinitrc";
-  rm -f "${HOME}/.Xdefaults";
-  rm -f "${HOME}/.xbindkeysrc";
-  rm -rf "${HOME}/.gitconfig";
   rm -f "${HOME}/.bash_profile";
+  rm -rf "${HOME}/.gitconfig";
+  rm -f "${HOME}/.xbindkeysrc";
+  rm -f "${HOME}/.Xdefaults";
+  rm -f "${HOME}/.xinitrc";
+  rm -f "${HOME}/.xsessionrc";
+  rm -rf "${HOME}/.configs/.i3";
+  rm -f "${HOME}/.configs/nvim";
   rm -f "${HOME}/.screenlayout";
-  rm -rf "${HOME}/.i3";
   rm -f "${HOME}/.tmux.conf";
+  rm -rf "${HOME}/.vifm";
   rm -f "${HOME}/.vifmrc";
 
   # SYMLINKS
@@ -105,8 +108,9 @@ setup_dotfiles() {
   ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
   ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
   ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
-  ln -fs "${PWD}/configs/nvim" "${HOME}/.config/";
+  ln -fs "${PWD}/configs/xsessionrc" "${HOME}/.xsessionrc";
   ln -fs "${PWD}/i3" "${HOME}/.config/";
+  ln -fs "${PWD}/nvim" "${HOME}/.config/";
   ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
   ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
   ln -fs "${PWD}/vifm" "${HOME}/.vifm";
