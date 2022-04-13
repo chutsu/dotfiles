@@ -6,6 +6,7 @@ install_dev_pkgs() {
   # General dev tools
   $APT_INSTALL \
     xterm \
+    curl \
     git \
     tree \
     htop \
