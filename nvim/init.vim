@@ -125,6 +125,11 @@ function! EditorBehaviour()
   nnoremap <C-]> <C-]>zt
   nnoremap <C-t> <C-t>zt
 
+  " Set comment string style
+  autocmd FileType c setlocal commentstring=//\ %s
+  autocmd FileType cpp setlocal commentstring=//\ %s
+  autocmd FileType openscad setlocal commentstring=//\ %s
+
   " Keep search matches in the middle of the screen
   nnoremap n nzz
   nnoremap N Nzz

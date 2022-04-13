@@ -1,3 +1,4 @@
+" If file is not a C++ file quit early
 if (&ft != 'cpp')
   finish
 endif
@@ -23,3 +24,5 @@ nmap <expr> <C-i> ':call ftplugin#cpp#SwitchCPPFile()<CR>'
 "   \ ftplugin#cpp#IsTestFile()
 "   \ ? ':echom "Invalid operation!"<CR>':':vsplit %:s?src?tests?:r.cpp<CR>'
 
+" Set comment string style
+autocmd FileType cpp setlocal commentstring=//\ %s
