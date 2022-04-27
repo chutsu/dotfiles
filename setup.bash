@@ -13,11 +13,6 @@ install_dev_pkgs() {
     tmux \
     neovim
 
-  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-}
-
-install_cpp_pkgs() {
   # C / C++
   $APT_INSTALL \
     exuberant-ctags \
@@ -28,13 +23,7 @@ install_cpp_pkgs() {
     clang \
     clang-format \
     clang-tidy
-}
 
-install_octave_pkgs() {
-  $APT_INSTALL octave-*
-}
-
-install_python_pkgs() {
   # Python
   $APT_INSTALL \
     libpython3-dev \
@@ -44,15 +33,16 @@ install_python_pkgs() {
     python3-matplotlib \
     python3-setuptools
 
-  # $APT_INSTALL \
-  # pip3 install ueberzug
-}
-
-install_bash_pkgs() {
   # Sh / Bash
   $APT_INSTALL \
     shellcheck \
     silversearcher-ag
+
+  # Vifm preview
+  pip3 install ueberzug
+
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
 install_desktop_pkgs() {
@@ -76,12 +66,6 @@ install_desktop_pkgs() {
 
   $APT_INSTALL \
     texlive-*
-}
-
-git_config() {
-  git config --global user.name "Chris Choi";
-  git config --global user.email "chutsu@gmail.com";
-  git config --global push.default matching;
 }
 
 setup_dotfiles() {
@@ -119,69 +103,10 @@ setup_dotfiles() {
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
 }
 
-install_vim() {
-  # Remove existing vim installation
-  sudo apt-get remove -y --purge \
-    vim \
-    vim-runtime \
-    vim-gnome \
-    vim-tiny \
-    vim-gui-common
-  sudo rm -rf /usr/local/share/vim /usr/bin/vim
-
-  # Install pre-requisits
-  $APT_INSTALL \
-    git \
-    ncurses-dev \
-    python-dev \
-    python3-dev \
-    libncurses5-dev \
-    libatk1.0-dev \
-    libx11-dev \
-    libxpm-dev \
-    libxt-dev
-
-  # Clone repo
-  cd /usr/local/src
-  if [[ ! -d vim ]]; then
-    sudo git clone https://github.com/vim/vim
-  fi
-
-  # Update repo
-  cd vim
-  sudo git pull && sudo git fetch
-
-  # Build and install vim
-  sudo ./configure \
-    --enable-multibyte \
-    --enable-python3interp=yes \
-    --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
-    --enable-cscope \
-    --enable-gui=auto \
-    --with-features=huge \
-    --with-x \
-    --enable-fontset \
-    --enable-largefile \
-    --disable-netbeans \
-    --enable-fail-if-missing
-  sudo make && sudo make install
-}
-
-setup_vim() {
-  # Install vim
-  echo "Installing vim ..."
-  # sudo apt-get install vim-nox -y -qq
-  install_vim
-
-  # Install vim plugins
-  echo "Installing vim plugins ..."
-  cd "$HOME/dotfiles"
-  vim -c VundleInstall -c quitall
-  "$HOME/.vim/bundle/fzf/install" --all
-
-  # Build YouCompleteMe
-  cd "$HOME/.vim/bundle/YouCompleteMe"
-  ./install.py --clang-completer
+git_config() {
+  git config --global user.name "Chris Choi";
+  git config --global user.email "chutsu@gmail.com";
+  git config --global push.default matching;
 }
 
 setup() {
@@ -189,17 +114,12 @@ setup() {
   git_config;
   sudo apt-get update
   install_dev_pkgs;
-  install_cpp_pkgs;
-  install_octave_pkgs;
-  install_bash_pkgs;
 
   if [ "$MODE" == "full" ]; then
-    install_python_pkgs;
     install_desktop_pkgs;
   fi
 
   setup_dotfiles;
-  # setup_vim;
   echo "Done! :)"
 }
 
