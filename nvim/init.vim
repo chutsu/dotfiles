@@ -23,6 +23,7 @@ function! Plugins()
 
   " Programming Utils
   Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
   Plug 'rhysd/vim-clang-format'
   Plug 'dense-analysis/ale'
   Plug 'sirtaj/vim-openscad'
@@ -39,6 +40,7 @@ function! EditorAppearance()
   colorscheme eyecandy
   set cursorline
   set encoding=utf-8
+  set signcolumn=yes
 
   " Let terminal resize scale the internal windows
   autocmd VimResized * :wincmd =
@@ -263,6 +265,20 @@ function! ALE()
   \}
 endfunction
 
+function! GitGutter()
+  set updatetime=100
+  let g:gitgutter_sign_added = '+'
+  let g:gitgutter_sign_modified = '>'
+  let g:gitgutter_sign_removed = '-'
+  let g:gitgutter_sign_removed_first_line = '^'
+  let g:gitgutter_sign_modified_removed = '<'
+
+  let g:gitgutter_set_sign_backgrounds = 0
+  highlight GitGutterAdd    ctermfg=46
+  highlight GitGutterChange ctermfg=33
+  highlight GitGutterDelete ctermfg=196
+endfunction
+
 " function DisplayALEVirtualText() abort
 "   for l:buffer in keys(g:ale_buffer_info)
 "     let l:buffer = str2nr(l:buffer)
@@ -309,3 +325,4 @@ call ClangFormat()
 call VimBrowserSearch()
 call EasyMotion()
 call ALE()
+call GitGutter()

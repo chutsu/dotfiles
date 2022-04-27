@@ -32,6 +32,7 @@ hi Special ctermfg=198
 hi Error ctermfg=196 ctermbg=None
 hi PreProc ctermfg=105
 hi String ctermfg=120
+hi SignColumn ctermbg=236
 
 " Spell check colors
 hi SpellBad cterm=underline ctermfg=196
