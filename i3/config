@@ -1,12 +1,33 @@
+# Workspace Names
+set $ws1 "1:web"
+set $ws2 "2:dev"
+set $ws3 "3:files"
+set $ws4 "4:misc"
+
+# Assign
+assign [class="Firefox"] $ws1
+assign [class="xterm"] $ws2
+assign [class="pcmanfm"] $ws3
+
 # Startup programs
 exec --no-startup-id nm-applet # network manager
 exec --no-startup-id xsetroot -solid "#222222"  # background
 exec --no-startup-id xset s off  # screensaver off
 exec --no-startup-id xrdb ~/.Xdefaults  # terminal settings
 exec --no-startup-id blueman-applet
+exec --no-startup-id sh -c 'sleep 1; i3-msg workspace $ws1; exec firefox;'
+exec --no-startup-id sh -c 'sleep 2; i3-msg workspace $ws2; exec xterm;'
+exec --no-startup-id sh -c 'sleep 3; i3-msg workspace $ws3; exec pcmanfm;'
+exec --no-startup-id sh -c 'sleep 4; i3-msg workspace $ws2;'
+
 
 # Set ALT as mod key
 set $mod Mod1
+
+# Colors           Border   Background  Text
+client.focused     #000000  #3A5894     #EEEEEE
+client.unfocused   #555555  #333333     #EEEEEE
+client.background  #444444  #444444     #EEEEEE
 
 # Float windows
 for_window [class="Image"] floating enable
@@ -95,20 +116,16 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+Control+space focus mode_toggle
 
 # Switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6 
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
 
 # Restart i3 inplace
 bindsym $mod+Shift+r restart
@@ -118,43 +135,43 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg e
 
 # Resize window
 mode "resize" {
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-    # same bindings, but for the arrow keys
-    bindsym Ljft resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+  # same bindings, but for the arrow keys
+  bindsym Ljft resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # i3bar
 bar {
-    # color
-    colors {
-        background #333333
-        separator #666666
-        statusline #EEEEEE #that neon blue
+  # color
+  colors {
+    background #333333
+    separator #666666
+    statusline #EEEEEE #that neon blue
 
-        focused_workspace  #4c7899 #285577 #ffffff
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-    }
+    focused_workspace  #4c7899 #285577 #ffffff
+    active_workspace   #333333 #5f676a #ffffff
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #2f343a #900000 #ffffff
+  }
 
-    # i3bar position
-    position top
+  # i3bar position
+  position top
 
-    # i3bar status
-    status_command i3status -c ~/.config/i3/i3status.conf
+  # i3bar status
+  status_command i3status -c ~/.config/i3/i3status.conf
 }
 
 # volume
@@ -165,8 +182,3 @@ bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 # brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-
-# colors           border   background  text
-client.focused     #000000  #3A5894     #EEEEEE
-client.unfocused   #555555  #333333     #EEEEEE
-client.background  #444444  #444444     #EEEEEE
