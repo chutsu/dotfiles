@@ -27,18 +27,20 @@ install_dev_pkgs() {
   # Python
   $APT_INSTALL \
     libpython3-dev \
+    pylint \
+    yapf3 \
     python3-pip \
     python3-numpy \
     python3-scipy \
     python3-matplotlib \
-    python3-setuptools
+    python3-setuptools \
 
   # Sh / Bash
   $APT_INSTALL \
     shellcheck \
     silversearcher-ag
 
-  # Vifm preview
+  # Vifm
   pip3 install ueberzug
 
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \

@@ -237,7 +237,7 @@ endfunction
 
 function! ALE()
   " Pylint
-  let g:ale_python_pylint_executable = '/usr/bin/pylint3'
+  let g:ale_python_pylint_executable = '/usr/bin/pylint'
   " let g:ale_python_pylint_options = --indent-string='  '
 
 	" " Display ALE Virtual Text
