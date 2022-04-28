@@ -25,7 +25,7 @@ mark p ~/sync/projects Projects
 mark d ~/Downloads Downloads
 
 " Quit with q
-nmap q ZZ
+" nmap q ZZ
 
 
 " -- FILE HANDLER --------------------------------------------------------------

@@ -22,11 +22,12 @@ function! Plugins()
   Plug 'voldikss/vim-browser-search'
 
   " Programming Utils
+  Plug 'sirtaj/vim-openscad'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'rhysd/vim-clang-format'
   Plug 'dense-analysis/ale'
-  Plug 'sirtaj/vim-openscad'
+  Plug 'elbeardmorez/vim-loclist-follow'
 
   call plug#end()
 endfunction
@@ -236,6 +237,23 @@ function! EasyMotion()
 endfunction
 
 function! ALE()
+  let g:ale_lint_on_enter = 0
+  let g:ale_lint_on_save = 1
+  let g:airline#extensions#ale#enabled = 1
+  let g:ale_set_loclist = 1
+  " let g:ale_open_list = 'on_save'
+  let g:ale_list_window_size = 5
+
+  " Close window when buffer closes
+  augroup CloseLoclistWindowGroup
+    autocmd!
+    autocmd QuitPre * if empty(&buftype) | lclose | endif
+  augroup END
+
+  " Jump to next or previous error
+  nmap <silent> = :ALENextWrap<cr>
+  nmap <silent> - :ALEPreviousWrap<cr>
+
   " Pylint
   " let g:ale_python_pylint_executable = '/usr/bin/pylint'
   " let g:ale_python_pylint_options = --indent-string='  '
@@ -246,12 +264,10 @@ function! ALE()
 
   " YAPF
   let g:ale_python_yapf_executable = '/usr/bin/yapf3'
-  let g:airline#extensions#ale#enabled = 1
 
   " C
   let g:ale_c_parse_makefile = 1
   let g:ale_c_cc_options = '-Wall -Wextra -I/usr/include/SDL2'
-
 
   " Fixer settings
   let g:ale_fix_on_save = 1
@@ -260,6 +276,10 @@ function! ALE()
   \}
 
   " Linters
+  let g:ale_linters = {
+  \ 'python' : ['pylint']
+  \}
+
   let g:ale_linters_ignore = {
   \ 'javascript': ['eslint'],
   \}
