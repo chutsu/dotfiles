@@ -49,7 +49,7 @@ filetype *.jpg,*.jpeg,*.png,*.gif
 filetype *.gif,*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
   \*.as[fx]
-  \ mplayer -vf scale -zoom -xy 1024 %c
+  \ mplayer -vf scale -zoom -xy 640 %c
 
 
 " -- PREVIEW -------------------------------------------------------------------
