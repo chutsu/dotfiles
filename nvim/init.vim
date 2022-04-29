@@ -21,13 +21,16 @@ function! Plugins()
   Plug 'nvim-lua/plenary.nvim'
   Plug 'voldikss/vim-browser-search'
 
-  " Programming Utils
+  " Programming
   Plug 'sirtaj/vim-openscad'
-  Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
   Plug 'rhysd/vim-clang-format'
   Plug 'dense-analysis/ale'
-  Plug 'elbeardmorez/vim-loclist-follow'
+
+  " Git
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'junegunn/gv.vim'
 
   call plug#end()
 endfunction
