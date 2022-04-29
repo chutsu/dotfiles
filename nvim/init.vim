@@ -182,7 +182,7 @@ function! NerdTree()
   autocmd VimEnter * NERDTree | wincmd p
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-  nnoremap <tab> :NERDTreeToggle<CR><CR>
+  map <C-\> :NERDTreeToggle<CR><CR>
     " let g:NERDTreeDirArrows=0
     let g:NERDTreeWinSize=30 " set NerdTree size
     let g:NERDTreeWinPos='left'
