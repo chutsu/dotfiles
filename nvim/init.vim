@@ -90,7 +90,7 @@ function! EditorBehaviour()
   autocmd FileType python setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
   " Remove trailing whitespaces
-  highlight ExtraWhitespace ctermbg=red guibg=red
+  hi ExtraWhitespace ctermbg=red guibg=red
   match ExtraWhitespace /\s\+$/
   au BufWinEnter * match ExtraWhitespace /\s\+$/
   au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -280,6 +280,10 @@ function! ALE()
   \}
 endfunction
 
+function! Fugitive()
+  nmap <silent> ? :tabnew<CR>:G<CR><C-W>j:q<CR>:6<CR>
+endfunction
+
 function! GitGutter()
   set updatetime=100
   let g:gitgutter_sign_added = '+'
@@ -308,4 +312,5 @@ call ClangFormat()
 call VimBrowserSearch()
 call EasyMotion()
 call ALE()
+call Fugitive()
 call GitGutter()
