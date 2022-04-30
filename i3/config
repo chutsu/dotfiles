@@ -35,6 +35,10 @@ for_window [title="viz"] floating enable move position 0 0
 for_window [title="Viz"] floating enable move position 0 0
 for_window [title="dev"] floating enable
 for_window [title="Figure 1"] floating enable
+for_window [title="Figure 2"] floating enable
+for_window [title="Figure 3"] floating enable
+for_window [title="Figure 4"] floating enable
+for_window [title="Figure 5"] floating enable
 for_window [title="MPlayer"] floating enable
 # assign [title="Viz"] 4
 
