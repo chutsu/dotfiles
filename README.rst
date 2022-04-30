@@ -20,9 +20,15 @@ Keybinds
 .. code-block::
 
   # tmux
-  Ctrl-b + h # Select pane left
-  Ctrl-b + j # Select pane down
-  Ctrl-b + k # Select pane up
-  Ctrl-b + l # Select pane right
-  Ctrl-b + b # Select last window
-  Ctrl-b + r # Reload tmux config
+  Ctrl-b + h  # Select pane left
+  Ctrl-b + j  # Select pane down
+  Ctrl-b + k  # Select pane up
+  Ctrl-b + l  # Select pane right
+  Ctrl-b + b  # Select last window
+  Ctrl-b + r  # Reload tmux config
+
+  # vifm
+  Space  # Enable preview mode
+  'h     # Go to $HOME
+  'p     # Go $HOME/projects
+  'd     # Go $HOME/Downloads

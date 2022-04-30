@@ -1,16 +1,16 @@
 " -- GENERAL SETTINGS ----------------------------------------------------------
 
+" Settings
+source ~/.vifm/scripts/favicons.vifm
 colorscheme custom
 set vicmd=nvim
+set syscalls                  " Show progress bar when copying or moving
+set trashdir=/tmp/vifm_trash  " Set trash directory
 " only " Set single window
 " view " Enable preview
 
-source ~/.vifm/scripts/favicons.vifm
-
+" Keybinds
 nmap <space> :view<CR>
-
-set syscalls                  " Show progress bar when copying or moving
-set trashdir=/tmp/vifm_trash  " Set trash directory
 
 " FZF file search
 command! fzf :execute '!fzf 2>&0 %%IU || echo %c' | normal! gf
@@ -21,7 +21,7 @@ autocmd DirEnter * :normal gA
 
 " Bookmarks
 mark h ~/ Home
-mark p ~/sync/projects Projects
+mark p ~/projects Projects
 mark d ~/Downloads Downloads
 
 
