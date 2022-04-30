@@ -55,7 +55,7 @@ floating_modifier $mod
 bindsym $mod+t exec xterm
 
 # Screenshot
-bindsym $mod+s exec gnome-screenshot -i
+bindsym $mod+s exec gnome-screenshot -i -a
 
 # Kill focused window
 bindsym $mod+q kill
