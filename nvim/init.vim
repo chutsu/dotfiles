@@ -157,16 +157,20 @@ function! Navigation()
   nnoremap k gk
 
   " Tabs
-  map <C-k> :tabr<cr>
-  map <C-j> :tabl<cr>
   map <C-h> :tabp<cr>
+  " map <C-j> :tabl<cr>
+  " map <C-k> :tabr<cr>
   map <C-l> :tabn<cr>
 
   " Splits
-  map <S-k> :wincmd k<CR>
-  map <S-j> :wincmd j<CR>
   map <S-h> :wincmd h<CR>
+  map <S-j> :wincmd j<CR>
+  map <S-k> :wincmd k<CR>
   map <S-l> :wincmd l<CR>
+
+  " Method / function / class
+  map <C-j> ]m
+  map <C-k> [m
 endfunction
 
 function! Netrw()
