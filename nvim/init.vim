@@ -186,8 +186,8 @@ endfunction
 function! NerdTree()
   let NERDTreeShowHidden=1
 
-  autocmd VimEnter * NERDTree | wincmd p
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  " autocmd VimEnter * NERDTree | wincmd p
+  " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
   map <C-f> :NERDTreeToggle<CR><CR>
     " let g:NERDTreeDirArrows=0
@@ -300,6 +300,10 @@ function! GitGutter()
   highlight GitGutterAdd    ctermfg=46
   highlight GitGutterChange ctermfg=33
   highlight GitGutterDelete ctermfg=196
+
+  nmap ) :GitGutterNextHunk<CR>
+  nmap ( :GitGutterPrevHunk<CR>
+  nmap _ :GitGutterStageHunk<CR>
 endfunction
 
 call Plugins()
