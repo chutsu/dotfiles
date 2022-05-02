@@ -2,7 +2,7 @@
 export TERM=screen-256color
 if [ -f ~/.fzf.bash ]; then
   source ~/.fzf.bash
-fi 
+fi
 if [ -f /opt/ros/noetic/setup.bash ]; then
   source /opt/ros/noetic/setup.bash
 fi
