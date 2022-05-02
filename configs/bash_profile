@@ -36,19 +36,9 @@ alias yac="cd $PROJECTS/yac"
 alias proto="cd $PROJECTS/proto"
 alias proto_ros="cd $PROJECTS/proto_ros"
 alias papers="cd $PROJECTS/papers"
-alias zero="cd $PROJECTS/zero"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias rs4se="cd $PROJECTS/rs4se"
-
-# GIT ALIASES
-alias gitlog="git log --graph \
-    --abbrev-commit \
-    --decorate \
-    --date=relative \
-    --format=format:'%C(bold blue)%h%C(reset) \
-    - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' \
-    --all"
 
 # EXECUTIONAL SHORTCUTS
 lock() {
@@ -65,9 +55,7 @@ alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
 alias todo="vim $HOME/projects/TODO; cd -";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
-alias headphones="pulseaudio --start; sleep 5; \
-                  echo -e 'connect 74:45:CE:0B:42:F9' | bluetoothctl ; sleep 5; \
-                  pacmd set-card-profile bluez_card.74_45_CE_0B_42_F9 a2dp_sink"
+alias fan_off="echo level 0 | sudo tee /proc/acpi/ibm/fan"
 alias fan_max="echo level 7 | sudo tee /proc/acpi/ibm/fan"
 
 # FZF Settings
