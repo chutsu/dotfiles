@@ -3,18 +3,7 @@
 	email = chutsu@gmail.com
 
 [core]
-        editor = vim
+  editor = vim
 
 [push]
 	default = matching
-
-[alias]
-        ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-
-[http]
-	cookiefile = /home/chutsu/.gitcookies
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
