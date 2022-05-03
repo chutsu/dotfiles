@@ -36,10 +36,33 @@ alias yac="cd $PROJECTS/yac"
 alias proto="cd $PROJECTS/proto"
 alias proto_ros="cd $PROJECTS/proto_ros"
 alias papers="cd $PROJECTS/papers"
-alias zero="cd $PROJECTS/zero"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias rs4se="cd $PROJECTS/rs4se"
+
+sync_projects() {
+  mkdir -p "$HOME/projects";
+  cd "$HOME/projects" || return;
+  declare -a PROJECTS=(
+    "yac"
+    "proto"
+    "rs4se"
+    "papers"
+    "phd"
+    "chutsu.github.io"
+  )
+
+  for PROJ in "${PROJECTS[@]}"; do
+    if [ ! -d "$HOME/projects/$PROJ" ]; then
+      cd "$HOME/projects";
+      git clone "git@github.com:chutsu/$PROJ"
+    fi
+
+    cd "$HOME/projects/$PROJ";
+    git pull
+  done
+}
+alias sync_proj="sync_projects"
 
 # GIT ALIASES
 alias gitlog="git log --graph \
