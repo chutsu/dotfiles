@@ -39,3 +39,9 @@ hi SpellBad cterm=underline ctermfg=196
 hi SpellCap cterm=underline ctermfg=196
 hi SpellRare cterm=underline ctermfg=196
 hi SpellLocal cterm=underline ctermfg=171 ctermbg=None
+
+" Vim diff colors
+hi DiffAdd    ctermfg=82   ctermbg=22
+hi DiffDelete ctermfg=196  ctermbg=52
+hi DiffChange ctermfg=226  ctermbg=58
+hi DiffText   ctermfg=196  ctermbg=52
