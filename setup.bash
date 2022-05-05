@@ -11,7 +11,10 @@ install_dev_pkgs() {
     tree \
     htop \
     tmux \
-    neovim
+    neovim \
+    gimp \
+    mplayer \
+    vlc
 
   # C / C++
   $APT_INSTALL \
@@ -44,10 +47,7 @@ install_dev_pkgs() {
   pip3 install ueberzug
   $APT_INSTALL ffmpegthumbnailer
 
-  # MISC
-  $APT_INSTALL mplayer
-
-  # NVIM - vim-plug
+  # Nvim - vim-plug
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
