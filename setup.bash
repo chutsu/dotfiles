@@ -79,7 +79,6 @@ setup_dotfiles() {
   # REMOVE OLD DOTFILES
   echo "remove old dotfiles";
   rm -f "${HOME}/.bash_profile";
-  rm -rf "${HOME}/.gitconfig";
   rm -f "${HOME}/.xbindkeysrc";
   rm -f "${HOME}/.Xdefaults";
   rm -f "${HOME}/.xinitrc";
@@ -94,7 +93,6 @@ setup_dotfiles() {
   # SYMLINKS
   echo "symlinks dotfiles";
   ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile";
-  ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig";
   ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
   ln -fs "${PWD}/configs/latexmkrc" "${HOME}/.latexmkrc";
   ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
