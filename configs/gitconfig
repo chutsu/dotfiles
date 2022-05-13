@@ -1,3 +1,5 @@
 [user]
 	name = Chris Choi
 	email = chutsu@gmail.com
+[push]
+	default = matching
