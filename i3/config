@@ -81,11 +81,17 @@ bindsym $mod+Control+Shift+h exec ~/.screenlayout/home.sh
 bindsym $mod+Control+Shift+w exec ~/.screenlayout/work.sh
 bindsym $mod+Control+Shift+l exec ~/.screenlayout/laptop.sh
 
-workspace $ws1 output HDMI-1 eDP-1
-workspace $ws2 output HDMI-1 eDP-1
-workspace $ws3 output HDMI-1 eDP-1
-workspace $ws4 output HDMI-1 eDP-1
-workspace $ws5 output eDP-1 HDMI-1
+# workspace $ws1 output HDMI-1 eDP-1
+# workspace $ws2 output HDMI-1 eDP-1
+# workspace $ws3 output HDMI-1 eDP-1
+# workspace $ws4 output HDMI-1 eDP-1
+# workspace $ws5 output eDP-1 HDMI-1
+
+workspace $ws1 output DP-1 eDP-1
+workspace $ws2 output DP-1 eDP-1
+workspace $ws3 output DP-1 eDP-1
+workspace $ws4 output DP-1 eDP-1
+workspace $ws5 output eDP-1 DP-1
 
 # workspace 1 output eDP-1 HDMI-1
 # workspace 2 output eDP-1 HDMI-1
