@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# start dbus
+# Start dbus
 if [ -z "${DBUS_SESSION_BUS_ADDRESS-}" ] && type dbus-launch >/dev/null; then
   eval $(dbus-launch --sh-syntax --exit-with-session)
-fi 
+fi
 
+# Start i3
 xbindkeys
 exec i3
-# exec startxfce4
 fbsetroot -solid grey30
