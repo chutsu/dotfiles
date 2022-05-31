@@ -81,6 +81,7 @@ alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
 alias fan_off="echo level 0 | sudo tee /proc/acpi/ibm/fan"
 alias fan_max="echo level 7 | sudo tee /proc/acpi/ibm/fan"
+alias brightness_max="echo 100 | sudo tee /sys/class/backlight/nv_backlight/brightness"
 
 # FZF Settings
 # -- Setting fd as the default source for fzf
