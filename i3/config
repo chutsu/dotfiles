@@ -16,10 +16,10 @@ exec --no-startup-id xsetroot -solid "#222222"  # background
 exec --no-startup-id xset s off  # screensaver off
 exec --no-startup-id xrdb ~/.Xdefaults  # terminal settings
 exec --no-startup-id blueman-applet
-exec --no-startup-id sh -c 'sleep 1; i3-msg workspace $ws1; exec firefox;'
-exec --no-startup-id sh -c 'sleep 2; i3-msg workspace $ws2; exec xterm;'
-exec --no-startup-id sh -c 'sleep 3; i3-msg workspace $ws3; exec pcmanfm;'
-exec --no-startup-id sh -c 'sleep 4; i3-msg workspace $ws2;'
+# exec --no-startup-id sh -c 'sleep 1; i3-msg workspace $ws1; exec firefox;'
+# exec --no-startup-id sh -c 'sleep 2; i3-msg workspace $ws2; exec xterm;'
+# exec --no-startup-id sh -c 'sleep 3; i3-msg workspace $ws3; exec pcmanfm;'
+# exec --no-startup-id sh -c 'sleep 4; i3-msg workspace $ws2;'
 
 
 # Set ALT as mod key
