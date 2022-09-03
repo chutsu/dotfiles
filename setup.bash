@@ -14,7 +14,8 @@ install_dev_pkgs() {
     neovim \
     gimp \
     mplayer \
-    vlc
+    vlc \
+    openssh-server
 
   # C / C++
   $APT_INSTALL \
@@ -44,6 +45,7 @@ install_dev_pkgs() {
     silversearcher-ag
 
   # Vifm
+  $APT_INSTALL libx11-dev libxext-dev
   pip3 install ueberzug
   $APT_INSTALL ffmpegthumbnailer
 
@@ -65,7 +67,6 @@ install_desktop_pkgs() {
     pavucontrol \
     arandr \
     bluetooth bluez bluez-tools rfkill blueman
-
 
   $APT_INSTALL \
     vokoscreen \
