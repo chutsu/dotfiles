@@ -86,6 +86,7 @@ function! EditorBehaviour()
   autocmd BufNewFile,BufReadPost *.launch set filetype=xml
   autocmd BufNewFile,BufReadPost *.h set filetype=c
   autocmd BufNewFile,BufReadPost *.c set filetype=c
+  autocmd BufNewFile,BufReadPost *.ino set filetype=c
 
   autocmd FileType python setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
