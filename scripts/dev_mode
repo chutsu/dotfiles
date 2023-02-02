@@ -3,11 +3,11 @@ session='sandbox'
 tmux new-session -d -s $session
 
 # Window0 - nvim
-tmux rename-window -t $session:0 'dev'
+tmux rename-window -t $session:0 'nvim'
 tmux send-keys -t $session:0 'nvim' C-m
 
-# Window1 - debug
-tmux new-window -t $session:1 -n 'debug'
+# Window1 - dev
+tmux new-window -t $session:1 -n 'dev'
 
 # Window2 - vifm
 tmux new-window -t $session:2 -n 'vifm'
