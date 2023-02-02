@@ -33,7 +33,7 @@ alias catkin_ws="cd ~/catkin_ws/"
 
 # Projects
 alias yac="cd $PROJECTS/yac"
-alias proto="cd $PROJECTS/proto"
+alias proto="cd $PROJECTS/proto/proto"
 alias proto_ros="cd $PROJECTS/proto_ros"
 alias papers="cd $PROJECTS/papers"
 alias phd="cd $PROJECTS/phd"
