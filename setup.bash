@@ -45,13 +45,13 @@ install_dev_pkgs() {
     silversearcher-ag
 
   # Vifm
-  $APT_INSTALL libx11-dev libxext-dev
-  pip3 install ueberzug
-  $APT_INSTALL ffmpegthumbnailer
+  # $APT_INSTALL libx11-dev libxext-dev
+  # pip3 install ueberzug
+  # $APT_INSTALL ffmpegthumbnailer
 
   # Nvim - vim-plug
-  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+  #      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
 install_desktop_pkgs() {
@@ -81,13 +81,13 @@ setup_dotfiles() {
   echo "remove old dotfiles";
   rm -f "${HOME}/.bash_profile";
   rm -rf "${HOME}/.gitconfig";
-  rm -f "${HOME}/.xbindkeysrc";
+  #rm -f "${HOME}/.xbindkeysrc";
   rm -f "${HOME}/.Xdefaults";
-  rm -f "${HOME}/.xinitrc";
-  rm -f "${HOME}/.xsessionrc";
+  #rm -f "${HOME}/.xinitrc";
+  #rm -f "${HOME}/.xsessionrc";
   rm -rf "${HOME}/.configs/.i3";
-  rm -f "${HOME}/.configs/nvim";
-  rm -f "${HOME}/.screenlayout";
+  #rm -f "${HOME}/.configs/nvim";
+  #rm -f "${HOME}/.screenlayout";
   rm -f "${HOME}/.tmux.conf";
   rm -rf "${HOME}/.vifm";
   rm -f "${HOME}/.vifmrc";
@@ -96,15 +96,15 @@ setup_dotfiles() {
   echo "symlinks dotfiles";
   ln -fs "${PWD}/configs/bash_profile" "${HOME}/.bash_profile";
   ln -fs "${PWD}/configs/gitconfig" "${HOME}/.gitconfig";
-  ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
-  ln -fs "${PWD}/configs/latexmkrc" "${HOME}/.latexmkrc";
-  ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
+  #ln -fs "${PWD}/configs/inputrc" "${HOME}/.inputrc";
+  #ln -fs "${PWD}/configs/latexmkrc" "${HOME}/.latexmkrc";
+  #ln -fs "${PWD}/configs/xbindkeysrc" "${HOME}/.xbindkeysrc";
   ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
-  ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
-  ln -fs "${PWD}/configs/xsessionrc" "${HOME}/.xsessionrc";
+  #ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
+  #ln -fs "${PWD}/configs/xsessionrc" "${HOME}/.xsessionrc";
   ln -fs "${PWD}/i3" "${HOME}/.config/";
-  ln -fs "${PWD}/nvim" "${HOME}/.config/";
-  ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
+  #ln -fs "${PWD}/nvim" "${HOME}/.config/";
+  #ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
   ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
   ln -fs "${PWD}/vifm" "${HOME}/.vifm";
   ln -fs "${PWD}/vifm/vifmrc" "${HOME}/.vifmrc";
@@ -120,24 +120,12 @@ git_config() {
 setup() {
   MODE=$1;
   git_config;
-  sudo apt-get update
   install_dev_pkgs;
-
-  if [ "$MODE" == "full" ]; then
-    install_desktop_pkgs;
-  fi
+  install_desktop_pkgs;
 
   setup_dotfiles;
   echo "Done! :)"
 }
 
-print_usage() {
-  echo "setup.bash [full | mini]"
-}
-
 # MAIN
-if [ "$#" != "1" ]; then
-  print_usage;
-  exit;
-fi
 setup "${1}"

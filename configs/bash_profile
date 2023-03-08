@@ -70,7 +70,7 @@ lock() {
   xset dpms force off
 }
 
-alias vifm='vifmrun'
+# alias vifm='vifmrun'
 alias vim='nvim'
 alias ls='ls -lh --group-directories-first --color'
 alias la='ls -lha --color'
