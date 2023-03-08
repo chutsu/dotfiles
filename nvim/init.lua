@@ -70,6 +70,14 @@ vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>", {silent = true})
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
 vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
+---- Tab Navigation
+vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
+vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
+---- Split Navigation
+vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
+vim.keymap.set("n", "<S-j>", ":wincmd j<CR>", {desc = "Move to lower split"})
+vim.keymap.set("n", "<S-k>", ":wincmd k<CR>", {desc = "Move to upper split"})
+vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
 
 
 -- Actions
