@@ -18,21 +18,13 @@ workspace 3 output eDP-1
 workspace 4 output DP-4 DP-3
 workspace 5 output DP-4 DP-3
 
-# Theme
-#set $background "#222222"
-#set $foreground "#FFFFFF"
-##client.<class>         <border>  <background>    <text>      <indicator>   <child_border>
-#client.focused          "#2c2c2c" "#"      "#000000"   "$foreground" "#2c2c2c"
-#client.focused_inactive "#23242a" "$background"  "#666666"   "#000000"     "#999999"
-#client.unfocused        "#666666" "#fff5e5"      "#666666"   "#000000"     "#999999"
 
 # Theme colors
-#client.<class>           <border> <background> <text> <indicator> <child_border>
-client.focused         	  #222222 #FFFFFF #222222 #FFFFFF
-client.unfocused       	  #222222 #222222 #FFFFFF #FFFFFF
-client.focused_inactive	  #222222 #222222 #FFFFFF #FFFFFF
+# client.<class>          <border> <background> <text>  <indicator> <child_border>
+client.focused         	  #222222  #E11584      #222222 #E11584
+client.unfocused       	  #222222  #444444      #FFFFFF #222222
+client.focused_inactive	  #222222  #444444      #FFFFFF #222222
 default_border pixel 2
-
 
 
 # Start a terminal
@@ -55,7 +47,7 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit?' -b 'Yes' 'swaymsg exit'
 
 # Move your focus around
 bindsym $mod+$left focus left
@@ -131,7 +123,9 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
+
 
 # Status Bar:
 bar {
