@@ -13,6 +13,7 @@ install_dev_pkgs() {
     tmux \
     neovim \
     gimp \
+    gnuplot \
     mplayer \
     vlc \
     openssh-server
