@@ -2,8 +2,8 @@
 set -e
 
 # Install Pre-requisits
-#sudo apt-get update -y -qq
-#sudo apt-get install curl sway waybar -y -qq
+sudo apt-get update -y -qq
+sudo apt-get install curl sway waybar -y -qq
 
 # Install Nix
 # if ! command -v nix &> /dev/null; then
@@ -11,13 +11,13 @@ set -e
 # fi
 
 # Install packages
-nix-env -i neovim
-nix-env -i git
-nix-env -i tmux
-nix-env -i lazygit
-nix-env -i htop
-nix-env -i fzf
-nix-env -i vifm
+# nix-env -i neovim
+# nix-env -i git
+# nix-env -i tmux
+# nix-env -i lazygit
+# nix-env -i htop
+# nix-env -i fzf
+# nix-env -i vifm
 # nix-env --uninstall gnumake
 # nix-env --uninstall cmake
 # nix-env --uninstall gcc
