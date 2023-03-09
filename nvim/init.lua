@@ -1,5 +1,5 @@
 -- General Editor Settings
-vim.opt.path = vim.opt.path + "**"
+vim.opt.path = vim.opt.path + ".,**"
 vim.opt.joinspaces = false
 vim.opt.list = true
 vim.opt.number = true
@@ -27,7 +27,7 @@ vim.opt.expandtab = true
 
 -- Color Scheme
 ---- General colors
-vim.api.nvim_set_hl(0, "Normal", {ctermbg=235})
+vim.api.nvim_set_hl(0, "Normal", {ctermbg=None})
 vim.api.nvim_set_hl(0, "LineNr", {ctermfg=249, ctermbg=236})
 vim.api.nvim_set_hl(0, "Cursor", {ctermfg=255, ctermbg=16})
 vim.api.nvim_set_hl(0, "CursorLine", {cterm=None, ctermbg=236})
