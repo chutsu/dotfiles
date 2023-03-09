@@ -1,10 +1,11 @@
 -- General Editor Settings
+vim.opt.path = vim.opt.path + "**"
 vim.opt.joinspaces = false
 vim.opt.list = true
 vim.opt.number = true
 vim.opt.sidescrolloff = 8
 vim.opt.ignorecase = true    -- Ignore case when searching
-vim.opt.smartcase = false		 -- Turn on smartcase when searching
+vim.opt.smartcase = false		 -- Turn off smartcase when searching
 vim.opt.smartindent = true
 vim.opt.wildmenu = true
 vim.opt.scrolloff = 20       -- Top / bottom padding when scrolling
@@ -15,12 +16,13 @@ vim.opt.cursorline = true
 vim.g.netrw_banner = 0       -- Hide banner
 vim.g.netrw_browse_split = 0 -- Open file in current split
 vim.g.netrw_liststyle = 3    -- Tree-style view
-vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.h$,.info$,.swp$,.obj$'
+vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 
 -- Syntax
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 
 -- Color Scheme
@@ -36,7 +38,7 @@ vim.api.nvim_set_hl(0, "VertSplit", {ctermfg=236})
 vim.api.nvim_set_hl(0, "NonText", {ctermfg=235})
 vim.api.nvim_set_hl(0, "Pmenu", {ctermfg=255, ctermbg=239})
 vim.api.nvim_set_hl(0, "PmenuSel", {ctermfg=255, ctermbg=237})
-vim.api.nvim_set_hl(0, "Search", {ctermfg=234, ctermbg=255})
+vim.api.nvim_set_hl(0, "Search", {cterm=None, ctermfg=255, ctermbg=196})
 vim.api.nvim_set_hl(0, "SpellBad", {ctermfg=196, ctermbg=None})
 vim.api.nvim_set_hl(0, "ColorColumn", {ctermfg=196, ctermbg=None})
 ---- Syntax highlighting groups
@@ -70,14 +72,14 @@ vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>", {silent = true})
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
 vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
----- Tab Navigation
-vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
-vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
----- Split Navigation
-vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
-vim.keymap.set("n", "<S-j>", ":wincmd j<CR>", {desc = "Move to lower split"})
-vim.keymap.set("n", "<S-k>", ":wincmd k<CR>", {desc = "Move to upper split"})
-vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
+-- ---- Tab Navigation
+-- vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
+-- vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
+-- ---- Split Navigation
+-- vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
+-- vim.keymap.set("n", "<S-j>", ":wincmd j<CR>", {desc = "Move to lower split"})
+-- vim.keymap.set("n", "<S-k>", ":wincmd k<CR>", {desc = "Move to upper split"})
+-- vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
 
 
 -- Actions
