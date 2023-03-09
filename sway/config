@@ -8,6 +8,7 @@ set $term gnome-terminal
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 # Screen config
+output * bg #111111 solid_color
 output DP-4   res 1920x1080  scale 1.0   pos 0 0
 output DP-3   res 1920x1080  scale 1.0   pos 0 0
 output eDP-1  res 2556x1504  scale 1.25  pos 0 1080  scale_filter linear
@@ -16,6 +17,23 @@ workspace 2 output eDP-1
 workspace 3 output eDP-1
 workspace 4 output DP-4 DP-3
 workspace 5 output DP-4 DP-3
+
+# Theme
+#set $background "#222222"
+#set $foreground "#FFFFFF"
+##client.<class>         <border>  <background>    <text>      <indicator>   <child_border>
+#client.focused          "#2c2c2c" "#"      "#000000"   "$foreground" "#2c2c2c"
+#client.focused_inactive "#23242a" "$background"  "#666666"   "#000000"     "#999999"
+#client.unfocused        "#666666" "#fff5e5"      "#666666"   "#000000"     "#999999"
+
+# Theme colors
+#client.<class>           <border> <background> <text> <indicator> <child_border>
+client.focused         	  #222222 #FFFFFF #222222 #FFFFFF
+client.unfocused       	  #222222 #222222 #FFFFFF #FFFFFF
+client.focused_inactive	  #222222 #222222 #FFFFFF #FFFFFF
+default_border pixel 2
+
+
 
 # Start a terminal
 bindsym $mod+Return exec $term
@@ -121,13 +139,26 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%d-%m-%Y | %H:%M'; do sleep 1; done
+    status_command while date +'%d-%m-%Y | %H:%M '; do sleep 1; done
 
     colors {
-        statusline #ffffff
+        statusline #FFFFFF
         background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        focused_workspace  #444444 #333333 #FFFFFF
+        active_workspace   #323232 #333333 #999999
+        inactive_workspace #323232 #333333 #999999
     }
 }
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec $menu
 
 include /etc/sway/config.d/*
