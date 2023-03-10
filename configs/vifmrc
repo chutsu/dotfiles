@@ -25,6 +25,28 @@ mark p ~/projects Projects
 mark d ~/Downloads Downloads
 
 
+" -- COLORS --------------------------------------------------------------------
+
+highlight clear
+highlight Win cterm=none ctermfg=255 ctermbg=235
+highlight Directory cterm=bold ctermfg=62 ctermbg=none
+highlight Link cterm=bold ctermfg=51  ctermbg=none
+highlight BrokenLink cterm=bold ctermfg=red ctermbg=none
+highlight Socket cterm=bold ctermfg=magenta ctermbg=none
+highlight Device cterm=bold ctermfg=red ctermbg=none
+highlight Fifo cterm=bold ctermfg=cyan ctermbg=none
+highlight Executable cterm=bold ctermfg=118 ctermbg=none
+highlight Selected cterm=none ctermfg=236 ctermbg=208
+highlight CurrLine cterm=bold ctermfg=254 ctermbg=237
+highlight TopLine cterm=none ctermfg=none ctermbg=57
+highlight TopLineSel cterm=bold ctermfg=255 ctermbg=57
+highlight StatusLine cterm=bold ctermfg=255 ctermbg=57
+highlight WildMenu cterm=underline,reverse ctermfg=white ctermbg=black
+highlight CmdLine cterm=none ctermfg=white ctermbg=235
+highlight ErrorMsg cterm=none ctermfg=250 ctermbg=124
+highlight Border cterm=none ctermfg=none ctermbg=none
+
+
 " -- FILE HANDLER --------------------------------------------------------------
 
 " HTML
