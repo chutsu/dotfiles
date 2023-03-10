@@ -8,8 +8,37 @@ vim.opt.ignorecase = true    -- Ignore case when searching
 vim.opt.smartcase = false		 -- Turn off smartcase when searching
 vim.opt.smartindent = true
 vim.opt.wildmenu = true
-vim.opt.scrolloff = 20       -- Top / bottom padding when scrolling
+vim.opt.scrolloff = 10       -- Top / bottom padding when scrolling
 vim.opt.cursorline = true
+vim.opt.undolevels = 1000
+vim.opt.history = 1000
+
+
+
+-- Lazy nvim plugin manager
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+
+
+-- Load plugins
+require("lazy").setup({
+  {'junegunn/fzf', build = './install --bin'},
+  {'ibhagwan/fzf-lua', dependencies = 'junegunn/fzf'},
+  {'bkad/CamelCaseMotion'},
+  {'kris89/vim-multiple-cursors'}
+})
+
 
 
 -- Netrw File Manager
@@ -18,11 +47,14 @@ vim.g.netrw_browse_split = 0 -- Open file in current split
 vim.g.netrw_liststyle = 3    -- Tree-style view
 vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 
+
+
 -- Syntax
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+
 
 
 -- Color Scheme
@@ -66,23 +98,49 @@ vim.api.nvim_set_hl(0, "DiffChange", {ctermfg=226, ctermbg=58})
 vim.api.nvim_set_hl(0, "DiffText", {ctermfg=196, ctermbg=52})
 
 
+
 -- Keyboard Shortcuts
 vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>", {desc = "Reload config"})
 vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>", {silent = true})
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
 vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
--- ---- Tab Navigation
--- vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
--- vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
--- ---- Split Navigation
--- vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
--- vim.keymap.set("n", "<S-j>", ":wincmd j<CR>", {desc = "Move to lower split"})
--- vim.keymap.set("n", "<S-k>", ":wincmd k<CR>", {desc = "Move to upper split"})
--- vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
+vim.keymap.set("n", ",/", ":nohlsearch<CR>", {desc = "Clear highlight search"})
+vim.keymap.set("n", "<C-k>", ":call search('\\u\\|_')<CR>l", {desc = "Jump camelCase"})
+vim.keymap.set("n", "<C-P>", ":lua require('fzf-lua').files()<CR>", {desc = "FZF files"})
+vim.keymap.set("n", "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
+vim.keymap.set("n", "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
+vim.keymap.set("n", "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
+vim.keymap.set("n", "<C-i>", function()
+  local fpath = vim.fn.expand('%')
+  local fname = vim.fn.expand('%:t:r')
+  local fext = "." .. vim.fn.expand('%:e')
+
+  if fext == ".c" then
+    vim.cmd("find " .. fname .. ".h")
+  elseif fext == ".cpp" then
+    vim.cmd("find " .. fname .. ".hpp")
+  elseif fext == ".h" then
+    vim.cmd("find " .. fname .. ".c")
+  elseif fext == ".hpp" then
+    vim.cmd("find " .. fname .. ".cpp")
+  else
+    error("[" .. fpath .. "] is not a valid C / C++ source / header file?")
+  end
+end)
+
+---- Tab Navigation
+vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
+vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
+---- Split Navigation
+vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
+vim.keymap.set("n", "<S-j>", ":wincmd j<CR>", {desc = "Move to lower split"})
+vim.keymap.set("n", "<S-k>", ":wincmd k<CR>", {desc = "Move to upper split"})
+vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
 
 
--- Actions
+
+-- Auto Actions
 ---- Remove trailing whitespace
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*"},
