@@ -45,17 +45,7 @@ install_dev_pkgs() {
     shellcheck \
     silversearcher-ag
 
-  # Vifm
-  # $APT_INSTALL libx11-dev libxext-dev
-  # pip3 install ueberzug
-  # $APT_INSTALL ffmpegthumbnailer
-
-  # Nvim - vim-plug
-  # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-  #      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-}
-
-install_desktop_pkgs() {
+  # Apps
   $APT_INSTALL \
     xterm \
     vifm \
@@ -67,14 +57,9 @@ install_desktop_pkgs() {
     gnome-icon-theme \
     pavucontrol \
     arandr \
-    bluetooth bluez bluez-tools rfkill blueman
-
-  $APT_INSTALL \
+    bluetooth bluez bluez-tools rfkill blueman \
     vokoscreen \
     vlc
-
-  $APT_INSTALL \
-    texlive-*
 }
 
 setup_dotfiles() {
@@ -86,9 +71,7 @@ setup_dotfiles() {
   rm -f "${HOME}/.Xdefaults";
   #rm -f "${HOME}/.xinitrc";
   #rm -f "${HOME}/.xsessionrc";
-  rm -rf "${HOME}/.configs/.i3";
   #rm -f "${HOME}/.configs/nvim";
-  #rm -f "${HOME}/.screenlayout";
   rm -f "${HOME}/.tmux.conf";
   rm -rf "${HOME}/.vifm";
   rm -f "${HOME}/.vifmrc";
@@ -103,12 +86,9 @@ setup_dotfiles() {
   ln -fs "${PWD}/configs/Xdefaults" "${HOME}/.Xdefaults";
   #ln -fs "${PWD}/configs/xinitrc" "${HOME}/.xinitrc";
   #ln -fs "${PWD}/configs/xsessionrc" "${HOME}/.xsessionrc";
-  ln -fs "${PWD}/i3" "${HOME}/.config/";
-  #ln -fs "${PWD}/nvim" "${HOME}/.config/";
-  #ln -fs "${PWD}/screenlayout" "${HOME}/.screenlayout";
-  ln -fs "${PWD}/tmux/tmux.conf" "${HOME}/.tmux.conf";
-  ln -fs "${PWD}/vifm" "${HOME}/.vifm";
-  ln -fs "${PWD}/vifm/vifmrc" "${HOME}/.vifmrc";
+  mkdir -p ${HOME}/.config/nvim && ln -fs "${PWD}/configs/nvim.lua" "${HOME}/.config/init.lua";
+  ln -fs "${PWD}/configs/tmux.conf" "${HOME}/.tmux.conf";
+  #ln -fs "${PWD}/vifm" "${HOME}/.vifm";
   echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
 }
 
@@ -122,11 +102,9 @@ setup() {
   MODE=$1;
   git_config;
   install_dev_pkgs;
-  install_desktop_pkgs;
-
   setup_dotfiles;
   echo "Done! :)"
 }
 
 # MAIN
-setup "${1}"
+setup
