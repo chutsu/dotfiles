@@ -14,7 +14,6 @@ vim.opt.undolevels = 1000
 vim.opt.history = 1000
 
 
-
 -- Lazy nvim plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -30,15 +29,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-
 -- Load plugins
 require("lazy").setup({
   {'junegunn/fzf', build = './install --bin'},
   {'ibhagwan/fzf-lua', dependencies = 'junegunn/fzf'},
   {'bkad/CamelCaseMotion'},
-  {'kris89/vim-multiple-cursors'}
+  {'kris89/vim-multiple-cursors'},
+  {'tpope/vim-commentary'},
+  {'farmergreg/vim-lastplace'},
+  {'vim-airline/vim-airline'}
 })
-
 
 
 -- Netrw File Manager
@@ -48,13 +48,14 @@ vim.g.netrw_liststyle = 3    -- Tree-style view
 vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 
 
-
 -- Syntax
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-
+vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"c"}, command = "setlocal commentstring=//\\ %s"})
+vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"cpp"}, command = "setlocal commentstring=//\\ %s"})
+vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"openscad"}, command = "setlocal commentstring=//\\ %s"})
 
 
 -- Color Scheme
@@ -98,10 +99,9 @@ vim.api.nvim_set_hl(0, "DiffChange", {ctermfg=226, ctermbg=58})
 vim.api.nvim_set_hl(0, "DiffText", {ctermfg=196, ctermbg=52})
 
 
-
 -- Keyboard Shortcuts
 vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>", {desc = "Reload config"})
-vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>", {silent = true})
+vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>")
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
 vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
@@ -112,6 +112,7 @@ vim.keymap.set("n", "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case for
 vim.keymap.set("n", "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set("n", "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
 vim.keymap.set("n", "<C-i>", function()
+  -- Jump between C / C++ source / header
   local fpath = vim.fn.expand('%')
   local fname = vim.fn.expand('%:t:r')
   local fext = "." .. vim.fn.expand('%:e')
@@ -128,7 +129,6 @@ vim.keymap.set("n", "<C-i>", function()
     error("[" .. fpath .. "] is not a valid C / C++ source / header file?")
   end
 end)
-
 ---- Tab Navigation
 vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
 vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
