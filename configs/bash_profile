@@ -13,12 +13,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 export VISUAL=nvim
 export EDITOR=nvim
 
-# History
+# SHELL HISTORY
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-
-# Suppress GTK accessibility known bug with this env var
-export NO_AT_BRIDGE=1
 
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
@@ -26,19 +23,17 @@ export PROJECTS="$HOME/projects"
 export DOTFILES="$HOME/dotfiles"
 
 # DIR SHORTCUTS
-alias downloads="cd $HOME/Downloads";
+alias down="cd $HOME/Downloads";
 alias dotfiles="cd $DOTFILES";
 alias scripts="cd $HOME/dotfiles/scripts"
 alias catkin_ws="cd ~/catkin_ws/"
-
-# Projects
 alias yac="cd $PROJECTS/yac"
 alias proto="cd $PROJECTS/proto/proto"
 alias proto_ros="cd $PROJECTS/proto_ros"
+alias proto_mav="cd $PROJECTS/proto_mav"
 alias papers="cd $PROJECTS/papers"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
-alias rs4se="cd $PROJECTS/rs4se"
 
 sync_projects() {
   mkdir -p "$HOME/projects";
@@ -46,7 +41,6 @@ sync_projects() {
   declare -a PROJECTS=(
     "yac"
     "proto"
-    "rs4se"
     "papers"
     "phd"
     "chutsu.github.io"
@@ -70,7 +64,6 @@ lock() {
   xset dpms force off
 }
 
-# alias vifm='vifmrun'
 alias vim='nvim'
 alias ls='ls -lh --group-directories-first --color'
 alias la='ls -lha --color'
@@ -79,15 +72,7 @@ alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
 alias todo="vim $HOME/projects/TODO; cd -";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
-alias fan_off="echo level 0 | sudo tee /proc/acpi/ibm/fan"
-alias fan_max="echo level 7 | sudo tee /proc/acpi/ibm/fan"
 alias brightness_max="echo 100 | sudo tee /sys/class/backlight/nv_backlight/brightness"
-
-# FZF Settings
-# -- Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag -g ""'
-# -- Apply the command to CTRL-T as well
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # SHELL SETTINGS
 parse_git_branch() {
