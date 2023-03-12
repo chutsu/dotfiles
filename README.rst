@@ -12,4 +12,4 @@ Install
   sudo apt-get update
   sudo apt-get install make git -yqq
   git clone git@github.com:chutsu/dotfiles.git
-  cd dotfiles && bash setup.bash full
+  cd dotfiles && make deps && make dotfiles
