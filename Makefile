@@ -100,3 +100,20 @@ desktop_apps:
     gimp \
     mplayer \
     vlc \
+
+# NEOVIM
+/usr/local/src/neovim:
+	@sudo git clone https://github.com/neovim/neovim /usr/local/src/neovim
+
+install_nvim: /usr/local/src/neovim
+	@sudo apt-get install -y -qq gettext
+	@cd /usr/local/src/neovim \
+		&& sudo make CMAKE_BUILD_TYPE=RelWithDebInfo \
+		&& sudo make install
+
+# LAZYGIT
+install_lazygit:
+	@curl -Lo lazygit.tar.gz https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_0.37.0_Linux_x86_64.tar.gz
+	@tar xf lazygit.tar.gz lazygit
+	@sudo install lazygit /usr/local/bin
+	@rm lazygit.tar.gz lazygit
