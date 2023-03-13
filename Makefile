@@ -117,3 +117,18 @@ install_lazygit:
 	@tar xf lazygit.tar.gz lazygit
 	@sudo install lazygit /usr/local/bin
 	@rm lazygit.tar.gz lazygit
+
+
+# SWAY
+install_sway:
+	@sudo apt-get install sway -y -qqq
+
+
+# SURF
+/usr/local/src/surf:
+	@sudo git clone https://git.suckless.org/surf /usr/local/src/surf
+	@sudo chown ${USER}:${USER} -R /usr/local/src/surf
+
+install_surf: /usr/local/src/surf
+	@sudo apt-get install libglib2.0-dev libgcr-3-dev libwebkit2gtk-4.0-dev -y -qq
+	@cd /usr/local/src/surf && make
