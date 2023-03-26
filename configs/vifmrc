@@ -107,10 +107,16 @@ fileviewer <video/*>
   \ vifmimg clear
 
 " IMAGE
-fileviewer <image/*>
-  \ vifmimg draw %px %py %pw %ph %c
-  \ %pc
-  \ vifmimg clear
+"fileviewer <image/*>
+"  \ vifmimg draw %px %py %pw %ph %c
+"  \ %pc
+"  \ vifmimg clear
+
+" Pictures
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
+    \ kitty +kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py %c %N
+    \ %pc
+    \ kitty +kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py --clear %N
 
 " AUDIO
 fileviewer <audio/*>

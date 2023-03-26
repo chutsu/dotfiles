@@ -37,7 +37,8 @@ require("lazy").setup({
   {'kris89/vim-multiple-cursors'},
   {'tpope/vim-commentary'},
   {'farmergreg/vim-lastplace'},
-  {'vim-airline/vim-airline'}
+  {'vim-airline/vim-airline'},
+  {'rhysd/vim-clang-format'}
 })
 
 
@@ -56,6 +57,7 @@ vim.opt.expandtab = true
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"c"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"cpp"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"openscad"}, command = "setlocal commentstring=//\\ %s"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"c"}, command = "ClangFormatAutoEnable"})
 
 
 -- Color Scheme
@@ -108,9 +110,11 @@ vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", ",/", ":nohlsearch<CR>", {desc = "Clear highlight search"})
 vim.keymap.set("n", "<C-k>", ":call search('\\u\\|_')<CR>l", {desc = "Jump camelCase"})
 vim.keymap.set("n", "<C-P>", ":lua require('fzf-lua').files()<CR>", {desc = "FZF files"})
+vim.keymap.set("n", "<C-f>", ":Ex . <CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
+vim.keymap.set({"n", "v"}, "f", ":ClangFormat<CR>", {desc = "Clang-format"})
 vim.keymap.set("n", "<C-i>", function()
   -- Jump between C / C++ source / header
   local fpath = vim.fn.expand('%')
@@ -146,3 +150,7 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*"},
   command = [[%s/\s\+$//e]],
 })
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--   pattern = {"c", "h", "cpp", "hpp"},
+--   command = "ClangFormat"
+-- })

@@ -4,7 +4,7 @@ help:
 		| awk 'BEGIN {FS = ":.*?## "}; \
 			{printf "\033[1;36m%-12s\033[0m%s\n", $$1, $$2}'
 
-dotfiles: bash_profile gitconfig xdefaults nvim sway tmux ## Install dotfiles
+dotfiles: bash_profile gitconfig xdefaults nvim vifm sway tmux ## Install dotfiles
 
 bash_profile:
 	@echo "- bash_profile"
@@ -27,6 +27,12 @@ nvim:
 	@rm -rf ${HOME}/.config/nvim
 	@mkdir -p ${HOME}/.config/nvim
 	@ln -fs ${PWD}/configs/nvim.lua ${HOME}/.config/nvim/init.lua
+
+vifm:
+	@echo "- sway"
+	@rm -rf ${HOME}/.config/vifm
+	@mkdir -p ${HOME}/.config/vifm
+	@ln -fs ${PWD}/configs/vifmrc ${HOME}/.config/vifm/vifmrc
 
 sway:
 	@echo "- sway"
