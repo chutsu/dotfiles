@@ -4,7 +4,7 @@ help:
 		| awk 'BEGIN {FS = ":.*?## "}; \
 			{printf "\033[1;36m%-12s\033[0m%s\n", $$1, $$2}'
 
-dotfiles: bash_profile gitconfig xdefaults nvim vifm sway tmux ## Install dotfiles
+dotfiles: bash_profile gitconfig xdefaults nvim vifm sway tmux qutebrowser ## Install dotfiles
 
 bash_profile:
 	@echo "- bash_profile"
@@ -44,6 +44,12 @@ tmux:
 	@echo "- tmux"
 	@rm -f ${HOME}/.tmux.config
 	@ln -fs "${PWD}/configs/tmux.conf" "${HOME}/.tmux.conf";
+
+qutebrowser:
+	@echo "- qutebrowser"
+	@rm -rf ${HOME}/.config/qutebrowser
+	@mkdir -p ${HOME}/.config/qutebrowser
+	@ln -fs "${PWD}/configs/qutebrowser.py" "${HOME}/.config/qutebrowser/config.py";
 
 
 deps: dev_pkgs cpp_pkgs python_pkgs shell_pkgs desktop_apps ## Install dependencies
