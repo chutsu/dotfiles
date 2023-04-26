@@ -1,5 +1,6 @@
 config.load_autoconfig(False)
 config.set('auto_save.session', True)
+config.set('downloads.prevent_mixed_content', False)
 config.set('url.default_page', 'https://google.com')
 config.set('url.start_pages', ['https://google.com'])
 config.set('url.searchengines', {
@@ -10,3 +11,4 @@ config.set('url.searchengines', {
 
 config.bind('<Ctrl-h>', 'tab-prev')
 config.bind('<Ctrl-l>', 'tab-next')
+config.bind('<Ctrl-Alt-l>', 'download-clear')

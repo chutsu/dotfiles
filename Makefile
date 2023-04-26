@@ -134,3 +134,10 @@ install_lazygit:
 # SWAY
 install_sway:
 	@sudo apt-get install sway -y -qqq
+
+# PASS
+/usr/local/src/password-store:
+	@sudo git clone https://git.zx2c4.com/password-store /usr/local/src/password-store
+
+install_pass: /usr/local/src/password-store
+	@cd /usr/local/src/password-store && sudo make install
