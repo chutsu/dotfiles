@@ -25,31 +25,27 @@ xdefaults:
 nvim:
 	@echo "- nvim"
 	@rm -rf ${HOME}/.config/nvim
-	@mkdir -p ${HOME}/.config/nvim
-	@ln -fs ${PWD}/configs/nvim.lua ${HOME}/.config/nvim/init.lua
+	@ln -fs ${PWD}/configs/nvim ${HOME}/.config/nvim
 
 vifm:
-	@echo "- sway"
+	@echo "- vifm"
 	@rm -rf ${HOME}/.config/vifm
-	@mkdir -p ${HOME}/.config/vifm
-	@ln -fs ${PWD}/configs/vifmrc ${HOME}/.config/vifm/vifmrc
+	@ln -fs ${PWD}/configs/vifm ${HOME}/.config/vifm
 
 sway:
 	@echo "- sway"
 	@rm -rf ${HOME}/.config/sway
-	@mkdir -p ${HOME}/.config/sway
-	@ln -fs ${PWD}/configs/sway ${HOME}/.config/sway/config
+	@ln -fs ${PWD}/configs/sway ${HOME}/.config/sway
 
 tmux:
 	@echo "- tmux"
 	@rm -f ${HOME}/.tmux.config
-	@ln -fs "${PWD}/configs/tmux.conf" "${HOME}/.tmux.conf";
+	@ln -fs ${PWD}/configs/tmux ${HOME}/.config/tmux
 
 qutebrowser:
 	@echo "- qutebrowser"
 	@rm -rf ${HOME}/.config/qutebrowser
-	@mkdir -p ${HOME}/.config/qutebrowser
-	@ln -fs "${PWD}/configs/qutebrowser.py" "${HOME}/.config/qutebrowser/config.py";
+	@ln -fs ${PWD}/configs/qutebrowser ${HOME}/.config/qutebrowser
 
 
 deps: dev_pkgs cpp_pkgs python_pkgs shell_pkgs desktop_apps ## Install dependencies
