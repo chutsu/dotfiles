@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import psutil
 
-memory = psutil.virtual_memory()
+disp = []
+disp.append(f"CPU: {psutil.cpu_percent(0.5)}%")
+disp.append(f"MEM: {psutil.virtual_memory().percent}%")
+
 battery = psutil.sensors_battery()
+if battery and battery.power_plugged:
+    disp.append(f"PWR [CHR]: {battery.percent:.1f}%")
+else:
+    disp.append(f"PWR [DIS]: {battery.percent:.1f}%")
 
-cpu_usage = psutil.cpu_percent(0.5)
-mem_usage = memory.percent
-pwr_usage = battery.percent
-
-print(f"CPU: {cpu_usage}% | RAM: {mem_usage:.1f}% | PWR: {pwr_usage:.1f}%")
+print(" | ".join(disp) + " ")
