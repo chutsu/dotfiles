@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Install make
-      run: apt-get install make
+      run: apt-get update -y && apt-get install make
 
     - name: Install dependencies
       run: make deps
