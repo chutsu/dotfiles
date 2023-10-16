@@ -3,8 +3,14 @@ on: [push]
 jobs:
   run_ci:
     runs-on: ubuntu-latest
+    container:
+      image: debian:bookworm
+
     steps:
     - uses: actions/checkout@master
+
+    - name: Install dependencies
+      run: make deps
 
     - name: Install dotfiles
       run: make dotfiles
