@@ -53,6 +53,14 @@ require("lazy").setup({
 -- vim.g.netrw_liststyle = 3    -- Tree-style view
 -- vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 
+-- Custom functions
+function py_formatter()
+  local file = vim.fn.expand('%:p')
+  local cmd = "yapf3 --in-place " .. file
+  vim.cmd("w") -- Save the current buffer
+  vim.cmd("! " .. cmd) -- Run the formatting command using "!" to execute it in the shell
+end
+
 
 -- Nvim-tree
 require("nvim-tree").setup({
@@ -142,7 +150,15 @@ vim.keymap.set("n", "<C-f>", ":NvimTreeToggle <CR>", {desc = "Open file explorer
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
-vim.keymap.set({"n", "v"}, "f", ":ClangFormat<CR>", {desc = "Clang-format"})
+vim.keymap.set({"n", "v"}, "f", function()
+  if vim.bo.filetype == "python" then
+    vim.cmd("silent lua py_formatter()")
+  elseif vim.bo.filetype == "cpp" or vim.bo.filetype == "c" then
+    vim.cmd("ClangFormat")
+  else
+    error("Formatter not confgured!")
+  end
+end)
 vim.keymap.set("n", "<C-i>", function()
   -- Jump between C / C++ source / header
   local fpath = vim.fn.expand('%')
