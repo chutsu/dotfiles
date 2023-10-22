@@ -1,11 +1,9 @@
 .DS_Store
 *.swp
+
 .netrwhist
-mutt/cache
-run.sh
 vifm/vifminfo
-nvim/plugged
-vim/bundle
-vifm/vifminfo
+nvim/lazy-lock.json
+
 tags
 .nvimlog
