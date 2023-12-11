@@ -39,3 +39,6 @@ Cheatsheet
 
   # Screen recording
   wf-recorder -f output.mp4
+
+  # Copy local public key to remote server for passwordless SSH
+  ssh-copy-id <username>@<remote server>
