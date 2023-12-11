@@ -9,7 +9,7 @@ fi
 
 # ENVIRONMENTAL SETTINGS
 export PATH=$PATH:~/dotfiles/scripts:~/.local/bin:/usr/local/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export VISUAL=nvim
 export EDITOR=nvim
 
@@ -36,6 +36,12 @@ alias papers="cd $PROJECTS/papers"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias suspend="sudo systemctl suspend";
+alias buds="\
+  pulseaudio --kill \
+  && bluetoothctl disconnect AC:3E:B1:9D:49:2F \
+  && sleep 5 \
+  && bluetoothctl connect AC:3E:B1:9D:49:2F
+"
 
 sync_projects() {
   mkdir -p "$HOME/projects";
