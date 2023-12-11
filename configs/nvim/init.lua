@@ -40,8 +40,6 @@ require("lazy").setup({
   {'bkad/CamelCaseMotion'},
   {'kris89/vim-multiple-cursors'},
   {'tpope/vim-commentary'},
-  {'farmergreg/vim-lastplace'},
-  {'vim-airline/vim-airline'},
 })
 
 
@@ -50,6 +48,48 @@ vim.g.netrw_banner = 0       -- Hide banner
 vim.g.netrw_browse_split = 0 -- Open file in current split
 vim.g.netrw_liststyle = 3    -- Tree-style view
 vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
+
+
+-- Status Line
+local function git_branch()
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  if string.len(branch) > 0 then
+    return branch
+  else
+    return ":"
+  end
+end
+
+local function statusline()
+  local set_color_1 = "%#PmenuSel#"
+  local branch = git_branch()
+  local set_color_2 = "%#LineNr#"
+  local file_name = " %f"
+  local modified = "%m"
+  local align_right = "%="
+  local fileencoding = " %{&fileencoding?&fileencoding:&encoding}"
+  local fileformat = " [%{&fileformat}]"
+  local filetype = " %y"
+  local percentage = " %p%%"
+  local linecol = " %l:%c"
+
+  return string.format(
+    "%s %s %s%s%s%s%s%s%s%s%s",
+    set_color_1,
+    branch,
+    set_color_2,
+    file_name,
+    modified,
+    align_right,
+    filetype,
+    fileencoding,
+    fileformat,
+    percentage,
+    linecol
+  )
+end
+
+vim.opt.statusline = statusline()
 
 
 -- Custom functions
@@ -76,7 +116,6 @@ vim.opt.expandtab = true
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"c"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"cpp"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"openscad"}, command = "setlocal commentstring=//\\ %s"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"c"}, command = "ClangFormatAutoEnable"})
 
 
 -- Color Scheme
@@ -160,15 +199,18 @@ vim.keymap.set("n", "<C-i>", function()
     error("[" .. fpath .. "] is not a valid C / C++ source / header file?")
   end
 end)
----- Tab Navigation
+
+
+-- Tab Navigation
 vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
 vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
----- Split Navigation
+
+
+-- Split Navigation
 vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
 vim.keymap.set("n", "<S-j>", ":wincmd j<CR>", {desc = "Move to lower split"})
 vim.keymap.set("n", "<S-k>", ":wincmd k<CR>", {desc = "Move to upper split"})
 vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
-
 
 
 -- Auto Actions
@@ -177,7 +219,3 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*"},
   command = [[%s/\s\+$//e]],
 })
--- vim.api.nvim_create_autocmd({"BufWritePre"}, {
---   pattern = {"c", "h", "cpp", "hpp"},
---   command = "ClangFormat"
--- })
