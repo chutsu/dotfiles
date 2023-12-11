@@ -40,6 +40,7 @@ sway:
 tmux:
 	@echo "- tmux"
 	@rm -f ${HOME}/.tmux.config
+	@rm -f ${HOME}/.config/tmux
 	@ln -fs ${PWD}/configs/tmux ${HOME}/.config/tmux
 
 qutebrowser:
