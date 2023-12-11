@@ -14,8 +14,9 @@ vim.opt.undolevels = 1000
 vim.opt.history = 1000
 
 -- Disable netrw
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0
+-- vim.g.loaded_netrw = 0
+-- vim.g.loaded_netrwPlugin = 0
+
 
 -- Lazy nvim plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -41,15 +42,15 @@ require("lazy").setup({
   {'tpope/vim-commentary'},
   {'farmergreg/vim-lastplace'},
   {'vim-airline/vim-airline'},
-  {'nvim-tree/nvim-tree.lua'},
 })
 
 
--- -- Netrw File Manager
--- vim.g.netrw_banner = 0       -- Hide banner
--- vim.g.netrw_browse_split = 0 -- Open file in current split
--- vim.g.netrw_liststyle = 3    -- Tree-style view
--- vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
+-- Netrw File Manager
+vim.g.netrw_banner = 0       -- Hide banner
+vim.g.netrw_browse_split = 0 -- Open file in current split
+vim.g.netrw_liststyle = 3    -- Tree-style view
+vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
+
 
 -- Custom functions
 function py_formatter()
@@ -65,29 +66,6 @@ function clang_formatter()
   vim.cmd("w") -- Save the current buffer
   vim.cmd("! " .. cmd) -- Run the formatting command using "!" to execute it in the shell
 end
-
-
--- Nvim-tree
-require("nvim-tree").setup({
-  renderer = {
-    icons = {
-      show = {
-        file = false,
-        folder = false,
-        folder_arrow = false,
-        git = false,
-        modified = false,
-      }
-    }
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
----- Nvim-tree auto close
-vim.api.nvim_create_autocmd({"QuitPre"}, {
-  callback = function() vim.cmd("NvimTreeClose") end,
-})
 
 
 -- Syntax
@@ -151,7 +129,7 @@ vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", ",/", ":nohlsearch<CR>", {desc = "Clear highlight search"})
 vim.keymap.set("n", "<C-k>", ":call search('\\u\\|_')<CR>l", {desc = "Jump camelCase"})
 vim.keymap.set("n", "<C-P>", ":lua require('fzf-lua').files()<CR>", {desc = "FZF files"})
-vim.keymap.set("n", "<C-f>", ":NvimTreeToggle <CR>", {desc = "Open file explorer"})
+vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
