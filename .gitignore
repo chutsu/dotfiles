@@ -2,8 +2,8 @@
 *.swp
 
 .netrwhist
-vifm/vifminfo
-nvim/lazy-lock.json
+vifminfo.json
+lazy-lock.json
 
 tags
 .nvimlog
