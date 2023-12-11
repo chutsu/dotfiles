@@ -41,9 +41,7 @@ require("lazy").setup({
   {'tpope/vim-commentary'},
   {'farmergreg/vim-lastplace'},
   {'vim-airline/vim-airline'},
-  {'rhysd/vim-clang-format'},
   {'nvim-tree/nvim-tree.lua'},
-  {'tranvansang/octave.vim'}
 })
 
 
@@ -57,6 +55,13 @@ require("lazy").setup({
 function py_formatter()
   local file = vim.fn.expand('%:p')
   local cmd = "yapf3 --in-place " .. file
+  vim.cmd("w") -- Save the current buffer
+  vim.cmd("! " .. cmd) -- Run the formatting command using "!" to execute it in the shell
+end
+
+function clang_formatter()
+  local file = vim.fn.expand('%:p')
+  local cmd = "clang-format -i " .. file
   vim.cmd("w") -- Save the current buffer
   vim.cmd("! " .. cmd) -- Run the formatting command using "!" to execute it in the shell
 end
@@ -154,7 +159,7 @@ vim.keymap.set({"n", "v"}, "f", function()
   if vim.bo.filetype == "python" then
     vim.cmd("silent lua py_formatter()")
   elseif vim.bo.filetype == "cpp" or vim.bo.filetype == "c" then
-    vim.cmd("ClangFormat")
+    vim.cmd("silent lua clang_formatter()")
   else
     error("Formatter not confgured!")
   end
