@@ -4,7 +4,7 @@ tmux new-session -d -s $session
 
 # Window0 - nvim
 tmux rename-window -t $session:0 'nvim'
-tmux send-keys -t $session:0 'nvim' C-m
+# tmux send-keys -t $session:0 'nvim' C-m
 
 # Window1 - dev
 tmux new-window -t $session:1 -n 'dev'
