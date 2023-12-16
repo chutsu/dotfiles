@@ -120,14 +120,6 @@ install_nvim: /usr/local/src/neovim
 		&& sudo make CMAKE_BUILD_TYPE=RelWithDebInfo \
 		&& sudo make install
 
-# LAZYGIT
-install_lazygit:
-	@curl -Lo lazygit.tar.gz https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_0.37.0_Linux_x86_64.tar.gz
-	@tar xf lazygit.tar.gz lazygit
-	@sudo install lazygit /usr/local/bin
-	@rm lazygit.tar.gz lazygit
-
-
 # SWAY
 install_sway:
 	@sudo apt-get install sway -y -qqq
@@ -138,3 +130,11 @@ install_sway:
 
 install_pass: /usr/local/src/password-store
 	@cd /usr/local/src/password-store && sudo make install
+
+# LAZYGIT
+LAZYGIT_VERSION := $(shell curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+install_lazygit:
+	@curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_$(LAZYGIT_VERSION)_Linux_x86_64.tar.gz"
+	@tar xf lazygit.tar.gz lazygit
+	@sudo mv lazygit /usr/local/bin
+	@rm lazygit.tar.gz
