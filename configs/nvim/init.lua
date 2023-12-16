@@ -116,6 +116,8 @@ vim.opt.expandtab = true
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"c"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"cpp"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"openscad"}, command = "setlocal commentstring=//\\ %s"})
+vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set tabstop=2"})
+vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set shiftwidth=2"})
 
 
 -- Color Scheme
