@@ -138,3 +138,16 @@ install_lazygit:
 	@tar xf lazygit.tar.gz lazygit
 	@sudo mv lazygit /usr/local/bin
 	@rm lazygit.tar.gz
+
+
+setup_projects:  # Setup projects
+	@mkdir -p ${HOME}/projects
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto_parts.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto_ros2.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/ros2_vicon.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/papers.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/coding_prep.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/phd_thesis.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/yac.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/chutsu.github.io.git
