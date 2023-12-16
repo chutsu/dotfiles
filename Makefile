@@ -54,61 +54,61 @@ deps: dev_pkgs cpp_pkgs python_pkgs shell_pkgs desktop_apps ## Install dependenc
 dev_pkgs:
 	@echo "Install dev packages"
 	@sudo apt-get install -y -qq \
-    xterm \
-    curl \
-    git \
-    tree \
-    htop \
-    tmux \
-    gnuplot \
-    openssh-server
+		xterm \
+		curl \
+		git \
+		tree \
+		htop \
+		tmux \
+		gnuplot \
+		openssh-server
 
 cpp_pkgs:
 	@echo "Install C / C++ packages"
 	@sudo apt-get install -y -qq \
-    exuberant-ctags \
-    automake \
-    cmake \
-    ccache \
-    gcc \
-    clang \
-    clang-format \
-    clang-tidy
+		exuberant-ctags \
+		automake \
+		cmake \
+		ccache \
+		gcc \
+		clang \
+		clang-format \
+		clang-tidy
 
 python_pkgs:
 	@echo "Install python packages"
 	@sudo apt-get install -y -qq \
-    libpython3-dev \
-    pylint \
-    yapf3 \
-    python3-pip \
-    python3-numpy \
-    python3-scipy \
-    python3-matplotlib \
-    python3-setuptools
+		libpython3-dev \
+		pylint \
+		yapf3 \
+		python3-pip \
+		python3-numpy \
+		python3-scipy \
+		python3-matplotlib \
+		python3-setuptools
 
 shell_pkgs:
 	@sudo apt-get install -y -qq \
-    shellcheck \
-    silversearcher-ag
+		shellcheck \
+		silversearcher-ag
 
 desktop_apps:
 	@echo "Install desktop_apps"
 	@sudo apt-get install -y -qq \
-    xterm \
-    vifm \
-    xinit \
-    xbacklight \
-    network-manager-gnome \
-    pcmanfm \
-    gnome-icon-theme \
-    pavucontrol \
-    arandr \
-    bluetooth bluez bluez-tools rfkill blueman \
-    vokoscreen \
-    gimp \
-    mplayer \
-    vlc \
+		xterm \
+		vifm \
+		xinit \
+		xbacklight \
+		network-manager-gnome \
+		pcmanfm \
+		gnome-icon-theme \
+		pavucontrol \
+		arandr \
+		bluetooth bluez bluez-tools rfkill blueman \
+		vokoscreen \
+		gimp \
+		mplayer \
+		vlc \
 
 # NEOVIM
 /usr/local/src/neovim:
