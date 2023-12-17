@@ -84,6 +84,8 @@ python_pkgs:
 		python3-pip \
 		python3-numpy \
 		python3-scipy \
+		python3-pandas \
+		python3-seaborn \
 		python3-matplotlib \
 		python3-setuptools
 
@@ -106,11 +108,14 @@ desktop_apps:
 		arandr \
 		bluetooth bluez bluez-tools rfkill blueman \
 		vokoscreen \
+		grim \
+		slurp \
+		wf-recorder \
 		mplayer \
 		sway
 	@sudo snap install nvim --classic
 	@sudo snap install lazygit
-	# @sudo snap install gimp
+	@sudo snap install gimp
 	@sudo snap install vlc
 
 # PASS
