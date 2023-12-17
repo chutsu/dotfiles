@@ -2,7 +2,7 @@
 vim.opt.path = vim.opt.path + ".,**"
 vim.opt.joinspaces = false
 vim.opt.list = true
-vim.opt.listchars = { tab = "> ", trail = '·' }
+vim.opt.listchars = { tab = "> " }
 vim.opt.number = true
 vim.opt.sidescrolloff = 8
 vim.opt.ignorecase = true    -- Ignore case when searching
