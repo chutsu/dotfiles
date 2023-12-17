@@ -6,7 +6,7 @@ vim.opt.listchars = { tab = "> " }
 vim.opt.number = true
 vim.opt.sidescrolloff = 8
 vim.opt.ignorecase = true    -- Ignore case when searching
-vim.opt.smartcase = false		 -- Turn off smartcase when searching
+vim.opt.smartcase = false    -- Turn off smartcase when searching
 vim.opt.smartindent = true
 vim.opt.wildmenu = true
 vim.opt.scrolloff = 10       -- Top / bottom padding when scrolling
