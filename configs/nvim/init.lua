@@ -2,6 +2,7 @@
 vim.opt.path = vim.opt.path + ".,**"
 vim.opt.joinspaces = false
 vim.opt.list = true
+vim.opt.listchars = { tab = "> ", trail = '·' }
 vim.opt.number = true
 vim.opt.sidescrolloff = 8
 vim.opt.ignorecase = true    -- Ignore case when searching
@@ -130,7 +131,6 @@ vim.api.nvim_set_hl(0, "CursorLineNR", {cterm=None, ctermfg=None, ctermbg=240})
 vim.api.nvim_set_hl(0, "Directory", {ctermfg=75})
 vim.api.nvim_set_hl(0, "ErrorMsg", {ctermbg=196, ctermfg=white})
 vim.api.nvim_set_hl(0, "VertSplit", {ctermfg=236})
-vim.api.nvim_set_hl(0, "NonText", {ctermfg=235})
 vim.api.nvim_set_hl(0, "Pmenu", {ctermfg=255, ctermbg=239})
 vim.api.nvim_set_hl(0, "PmenuSel", {ctermfg=255, ctermbg=237})
 vim.api.nvim_set_hl(0, "Search", {cterm=None, ctermfg=255, ctermbg=196})
@@ -143,6 +143,7 @@ vim.api.nvim_set_hl(0, "Identifier", {ctermfg=81})
 vim.api.nvim_set_hl(0, "Statement", {ctermfg=198})
 vim.api.nvim_set_hl(0, "Type", {ctermfg=81})
 vim.api.nvim_set_hl(0, "Function", {ctermfg=81})
+vim.api.nvim_set_hl(0, "NonText", {ctermfg=105})
 vim.api.nvim_set_hl(0, "Special", {ctermfg=198})
 vim.api.nvim_set_hl(0, "Error", {ctermfg=196, ctermbg=None})
 vim.api.nvim_set_hl(0, "PreProc", {ctermfg=105})
