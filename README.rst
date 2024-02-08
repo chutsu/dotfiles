@@ -39,3 +39,7 @@ Cheatsheet
 
   # Screen recording
   wf-recorder -f output.mp4
+  ffmpeg -i output.mp4 -vcodec libx265 -crf 28 output-compressed.mp4
+
+  # Copy local public key to remote server for passwordless SSH
+  ssh-copy-id <username>@<remote server>

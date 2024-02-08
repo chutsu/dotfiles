@@ -40,6 +40,7 @@ sway:
 tmux:
 	@echo "- tmux"
 	@rm -f ${HOME}/.tmux.config
+	@rm -f ${HOME}/.config/tmux
 	@ln -fs ${PWD}/configs/tmux ${HOME}/.config/tmux
 
 qutebrowser:
@@ -53,83 +54,64 @@ deps: dev_pkgs cpp_pkgs python_pkgs shell_pkgs desktop_apps ## Install dependenc
 dev_pkgs:
 	@echo "Install dev packages"
 	@sudo apt-get install -y -qq \
-    xterm \
-    curl \
-    git \
-    tree \
-    htop \
-    tmux \
-    gnuplot \
-    openssh-server
+		xterm \
+		curl \
+		git \
+		tree \
+		htop \
+		tmux \
+		gnuplot \
+		openssh-server
 
 cpp_pkgs:
 	@echo "Install C / C++ packages"
 	@sudo apt-get install -y -qq \
-    exuberant-ctags \
-    automake \
-    cmake \
-    ccache \
-    gcc \
-    clang \
-    clang-format \
-    clang-tidy
+		exuberant-ctags \
+		automake \
+		cmake \
+		ccache \
+		gcc \
+		clang \
+		clang-format \
+		clang-tidy
 
 python_pkgs:
 	@echo "Install python packages"
 	@sudo apt-get install -y -qq \
-    libpython3-dev \
-    pylint \
-    yapf3 \
-    python3-pip \
-    python3-numpy \
-    python3-scipy \
-    python3-matplotlib \
-    python3-setuptools
+		libpython3-dev \
+		pylint \
+		yapf3 \
+		python3-pip \
+		python3-numpy \
+		python3-scipy \
+		python3-matplotlib \
+		python3-setuptools
 
 shell_pkgs:
 	@sudo apt-get install -y -qq \
-    shellcheck \
-    silversearcher-ag
+		shellcheck \
+		silversearcher-ag
 
 desktop_apps:
 	@echo "Install desktop_apps"
 	@sudo apt-get install -y -qq \
-    xterm \
-    vifm \
-    xinit \
-    xbacklight \
-    network-manager-gnome \
-    pcmanfm \
-    gnome-icon-theme \
-    pavucontrol \
-    arandr \
-    bluetooth bluez bluez-tools rfkill blueman \
-    vokoscreen \
-    gimp \
-    mplayer \
-    vlc \
-
-# NEOVIM
-/usr/local/src/neovim:
-	@sudo git clone https://github.com/neovim/neovim /usr/local/src/neovim
-
-install_nvim: /usr/local/src/neovim
-	@sudo apt-get install -y -qq gettext
-	@cd /usr/local/src/neovim \
-		&& sudo make CMAKE_BUILD_TYPE=RelWithDebInfo \
-		&& sudo make install
-
-# LAZYGIT
-install_lazygit:
-	@curl -Lo lazygit.tar.gz https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_0.37.0_Linux_x86_64.tar.gz
-	@tar xf lazygit.tar.gz lazygit
-	@sudo install lazygit /usr/local/bin
-	@rm lazygit.tar.gz lazygit
-
-
-# SWAY
-install_sway:
-	@sudo apt-get install sway -y -qqq
+		xterm \
+		vifm \
+		xinit \
+		xbacklight \
+		network-manager-gnome \
+		pcmanfm \
+		gnome-icon-theme \
+		pavucontrol \
+		arandr \
+		bluetooth bluez bluez-tools rfkill blueman \
+		vokoscreen \
+		mplayer \
+		sway
+	@sudo snap install nvim --classic
+	@sudo snap install lazygit
+	# @sudo snap install gimp
+	@sudo snap install vlc
 
 # PASS
 /usr/local/src/password-store:
@@ -137,3 +119,16 @@ install_sway:
 
 install_pass: /usr/local/src/password-store
 	@cd /usr/local/src/password-store && sudo make install
+
+
+setup_projects:  # Setup projects
+	@mkdir -p ${HOME}/projects
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto_parts.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto_ros2.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/ros2_vicon.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/papers.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/coding_prep.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/phd_thesis.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/yac.git
+	@cd ${HOME}/projects && git clone git@github.com:chutsu/chutsu.github.io.git

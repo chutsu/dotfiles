@@ -2,6 +2,7 @@
 vim.opt.path = vim.opt.path + ".,**"
 vim.opt.joinspaces = false
 vim.opt.list = true
+vim.opt.listchars = { tab = "> " }
 vim.opt.number = true
 vim.opt.sidescrolloff = 8
 vim.opt.ignorecase = true    -- Ignore case when searching
@@ -14,8 +15,9 @@ vim.opt.undolevels = 1000
 vim.opt.history = 1000
 
 -- Disable netrw
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0
+-- vim.g.loaded_netrw = 0
+-- vim.g.loaded_netrwPlugin = 0
+
 
 -- Lazy nvim plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -39,19 +41,57 @@ require("lazy").setup({
   {'bkad/CamelCaseMotion'},
   {'kris89/vim-multiple-cursors'},
   {'tpope/vim-commentary'},
-  {'farmergreg/vim-lastplace'},
-  {'vim-airline/vim-airline'},
-  {'rhysd/vim-clang-format'},
-  {'nvim-tree/nvim-tree.lua'},
-  {'tranvansang/octave.vim'}
 })
 
 
--- -- Netrw File Manager
--- vim.g.netrw_banner = 0       -- Hide banner
--- vim.g.netrw_browse_split = 0 -- Open file in current split
--- vim.g.netrw_liststyle = 3    -- Tree-style view
--- vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
+-- Netrw File Manager
+vim.g.netrw_banner = 0       -- Hide banner
+vim.g.netrw_browse_split = 0 -- Open file in current split
+vim.g.netrw_liststyle = 3    -- Tree-style view
+vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
+
+
+-- Status Line
+local function git_branch()
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  if string.len(branch) > 0 then
+    return branch
+  else
+    return ":"
+  end
+end
+
+local function statusline()
+  local set_color_1 = "%#PmenuSel#"
+  local branch = git_branch()
+  local set_color_2 = "%#LineNr#"
+  local file_name = " %f"
+  local modified = "%m"
+  local align_right = "%="
+  local fileencoding = " %{&fileencoding?&fileencoding:&encoding}"
+  local fileformat = " [%{&fileformat}]"
+  local filetype = " %y"
+  local percentage = " %p%%"
+  local linecol = " %l:%c"
+
+  return string.format(
+    "%s %s %s%s%s%s%s%s%s%s%s",
+    set_color_1,
+    branch,
+    set_color_2,
+    file_name,
+    modified,
+    align_right,
+    filetype,
+    fileencoding,
+    fileformat,
+    percentage,
+    linecol
+  )
+end
+
+vim.opt.statusline = statusline()
+
 
 -- Custom functions
 function py_formatter()
@@ -61,28 +101,12 @@ function py_formatter()
   vim.cmd("! " .. cmd) -- Run the formatting command using "!" to execute it in the shell
 end
 
-
--- Nvim-tree
-require("nvim-tree").setup({
-  renderer = {
-    icons = {
-      show = {
-        file = false,
-        folder = false,
-        folder_arrow = false,
-        git = false,
-        modified = false,
-      }
-    }
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
----- Nvim-tree auto close
-vim.api.nvim_create_autocmd({"QuitPre"}, {
-  callback = function() vim.cmd("NvimTreeClose") end,
-})
+function clang_formatter()
+  local file = vim.fn.expand('%:p')
+  local cmd = "clang-format -i " .. file
+  vim.cmd("w") -- Save the current buffer
+  vim.cmd("! " .. cmd) -- Run the formatting command using "!" to execute it in the shell
+end
 
 
 -- Syntax
@@ -93,7 +117,8 @@ vim.opt.expandtab = true
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"c"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"cpp"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"openscad"}, command = "setlocal commentstring=//\\ %s"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"c"}, command = "ClangFormatAutoEnable"})
+vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set tabstop=2"})
+vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set shiftwidth=2"})
 
 
 -- Color Scheme
@@ -106,7 +131,6 @@ vim.api.nvim_set_hl(0, "CursorLineNR", {cterm=None, ctermfg=None, ctermbg=240})
 vim.api.nvim_set_hl(0, "Directory", {ctermfg=75})
 vim.api.nvim_set_hl(0, "ErrorMsg", {ctermbg=196, ctermfg=white})
 vim.api.nvim_set_hl(0, "VertSplit", {ctermfg=236})
-vim.api.nvim_set_hl(0, "NonText", {ctermfg=235})
 vim.api.nvim_set_hl(0, "Pmenu", {ctermfg=255, ctermbg=239})
 vim.api.nvim_set_hl(0, "PmenuSel", {ctermfg=255, ctermbg=237})
 vim.api.nvim_set_hl(0, "Search", {cterm=None, ctermfg=255, ctermbg=196})
@@ -119,6 +143,7 @@ vim.api.nvim_set_hl(0, "Identifier", {ctermfg=81})
 vim.api.nvim_set_hl(0, "Statement", {ctermfg=198})
 vim.api.nvim_set_hl(0, "Type", {ctermfg=81})
 vim.api.nvim_set_hl(0, "Function", {ctermfg=81})
+vim.api.nvim_set_hl(0, "NonText", {ctermfg=105})
 vim.api.nvim_set_hl(0, "Special", {ctermfg=198})
 vim.api.nvim_set_hl(0, "Error", {ctermfg=196, ctermbg=None})
 vim.api.nvim_set_hl(0, "PreProc", {ctermfg=105})
@@ -146,7 +171,7 @@ vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", ",/", ":nohlsearch<CR>", {desc = "Clear highlight search"})
 vim.keymap.set("n", "<C-k>", ":call search('\\u\\|_')<CR>l", {desc = "Jump camelCase"})
 vim.keymap.set("n", "<C-P>", ":lua require('fzf-lua').files()<CR>", {desc = "FZF files"})
-vim.keymap.set("n", "<C-f>", ":NvimTreeToggle <CR>", {desc = "Open file explorer"})
+vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
@@ -154,7 +179,7 @@ vim.keymap.set({"n", "v"}, "f", function()
   if vim.bo.filetype == "python" then
     vim.cmd("silent lua py_formatter()")
   elseif vim.bo.filetype == "cpp" or vim.bo.filetype == "c" then
-    vim.cmd("ClangFormat")
+    vim.cmd("silent lua clang_formatter()")
   else
     error("Formatter not confgured!")
   end
@@ -177,15 +202,18 @@ vim.keymap.set("n", "<C-i>", function()
     error("[" .. fpath .. "] is not a valid C / C++ source / header file?")
   end
 end)
----- Tab Navigation
+
+
+-- Tab Navigation
 vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
 vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
----- Split Navigation
+
+
+-- Split Navigation
 vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
 vim.keymap.set("n", "<S-j>", ":wincmd j<CR>", {desc = "Move to lower split"})
 vim.keymap.set("n", "<S-k>", ":wincmd k<CR>", {desc = "Move to upper split"})
 vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
-
 
 
 -- Auto Actions
@@ -194,7 +222,3 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*"},
   command = [[%s/\s\+$//e]],
 })
--- vim.api.nvim_create_autocmd({"BufWritePre"}, {
---   pattern = {"c", "h", "cpp", "hpp"},
---   command = "ClangFormat"
--- })

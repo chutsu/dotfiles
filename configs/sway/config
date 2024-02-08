@@ -4,7 +4,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term gnome-terminal
+set $term tilix
 set $browser MOZ_ENABLE_WAYLAND=1 firefox
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 

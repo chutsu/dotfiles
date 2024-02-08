@@ -9,7 +9,7 @@ fi
 
 # ENVIRONMENTAL SETTINGS
 export PATH=$PATH:~/dotfiles/scripts:~/.local/bin:/usr/local/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export VISUAL=nvim
 export EDITOR=nvim
 
@@ -23,6 +23,7 @@ export PROJECTS="$HOME/projects"
 export DOTFILES="$HOME/dotfiles"
 
 # DIR SHORTCUTS
+alias vim="/snap/bin/nvim"
 alias down="cd $HOME/Downloads";
 alias dotfiles="cd $DOTFILES";
 alias scripts="cd $HOME/dotfiles/scripts"
@@ -36,6 +37,13 @@ alias papers="cd $PROJECTS/papers"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias suspend="sudo systemctl suspend";
+alias brightness_max="brightnessctl --device intel_backlight set 60000"
+alias buds="\
+  pulseaudio --kill \
+  && bluetoothctl disconnect AC:3E:B1:9D:49:2F \
+  && sleep 5 \
+  && bluetoothctl connect AC:3E:B1:9D:49:2F
+"
 
 sync_projects() {
   mkdir -p "$HOME/projects";
@@ -66,7 +74,6 @@ lock() {
   xset dpms force off
 }
 
-alias vim='nvim'
 alias ls='ls -lh --group-directories-first --color'
 alias la='ls -lha --color'
 alias vimrc="cd $HOME/dotfiles && vim vim/vimrc && cd -";
@@ -74,7 +81,6 @@ alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
 alias todo="vim $HOME/projects/TODO; cd -";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
-alias brightness_max="echo 100 | sudo tee /sys/class/backlight/nv_backlight/brightness"
 
 # SHELL SETTINGS
 parse_git_branch() {
