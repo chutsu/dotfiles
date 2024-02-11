@@ -4,7 +4,10 @@ help:
 		| awk 'BEGIN {FS = ":.*?## "}; \
 			{printf "\033[1;36m%-12s\033[0m%s\n", $$1, $$2}'
 
-dotfiles: bash_profile gitconfig xdefaults nvim vifm sway tmux qutebrowser ## Install dotfiles
+dotfiles: init bash_profile gitconfig xdefaults nvim vifm sway tmux qutebrowser ## Install dotfiles
+
+init:
+	@mkdir -p ${HOME}/.config
 
 bash_profile:
 	@echo "- bash_profile"
