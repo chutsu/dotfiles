@@ -43,7 +43,7 @@ bindsym $mod+t exec $term
 bindsym $mod+b exec $browser
 bindsym $mod+Space exec $menu
 bindsym $mod+q kill
-bindsym $mod+s exec grim -g "$(slurp)" /home/chutsu/screenshots/$(date +'%s_screenshot.png')
+bindsym $mod+s exec grim -g "$(slurp)" /home/chutsu/docs/screenshots/$(date +'%s_screenshot.png')
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
