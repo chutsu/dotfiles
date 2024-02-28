@@ -36,7 +36,7 @@ alias proto_ws="cd $HOME/proto_ws"
 alias papers="cd $PROJECTS/papers"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
-alias suspend="sudo systemctl suspend";
+alias suspend="sudo systemctl hibernate"
 alias brightness_max="brightnessctl --device intel_backlight set 60000"
 alias buds="\
   pulseaudio --kill \
