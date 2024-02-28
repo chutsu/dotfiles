@@ -140,3 +140,15 @@ setup_projects:  # Setup projects
 	@cd ${HOME}/projects && git clone git@github.com:chutsu/phd_thesis.git
 	@cd ${HOME}/projects && git clone git@github.com:chutsu/yac.git
 	@cd ${HOME}/projects && git clone git@github.com:chutsu/chutsu.github.io.git
+
+sync_projects:  # Sync projects
+	@mkdir -p ${HOME}/projects
+	@cd ${HOME}/projects/proto && git pull
+	@cd ${HOME}/projects/proto_parts && git pull
+	@cd ${HOME}/projects/proto_ros2 && git pull
+	@cd ${HOME}/projects/ros2_vicon && git pull
+	@cd ${HOME}/projects/papers && git pull
+	@cd ${HOME}/projects/coding_prep && git pull
+	@cd ${HOME}/projects/phd_thesis && git pull
+	@cd ${HOME}/projects/yac && git pull
+	@cd ${HOME}/projects/chutsu.github.io && git pull
