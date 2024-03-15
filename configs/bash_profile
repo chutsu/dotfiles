@@ -37,6 +37,7 @@ alias papers="cd $PROJECTS/papers"
 alias phd="cd $PROJECTS/phd"
 alias chutsu="cd $PROJECTS/chutsu.github.io"
 alias suspend="sudo systemctl hibernate"
+alias hotspot="nmcli device wifi connect C’s\ iPhone\ \(2\)"
 alias brightness_max="brightnessctl --device intel_backlight set 60000"
 alias buds="\
   pulseaudio --kill \

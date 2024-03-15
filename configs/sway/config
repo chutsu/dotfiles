@@ -112,6 +112,7 @@ bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle
+for_window [title="Gnuplot window 0"] floating enable
 
 # Swap focus between the tiling area and the floating area
 # bindsym $mod+f focus mode_toggle
@@ -134,7 +135,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
 

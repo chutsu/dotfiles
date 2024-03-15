@@ -9,6 +9,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - name: Set deb to run in non-interactive mode
+      run: echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
     - name: Install make
       run: apt-get update -y && apt-get install make sudo
 

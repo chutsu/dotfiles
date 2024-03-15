@@ -119,6 +119,14 @@ vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"cpp"}, command = "setloca
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"openscad"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set tabstop=2"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set shiftwidth=2"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"tex"}, command = "set textwidth=80"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"tex"}, command = "set formatoptions+=a"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"tex"}, command = "set formatlistpat-=\\[\\]"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"tex"}, command = "set formatlistpat-=\\[\\]"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"text"}, command = "set formatlistpat-=\\\\begin{equation*}"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"text"}, command = "set formatlistpat-=\\\\begin{equation}"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"text"}, command = "set formatlistpat-=\\\\begin{align*}"})
+-- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"text"}, command = "set formatlistpat-=\\\\begin{align}"})
 
 
 -- Color Scheme
@@ -207,7 +215,6 @@ end)
 -- Tab Navigation
 vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
 vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
-
 
 -- Split Navigation
 vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
