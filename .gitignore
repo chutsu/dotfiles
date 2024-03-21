@@ -1,9 +1,10 @@
 .DS_Store
-*.swp
-
 .netrwhist
-vifminfo.json
-lazy-lock.json
-
-tags
 .nvimlog
+*.swp
+*.spl
+vifminfo
+vifminfo.json*
+lazy-lock.json
+Default.vifm
+tags
