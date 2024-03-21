@@ -101,6 +101,7 @@ desktop_apps:
 	@echo "Install desktop_apps"
 	@sudo apt-get install -y -qq \
 		xterm \
+		tilix \
 		vifm \
 		xinit \
 		xbacklight \
