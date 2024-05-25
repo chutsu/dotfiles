@@ -115,6 +115,7 @@ desktop_apps:
 		grim \
 		slurp \
 		wf-recorder \
+		texlive-full \
 		mplayer \
 		sway
 	@sudo snap install nvim --classic
