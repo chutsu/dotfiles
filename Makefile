@@ -119,6 +119,8 @@ desktop_apps:
 		texlive-full \
 		mplayer \
 		sway
+	@sudo systemctl start snapd
+	@sudo systemctl enable snapd
 	@sudo snap install nvim --classic
 	@sudo snap install lazygit
 	@sudo snap install gimp
