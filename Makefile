@@ -97,10 +97,9 @@ shell_pkgs:
 		shellcheck \
 		silversearcher-ag
 
-desktop_apps:
+desktop_apps: install_nvim install_lazygit
 	@echo "Install desktop_apps"
 	@sudo apt-get install -y -qq \
-		snapd \
 		xterm \
 		tilix \
 		vifm \
@@ -118,13 +117,25 @@ desktop_apps:
 		wf-recorder \
 		texlive-full \
 		mplayer \
-		sway
-	@sudo systemctl start snapd
-	@sudo systemctl enable snapd
-	@sudo snap install nvim --classic
-	@sudo snap install lazygit
-	@sudo snap install gimp
-	@sudo snap install vlc
+		vlc \
+		sway \
+		gimp
+
+# NEOVIM
+install_neovim:
+	@curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+	@sudo tar -C /usr/local/src -xzf nvim-linux64.tar.gz
+	@sudo ln -sf /usr/local/src/nvim-linux64/bin/nvim /usr/local/bin/nvim
+	@rm nvim-linux64.tar.gz
+
+# LAZYGIT
+LAZYGIT_VERSION=$(shell curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+install_lazygit:
+	@curl -Lo lazygit.tar.gz https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_$(LAZYGIT_VERSION)_Linux_x86_64.tar.gz
+	@tar xf lazygit.tar.gz lazygit
+	@sudo install lazygit /usr/local/bin
+	@rm lazygit.tar.gz lazygit
+
 
 # PASS
 /usr/local/src/password-store:
