@@ -97,7 +97,7 @@ shell_pkgs:
 		shellcheck \
 		silversearcher-ag
 
-desktop_apps: install_nvim install_lazygit
+desktop_apps: install_neovim install_lazygit
 	@echo "Install desktop_apps"
 	@sudo apt-get install -y -qq \
 		xterm \
