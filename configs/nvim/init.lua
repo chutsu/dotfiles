@@ -39,8 +39,7 @@ require("lazy").setup({
   {'junegunn/fzf', build = './install --bin'},
   {'ibhagwan/fzf-lua', dependencies = 'junegunn/fzf'},
   {'bkad/CamelCaseMotion'},
-  {'kris89/vim-multiple-cursors'},
-  {'tpope/vim-commentary'},
+  {'habamax/vim-rst'},
 })
 
 
@@ -183,7 +182,7 @@ vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
-vim.keymap.set({"n", "v"}, "f", function()
+vim.keymap.set({"n", "v"}, "F", function()
   if vim.bo.filetype == "python" then
     vim.cmd("silent lua py_formatter()")
   elseif vim.bo.filetype == "cpp" or vim.bo.filetype == "c" then
