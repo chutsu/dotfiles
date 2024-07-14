@@ -10,33 +10,24 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 # Screen config
 output * bg #111111 solid_color
-output DP-4   res 2560x1600 scale 1.25   pos 0 0        transform 90
-output eDP-1  res 2556x1504  scale 1.25  pos 1600 0
+output eDP-1  res 2556x1504  scale 1.25  pos 0 0
+output DP-4   res 2560x1600 scale 1.25   pos 0 -1504        transform 0
 workspace 1 output eDP-1 DP-4
 workspace 2 output eDP-1 DP-4
 workspace 3 output eDP-1 DP-4
 workspace 4 output DP-4 eDP-1
 workspace 5 output DP-4 eDP-1
 
-# output DP-4   res 2560x1600 scale 1.25  pos 0 0        transform 90
-# output DP-1   res 1920x1080 scale 1.0  pos 0 0
-# workspace 1 output eDP-1 DP-4
-# workspace 2 output eDP-1 DP-4
-# workspace 3 output eDP-1 DP-4
-# workspace 4 output DP-4 eDP-1
-# workspace 5 output DP-4 eDP-1
-
-# output DP-4   res 2560x1600 scale 1.25   pos 0 0
-# output eDP-1  res 2556x1504  scale 1.25  pos 2560 0
-# workspace 1 output DP-4 eDP-1
-# workspace 2 output DP-4 eDP-1
-# workspace 3 output DP-4 eDP-1
-# workspace 4 output eDP-1 DP-4
-# workspace 5 output eDP-1 DP-4
+# output eDP-1  res 2556x1504  scale 1.25  pos 0 0
+# # output DP-2  res 1980x1080 scale 1.0   pos 0 -1504        transform 0
+# workspace 1 output eDP-1 DP-2
+# workspace 2 output eDP-1 DP-2
+# workspace 3 output eDP-1 DP-2
+# workspace 4 output DP-2 eDP-1
+# workspace 5 output DP-2 eDP-1
 
 # Use gnome authentication agent to launch root applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
 
 # Theme colors
 # client.<class>          <border> <background> <text>  <indicator> <child_border>
@@ -52,6 +43,8 @@ bindsym $mod+b exec $browser
 bindsym $mod+Space exec $menu
 bindsym $mod+q kill
 bindsym $mod+s exec grim -g "$(slurp)" /home/chutsu/docs/screenshots/$(date +'%s_screenshot.png')
+bindsym $mod+down exec "brightnessctl set 5%-"
+bindsym $mod+up exec "brightnessctl set 5%+"
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -113,6 +106,11 @@ bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle
 for_window [title="Gnuplot window 0"] floating enable
+for_window [title="viz"] floating enable
+for_window [title="Figure 1"] floating enable
+for_window [title="Figure 2"] floating enable
+for_window [title="Figure 3"] floating enable
+for_window [title="Figure 4"] floating enable
 
 # Swap focus between the tiling area and the floating area
 # bindsym $mod+f focus mode_toggle
@@ -159,8 +157,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+# bindsym XF86MonBrightnessDown exec "brightnessctl set 5%-"
+# bindsym XF86MonBrightnessUp exec "brightnessctl set 5%+"
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
