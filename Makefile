@@ -4,7 +4,7 @@ help:
 		| awk 'BEGIN {FS = ":.*?## "}; \
 			{printf "\033[1;36m%-12s\033[0m%s\n", $$1, $$2}'
 
-dotfiles: init bash_profile gitconfig xdefaults nvim vifm sway tmux qutebrowser ## Install dotfiles
+dotfiles: init bash_profile gitconfig gdbinit xdefaults nvim vifm sway tmux qutebrowser ## Install dotfiles
 
 init:
 	@mkdir -p ${HOME}/.config
@@ -19,6 +19,11 @@ gitconfig:
 	@echo "- gitconfig"
 	@rm -f ${HOME}/.gitconfig
 	@ln -fs ${PWD}/configs/gitconfig ${HOME}/.gitconfig
+
+gdbinit:
+	@echo "- gdbinit"
+	@rm -f ${HOME}/.gdbinit
+	@ln -fs ${PWD}/configs/gdbinit ${HOME}/.gdbinit
 
 xdefaults:
 	@echo "- xdefaults"
