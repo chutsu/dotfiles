@@ -39,6 +39,8 @@ require("lazy").setup({
   {'junegunn/fzf', build = './install --bin'},
   {'ibhagwan/fzf-lua', dependencies = 'junegunn/fzf'},
   {'bkad/CamelCaseMotion'},
+  {'justinmk/vim-sneak'},
+  {'mg979/vim-visual-multi'},
   {'habamax/vim-rst'},
 })
 
@@ -91,6 +93,39 @@ local function statusline()
 end
 
 vim.opt.statusline = statusline()
+
+-- Sessions
+local function make_session()
+  local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
+  if vim.fn.isdirectory(sessiondir) == 0 then
+    vim.fn.mkdir(sessiondir, "p")
+  end
+  local filename = sessiondir .. "/session.vim"
+  vim.cmd("mksession! " .. filename)
+end
+
+local function load_session()
+  local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
+  local sessionfile = sessiondir .. "/session.vim"
+  if vim.fn.filereadable(sessionfile) == 1 then
+    vim.cmd("source " .. sessionfile)
+  else
+    print("No session loaded.")
+  end
+end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  nested = true,
+  callback = function()
+    load_session()
+  end,
+})
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  callback = function()
+    make_session()
+  end,
+})
 
 
 -- Custom functions
@@ -183,7 +218,9 @@ vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
-vim.keymap.set({"n", "v"}, "F", function()
+-- vim.keymap.set("n", "f",  "<Plug>Sneak_s<CR>")
+-- vim.keymap.set("n", "F",  "<Plug>Sneak_S<CR>")
+vim.keymap.set({"n", "v"}, "<c-F>", function()
   if vim.bo.filetype == "python" then
     vim.cmd("silent lua py_formatter()")
   elseif vim.bo.filetype == "cpp" or vim.bo.filetype == "c" then
