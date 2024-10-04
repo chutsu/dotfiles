@@ -44,6 +44,14 @@ vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 vim.g.netrw_altv = 1
 
 
+---- Multi-cursors
+vim.g.VM_highlight_matches = 'hi! link Search PmenuSel'
+vim.api.nvim_set_hl(0, "VM_Mono", {fg="#FFFFFF", bg="#FF0000"})
+vim.api.nvim_set_hl(0, "VM_Extend", {fg="#FFFFFF", bg="#FF0000"})
+vim.api.nvim_set_hl(0, "VM_Cursor", {fg="#FFFFFF", bg="#FF0000"})
+vim.api.nvim_set_hl(0, "VM_Insert", {fg="#FFFFFF", bg="#FF0000"})
+
+
 -- Status Line
 local function git_branch()
   local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
