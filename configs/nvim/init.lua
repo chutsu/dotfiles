@@ -258,6 +258,8 @@ vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
 
 
 -- Auto Actions
+---- Set equal splits automatically
+vim.api.nvim_create_autocmd("VimResized", { command = "wincmd =" })
 
 ---- Remove trailing whitespace
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
