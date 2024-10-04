@@ -5,18 +5,14 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "> " }
 vim.opt.number = true
 vim.opt.sidescrolloff = 8
-vim.opt.ignorecase = true    -- Ignore case when searching
-vim.opt.smartcase = false    -- Turn off smartcase when searching
+vim.opt.ignorecase = true
+vim.opt.smartcase = false
 vim.opt.smartindent = true
 vim.opt.wildmenu = true
-vim.opt.scrolloff = 10       -- Top / bottom padding when scrolling
+vim.opt.scrolloff = 10
 vim.opt.cursorline = true
 vim.opt.undolevels = 1000
 vim.opt.history = 1000
-
--- Disable netrw
--- vim.g.loaded_netrw = 0
--- vim.g.loaded_netrwPlugin = 0
 
 
 -- Lazy nvim plugin manager
@@ -33,13 +29,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
--- Load plugins
 require("lazy").setup({
-  {'junegunn/fzf', build = './install --bin'},
-  {'ibhagwan/fzf-lua', dependencies = 'junegunn/fzf'},
   {'bkad/CamelCaseMotion'},
-  {'justinmk/vim-sneak'},
   {'mg979/vim-visual-multi'},
   {'habamax/vim-rst'},
 })
@@ -154,14 +145,6 @@ vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"cpp"}, command = "setloca
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"openscad"}, command = "setlocal commentstring=//\\ %s"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set tabstop=2"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set shiftwidth=2"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"tex"}, command = "set textwidth=80"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"tex"}, command = "set formatoptions+=a"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"tex"}, command = "set formatlistpat-=\\[\\]"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"tex"}, command = "set formatlistpat-=\\[\\]"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"text"}, command = "set formatlistpat-=\\\\begin{equation*}"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"text"}, command = "set formatlistpat-=\\\\begin{equation}"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"text"}, command = "set formatlistpat-=\\\\begin{align*}"})
--- vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"text"}, command = "set formatlistpat-=\\\\begin{align}"})
 
 
 -- Color Scheme
@@ -218,8 +201,6 @@ vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
--- vim.keymap.set("n", "f",  "<Plug>Sneak_s<CR>")
--- vim.keymap.set("n", "F",  "<Plug>Sneak_S<CR>")
 vim.keymap.set({"n", "v"}, "<c-F>", function()
   if vim.bo.filetype == "python" then
     vim.cmd("silent lua py_formatter()")
