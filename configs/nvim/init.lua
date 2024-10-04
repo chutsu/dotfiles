@@ -126,7 +126,7 @@ vim.api.nvim_create_autocmd("VimLeave", {
 })
 
 
--- Custom functions
+-- Code formatter
 function py_formatter()
   local file = vim.fn.expand('%:p')
   local cmd = "yapf3 --in-place " .. file
@@ -140,6 +140,16 @@ function clang_formatter()
   vim.cmd("w") -- Save the current buffer
   vim.cmd("! " .. cmd) -- Run the formatting command using "!" to execute it in the shell
 end
+
+vim.keymap.set({"n", "v"}, "<C-f>", function()
+  if vim.bo.filetype == "python" then
+    vim.cmd("silent lua py_formatter()")
+  elseif vim.bo.filetype == "cpp" or vim.bo.filetype == "c" then
+    vim.cmd("silent lua clang_formatter()")
+  else
+    error("Formatter not confgured!")
+  end
+end)
 
 
 -- Syntax
