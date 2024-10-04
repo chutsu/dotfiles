@@ -62,7 +62,7 @@ local function git_branch()
   end
 end
 
-local function statusline()
+local function status_line()
   local set_color_1 = "%#PmenuSel#"
   local branch = git_branch()
   local set_color_2 = "%#LineNr#"
@@ -90,8 +90,7 @@ local function statusline()
     linecol
   )
 end
-
-vim.opt.statusline = statusline()
+vim.opt.statusline = status_line()
 
 -- Sessions
 local function make_session()
