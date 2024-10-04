@@ -213,7 +213,6 @@ vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", ",/", ":nohlsearch<CR>", {desc = "Clear highlight search"})
 vim.keymap.set("n", "<C-k>", ":call search('\\u\\|_')<CR>l", {desc = "Jump camelCase"})
-vim.keymap.set("n", "<C-P>", ":lua require('fzf-lua').files()<CR>", {desc = "FZF files"})
 vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
@@ -246,10 +245,10 @@ vim.keymap.set("n", "<C-i>", function()
   end
 end)
 
-
 -- Tab Navigation
 vim.keymap.set("n", "<C-h>", ":tabp<CR>", {desc = "Move to left tab"})
 vim.keymap.set("n", "<C-l>", ":tabn<CR>", {desc = "Move to right tab"})
+
 
 -- Split Navigation
 vim.keymap.set("n", "<S-h>", ":wincmd h<CR>", {desc = "Move to left split"})
@@ -259,6 +258,7 @@ vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
 
 
 -- Auto Actions
+
 ---- Remove trailing whitespace
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*"},
