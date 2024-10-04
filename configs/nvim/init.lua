@@ -217,15 +217,6 @@ vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
-vim.keymap.set({"n", "v"}, "<c-F>", function()
-  if vim.bo.filetype == "python" then
-    vim.cmd("silent lua py_formatter()")
-  elseif vim.bo.filetype == "cpp" or vim.bo.filetype == "c" then
-    vim.cmd("silent lua clang_formatter()")
-  else
-    error("Formatter not confgured!")
-  end
-end)
 vim.keymap.set("n", "<C-i>", function()
   -- Jump between C / C++ source / header
   local fpath = vim.fn.expand('%')
