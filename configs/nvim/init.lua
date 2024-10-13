@@ -33,7 +33,6 @@ require("lazy").setup({
   {'bkad/CamelCaseMotion'},
   {'mg979/vim-visual-multi'},
   {'habamax/vim-rst'},
-  {'tpope/vim-abolish'},
 })
 
 
@@ -94,37 +93,37 @@ end
 vim.opt.statusline = status_line()
 
 -- Sessions
-local function make_session()
-  local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
-  if vim.fn.isdirectory(sessiondir) == 0 then
-    vim.fn.mkdir(sessiondir, "p")
-  end
-  local filename = sessiondir .. "/session.vim"
-  vim.cmd("mksession! " .. filename)
-end
-
-local function load_session()
-  local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
-  local sessionfile = sessiondir .. "/session.vim"
-  if vim.fn.filereadable(sessionfile) == 1 then
-    vim.cmd("source " .. sessionfile)
-  else
-    print("No session loaded.")
-  end
-end
-
-vim.api.nvim_create_autocmd("VimEnter", {
-  nested = true,
-  callback = function()
-    load_session()
-  end,
-})
-
-vim.api.nvim_create_autocmd("VimLeave", {
-  callback = function()
-    make_session()
-  end,
-})
+-- local function make_session()
+--   local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
+--   if vim.fn.isdirectory(sessiondir) == 0 then
+--     vim.fn.mkdir(sessiondir, "p")
+--   end
+--   local filename = sessiondir .. "/session.vim"
+--   vim.cmd("mksession! " .. filename)
+-- end
+--
+-- local function load_session()
+--   local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
+--   local sessionfile = sessiondir .. "/session.vim"
+--   if vim.fn.filereadable(sessionfile) == 1 then
+--     vim.cmd("source " .. sessionfile)
+--   else
+--     print("No session loaded.")
+--   end
+-- end
+--
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   nested = true,
+--   callback = function()
+--     load_session()
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--   callback = function()
+--     make_session()
+--   end,
+-- })
 
 
 -- Code formatter
@@ -250,6 +249,11 @@ vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
 
 
 -- Auto Actions
+---- Auto correct typos in command modeo
+vim.cmd("cnoremap W w")
+vim.cmd("cnoremap E e")
+vim.cmd("cnoremap F f")
+
 ---- Set equal splits automatically
 vim.api.nvim_create_autocmd("VimResized", { command = "wincmd =" })
 vim.api.nvim_create_autocmd("WinNew", { command = "wincmd =" })
