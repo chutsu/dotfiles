@@ -150,26 +150,26 @@ install_pass: /usr/local/src/password-store
 	@cd /usr/local/src/password-store && sudo make install
 
 
-setup_projects:  # Setup projects
-	@mkdir -p ${HOME}/projects
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto.git
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto_parts.git
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/proto_ros2.git
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/ros2_vicon.git
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/papers.git
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/coding_prep.git
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/phd_thesis.git
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/yac.git
-	@cd ${HOME}/projects && git clone git@github.com:chutsu/chutsu.github.io.git
+setup_code:  # Setup code
+	@mkdir -p ${HOME}/code
+	@cd ${HOME}/code && git clone git@github.com:chutsu/proto.git
+	@cd ${HOME}/code && git clone git@github.com:chutsu/proto_parts.git
+	@cd ${HOME}/code && git clone git@github.com:chutsu/proto_ros2.git
+	@cd ${HOME}/code && git clone git@github.com:chutsu/ros2_vicon.git
+	@cd ${HOME}/code && git clone git@github.com:chutsu/papers.git
+	@cd ${HOME}/code && git clone git@github.com:chutsu/coding_prep.git
+	@cd ${HOME}/code && git clone git@github.com:chutsu/phd_thesis.git
+	@cd ${HOME}/code && git clone git@github.com:chutsu/yac.git
+	@cd ${HOME}/code && git clone git@github.com:chutsu/chutsu.github.io.git
 
-sync_projects:  # Sync projects
-	@mkdir -p ${HOME}/projects
-	@cd ${HOME}/projects/proto && git pull
-	@cd ${HOME}/projects/proto_parts && git pull
-	@cd ${HOME}/projects/proto_ros2 && git pull
-	@cd ${HOME}/projects/ros2_vicon && git pull
-	@cd ${HOME}/projects/papers && git pull
-	@cd ${HOME}/projects/coding_prep && git pull
-	@cd ${HOME}/projects/phd_thesis && git pull
-	@cd ${HOME}/projects/yac && git pull
-	@cd ${HOME}/projects/chutsu.github.io && git pull
+sync_code:  # Sync code
+	@mkdir -p ${HOME}/code
+	@cd ${HOME}/code/proto && git pull
+	@cd ${HOME}/code/proto_parts && git pull
+	@cd ${HOME}/code/proto_ros2 && git pull
+	@cd ${HOME}/code/ros2_vicon && git pull
+	@cd ${HOME}/code/papers && git pull
+	@cd ${HOME}/code/coding_prep && git pull
+	@cd ${HOME}/code/phd_thesis && git pull
+	@cd ${HOME}/code/yac && git pull
+	@cd ${HOME}/code/chutsu.github.io && git pull
