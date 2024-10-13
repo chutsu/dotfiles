@@ -19,7 +19,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # DIR PATHS
 export DROPBOX="$HOME/Dropbox"
-export PROJECTS="$HOME/projects"
+export CODE="$HOME/code"
 export DOTFILES="$HOME/dotfiles"
 
 # DIR SHORTCUTS
@@ -28,12 +28,12 @@ alias down="cd $HOME/Downloads";
 alias dotfiles="cd $DOTFILES";
 alias scripts="cd $HOME/dotfiles/scripts"
 alias catkin_ws="cd ~/catkin_ws/"
-alias yac="cd $PROJECTS/yac"
-alias xyz="cd $PROJECTS/xyz"
-alias papers="cd $PROJECTS/papers"
-alias phd="cd $PROJECTS/phd_thesis"
-alias sketchbook="cd $PROJECTS/sketchbook"
-alias chutsu="cd $PROJECTS/chutsu.github.io"
+alias yac="cd $CODE/yac"
+alias xyz="cd $CODE/xyz"
+alias papers="cd $CODE/papers"
+alias phd="cd $CODE/phd_thesis"
+alias sketchbook="cd $CODE/sketchbook"
+alias chutsu="cd $CODE/chutsu.github.io"
 alias suspend="sudo systemctl hibernate"
 alias hotspot="nmcli device wifi connect C’s\ iPhone\ \(2\)"
 alias hotspot2="nmcli device wifi list --rescan yes > /dev/null && nmcli device wifi connect Pixel_5213"
@@ -46,8 +46,8 @@ alias buds="\
 "
 
 sync_projects() {
-  mkdir -p "$HOME/projects";
-  cd "$HOME/projects" || return;
+  mkdir -p "$CODE";
+  cd "$CODE" || return;
   declare -a PROJECTS=(
     "yac"
     "xyz"
@@ -57,12 +57,12 @@ sync_projects() {
   )
 
   for PROJ in "${PROJECTS[@]}"; do
-    if [ ! -d "$HOME/projects/$PROJ" ]; then
-      cd "$HOME/projects";
+    if [ ! -d "$CODE/$PROJ" ]; then
+      cd "$CODE";
       git clone "git@github.com:chutsu/$PROJ"
     fi
 
-    cd "$HOME/projects/$PROJ";
+    cd "$CODE/$PROJ";
     git pull
   done
 }
@@ -78,7 +78,7 @@ alias ls='ls -lh --group-directories-first --color'
 alias la='ls -lha --color'
 alias vimrc="cd $HOME/dotfiles && vim vim/vimrc && cd -";
 alias bashrc="cd $HOME && vim .bash_profile && cd - && source ~/.bash_profile";
-alias todo="vim $HOME/projects/TODO; cd -";
+alias todo="vim $CODE/TODO; cd -";
 alias tasks="grep --exclude-dir=.git -rEI 'TODO|FIXME' . 2>/dev/null";
 alias search="grep -nr $1 ."
 
