@@ -33,6 +33,7 @@ require("lazy").setup({
   {'bkad/CamelCaseMotion'},
   {'mg979/vim-visual-multi'},
   {'habamax/vim-rst'},
+  {'ibhagwan/fzf-lua'},
 })
 
 
@@ -44,7 +45,32 @@ vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 vim.g.netrw_altv = 1
 
 
----- Multi-cursors
+-- FZF
+require('fzf-lua').setup({
+  winopts = {
+    -- window options
+  },
+  keymap = {
+    -- These are key mappings within the `fzf-lua` search windows
+    builtin = {
+      ["<F1>"] = "toggle-preview",
+      ["<C-j>"] = "preview-page-down",
+      ["<C-k>"] = "preview-page-up",
+      ["<C-s>"] = "toggle-fullscreen",
+    },
+    fzf = {
+      -- FZF's native mappings for 'normal' mode
+      ["ctrl-a"] = "select-all",    -- map 'ctrl-a' to select all results
+      ["ctrl-d"] = "deselect-all",  -- map 'ctrl-d' to deselect all results
+      -- Custom mappings for fzf prompt
+    }
+  }
+})
+vim.keymap.set("n", "<C-p>", ":lua require('fzf-lua').files()<CR>")
+vim.keymap.set("n", "<C-q>", ":lua require('fzf-lua').quickfix()<CR>")
+
+
+-- Multi-cursors
 vim.g.VM_highlight_matches = 'hi! link Search PmenuSel'
 vim.api.nvim_set_hl(0, "VM_Mono", {fg="#FFFFFF", bg="#FF0000"})
 vim.api.nvim_set_hl(0, "VM_Extend", {fg="#FFFFFF", bg="#FF0000"})
@@ -93,37 +119,37 @@ end
 vim.opt.statusline = status_line()
 
 -- Sessions
--- local function make_session()
---   local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
---   if vim.fn.isdirectory(sessiondir) == 0 then
---     vim.fn.mkdir(sessiondir, "p")
---   end
---   local filename = sessiondir .. "/session.vim"
---   vim.cmd("mksession! " .. filename)
--- end
---
--- local function load_session()
---   local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
---   local sessionfile = sessiondir .. "/session.vim"
---   if vim.fn.filereadable(sessionfile) == 1 then
---     vim.cmd("source " .. sessionfile)
---   else
---     print("No session loaded.")
---   end
--- end
---
--- vim.api.nvim_create_autocmd("VimEnter", {
---   nested = true,
---   callback = function()
---     load_session()
---   end,
--- })
---
--- vim.api.nvim_create_autocmd("VimLeave", {
---   callback = function()
---     make_session()
---   end,
--- })
+local function make_session()
+  local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
+  if vim.fn.isdirectory(sessiondir) == 0 then
+    vim.fn.mkdir(sessiondir, "p")
+  end
+  local filename = sessiondir .. "/session.vim"
+  vim.cmd("mksession! " .. filename)
+end
+
+local function load_session()
+  local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
+  local sessionfile = sessiondir .. "/session.vim"
+  if vim.fn.filereadable(sessionfile) == 1 then
+    vim.cmd("source " .. sessionfile)
+  else
+    print("No session loaded.")
+  end
+end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  nested = true,
+  callback = function()
+    load_session()
+  end,
+})
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  callback = function()
+    make_session()
+  end,
+})
 
 
 -- Code formatter
@@ -151,6 +177,33 @@ vim.keymap.set({"n", "v"}, "<C-f>", function()
   end
 end)
 
+-- Code linter
+
+vim.keymap.set({"n", "v"}, "<C-l>", function()
+  vim.cmd("cexpr system('clang-tidy " .. vim.fn.expand('%') .. " -- -Ithird_party/include -Ithird_party/src/stb')")
+  vim.cmd("copen")
+end)
+
+
+-- LSP
+-- local lspconfig = require('lspconfig')
+--
+-- lspconfig.clangd.setup {
+--   cmd = { "clangd" }, -- Ensure clangd is installed and accessible in PATH
+--   filetypes = { "c", "cpp", "objc", "objcpp" },
+--   root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+--   on_attach = function(client, bufnr)
+--     -- Key mappings and other LSP-specific configurations can go here
+--     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+--     local opts = { noremap=true, silent=true }
+--
+--     -- Example key mappings for LSP actions
+--     buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+--     buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+--     buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+--     buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+--   end
+-- }
 
 -- Syntax
 vim.opt.tabstop = 2
@@ -185,7 +238,7 @@ vim.api.nvim_set_hl(0, "Constant", {fg="#87D7AF"})
 vim.api.nvim_set_hl(0, "Identifier", {fg="#5FD7FF"})
 vim.api.nvim_set_hl(0, "Statement", {fg="#FF0087"})
 vim.api.nvim_set_hl(0, "Type", {fg="#5FD7FF"})
-vim.api.nvim_set_hl(0, "Function", {fg="#5FD7FF"})
+vim.api.nvim_set_hl(0, "Function", {fg="#FFFFFF"})
 vim.api.nvim_set_hl(0, "NonText", {fg="#8787FF"})
 vim.api.nvim_set_hl(0, "Special", {fg="#FF0087"})
 vim.api.nvim_set_hl(0, "Error", {fg="#FF0000"})
@@ -213,7 +266,7 @@ vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", ",/", ":nohlsearch<CR>", {desc = "Clear highlight search"})
 vim.keymap.set("n", "<C-k>", ":call search('\\u\\|_')<CR>l", {desc = "Jump camelCase"})
-vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
+-- vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
