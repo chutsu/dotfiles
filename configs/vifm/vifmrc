@@ -3,7 +3,7 @@
 " Settings
 source ~/.vifm/scripts/favicons.vifm
 colorscheme custom
-set vicmd=nvim
+set vicmd=vim
 set syscalls                  " Show progress bar when copying or moving
 set trashdir=/tmp/vifm_trash  " Set trash directory
 " only " Set single window
