@@ -3,3 +3,5 @@
 	email = chutsu@gmail.com
 [push]
 	default = matching
+[core]
+	editor = vim
