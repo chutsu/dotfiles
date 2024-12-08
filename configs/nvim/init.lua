@@ -124,6 +124,7 @@ local function status_line()
 end
 vim.opt.statusline = status_line()
 
+
 -- Sessions
 local function make_session()
   local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
@@ -183,33 +184,13 @@ vim.keymap.set({"n", "v"}, "<C-f>", function()
   end
 end)
 
--- Code linter
 
+-- Code linter
 vim.keymap.set({"n", "v"}, "<C-l>", function()
   vim.cmd("cexpr system('clang-tidy " .. vim.fn.expand('%') .. " -- -Ithird_party/include -Ithird_party/src/stb')")
   vim.cmd("copen")
 end)
 
-
--- LSP
--- local lspconfig = require('lspconfig')
---
--- lspconfig.clangd.setup {
---   cmd = { "clangd" }, -- Ensure clangd is installed and accessible in PATH
---   filetypes = { "c", "cpp", "objc", "objcpp" },
---   root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
---   on_attach = function(client, bufnr)
---     -- Key mappings and other LSP-specific configurations can go here
---     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
---     local opts = { noremap=true, silent=true }
---
---     -- Example key mappings for LSP actions
---     buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
---     buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
---     buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
---     buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
---   end
--- }
 
 -- Syntax
 vim.opt.tabstop = 2
