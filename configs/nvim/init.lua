@@ -35,6 +35,7 @@ require("lazy").setup({
   {'habamax/vim-rst'},
   {'ibhagwan/fzf-lua'},
   {'tpope/vim-fugitive'},
+  {'lewis6991/gitsigns.nvim'},
 })
 
 
@@ -77,6 +78,10 @@ vim.api.nvim_set_hl(0, "VM_Mono", {fg="#FFFFFF", bg="#FF0000"})
 vim.api.nvim_set_hl(0, "VM_Extend", {fg="#FFFFFF", bg="#FF0000"})
 vim.api.nvim_set_hl(0, "VM_Cursor", {fg="#FFFFFF", bg="#FF0000"})
 vim.api.nvim_set_hl(0, "VM_Insert", {fg="#FFFFFF", bg="#FF0000"})
+
+
+-- Gitsigns
+require('gitsigns').setup()
 
 
 -- Status Line
