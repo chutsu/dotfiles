@@ -243,6 +243,10 @@ vim.api.nvim_set_hl(0, "DiffAdd", {fg="#5FFF00", bg="#005F00"})
 vim.api.nvim_set_hl(0, "DiffDelete", {fg="#FF0000", bg="#5F0000"})
 vim.api.nvim_set_hl(0, "DiffChange", {fg="#FF00D7", bg="#5F5F00"})
 vim.api.nvim_set_hl(0, "DiffText", {fg="#FF0000", bg="#5F0000"})
+---- Gitsigns
+vim.api.nvim_set_hl(0, "GitSignsAdd", {fg="#00FF00", bg="#303030"})
+vim.api.nvim_set_hl(0, "GitSignsChange",  {fg="#FFFF00", bg="#303030"})
+vim.api.nvim_set_hl(0, "GitSignsDelete",  {fg="#FF0000", bg="#303030"})
 
 
 -- Keyboard Shortcuts
