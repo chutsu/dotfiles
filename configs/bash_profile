@@ -23,7 +23,7 @@ export CODE="$HOME/code"
 export DOTFILES="$HOME/dotfiles"
 
 # DIR SHORTCUTS
-alias vim=`which nvim`
+alias vim="nvim"
 alias down="cd $HOME/Downloads";
 alias dotfiles="cd $DOTFILES";
 alias scripts="cd $HOME/dotfiles/scripts"
