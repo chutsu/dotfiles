@@ -31,11 +31,18 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {'bkad/CamelCaseMotion'},
-  {'mg979/vim-visual-multi'},
+  {'terryma/vim-multiple-cursors'},
   {'habamax/vim-rst'},
-  {'ibhagwan/fzf-lua'},
+  {'junegunn/fzf.vim', dependencies={'junegunn/fzf'}},
   {'tpope/vim-fugitive'},
   {'lewis6991/gitsigns.nvim'},
+  {
+    'rmagatti/auto-session',
+    lazy = false,
+    opts = {
+      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+    }
+  }
 })
 
 
