@@ -54,39 +54,6 @@ vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 vim.g.netrw_altv = 1
 
 
--- FZF
-require('fzf-lua').setup({
-  winopts = {
-    -- window options
-  },
-  keymap = {
-    -- These are key mappings within the `fzf-lua` search windows
-    builtin = {
-      ["<F1>"] = "toggle-preview",
-      ["<C-j>"] = "preview-page-down",
-      ["<C-k>"] = "preview-page-up",
-      ["<C-s>"] = "toggle-fullscreen",
-    },
-    fzf = {
-      -- FZF's native mappings for 'normal' mode
-      ["ctrl-a"] = "select-all",    -- map 'ctrl-a' to select all results
-      ["ctrl-d"] = "deselect-all",  -- map 'ctrl-d' to deselect all results
-      -- Custom mappings for fzf prompt
-    }
-  }
-})
-vim.keymap.set("n", "<C-p>", ":lua require('fzf-lua').files()<CR>")
-vim.keymap.set("n", "<C-q>", ":lua require('fzf-lua').quickfix()<CR>")
-
-
--- Multi-cursors
-vim.g.VM_highlight_matches = 'hi! link Search PmenuSel'
-vim.api.nvim_set_hl(0, "VM_Mono", {fg="#FFFFFF", bg="#FF0000"})
-vim.api.nvim_set_hl(0, "VM_Extend", {fg="#FFFFFF", bg="#FF0000"})
-vim.api.nvim_set_hl(0, "VM_Cursor", {fg="#FFFFFF", bg="#FF0000"})
-vim.api.nvim_set_hl(0, "VM_Insert", {fg="#FFFFFF", bg="#FF0000"})
-
-
 -- Gitsigns
 require('gitsigns').setup()
 
@@ -133,37 +100,37 @@ vim.opt.statusline = status_line()
 
 
 -- Sessions
-local function make_session()
-  local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
-  if vim.fn.isdirectory(sessiondir) == 0 then
-    vim.fn.mkdir(sessiondir, "p")
-  end
-  local filename = sessiondir .. "/session.vim"
-  vim.cmd("mksession! " .. filename)
-end
-
-local function load_session()
-  local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
-  local sessionfile = sessiondir .. "/session.vim"
-  if vim.fn.filereadable(sessionfile) == 1 then
-    vim.cmd("source " .. sessionfile)
-  else
-    print("No session loaded.")
-  end
-end
-
-vim.api.nvim_create_autocmd("VimEnter", {
-  nested = true,
-  callback = function()
-    load_session()
-  end,
-})
-
-vim.api.nvim_create_autocmd("VimLeave", {
-  callback = function()
-    make_session()
-  end,
-})
+-- local function make_session()
+--   local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
+--   if vim.fn.isdirectory(sessiondir) == 0 then
+--     vim.fn.mkdir(sessiondir, "p")
+--   end
+--   local filename = sessiondir .. "/session.vim"
+--   vim.cmd("mksession! " .. filename)
+-- end
+--
+-- local function load_session()
+--   local sessiondir = vim.fn.expand("~/.neovim_sessions") .. vim.fn.getcwd()
+--   local sessionfile = sessiondir .. "/session.vim"
+--   if vim.fn.filereadable(sessionfile) == 1 then
+--     vim.cmd("source " .. sessionfile)
+--   else
+--     print("No session loaded.")
+--   end
+-- end
+--
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   nested = true,
+--   callback = function()
+--     load_session()
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--   callback = function()
+--     make_session()
+--   end,
+-- })
 
 
 -- Code formatter
