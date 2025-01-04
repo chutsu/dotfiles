@@ -31,7 +31,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {'bkad/CamelCaseMotion'},
-  {'terryma/vim-multiple-cursors'},
+  {'mg979/vim-visual-multi'},
   {'habamax/vim-rst'},
   {'junegunn/fzf.vim', dependencies={'junegunn/fzf'}},
   {'tpope/vim-fugitive'},
@@ -52,6 +52,14 @@ vim.g.netrw_browse_split = 0 -- Open file in current split
 vim.g.netrw_liststyle = 3    -- Tree-style view
 vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 vim.g.netrw_altv = 1
+
+
+-- Multi-cursors
+vim.g.VM_highlight_matches = 'hi! link Search PmenuSel'
+vim.api.nvim_set_hl(0, "VM_Mono", {fg="#FFFFFF", bg="#FF0000"})
+vim.api.nvim_set_hl(0, "VM_Extend", {fg="#FFFFFF", bg="#FF0000"})
+vim.api.nvim_set_hl(0, "VM_Cursor", {fg="#FFFFFF", bg="#FF0000"})
+vim.api.nvim_set_hl(0, "VM_Insert", {fg="#FFFFFF", bg="#FF0000"})
 
 
 -- Gitsigns
