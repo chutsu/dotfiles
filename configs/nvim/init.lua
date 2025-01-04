@@ -1,6 +1,7 @@
 -- General Editor Settings
 vim.opt.path = vim.opt.path + ".,**"
 vim.opt.joinspaces = false
+vim.opt.incsearch = false
 vim.opt.list = true
 vim.opt.listchars = { tab = "> " }
 vim.opt.number = true
@@ -198,6 +199,7 @@ vim.api.nvim_set_hl(0, "GitSignsDelete",  {fg="#FF0000", bg="#303030"})
 
 
 -- Keyboard Shortcuts
+vim.keymap.set("n", "/", "gg/", {desc = "Search from start"})
 vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>", {desc = "Reload config"})
 vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>")
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
