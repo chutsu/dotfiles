@@ -37,6 +37,7 @@ require("lazy").setup({
   {'junegunn/fzf.vim', dependencies={'junegunn/fzf'}},
   {'tpope/vim-fugitive'},
   {'lewis6991/gitsigns.nvim'},
+  {'chentoast/marks.nvim'},
   {
     'rmagatti/auto-session',
     lazy = false,
@@ -65,6 +66,10 @@ vim.api.nvim_set_hl(0, "VM_Insert", {fg="#FFFFFF", bg="#FF0000"})
 
 -- Gitsigns
 require('gitsigns').setup()
+
+
+-- Marks
+require('marks').setup()
 
 
 -- Status Line
@@ -199,7 +204,6 @@ vim.api.nvim_set_hl(0, "GitSignsDelete",  {fg="#FF0000", bg="#303030"})
 
 
 -- Keyboard Shortcuts
-vim.keymap.set("n", "/", "gg/", {desc = "Search from start"})
 vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>", {desc = "Reload config"})
 vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>")
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
