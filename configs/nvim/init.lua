@@ -44,7 +44,8 @@ require("lazy").setup({
     opts = {
       suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
     }
-  }
+  },
+  {'neovim/nvim-lspconfig'},
 })
 
 
@@ -112,6 +113,21 @@ local function status_line()
 end
 vim.opt.statusline = status_line()
 
+
+-- LSP Config
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup({
+  settings = {
+    python = {
+      analysis = {
+        useLibraryCodeForTypes = true,
+      }
+    }
+  },
+})
+lspconfig.clangd.setup({
+  cmd = {'clangd'},
+})
 
 -- Code formatter
 function py_formatter()
@@ -248,6 +264,7 @@ vim.keymap.set("n", "<S-l>", ":wincmd l<CR>", {desc = "Move to right split"})
 
 
 -- Auto Actions
+vim.api.nvim_create_user_command('W', 'w', { nargs = 0 })
 ---- Set equal splits automatically
 vim.api.nvim_create_autocmd("VimResized", { command = "wincmd =" })
 vim.api.nvim_create_autocmd("WinNew", { command = "wincmd =" })
