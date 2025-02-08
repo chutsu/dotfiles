@@ -5,6 +5,7 @@ vim.opt.incsearch = false
 vim.opt.list = true
 vim.opt.listchars = { tab = "> " }
 vim.opt.number = true
+vim.opt.signcolumn = "yes"
 vim.opt.sidescrolloff = 8
 vim.opt.ignorecase = true
 vim.opt.smartcase = false
@@ -115,6 +116,32 @@ vim.opt.statusline = status_line()
 
 
 -- LSP Config
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+vim.diagnostic.config({
+  virtual_text = false,
+  float = {
+    border = {
+      {"╔", "FloatBorder"},
+      {"═", "FloatBorder"},
+      {"╗", "FloatBorder"},
+      {"║", "FloatBorder"},
+      {"╝", "FloatBorder"},
+      {"═", "FloatBorder"},
+      {"╚", "FloatBorder"},
+      {"║", "FloatBorder"}
+    },
+    source = "always",
+    update_in_insert = true,
+    severity_sort = true,
+  },
+})
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, max_width=80})]]
+vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup({
   settings = {
@@ -125,6 +152,7 @@ lspconfig.pyright.setup({
     }
   },
 })
+
 lspconfig.clangd.setup({
   cmd = {'clangd'},
 })
