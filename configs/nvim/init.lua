@@ -17,6 +17,14 @@ vim.opt.undolevels = 1000
 vim.opt.history = 1000
 
 
+-- Auto reload
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({"BufEnter", "CursorHold", "CursorHoldI", "FocusGained"}, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = {"*"},
+})
+
+
 -- Lazy nvim plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
