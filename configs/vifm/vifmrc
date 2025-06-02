@@ -60,8 +60,10 @@ filextype *.pdf
   \ evince %f > /dev/null 2>&1 &
 
 " Images
-filetype *.jpg,*.jpeg,*.png,*.gif
-  \ {Open images with feh}
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+  \ feh -Z %d -g 1024x768 --start-at %d/%c 2>/dev/null
+
+filetype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
   \ feh -Z %d -g 1024x768 --start-at %d/%c 2>/dev/null
 
 " Video
@@ -81,55 +83,3 @@ fileview *./ tree %c -L 1
 
 " Parent dir
 fileview ../ tree %c -L 1
-
-" PDF
-fileviewer *.pdf
-  \ vifmimg pdf %px %py %pw %ph %c
-  \ %pc
-  \ vifmimg clear
-
-" DJVU
-fileviewer *.djvu
-  \ vifmimg djvu %px %py %pw %ph %c
-  \ %pc
-  \ vifmimg clear
-
-" EPUB
-fileviewer *.epub
-  \ vifmimg epub %px %py %pw %ph %c
-  \ %pc
-  \ vifmimg clear
-
-" VIDEO
-fileviewer <video/*>
-  \ vifmimg video %px %py %pw %ph %c
-  \ %pc
-  \ vifmimg clear
-
-" IMAGE
-"fileviewer <image/*>
-"  \ vifmimg draw %px %py %pw %ph %c
-"  \ %pc
-"  \ vifmimg clear
-
-" Pictures
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
-    \ kitty +kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py %c %N
-    \ %pc
-    \ kitty +kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py --clear %N
-
-" AUDIO
-fileviewer <audio/*>
-  \ vifmimg audio %px %py %pw %ph %c
-  \ %pc
-  \ vifmimg clear
-
-" FONT
-fileviewer <font/*>
-  \ vifmimg font %px %py %pw %ph %c
-  \ %pc
-  \ vifmimg clear
-
-" Tar
-fileviewer *.tar,*.tar.gz
-  \ tar -tvf %c
