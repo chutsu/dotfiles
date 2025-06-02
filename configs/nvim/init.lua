@@ -40,6 +40,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  {'tpope/vim-vinegar'},
   {'bkad/CamelCaseMotion'},
   {'mg979/vim-visual-multi'},
   {'habamax/vim-rst'},
@@ -61,7 +62,8 @@ require("lazy").setup({
 -- Netrw File Manager
 vim.g.netrw_banner = 0       -- Hide banner
 vim.g.netrw_browse_split = 0 -- Open file in current split
-vim.g.netrw_liststyle = 3    -- Tree-style view
+-- vim.g.netrw_liststyle = 3    -- Tree view
+vim.g.netrw_liststyle = 0    -- One-file per line
 vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
 vim.g.netrw_altv = 1
 
