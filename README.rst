@@ -37,6 +37,10 @@ Cheatsheet
   nmcli connection delete <NAME OR UUID>
   nmcli radio wifi off
 
+  # Bluetooth
+  sudo systemctl start bluetooth
+  sudo systemctl stop bluetooth
+
   # Screen recording
   wf-recorder -f output.mp4
   ffmpeg -i output.mp4 -vcodec libx265 -crf 28 output-compressed.mp4
