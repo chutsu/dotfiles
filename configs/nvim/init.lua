@@ -40,7 +40,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {'tpope/vim-vinegar'},
+  -- {'tpope/vim-vinegar'},
+  {'stevearc/oil.nvim'},
   {'bkad/CamelCaseMotion'},
   {'mg979/vim-visual-multi'},
   {'habamax/vim-rst'},
@@ -59,13 +60,32 @@ require("lazy").setup({
 })
 
 
--- Netrw File Manager
-vim.g.netrw_banner = 0       -- Hide banner
-vim.g.netrw_browse_split = 0 -- Open file in current split
--- vim.g.netrw_liststyle = 3    -- Tree view
-vim.g.netrw_liststyle = 0    -- One-file per line
-vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
-vim.g.netrw_altv = 1
+-- -- Netrw File Manager
+-- vim.g.netrw_banner = 0       -- Hide banner
+-- vim.g.netrw_browse_split = 0 -- Open file in current split
+-- -- vim.g.netrw_liststyle = 3    -- Tree view
+-- vim.g.netrw_liststyle = 0    -- One-file per line
+-- vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
+-- vim.g.netrw_altv = 1
+
+
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+require("oil").setup({
+  default_file_explorer = true,
+  delete_to_trash = true,
+  cleanup_delay_ms = false,
+  watch_for_changes = true,
+  view_options = {
+    show_icons = true,
+  },
+  float = {
+    padding = 2,
+    max_width = 80,
+    max_height = 40,
+    border = "rounded",
+  },
+})
 
 
 -- Multi-cursors
