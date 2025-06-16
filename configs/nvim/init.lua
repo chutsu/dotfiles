@@ -278,13 +278,15 @@ vim.api.nvim_set_hl(0, "GitSignsDelete",  {fg="#FF0000", bg="#303030"})
 
 
 -- Keyboard Shortcuts
-vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>", {desc = "Reload config"})
+vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>:LspRestart<CR>", {desc = "Reload config"})
 vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>")
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
 vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", ",/", ":nohlsearch<CR>", {desc = "Clear highlight search"})
 vim.keymap.set("n", "<C-k>", ":call search('\\u\\|_')<CR>l", {desc = "Jump camelCase"})
+vim.keymap.set("x", ">", ">gv")
+vim.keymap.set("x", "<", "<gv")
 -- vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
