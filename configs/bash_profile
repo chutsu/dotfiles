@@ -28,6 +28,7 @@ alias down="cd $HOME/Downloads";
 alias dotfiles="cd $DOTFILES";
 alias scripts="cd $HOME/dotfiles/scripts"
 alias catkin_ws="cd ~/catkin_ws/"
+# alias earbuds="bluetoothctl connect AC:3E:B1:9D:49:2F"
 alias yac="cd $CODE/yac"
 alias xyz="cd $CODE/xyz"
 alias papers="cd $CODE/papers"
