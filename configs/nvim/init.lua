@@ -40,7 +40,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- {'tpope/vim-vinegar'},
   {'stevearc/oil.nvim'},
   {'bkad/CamelCaseMotion'},
   {'mg979/vim-visual-multi'},
@@ -58,16 +57,6 @@ require("lazy").setup({
   },
   {'neovim/nvim-lspconfig'},
 })
-
-
--- -- Netrw File Manager
--- vim.g.netrw_banner = 0       -- Hide banner
--- vim.g.netrw_browse_split = 0 -- Open file in current split
--- -- vim.g.netrw_liststyle = 3    -- Tree view
--- vim.g.netrw_liststyle = 0    -- One-file per line
--- vim.g.netrw_sort_sequence = '[/]$,*,.bak$,.o$,.info$,.swp$,.obj$'
--- vim.g.netrw_altv = 1
-
 
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
@@ -146,6 +135,7 @@ vim.opt.statusline = status_line()
 
 
 -- LSP Config
+vim.keymap.set("n", "gR", vim.lsp.buf.rename)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -173,20 +163,21 @@ vim.o.updatetime = 250
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, max_width=80})]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
-local lspconfig = require('lspconfig')
-lspconfig.pyright.setup({
-  settings = {
-    python = {
-      analysis = {
-        useLibraryCodeForTypes = true,
-      }
-    }
-  },
-})
+-- lspconfig.pyright.setup({
+--   settings = {
+--     python = {
+--       analysis = {
+--         useLibraryCodeForTypes = true,
+--       }
+--     }
+--   },
+-- })
 
-lspconfig.clangd.setup({
-  cmd = {'clangd'},
+vim.lsp.config("clangd", {
+  cmd = { "clangd" , "--compile-commands-dir=build" },
+  filetypes = {"c", "cpp"},
 })
+vim.lsp.enable("clangd")
 
 -- Code formatter
 function py_formatter()
@@ -280,6 +271,7 @@ vim.api.nvim_set_hl(0, "GitSignsDelete",  {fg="#FF0000", bg="#303030"})
 
 -- Keyboard Shortcuts
 vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>:LspRestart<CR>", {desc = "Reload config"})
+vim.keymap.set("n", "<F2>", ":e scripts/run.sh<CR>")
 vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>")
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
 vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
@@ -288,7 +280,6 @@ vim.keymap.set("n", ",/", ":nohlsearch<CR>", {desc = "Clear highlight search"})
 vim.keymap.set("n", "<C-k>", ":call search('\\u\\|_')<CR>l", {desc = "Jump camelCase"})
 vim.keymap.set("x", ">", ">gv")
 vim.keymap.set("x", "<", "<gv")
--- vim.keymap.set("n", "<C-f>", ":e .<CR>", {desc = "Open file explorer"})
 vim.keymap.set({"n", "v"}, "w", "<Plug>CamelCaseMotion_w", {desc = "Jump camel case forward one word"})
 vim.keymap.set({"n", "v"}, "b", "<Plug>CamelCaseMotion_b", {desc = "Jump camel case backward one word"})
 vim.keymap.set({"n", "v"}, "e", "<Plug>CamelCaseMotion_e", {desc = "Jump camel case end of a word"})
@@ -329,7 +320,6 @@ vim.api.nvim_create_user_command('W', 'w', { nargs = 0 })
 ---- Set equal splits automatically
 vim.api.nvim_create_autocmd("VimResized", { command = "wincmd =" })
 vim.api.nvim_create_autocmd("WinNew", { command = "wincmd =" })
-
 ---- Remove trailing whitespace
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*"},
