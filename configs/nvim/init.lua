@@ -182,7 +182,7 @@ vim.lsp.enable("clangd")
 -- Code formatter
 function py_formatter()
   local file = vim.fn.expand('%:p')
-  local cmd = "ruff format " .. file
+  local cmd = "yapf3 -i " .. file
   vim.cmd("w") -- Save the current buffer
   vim.cmd("! " .. cmd) -- Run the formatting command using "!" to execute it in the shell
 end
