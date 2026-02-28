@@ -27,6 +27,12 @@ Cheatsheet
   bluetoothctl connect
   bluetoothctl disconnect
 
+  # CMake
+  xargs rm < install_manifest.txt  # Uninstall
+  cmake -DCMAKE_BULD_TYPE=Release
+  cmake -DCMAKE_BULD_TYPE=Debug
+  cmake -DCMAKE_BULD_TYPE=RelWithDebInfo
+
   # Network
   nmcli device
   nmcli device wifi list
