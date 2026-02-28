@@ -165,9 +165,13 @@ clean: ## Clean
 	@rm -rf $(PREFIX)/share
 	@rm -rf $(PREFIX)/src
 
-# NEOVIM
 install_neovim: setup
 	$(call git_clone,$(NEOVIM_REPO),$(NEOVIM_VERSION))
 	@cd $(PREFIX)/src/neovim \
 		&& make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$(PREFIX) \
 		&& make install
+
+install_rust:
+	@command -v cargo >/dev/null 2>&1 \
+		&& { echo "Rust already installed! Skipping ..."; exit 0; } \
+		|| curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
