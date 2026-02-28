@@ -146,6 +146,7 @@ desktop_apps: install_neovim
 		vlc \
 		sway \
 		gimp
+	@sudo apt-get install -yqq snapd
 	@sudo snap install btop
 
 setup:
