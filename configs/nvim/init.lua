@@ -58,6 +58,7 @@ require("lazy").setup({
   {'neovim/nvim-lspconfig'},
 })
 
+
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 require("oil").setup({
