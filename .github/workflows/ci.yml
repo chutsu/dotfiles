@@ -12,6 +12,14 @@ jobs:
     - name: Set deb to run in non-interactive mode
       run: echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
+    - name: Ensure snapd is running
+      run: |
+        sudo systemctl unmask snapd.service
+        sudo systemctl enable snapd.service
+        sudo systemctl start snapd.service
+        # Wait for the socket to be created
+        while [ ! -S /run/snapd.socket ]; do sleep 1; done
+
     - name: Install make
       run: apt-get update -y && apt-get install make sudo
 
