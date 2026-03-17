@@ -40,22 +40,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {'stevearc/oil.nvim'},
-  {'bkad/CamelCaseMotion'},
-  {'mg979/vim-visual-multi'},
-  {'habamax/vim-rst'},
-  {'junegunn/fzf.vim', dependencies={'junegunn/fzf'}},
-  {'tpope/vim-fugitive'},
-  {'lewis6991/gitsigns.nvim'},
-  {'chentoast/marks.nvim'},
+  {"stevearc/oil.nvim"},
+  {"bkad/CamelCaseMotion"},
+  {"mg979/vim-visual-multi"},
+  {"habamax/vim-rst"},
+  {"junegunn/fzf.vim", dependencies={"junegunn/fzf"}},
+  {"tpope/vim-fugitive"},
+  {"lewis6991/gitsigns.nvim"},
+  {"chentoast/marks.nvim"},
   {
-    'rmagatti/auto-session',
+    "rmagatti/auto-session",
     lazy = false,
     opts = {
-      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+      suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
     }
   },
-  {'neovim/nvim-lspconfig'},
+  {"neovim/nvim-lspconfig"},
+  {"mrcjkb/rustaceanvim", version="^8", lazy=false},
+  {"christoomey/vim-tmux-navigator"},
 })
 
 
