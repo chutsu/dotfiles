@@ -38,6 +38,7 @@ alias phd="cd $CODE/phd_thesis"
 alias sketchbook="cd $CODE/sketchbook"
 alias chutsu="cd $CODE/chutsu.github.io"
 alias suspend="sudo systemctl hibernate"
+alias clip="tmux capture-pane -pS - | clipwrite"
 alias hotspot="nmcli device wifi list --rescan yes > /dev/null && nmcli device wifi connect Pixel_5213"
 alias brightness_max="brightnessctl --device intel_backlight set 60000"
 alias buds="\
@@ -95,3 +96,4 @@ if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
 [[ $- == *i* ]] && stty -ixon  # disable ctrl-s (software flow control)
+. "$HOME/.cargo/env"
