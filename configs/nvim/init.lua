@@ -57,7 +57,6 @@ require("lazy").setup({
   },
   {"neovim/nvim-lspconfig"},
   {"mrcjkb/rustaceanvim", version="^8", lazy=false},
-  {"christoomey/vim-tmux-navigator"},
 })
 
 
@@ -181,21 +180,26 @@ vim.o.updatetime = 250
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, max_width=80})]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
--- lspconfig.pyright.setup({
---   settings = {
---     python = {
---       analysis = {
---         useLibraryCodeForTypes = true,
---       }
---     }
---   },
--- })
-
 vim.lsp.config("clangd", {
   cmd = { "clangd" , "--compile-commands-dir=build" },
   filetypes = {"c", "cpp"},
 })
 vim.lsp.enable("clangd")
+
+vim.lsp.config('pyright', {
+  cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
+  root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', '.git' },
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
+})
+vim.lsp.enable('pyright')
 
 -- Code formatter
 function py_formatter()
