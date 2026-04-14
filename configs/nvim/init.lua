@@ -25,38 +25,18 @@ vim.api.nvim_create_autocmd({"BufEnter", "CursorHold", "CursorHoldI", "FocusGain
 })
 
 
--- Lazy nvim plugin manager
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-  {"stevearc/oil.nvim"},
-  {"bkad/CamelCaseMotion"},
-  {"mg979/vim-visual-multi"},
-  {"habamax/vim-rst"},
-  {"junegunn/fzf.vim", dependencies={"junegunn/fzf"}},
-  {"tpope/vim-fugitive"},
-  {"lewis6991/gitsigns.nvim"},
-  {"chentoast/marks.nvim"},
-  {
-    "rmagatti/auto-session",
-    lazy = false,
-    opts = {
-      suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-    }
-  },
-  {"neovim/nvim-lspconfig"},
-  {"mrcjkb/rustaceanvim", version="^8", lazy=false},
+-- Packages
+vim.pack.add({
+  {src = "https://github.com/stevearc/oil.nvim"},
+  {src = "https://github.com/bkad/CamelCaseMotion"},
+  {src = "https://github.com/mg979/vim-visual-multi"},
+  {src = "https://github.com/habamax/vim-rst"},
+  {src = "https://github.com/junegunn/fzf.vim", dependencies={"junegunn/fzf"}},
+  {src = "https://github.com/tpope/vim-fugitive"},
+  {src = "https://github.com/lewis6991/gitsigns.nvim"},
+  {src = "https://github.com/chentoast/marks.nvim"},
+  {src = "https://github.com/neovim/nvim-lspconfig"},
+  -- {src = "https://github.com/mrcjkb/rustaceanvim", version="^8", lazy=false},
 })
 
 
