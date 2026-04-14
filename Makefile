@@ -47,60 +47,47 @@ help:
 			{printf "\033[1;36m%-12s\033[0m%s\n", $$1, $$2}'
 
 dotfiles:  ## Install dotfiles
-	# Initialize
 	@mkdir -p ${HOME}/.config
 
-	# bash_profile
 	@echo "- bash_profile"
 	@rm -f ${HOME}/.bash_profile
 	@ln -fs ${PWD}/configs/bash_profile ${HOME}/.bash_profile
 	@echo "source ~/.bash_profile" >> "${HOME}/.bashrc";
 
-	# gitconfig
 	@echo "- gitconfig"
 	@rm -f ${HOME}/.gitconfig
 	@ln -fs ${PWD}/configs/gitconfig ${HOME}/.gitconfig
 
-	# gdbinit
 	@echo "- gdbinit"
 	@rm -f ${HOME}/.gdbinit
 	@ln -fs ${PWD}/configs/gdbinit ${HOME}/.gdbinit
 
-	# xdefaults
 	@echo "- xdefaults"
 	@rm -f ${HOME}/.Xdefaults
 	@ln -fs ${PWD}/configs/Xdefaults ${HOME}/.Xdefaults
 
-	# nvim
 	@echo "- nvim"
 	@rm -rf ${HOME}/.config/nvim
 	@ln -fs ${PWD}/configs/nvim ${HOME}/.config/nvim
 
-	# vifm
 	@echo "- vifm"
 	@rm -rf ${HOME}/.config/vifm
 	@ln -fs ${PWD}/configs/vifm ${HOME}/.config/vifm
 
-	# sway
 	@echo "- sway"
 	@rm -rf ${HOME}/.config/sway
 	@ln -fs ${PWD}/configs/sway ${HOME}/.config/sway
 
-	# tmux
 	@echo "- tmux"
 	@rm -f ${HOME}/.tmux.config
 	@rm -f ${HOME}/.config/tmux
 	@ln -fs ${PWD}/configs/tmux ${HOME}/.config/tmux
 
-	# foot
 	@echo "- foot"
 	@rm -f ${HOME}/.config/foot
 	@ln -fs ${PWD}/configs/foot ${HOME}/.config/foot
 
-deps: dev_pkgs cpp_pkgs shell_pkgs desktop_apps ## Install dependencies
-
-dev_pkgs:
-	@echo "Install dev packages"
+deps:
 	@sudo apt-get install -y -qq \
 		xterm \
 		curl \
@@ -112,8 +99,6 @@ dev_pkgs:
 		gnuplot \
 		openssh-server
 
-cpp_pkgs:
-	@echo "Install C / C++ packages"
 	@sudo apt-get install -y -qq \
 		exuberant-ctags \
 		automake \
@@ -124,13 +109,10 @@ cpp_pkgs:
 		clang-format \
 		clang-tidy
 
-shell_pkgs:
 	@sudo apt-get install -y -qq \
 		shellcheck \
 		silversearcher-ag
 
-desktop_apps: install_neovim
-	@echo "Install desktop_apps"
 	@sudo apt-get install -y -qq \
 		xterm \
 		vifm \
@@ -151,6 +133,7 @@ desktop_apps: install_neovim
 		vlc \
 		sway \
 		gimp
+
 	@sudo apt-get install -yqq snapd
 	@sudo snap install btop
 
