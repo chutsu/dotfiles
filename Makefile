@@ -92,6 +92,11 @@ dotfiles:  ## Install dotfiles
 	@rm -f ${HOME}/.config/tmux
 	@ln -fs ${PWD}/configs/tmux ${HOME}/.config/tmux
 
+	# foot
+	@echo "- foot"
+	@rm -f ${HOME}/.config/foot
+	@ln -fs ${PWD}/configs/foot ${HOME}/.config/foot
+
 deps: dev_pkgs cpp_pkgs shell_pkgs desktop_apps ## Install dependencies
 
 dev_pkgs:
