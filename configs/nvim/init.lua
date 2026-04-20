@@ -274,6 +274,7 @@ vim.api.nvim_set_hl(0, "GitSignsDelete",  {fg="#FF0000", bg="#303030"})
 
 
 -- Keyboard Shortcuts
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], {noremap = true}, {desc = "Exit terminal with <ESC>"})
 vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>:LspRestart<CR>", {desc = "Reload config"})
 vim.keymap.set("n", "<F2>", ":e scripts/run.sh<CR>")
 vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>")
