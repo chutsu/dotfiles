@@ -30,14 +30,12 @@ vim.pack.add({
   {src = "https://github.com/stevearc/oil.nvim"},
   {src = "https://github.com/bkad/CamelCaseMotion"},
   {src = "https://github.com/mg979/vim-visual-multi"},
-  {src = "https://github.com/habamax/vim-rst"},
   {src = "https://github.com/junegunn/fzf"},
   {src = "https://github.com/junegunn/fzf.vim"},
   {src = "https://github.com/tpope/vim-fugitive"},
   {src = "https://github.com/lewis6991/gitsigns.nvim"},
   {src = "https://github.com/chentoast/marks.nvim"},
   {src = "https://github.com/neovim/nvim-lspconfig"},
-  -- {src = "https://github.com/mrcjkb/rustaceanvim", version="^8", lazy=false},
 })
 
 
@@ -278,17 +276,17 @@ vim.api.nvim_set_hl(0, "GitSignsDelete",  {fg="#FF0000", bg="#303030"})
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], {noremap = true}, {desc = "Exit terminal with <ESC>"})
 vim.keymap.set("n", "<F5>", ":so ~/.config/nvim/init.lua<CR>:LspRestart<CR>", {desc = "Reload config"})
 vim.keymap.set("n", "<F2>", ":e scripts/run.sh<CR>")
--- vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>")
-vim.keymap.set('n', '<S-r>', function()
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    local id = vim.b[buf].terminal_job_id
-    if id then
-      vim.fn.chansend(id, "bash scripts/run.sh\n")
-      return
-    end
-  end
-  print("No terminal found")
-end)
+vim.keymap.set("n", "<S-r>", ":!bash scripts/run.sh<CR>")
+-- vim.keymap.set('n', '<S-r>', function()
+--   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+--     local id = vim.b[buf].terminal_job_id
+--     if id then
+--       vim.fn.chansend(id, "bash scripts/run.sh\n")
+--       return
+--     end
+--   end
+--   print("No terminal found")
+-- end)
 vim.keymap.set("n", "*", "*zz", {desc = "Search and center screen"})
 vim.keymap.set("n", "n", "nzz", {desc = "Search and center screen"})
 vim.keymap.set("n", "N", "Nzz", {desc = "Search and center screen"})
