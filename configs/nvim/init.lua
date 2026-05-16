@@ -36,6 +36,7 @@ vim.pack.add({
   {src = "https://github.com/lewis6991/gitsigns.nvim"},
   {src = "https://github.com/chentoast/marks.nvim"},
   {src = "https://github.com/neovim/nvim-lspconfig"},
+  {src = "https://github.com/rmagatti/auto-session"},
 })
 
 
@@ -52,6 +53,9 @@ vim.g.clipboard = {
     ['*'] = require('vim.ui.clipboard.osc52').paste '*',
   },
 }
+
+-- Auto-session
+require("auto-session").setup({})
 
 
 -- Oil
