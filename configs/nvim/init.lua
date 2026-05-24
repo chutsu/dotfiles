@@ -37,6 +37,7 @@ vim.pack.add({
   {src = "https://github.com/chentoast/marks.nvim"},
   {src = "https://github.com/neovim/nvim-lspconfig"},
   {src = "https://github.com/rmagatti/auto-session"},
+  {src = "https://github.com/folke/flash.nvim"},
 })
 
 
@@ -56,6 +57,13 @@ vim.g.clipboard = {
 
 -- Auto-session
 require("auto-session").setup({})
+
+
+-- Flash
+require("flash").setup()
+vim.keymap.set({ "n", "x", "o" }, "f", function()
+  require("flash").jump()
+end)
 
 
 -- Oil
