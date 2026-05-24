@@ -1,11 +1,22 @@
+# === OS ===
 .DS_Store
+
+# === Editors ===
 .netrwhist
 .nvimlog
 *.swp
 *.spl
+tags
+
+# === Build / third-party ===
+third_party
+
+# === File managers ===
 vifminfo
 vifminfo.json*
-lazy-lock.json
 Default.vifm
-tags
-third_party
+
+# === Neovim ===
+lazy-lock.json
+configs/nvim/lazy-lock.json
+configs/nvim/nvim-pack-lock.json
