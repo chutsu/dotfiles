@@ -88,6 +88,7 @@ dotfiles:  ## Install dotfiles
 	@ln -fs ${PWD}/configs/foot ${HOME}/.config/foot
 
 deps:
+	@sudo apt-get update -y
 	@sudo apt-get install -y -qq \
 		xterm \
 		curl \
@@ -158,6 +159,9 @@ install_neovim: setup
 	@cd $(PREFIX)/src/neovim \
 		&& make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$(PREFIX) \
 		&& make install
+
+docker:  ## Build Docker image
+	@docker build -t dotfiles-docker .
 
 install_rust:
 	@command -v cargo >/dev/null 2>&1 \
