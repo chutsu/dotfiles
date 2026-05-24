@@ -135,8 +135,9 @@ deps:
 		sway \
 		gimp
 
-	@sudo apt-get install -yqq snapd
-	@sudo snap install btop
+	@mkdir -p $(SRC_PATH)
+	@cd $(SRC_PATH) && git clone $(BTOP_REPO)
+	@cd $(SRC_PATH)/btop && make install PREFIX=$(PREFIX)
 
 setup:
 	@mkdir -p $(PREFIX)/bin
