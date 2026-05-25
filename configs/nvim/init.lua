@@ -38,6 +38,8 @@ vim.pack.add({
   {src = "https://github.com/neovim/nvim-lspconfig"},
   {src = "https://github.com/rmagatti/auto-session"},
   {src = "https://github.com/folke/flash.nvim"},
+  {src = "https://github.com/nickjvandyke/opencode.nvim"},
+  {src = "https://github.com/folke/snacks.nvim"},
 })
 
 
@@ -64,6 +66,11 @@ require("flash").setup()
 vim.keymap.set({ "n", "x", "o" }, "f", function()
   require("flash").jump()
 end)
+
+-- Opencode
+vim.keymap.set({ "n", "x" }, "<leader>oa", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
+vim.keymap.set({ "n", "x" }, "<leader>ox", function() require("opencode").select() end,                          { desc = "Select opencode…" })
+vim.keymap.set({ "n", "t" }, "<leader>ot", function() require("opencode").toggle() end,                          { desc = "Toggle opencode" })
 
 
 -- Oil
