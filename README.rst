@@ -47,6 +47,10 @@ Cheatsheet
   sudo systemctl start bluetooth
   sudo systemctl stop bluetooth
 
+  # Git
+  git pull --rebase origin master
+  git rebase -i ~HEAD[N]
+
   # Screen recording
   wf-recorder -f output.mp4
   ffmpeg -i output.mp4 -vcodec libx265 -crf 28 output-compressed.mp4
