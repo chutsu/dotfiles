@@ -47,6 +47,13 @@ Cheatsheet
   sudo systemctl start bluetooth
   sudo systemctl stop bluetooth
 
+  # Docker
+  docker kill $(docker ps -q)            # Stop all docker instances
+  docker rm -f $(docker ps -a -q)        # Forcefully stop all docker instances
+  docker logs -f --tail 100 <container>  # Streams container logs (last 100 lines)
+  docker system prune -a --volumes       # Removes all unused containers, networks, images
+  docker volume prune                    # Removes all unused persistent storage volumes
+
   # Git
   git pull --rebase origin master
   git rebase -i ~HEAD[N]
