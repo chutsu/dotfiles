@@ -245,17 +245,55 @@ vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set 
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"rust"}, command = "set tabstop=2"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"rust"}, command = "set shiftwidth=2"})
 ---- Hard-wrap prose at 80 columns without joining list items
+local function in_code_block(buf)
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  if vim.bo[buf].filetype == "rst" then
+    for _, id in ipairs(vim.fn.synstack(row, math.max(col, 1))) do
+      local name = vim.fn.synIDattr(id, "name")
+      if name == "rstCodeBlock" or name == "rstLiteralBlock"
+         or name:match("^rstDirective.") then
+        return true
+      end
+    end
+    return false
+  end
+  local pos = {row - 1, math.max(col - 1, 0)}
+  local ok, node = pcall(vim.treesitter.get_node, {bufnr = buf, pos = pos})
+  while ok and node do
+    local kind = node:type()
+    if kind == "fenced_code_block" or kind == "indented_code_block" then
+      return true
+    end
+    node = node:parent()
+  end
+  return false
+end
+local hard_wrap_group = vim.api.nvim_create_augroup("HardWrapCodeBlocks", {})
 vim.api.nvim_create_autocmd({"FileType"}, {
   pattern = {"markdown", "rst", "text", "gitcommit"},
   callback = function(args)
-    -- Deferred so the filetype's own ftplugin (which runs after this) can't override it
+    -- Deferred so the filetype's own ftplugin (which runs after this) can't
+    -- override it
     vim.schedule(function()
       if not vim.api.nvim_buf_is_valid(args.buf) then return end
       vim.bo[args.buf].textwidth = 80
       vim.bo[args.buf].formatoptions = "tcqjn"
       vim.bo[args.buf].formatlistpat = [[^\s*\(\d\+[.)]\|[-*+]\)\s\+]]
-      -- GetRSTIndent() indents each following list item under the previous one on gq
+      -- GetRSTIndent() indents each following list item under the previous
+      -- one on gq
       if args.match == "rst" then vim.bo[args.buf].indentexpr = "" end
+      vim.api.nvim_clear_autocmds({group = hard_wrap_group, buffer = args.buf})
+      vim.api.nvim_create_autocmd({"InsertEnter", "CursorMovedI"}, {
+        group = hard_wrap_group,
+        buffer = args.buf,
+        callback = function()
+          if in_code_block(args.buf) then
+            vim.opt_local.formatoptions:remove("t")
+          else
+            vim.opt_local.formatoptions:append("t")
+          end
+        end,
+      })
     end)
   end,
 })
