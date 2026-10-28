@@ -244,6 +244,21 @@ vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set 
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"python"}, command = "set shiftwidth=2"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"rust"}, command = "set tabstop=2"})
 vim.api.nvim_create_autocmd({"FileType"}, {pattern = {"rust"}, command = "set shiftwidth=2"})
+---- Hard-wrap prose at 80 columns without joining list items
+vim.api.nvim_create_autocmd({"FileType"}, {
+  pattern = {"markdown", "rst", "text", "gitcommit"},
+  callback = function(args)
+    -- Deferred so the filetype's own ftplugin (which runs after this) can't override it
+    vim.schedule(function()
+      if not vim.api.nvim_buf_is_valid(args.buf) then return end
+      vim.bo[args.buf].textwidth = 80
+      vim.bo[args.buf].formatoptions = "tcqjn"
+      vim.bo[args.buf].formatlistpat = [[^\s*\(\d\+[.)]\|[-*+]\)\s\+]]
+      -- GetRSTIndent() indents each following list item under the previous one on gq
+      if args.match == "rst" then vim.bo[args.buf].indentexpr = "" end
+    end)
+  end,
+})
 
 
 -- Color Scheme
